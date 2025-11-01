@@ -15,7 +15,7 @@
         </a>
         <nav class="space-x-6 text-white text-sm font-semibold flex items-center">
             <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/cultures" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
+            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
             <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
             <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
@@ -46,7 +46,7 @@
             </ol>
         </nav>
 
-        <h1 class="text-3xl font-bold text-gray-800">Объекты культуры области Абай</h1>
+        <h1 class="text-3xl font-bold text-gray-800">Объекты культуры Мангистауской области</h1>
         <p class="text-gray-600 mt-2 text-sm">
             Сборник уникальных объектов региона: памятники, музеи, святыни, архитектура и многое другое.
         </p>

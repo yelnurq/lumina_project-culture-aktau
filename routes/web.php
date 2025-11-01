@@ -13,10 +13,10 @@ use App\Http\Controllers\ContactController;
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name("logout")->middleware('auth');
+Route::get('/culture-list', [CultureController::class, 'index'])->name('cultures.index');
 
 // Публичные страницы
 Route::get('/', [CultureController::class, 'welcome'])->name('welcome');
-Route::get('/cultures', [CultureController::class, 'index'])->name('cultures.index');
 Route::get('news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/contacts', function() {
      return view("contact");

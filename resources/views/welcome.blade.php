@@ -2,18 +2,17 @@
 
 @section("header")
 
-<header class="fixed top-0 left-0 w-full z-50">
+<header class="fixed top-0 left-0 w-full z-50 hidden md:flex" >
     <div class="w-full flex items-center justify-between p-4 bg-primary/30 backdrop-blur-md"
          style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
-            <img src="{{ asset('icons/logo.png') }}" style="height: 50px" alt="">
-            <span class="text-white font-semibold text-xl" style="font-weight: 400; font-size:15px;">
-                Центр охраны наследия Абай
+            <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
+                Mangystau oblysy
             </span>
         </a>
         <nav class="space-x-6 text-white text-sm font-semibold flex items-center">
             <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/cultures" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
+            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
             <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
             <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
@@ -30,150 +29,210 @@
         </nav>
     </div>
 </header>
+<header class="top-0 left-0 w-full z-50 flex md:hidden  backdrop-blur-md" style="background-color: white">
+    <div class="w-full text-center py-3">
+        <span class="text-black font-semibold text-lg">Mangystau oblysy</span>
+    </div>
+</header>
+<nav class="fixed bottom-0 left-0 w-full backdrop-blur-md md:hidden" style="z-index: 1000; background-color: rgb(0 0 0 / 62%);">
+    <div class="flex justify-around items-center py-2 text-white text-sm font-semibold">
+        <!-- Главная -->
+        <a href="/" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 12l9-9 9 9v9a3 3 0 01-3 3h-3v-6h-6v6H6a3 3 0 01-3-3v-9z"/>
+            </svg>
+            Главная
+        </a>
+
+        <!-- Культура -->
+        <a href="/culture-list" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 22h16v-2H4v2zm2-4h12v-2H6v2zm1-4h10V6H7v8z"/>
+            </svg>
+            Культура
+        </a>
+
+        <!-- Новости -->
+        <a href="/news" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h10v2H4v-2zm0 4h10v2H4v-2z"/>
+            </svg>
+            Новости
+        </a>
+
+        <!-- Контакты -->
+        <a href="/contacts" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 8V7l-3 2-2-2-3 2-2-2-3 2-2-2v1l2 2-2 2v1l2-2 3 2 2-2 3 2 2-2 3 2V12l-3-2z"/>
+            </svg>
+            Контакты
+        </a>
+    </div>
+</nav>
+
+
 @endsection
 
 
 
 @section('content')
-<div class="relative w-full h-[650px] overflow-hidden">
+<div class="relative w-full h-[70vh] md:h-[70vh] lg:h-[90vh] overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
         <source src="{{ asset('media/video.mp4') }}" type="video/mp4" />
         Ваш браузер не поддерживает видео.
     </video>
-    <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-6 text-center">
+    <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-center">
         <div class="container mx-auto max-w-7xl py-20 pt-32">
-            <h1 class="text-5xl font-extrabold mb-4 leading-tight opacity-0 translate-y-6 animate-fadeInUp">
-                Центр по охране<br> историко-культурного наследия<br> области Абай
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight opacity-0 translate-y-6 animate-fadeInUp">
+                Новые берега Каспия<br> — неизвестная красота Маңғыстау
             </h1>
-            <p class="text-xl max-w-3xl mx-auto mb-10 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300">
-                Сохраняем, изучаем и популяризируем культурное наследие нашего региона — богатое прошлое, вдохновляющее будущее.
+            <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 sm:mb-16 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300">
+                Каспийское море отступает, открывая новые островки и дороги.  
+                Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.  
+                Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
             </p>
-            <a href="/cultures" class="inline-block bg-white text-primary font-semibold rounded-full px-8 py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600">
-                Посмотреть объекты культуры
+            <a href="/routes" class="inline-block bg-white text-primary font-semibold rounded-full px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base">
+                Проложить маршрут
             </a>
         </div>
     </div>
 </div>
 
+
+    </div>
+</div>
 <div class="bg-gray-100 py-20">
-    <div class="container mx-auto max-w-4xl px-6">
-        <h2 class="text-3xl font-bold mb-6 text-center">Почему важно сохранять культуру Абайской области?</h2>
-        <div class="prose prose-lg max-w-none text-gray-800" style="text-align: justify;">
-            <p>Абайская область — это не просто географическая территория. Это колыбель казахской культуры, духовности и просвещения. Здесь родились и творили такие выдающиеся личности, как Абай Кунанбаев — поэт, философ, реформатор, оказавший огромное влияние на развитие национального самосознания.</p>
-            <p>Каждое культурное наследие, будь то мавзолей, музей или народное ремесло, является частью нашей коллективной памяти. Уничтожение или утрата этих объектов — это утрата идентичности, связи поколений и корней. Сохранение культуры — это сохранение души народа.</p>
-            <p>В современном мире, где глобализация стирает границы, особенно важно защищать и развивать местную культуру. Абайская область обладает огромным потенциалом: от этнографических экспозиций до современных арт-фестивалей. Развитие культурных инициатив способствует туризму, образованию и укреплению общественных ценностей.</p>
-            <p class="font-semibold">Поддерживая культуру — мы сохраняем будущее. Сделаем это вместе!</p>
+    <div class="container mx-auto max-w-6xl px-6">
+        <div class="grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <!-- Левая колонка: заголовок -->
+            <div class="mb-5">
+                <h2 class="text-4xl font-bold text-primary mb-4">НАША ЦЕЛЬ</h2>
+                <div class="w-20 h-1 bg-primary rounded"></div>
+            </div>
+
+            <!-- Правая колонка: текст с двумя абзацами и выделением -->
+            <div class="prose prose-sm text-gray-800" style="text-align: justify;">
+                <p>Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
+
+                <p>Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
+            </div>
+        </div>
+
+        <!-- Блок с двумя изображениями -->
+        <div class="flex flex-col md:flex-row gap-4 mt-10">
+            <div class="w-full md:w-1/2">
+                <img src="{{ asset('images/boszhyra.jpg') }}" alt="Бозжыра" class="w-full shadow-lg rounded-lg">
+                <p class="mt-2 text-gray-700 font-semibold">Бозжыра</p>
+            </div>
+            <div class="w-full md:w-1/2">
+                <img src="{{ asset('images/boszhyra.jpg') }}" alt="Бозжыра" class="w-full shadow-lg rounded-lg">
+                <p class="mt-2 text-gray-700 font-semibold">Бозжыра</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="bg-white py-20">
+<div class="container mx-auto max-w-6xl px-6 flex flex-col md:flex-row gap-8">
+        <!-- Заголовок -->
+        <div class="mb-12">
+            <h2 class="text-4xl font-bold text-primary mb-4 uppercase">Наши преимущества</h2>
+                <div class="w-20 h-1 bg-primary rounded"></div>
+        </div>
+
+        <!-- Флекс блок с двумя колонками -->
+     <div class="flex flex-col md:flex-row gap-8">
+    <!-- Левая колонка -->
+    <div class="flex-1 flex flex-col gap-6">
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+            <div>
+                <h3 class="text-xl font-semibold mb-1">Сохранение природы</h3>
+                <p class="text-gray-700 text-sm">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
+            </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+            <div>
+                <h3 class="text-xl font-semibold mb-1">Культурное наследие</h3>
+                <p class="text-gray-700 text-sm">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Правая колонка -->
+    <div class="flex-1 flex flex-col gap-6">
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+            <div>
+                <h3 class="text-xl font-semibold mb-1">Современные инициативы</h3>
+                <p class="text-gray-700 text-sm">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
+            </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+            <div>
+                <h3 class="text-xl font-semibold mb-1">Доступность информации</h3>
+                <p class="text-gray-700 text-sm">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container mx-auto max-w-7xl px-6 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-        <a href="/cultures" class="group block p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition">
-            <div class="mx-auto mb-4 w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full text-3xl">🎭</div>
-            <h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition">Объекты культуры</h2>
-            <p class="text-gray-600">Узнайте больше о памятниках, музеях и культурных объектах области Абай.</p>
-        </a>
-
-        <a href="/regions" class="group block p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition">
-            <div class="mx-auto mb-4 w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full text-3xl">🗺️</div>
-            <h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition">Области</h2>
-            <p class="text-gray-600">Исследуйте регионы области и их уникальное культурное наследие.</p>
-        </a>
-
-        <a href="/contacts" class="group block p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition">
-            <div class="mx-auto mb-4 w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full text-3xl">📞</div>
-            <h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition">Контакты</h2>
-            <p class="text-gray-600">Свяжитесь с нами для сотрудничества или получения дополнительной информации.</p>
-        </a>
     </div>
 </div>
-<div class="mt-16 max-w-4xl mx-auto px-6 text-center text-white italic font-light text-lg relative" style="color: rgb(27, 27, 27); margin-top: 20px;">
-<div style="display: flex;justify-content:center;">
-<svg style="width: 40px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><g><g id="right_x5F_quote"><g><path style=";fill:#333;" d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z"/><path style="fill:#333;" d="M20,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H20z"/></g></g></g></svg>
 
-</div>
-    <blockquote style="padding-top: 20px;"> 
-        <p>«Если человек не думает, что он должен сделать, он не может сделать ничего хорошего.»</p>
-        <footer class="mt-4 font-semibold">— Абай Кунанбаев</footer>
-    </blockquote>
-</div>
 
-<div class="mx-24 md:mx-32 my-12" style="margin-top:70px;">
-@if ($news->count())
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-        <!-- Главная новость -->
-        <article class="md:col-span-2 bg-white rounded-3xl shadow-md hover:shadow-lg transition overflow-hidden">
-            <a href="{{route("news.show", ["news"=>$news[0]->id])}}">
-                <img style="height: 450px" src="{{ asset("/storage/".$news[0]->image) }}" alt="{{ $news[0]->title }}" class="w-full h-72 object-cover">
-                <div class="p-6">
-                    <h3 style="font-size: 23px" class="text-2xl font-bold text-primary mb-2">{{ $news[0]->title }}</h3>
-                    <p class="text-gray-700 mb-4">{{ \Illuminate\Support\Str::limit($news[0]->description,300) }}</p>
-                    <time datetime="{{ $news[0]->created_at }}" class="text-sm text-gray-400">
-                        {{ $news[0]->created_at->translatedFormat('d.m.Y') }}
-                    </time>
-                </div>
-            </a>
-        </article>
 
-        <!-- Остальные 2 новости -->
-        <div class="space-y-6">
-            @foreach ($news->slice(1) as $item)
-                <article class="bg-white rounded-3xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col">
-                    <a href="{{route("news.show", ["news"=>$item->id])}}">
-                                            <img src="{{ asset("/storage/".$item->image) }}" alt="{{ $item->title }}" class="w-full h-40 object-cover">
-                    <div class="p-4 flex flex-col justify-between h-full">
-                        <h4 class="text-lg font-semibold text-primary mb-2">{{ $item->title }}</h4>
-                        <p class="text-gray-700 text-sm mb-3">{{ \Illuminate\Support\Str::limit($item->description, 100) }}</p>
-                        <time datetime="{{ $item->created_at }}" class="text-sm text-gray-400">
-                            {{ $item->created_at->translatedFormat('d.m.Y') }}
-                        </time>
-                    </div>
-                    </a>
-                </article>
-            @endforeach
-        </div>
+
+
+{{-- <div class="bg-gray-100 py-20">
+    <div class="container mx-auto max-w-5xl px-6">
+    <h2 class="text-3xl font-bold mb-6 text-center">Почему важно сохранять Каспий и его новые берега?</h2>
+    <div class="prose prose-lg max-w-none text-gray-800" style="text-align: justify;">
+        <p>Каспийское море — это не просто водоём. Это сердце Маңғыстау, источник жизни, истории и вдохновения для людей, живущих у его берегов. Сегодня Каспий меняется: уровень воды снижается, появляются новые островки и песчаные косы, исчезают старые бухты.</p>
+        <p>Эти перемены открывают перед нами неизвестные территории, но одновременно несут угрозу экосистемам и культурным памятникам, связанным с морем. Если не обратить внимание сейчас, мы можем потерять не только природную красоту, но и часть своей истории.</p>
+        <p>Сохранение Каспия — это забота о будущем региона, о людях, которые веками жили в гармонии с морем, о природе, которая формирует нашу идентичность. Это возможность показать миру, как уникален и живописен Маңғыстау.</p>
+        <p class="font-semibold">Берегите море — и оно сохранит нас. Каспий — это наша живая память и наше будущее.</p>
     </div>
-@else
-    <p class="text-gray-500 text-center">Новостей пока нет.</p>
-@endif
+</div> --}}
 
 </div>
+
+
+
 
 <div class="relative bg-primary text-white py-20 overflow-hidden">
     <!-- Фоновое изображение с blur и синим фильтром -->
     <div class="absolute inset-0">
-        <img src="{{ asset('images/abai2.jpeg') }}" alt="Фон" class="w-full h-full object-cover filter blur-sm brightness-75" />
+        <img src="{{ asset('images/boszhyra.jpg') }}" alt="Фон" class="w-full h-full object-cover filter blur-sm brightness-75" style="object-position: bottom" />
         <div class="absolute inset-0 bg-blue-900 opacity-40"></div>
     </div>
 
     <div class="relative container mx-auto max-w-6xl px-6 text-center">
-        <h2 class="text-4xl font-bold mb-6">Культурное сердце Казахстана — Абайская область</h2>
+        <h2 class="text-4xl font-bold mb-6">Новые берега Маңғыстау — открываем неизведанное</h2>
         <p class="text-lg mb-10 max-w-3xl mx-auto font-light">
-            Здесь, на стыке традиций и истории, формировалась самобытная культура казахского народа. Мы гордимся наследием великого Абая, развиваем творчество и сохраняем память.
+            Каспийское море отступает, создавая новые островки, песчаные косы и удивительные маршруты. Мы исследуем их, показываем красоту и рассказываем, как туда добраться.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-white">
             <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <h3 class="text-xl font-semibold mb-2">📝 Наследие Абая</h3>
-                <p>Поэзия, философия и идеи Абая Кунанбаева вдохновляют поколения и формируют культурную идентичность региона.</p>
+                <h3 class="text-xl font-semibold mb-2">Новые маршруты</h3>
+                <p>Показываем, как безопасно и интересно посетить недавно открывшиеся островки и побережья.</p>
             </div>
             <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <h3 class="text-xl font-semibold mb-2">🏺 Уникальные памятники</h3>
-                <p>Древние мавзолеи, археологические находки и этнографические комплексы — живая связь с историей.</p>
+                <h3 class="text-xl font-semibold mb-2">Природные чудеса</h3>
+                <p>Уникальные пейзажи, редкая флора и фауна — места, которые стоит увидеть своими глазами.</p>
             </div>
             <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <h3 class="text-xl font-semibold mb-2">🎨 Современное творчество</h3>
-                <p>Культурные фестивали, выставки и мастер-классы поддерживают и развивают традиции в новом свете.</p>
+                <h3 class="text-xl font-semibold mb-2">Исследования и фотографии</h3>
+                <p>Документируем изменения побережья, создаем фотогалереи и визуальные маршруты для путешественников.</p>
             </div>
         </div>
 
-        <a href="/cultures" class="mt-12 inline-block bg-white text-primary font-semibold rounded-full px-8 py-3 shadow-lg hover:bg-gray-100 transition">
-            Изучить объекты культуры области
+        <a href="/routes" class="mt-12 inline-block bg-white text-primary font-semibold rounded-full px-8 py-3 shadow-lg hover:bg-gray-100 transition">
+            Посмотреть маршруты и островки
         </a>
     </div>
 </div>
-
 
 <div class="bg-white py-16">
     <div class="container mx-auto max-w-6xl px-6">
@@ -181,6 +240,8 @@
         <div id="kzMap" class="w-full h-[500px] rounded-xl shadow"></div>
     </div>
 </div>
+
+
 
 <div class="bg-gray-50 py-16" style="display: none ">
     <div class="container mx-auto max-w-3xl px-6">
