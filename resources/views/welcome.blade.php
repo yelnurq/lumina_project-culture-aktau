@@ -2,8 +2,8 @@
 
 @section("header")
 
-<header class="fixed top-0 left-0 w-full z-50 hidden md:flex" >
-    <div class="w-full flex items-center justify-between p-4 bg-primary/30 backdrop-blur-md"
+<header class="absolute top-0 left-0 w-full z-50 hidden md:flex" >
+    <div class="w-full flex items-center justify-between p-4 "
          style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
             <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
@@ -29,10 +29,14 @@
         </nav>
     </div>
 </header>
-<header class="top-0 left-0 w-full z-50 flex md:hidden  backdrop-blur-md" style="background-color: white">
-    <div class="w-full text-center py-3">
-        <span class="text-black font-semibold text-lg">Mangystau oblysy</span>
-    </div>
+<header class="absolute top-0 left-0 w-full z-50  md:hidden ">
+
+        <a href="/" class="flex items-center space-x-6" style="text-align: center">
+            <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;text-align:center">
+                Mangystau oblysy
+            </span>
+        </a>
+
 </header>
 <nav class="fixed bottom-0 left-0 w-full backdrop-blur-md md:hidden" style="z-index: 1000; background-color: rgb(0 0 0 / 62%);">
     <div class="flex justify-around items-center py-2 text-white text-sm font-semibold">
@@ -76,22 +80,25 @@
 
 
 @section('content')
-<div class="relative w-full h-[70vh] md:h-[70vh] lg:h-[90vh] overflow-hidden">
+<div class="relative w-full h-[85vh] md:h-[80vh] lg:h-[85vh] overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
         <source src="{{ asset('media/video.mp4') }}" type="video/mp4" />
         Ваш браузер не поддерживает видео.
     </video>
-    <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-center">
-        <div class="container mx-auto max-w-7xl py-20 pt-32">
+    <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-left">
+        <div class="container mx-auto max-w-9xl py-20 pt-32">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight opacity-0 translate-y-6 animate-fadeInUp">
                 Новые берега Каспия<br> — неизвестная красота Маңғыстау
             </h1>
-            <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 sm:mb-16 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300">
+            <p style="margin: 0 0 30px" class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 sm:mb-16 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300">
                 Каспийское море отступает, открывая новые островки и дороги.  
                 Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.  
                 Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
             </p>
-            <a href="/routes" class="inline-block bg-white text-primary font-semibold rounded-full px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base">
+            <a href="/routes" class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px;">
+                Проложить маршрут
+            </a>
+            <a href="/routes" class="inline-block bg-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px; background:none; border:1px solid white;colo:white;">
                 Проложить маршрут
             </a>
         </div>
@@ -102,38 +109,60 @@
     </div>
 </div>
 <div class="bg-gray-100 py-20">
-    <div class="container mx-auto max-w-6xl px-6">
-        <div class="grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <!-- Левая колонка: заголовок -->
-            <div class="mb-5">
-                <h2 class="text-4xl font-bold text-primary mb-4">НАША ЦЕЛЬ</h2>
-                <div class="w-20 h-1 bg-primary rounded"></div>
-            </div>
+  <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-16 items-start">
+    
+    <!-- Левая колонка: заголовок и текст -->
+    <div class="md:w-1/2">
+      <h2 class="text-4xl font-bold text-primary mb-4">НАША ЦЕЛЬ</h2>
+      <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
-            <!-- Правая колонка: текст с двумя абзацами и выделением -->
-            <div class="prose prose-sm text-gray-800" style="text-align: justify;">
-                <p>Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
+      <div class="prose prose-sm text-gray-800" style="text-align: justify;">
+        <p>Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
 
-                <p>Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
-            </div>
+        <p>Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
+      </div>
+            <a href="/routes" class="inline-block bg-none text-primary font-600 px-6 sm:px-8 py-2 sm:py-3  hover:bg-primary hover:text-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 16px;font-size:16px;font-weight:500; border:1px solid rgb(15 59 99); margin-top:30px;" >
+                Ознакомиться
+            </a>
+    </div>
+
+    <!-- Правая колонка: грид с изображениями -->
+    <div class="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
+      
+      <!-- img1 занимает две строки -->
+      <div style="border-radius: 16px;" class="relative row-span-2 bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="/images/boszhyra.jpg" alt="Актау" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Актау</h3>
+          <p class="text-sm">Современный город на побережье Каспия</p>
         </div>
+      </div>
 
-        <!-- Блок с двумя изображениями -->
-        <div class="flex flex-col md:flex-row gap-4 mt-10">
-            <div class="w-full md:w-1/2">
-                <img src="{{ asset('images/boszhyra.jpg') }}" alt="Бозжыра" class="w-full shadow-lg rounded-lg">
-                <p class="mt-2 text-gray-700 font-semibold">Бозжыра</p>
-            </div>
-            <div class="w-full md:w-1/2">
-                <img src="{{ asset('images/boszhyra.jpg') }}" alt="Бозжыра" class="w-full shadow-lg rounded-lg">
-                <p class="mt-2 text-gray-700 font-semibold">Бозжыра</p>
-            </div>
+      <!-- img2 -->
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="/images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Бозжыра</h3>
+          <p class="text-sm">Живописные скалы и каньоны</p>
         </div>
+      </div>
+
+      <!-- img3 -->
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="/images/boszhyra.jpg" alt="Жемчужина" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Жемчужина</h3>
+          <p class="text-sm">Прекрасное место для отдыха</p>
+        </div>
+      </div>
 
     </div>
+
+  </div>
 </div>
+
 <div class="bg-white py-20">
-<div class="container mx-auto max-w-6xl px-6 flex flex-col md:flex-row gap-8">
+<div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
         <!-- Заголовок -->
         <div class="mb-12">
             <h2 class="text-4xl font-bold text-primary mb-4 uppercase">Наши преимущества</h2>
@@ -179,6 +208,72 @@
 
     </div>
 </div>
+<section class=" relative w-full py-20 bg-gray-100" id="attractions">
+  <div class="container mx-auto px-6 max-w-7xl">
+            <div class="mb-5 ">
+                <h2 class="text-4xl font-bold text-primary mb-4">НАША ЦЕЛЬ</h2>
+                <div class="w-20 h-1 bg-primary rounded"></div>
+            </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
+      <!-- Карточка 1: стандартная -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Бозжыра</h3>
+          <p class="text-sm">Удивительные скалы и каньоны Мангистау</p>
+        </div>
+      </div>
+
+      <!-- Карточка 2: занимает две колонки -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
+        <img src="images/boszhyra.jpg" alt="Актау" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Актау</h3>
+          <p class="text-sm">Современный город на побережье Каспия</p>
+        </div>
+      </div>
+
+      <!-- Карточка 3: стандартная -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="images/boszhyra.jpg" alt="Шетпе" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Шетпе</h3>
+          <p class="text-sm">Маленькое село с красивыми видами</p>
+        </div>
+      </div>
+
+      <!-- Карточка 4: стандартная -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="images/boszhyra.jpg" alt="Кендик" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Кендик</h3>
+          <p class="text-sm">Исторические памятники и скалы</p>
+        </div>
+      </div>
+
+      <!-- Карточка 5: стандартная -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+        <img src="images/boszhyra.jpg" alt="Каражон" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Каражон</h3>
+          <p class="text-sm">Красивые холмы и живописные виды</p>
+        </div>
+      </div>
+
+      <!-- Карточка 6: занимает две колонки -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
+        <img src="images/boszhyra.jpg" alt="Шелковый путь" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+          <h3 class="font-bold text-lg">Шелковый путь</h3>
+          <p class="text-sm">Исторические маршруты через Мангистауские степи</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
 
 
@@ -214,15 +309,15 @@
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-white">
-            <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
                 <h3 class="text-xl font-semibold mb-2">Новые маршруты</h3>
                 <p>Показываем, как безопасно и интересно посетить недавно открывшиеся островки и побережья.</p>
             </div>
-            <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
                 <h3 class="text-xl font-semibold mb-2">Природные чудеса</h3>
                 <p>Уникальные пейзажи, редкая флора и фауна — места, которые стоит увидеть своими глазами.</p>
             </div>
-            <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
                 <h3 class="text-xl font-semibold mb-2">Исследования и фотографии</h3>
                 <p>Документируем изменения побережья, создаем фотогалереи и визуальные маршруты для путешественников.</p>
             </div>
@@ -233,13 +328,13 @@
         </a>
     </div>
 </div>
-
+{{-- 
 <div class="bg-white py-16">
     <div class="container mx-auto max-w-6xl px-6">
         <h2 class="text-3xl font-bold text-center mb-8">Карта объектов культуры</h2>
         <div id="kzMap" class="w-full h-[500px] rounded-xl shadow"></div>
     </div>
-</div>
+</div> --}}
 
 
 

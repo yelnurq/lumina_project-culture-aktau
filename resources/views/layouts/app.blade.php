@@ -41,7 +41,7 @@
     </main>
 
 
-    <footer class="bg-primary text-white" style="background: #333">
+    <footer class="bg-primary text-white" style="background: #041b3d">
         <div class="container mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row justify-between gap-8">
             <div class="max-w-md">
                 o
