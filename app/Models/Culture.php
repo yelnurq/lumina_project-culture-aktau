@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 class Culture extends Model
 {
     protected $fillable = [
-        'title', 'description', 'image',
+        'title', 'description', 'image','youtube_link',
         'category_id', 'latitude', 'longitude',
     ];
+    public function images()
+    {
+        return $this->hasMany(CultureImage::class);
+    }
 
     public function category()
     {

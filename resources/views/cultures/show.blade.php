@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section("header")
-<header class="shadow top-0 left-0 w-full z-50 hidden md:flex" >
+<div style="background:rgb(17 24 39);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
+    Мангистауский Колледж Туризма
+</div>
+<header class="shadow top-0 left-0 w-full z-50 hidden md:flex bg-white" >
     <div class="w-full flex items-center justify-between p-4 "
          style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
@@ -12,7 +15,6 @@
         <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
             <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
             <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
-            <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
             <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
             @auth
@@ -29,34 +31,33 @@
     </div>
 </header>
 @endsection
-
 @section('content')
 
 {{-- Баннер с слайдером --}}
-<div class="relative w-full h-[40vh] md:h-[40vh] lg:h-[45vh] overflow-hidden">
-    <!-- Swiper -->
+<div class="relative w-full h-[30vh] md:h-[30vh] lg:h-[30vh] overflow-hidden">
     <div class="swiper h-full">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="./../images/boszhyra.jpg" class="w-full h-full object-cover" alt="Slide 1">
-            </div>
-            <div class="swiper-slide">
-                <img src="./../images/abai.jpg" class="w-full h-full object-cover" alt="Slide 2">
-            </div>
-            <div class="swiper-slide">
-                <img src="./../images/abai2.jpeg" class="w-full h-full object-cover" alt="Slide 3">
-            </div>
+            @if($culture->image)
+                <div class="swiper-slide">
+                    <img src="{{ asset('storage/' . $culture->image) }}" class="w-full h-full object-cover scale-105" 
+     style="filter: blur(4px);" 
+     alt="{{ $culture->title }}"> alt="{{ $culture->title }}">
+                </div>
+            @endif
+
+            @if($culture->images && $culture->images->count() > 0)
+                @foreach($culture->images as $img)
+                    <div class="swiper-slide">
+                        <img src="{{ asset('storage/' . $img->image_path) }}" class="w-full h-full object-cover scale-105" 
+     style="filter: blur(4px);" 
+     alt="{{ $culture->title }}"> alt="{{ $culture->title }}">
+                    </div>
+                @endforeach
+            @endif
         </div>
 
-        <!-- Навигация -->
-        <div class="swiper-button-next text-white"></div>
-        <div class="swiper-button-prev text-white"></div>
-
-        <!-- Пагинация -->
-        <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Текст поверх слайдера -->
     <div class="absolute inset-0 z-10 flex items-center justify-center bg-black/30">
         <h1 class="text-white text-2xl md:text-4xl font-bold text-center px-4">
             {{ $culture->title }}
@@ -64,7 +65,7 @@
     </div>
 </div>
 
-{{-- Подключение Swiper.js --}}
+{{-- Swiper JS --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
@@ -88,6 +89,7 @@
         }
     });
 </script>
+
 
 
 
@@ -117,23 +119,33 @@
         </div>
     </section>
 
-    <section class="mb-12">
-        <h2 class="text-[18px] font-medium mb-4 text-[#444]">Галерея</h2>
-        @if($culture->images && count($culture->images) > 0)
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                @foreach($culture->images as $img)
+<section class="mb-12">
+    <h2 class="text-[18px] font-medium mb-4 text-[#444]">Галерея</h2>
+    @if($culture->images && $culture->images->count() > 0)
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            @foreach($culture->images as $img)
+                <a href="{{ asset('storage/' . $img->image_path) }}" class="glightbox" data-gallery="culture-gallery">
                     <img 
-                        src="{{ asset('storage/' . $img) }}" 
+                        src="{{ asset('storage/' . $img->image_path) }}" 
                         alt="{{ $culture->title }}" 
                         class="w-full h-[200px] object-cover rounded-xl shadow-lg hover:scale-105 transition-transform cursor-pointer"
-                        onclick="window.open(this.src, '_blank')"
                     />
-                @endforeach
-            </div>
-        @else
-            <p class="text-gray-600 text-sm">Дополнительные фотографии отсутствуют.</p>
-        @endif
-    </section>
+                </a>
+            @endforeach
+        </div>
+    @else
+        <p class="text-gray-600 text-sm">Дополнительные фотографии отсутствуют.</p>
+    @endif
+</section>
+
+<script>
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+    });
+</script>
+
 
     <section class="mb-12">
         <h2 class="text-[18px] font-medium mb-4 text-[#444]">Дополнительная информация</h2>
@@ -145,7 +157,7 @@
 
     <section class="mb-12">
         <h2 class="text-[18px] font-medium mb-4 text-[#444]">Расположение на карте</h2>
-        <div id="map" class="rounded-xl shadow-lg overflow-hidden h-[450px]"></div>
+        <div id="map" class="rounded-xl shadow-lg overflow-hidden h-[550px]"></div>
     </section>
 
     <section class="mb-12">
@@ -225,7 +237,7 @@
         ymaps.ready(function () {
             const myMap = new ymaps.Map('map', {
                 center: [{{ $culture->latitude }}, {{ $culture->longitude }}],
-                zoom: 14,
+                zoom: 7,
                 controls: ['zoomControl', 'fullscreenControl']
             });
 

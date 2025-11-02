@@ -98,8 +98,8 @@
             <a href="/routes" class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px;">
                 Проложить маршрут
             </a>
-            <a href="/routes" class="inline-block bg-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px; background:none; border:1px solid white;colo:white;">
-                Проложить маршрут
+            <a href="/routes" class="inline-block bg-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px; background:none; border:1px solid white;colo:white;">
+                О проекте
             </a>
         </div>
     </div>
@@ -211,12 +211,12 @@
 <section class=" relative w-full py-20 bg-gray-100" id="attractions">
   <div class="container mx-auto px-6 max-w-7xl">
             <div class="mb-5 ">
-                <h2 class="text-4xl font-bold text-primary mb-4">НАША ЦЕЛЬ</h2>
+                <h2 class="text-4xl font-bold text-primary mb-4 uppercase">Наши достояния</h2>
                 <div class="w-20 h-1 bg-primary rounded"></div>
             </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
       <!-- Карточка 1: стандартная -->
-      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
         <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
           <h3 class="font-bold text-lg">Бозжыра</h3>
@@ -225,7 +225,7 @@
       </div>
 
       <!-- Карточка 2: занимает две колонки -->
-      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
         <img src="images/boszhyra.jpg" alt="Актау" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
           <h3 class="font-bold text-lg">Актау</h3>
@@ -234,7 +234,7 @@
       </div>
 
       <!-- Карточка 3: стандартная -->
-      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
         <img src="images/boszhyra.jpg" alt="Шетпе" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
           <h3 class="font-bold text-lg">Шетпе</h3>
@@ -243,7 +243,7 @@
       </div>
 
       <!-- Карточка 4: стандартная -->
-      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
         <img src="images/boszhyra.jpg" alt="Кендик" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
           <h3 class="font-bold text-lg">Кендик</h3>
@@ -252,7 +252,7 @@
       </div>
 
       <!-- Карточка 5: стандартная -->
-      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
         <img src="images/boszhyra.jpg" alt="Каражон" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
           <h3 class="font-bold text-lg">Каражон</h3>
@@ -261,7 +261,7 @@
       </div>
 
       <!-- Карточка 6: занимает две колонки -->
-      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
+      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
         <img src="images/boszhyra.jpg" alt="Шелковый путь" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
           <h3 class="font-bold text-lg">Шелковый путь</h3>
@@ -323,7 +323,7 @@
             </div>
         </div>
 
-        <a href="/routes" class="mt-12 inline-block bg-white text-primary font-semibold rounded-full px-8 py-3 shadow-lg hover:bg-gray-100 transition">
+        <a href="/routes" class="mt-12 inline-block bg-white text-primary font-semibold px-8 py-3 shadow-lg hover:bg-gray-100 transition" style="border-radius: 14px;">
             Посмотреть маршруты и островки
         </a>
     </div>

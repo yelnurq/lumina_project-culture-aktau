@@ -51,12 +51,12 @@ public function index(Request $request)
     }
     public function show($id)
     {
-        $culture = Culture::with('category')->findOrFail($id);
+        $culture = Culture::with(['category', 'images'])->findOrFail($id);
         return view('cultures.show', compact('culture'));
     }
 
 
-public function store(Request $request)
+    public function store(Request $request)
 {
     $validated = $request->validate([
         'title' => 'required|string|max:255',
@@ -65,10 +65,13 @@ public function store(Request $request)
         'latitude' => 'required|numeric',
         'longitude' => 'required|numeric',
         'image' => 'nullable|image|max:5120',
+        'images.*' => 'nullable|image|max:5120', // для дополнительных изображений
+        'youtube_link' => 'nullable|url',
     ]);
 
-    $path = null;
+    $mainImagePath = null;
 
+    // Сохраняем главное изображение
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = uniqid() . '.webp';
@@ -77,27 +80,53 @@ public function store(Request $request)
         Image::read($image)
             ->save($pathToSave, quality: 60); 
 
-        $path = 'cultures/' . $filename;
+        $mainImagePath = 'cultures/' . $filename;
     }
 
-    Culture::create([
+    // Создаем объект Culture
+    $culture = Culture::create([
         'title' => $validated['title'],
         'description' => $validated['description'],
         'category_id' => $validated['category_id'],
         'latitude' => $validated['latitude'],
         'longitude' => $validated['longitude'],
-        'image' => $path,
+        'image' => $mainImagePath,
+        'youtube_link' => $validated['youtube_link'] ?? null,
     ]);
+
+    // Сохраняем дополнительные изображения, если есть
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $filename = uniqid() . '.webp';
+            $pathToSave = storage_path('app/public/culture_images/' . $filename);
+
+            Image::read($image)
+                ->save($pathToSave, quality: 60);
+
+            $culture->images()->create([
+                'image_path' => 'culture_images/' . $filename
+            ]);
+        }
+    }
 
     return redirect()->back()->with('success', 'Объект добавлен!');
 }
-    
+
+
     public function destroy(Culture $culture)
     {
         if ($culture->image) {
             Storage::disk('public')->delete($culture->image);
         }
+
+        foreach ($culture->images as $img) {
+            Storage::disk('public')->delete($img->image_path);
+            $img->delete();
+        }
+
         $culture->delete();
-        return redirect()->route('admin.index')->with('success', 'Новость удалена.');
+
+        return redirect()->route('admin.index')->with('success', 'Объект удален.');
     }
+
 }

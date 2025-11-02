@@ -15,6 +15,7 @@ public function up(): void
         $table->id();
         $table->string('title')->index(); 
         $table->text('description')->nullable();
+        $table->text('youtube_link')->nullable();
         $table->string('image')->nullable();
         $table->unsignedBigInteger('category_id')->index(); 
         $table->decimal('latitude', 10, 7);

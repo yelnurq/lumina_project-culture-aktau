@@ -1,19 +1,20 @@
 @extends('layouts.app')
 
 @section("header")
-
-<header class="top-0 left-0 w-full z-50 hidden md:flex bg-gray-900" >
+<div style="background:rgb(17 24 39);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
+    Мангистауский Колледж Туризма
+</div>
+<header class="shadow top-0 left-0 w-full z-50 hidden md:flex bg-white" >
     <div class="w-full flex items-center justify-between p-4 "
          style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
-            <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
+            <span class="text-black font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
                 Mangystau oblysy
             </span>
         </a>
-        <nav class="space-x-6 text-white text-sm font-semibold flex items-center">
+        <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
             <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
             <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
-            <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
             <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
             @auth
@@ -45,8 +46,7 @@
 
         <h1 class="text-3xl font-bold text-gray-800">Объекты культуры Мангистауской области</h1>
         <p class="text-gray-600 mt-2 text-sm">
-            Сборник уникальных объектов региона: памятники, музеи, святыни, архитектура и многое другое.
-        </p>
+Каталог природных объектов Мангистауской области: песчаные дюны, скалистые образования, каньоны, побережья и солёные озёра.        </p>
     </div>
 
     <form method="GET" action="{{ route('cultures.index') }}" class="mb-4 flex flex-col md:flex-row gap-4 items-center">
@@ -83,7 +83,7 @@
         <button onclick="switchTab('map')" id="mapTab" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700">На карте</button>
     </div>
 
-    <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[400px] border border-gray-200 hidden"></div>
+    <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[700px] border border-gray-200 hidden"></div>
 
     <div id="listSection">
         @if ($cultures->isEmpty())
@@ -96,21 +96,21 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         @foreach ($chunk as $culture)
                             <a href="{{ route('cultures.show', $culture->id) }}" 
-                            class="bg-white rounded-3xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col culture-card"
+                            class="relative bg-white rounded-[12px] shadow-lg overflow-hidden cursor-pointer transform transition duration-300"
                             data-lat="{{ $culture->latitude }}"
                             data-lng="{{ $culture->longitude }}"
                             data-id="{{ $culture->id }}"
                             data-category="{{ strtolower($culture->category->name ?? 'other') }}">
+                            
                                 <img src="{{ asset('storage/' . $culture->image) }}" 
                                     alt="{{ $culture->title }}" 
                                     loading="lazy"
-                                    class="w-full h-40 object-cover">
-                                <div class="p-4 flex flex-col justify-between h-full">
-                                    <h4 class="text-md font-semibold text-primary mb-2">{{ $culture->title }}</h4>
-                                    <p class="text-gray-700 text-sm mb-3">
-                                        {{ Str::limit($culture->description, 100) }}
-                                    </p>
-                                    <span class="text-sm text-gray-400">
+                                    class="w-full object-cover" style="height:20rem">
+
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                                    <h3 class="font-bold text-lg">{{ $culture->title }}</h3>
+                                    <p class="text-sm">{{ Str::limit($culture->description) }}</p>
+                                    <span class="block text-xs mt-1 text-gray-200">
                                         {{ $culture->category->name ?? 'Без категории' }}
                                     </span>
                                 </div>
@@ -118,6 +118,7 @@
                         @endforeach
                     </div>
                 @endforeach
+
 
             </div>
         @endif
@@ -129,7 +130,7 @@
 </div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-    const map = L.map('mapSection').setView([50.4111, 80.2275], 8);
+const map = L.map('mapSection').setView([44.59, 51.50], 7);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,

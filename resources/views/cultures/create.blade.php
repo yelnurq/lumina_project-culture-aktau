@@ -1,23 +1,19 @@
 @extends('layouts.app')
-
 @section("header")
-<div style="background:rgb(46 95 79);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
-    В честь 180-летия со дня рождения великого Абая Кунанбаева!
+<div style="background:rgb(17 24 39);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
+    Мангистауский Колледж Туризма
 </div>
-
-<header class="top-0 left-0 w-full z-50">
-    <div class="w-full flex items-center justify-between p-4 bg-primary/40 backdrop-blur-md"
+<header class="shadow top-0 left-0 w-full z-50 hidden md:flex bg-white" >
+    <div class="w-full flex items-center justify-between p-4 "
          style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
-            <img src="{{ asset('icons/logo.png') }}" style="height: 50px" alt="">
-            <span class="text-white font-semibold text-xl" style="font-weight: 400; font-size:15px;">
-                Центр охраны наследия Абай
+            <span class="text-black font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
+                Mangystau oblysy
             </span>
         </a>
-        <nav class="space-x-6 text-white text-sm font-semibold flex items-center">
+        <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
             <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/cultures" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
-            <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
+            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
             <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
             @auth
@@ -73,21 +69,6 @@
         </div>
 
         <div>
-            <label class="block font-medium mb-1">Область</label>
-            <select name="region_id" id="regionSelect" required class="w-full border rounded px-4 py-2">
-                <option value="">-- Выберите область --</option>
-                @foreach($regions as $region)
-                    <option value="{{ $region->id }}"
-                            data-lat="{{ $region->latitude }}"
-                            data-lng="{{ $region->longitude }}"
-                            @selected(old('region_id') == $region->id)>
-                        {{ $region->name }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-
-        <div>
             <label class="block font-medium mb-1">Выберите точное местоположение</label>
             <div id="map" style="height: 350px;" class="rounded shadow mb-2"></div>
         </div>
@@ -110,12 +91,22 @@
             <textarea name="description" rows="4" required class="w-full border rounded px-4 py-2"
                       placeholder="Введите краткое описание объекта...">{{ old('description') }}</textarea>
         </div>
-
         <div>
-            <label class="block font-medium mb-1">Изображение</label>
-            <input type="file" name="image" accept="image/*" onchange="previewImage(event)" class="w-full">
-            <img id="imagePreview" src="#" alt="Превью изображения" class="mt-4 max-h-60 hidden rounded-lg border border-gray-200">
-        </div>
+    <label class="block font-medium mb-1">Ссылка на видео YouTube</label>
+    <input type="url" name="youtube_link" value="{{ old('youtube_link') }}" placeholder="https://www.youtube.com/..." class="w-full border rounded px-4 py-2">
+</div>
+
+       <div>
+    <label class="block font-medium mb-1">Главное изображение</label>
+    <input type="file" name="image" accept="image/*" onchange="previewImage(event)" class="w-full">
+    <img id="imagePreview" src="#" alt="Превью изображения" class="mt-4 max-h-60 hidden rounded-lg border border-gray-200">
+</div>
+
+<div>
+    <label class="block font-medium mb-1">Дополнительные изображения</label>
+    <input type="file" name="images[]" accept="image/*" multiple onchange="previewMultipleImages(event)" class="w-full">
+    <div id="imagesPreview" class="mt-4 flex flex-wrap gap-2"></div>
+</div>
 
         <div class="text-right">
                     <button id="submitBtn" type="submit"
@@ -141,32 +132,12 @@
 
     function init() {
         map = new ymaps.Map("map", {
-            center: [50.4111, 80.2275],
+            center: [44.59, 51.50],
             zoom: 6,
             controls: ['zoomControl', 'fullscreenControl']
         });
 
-        const regionSelect = document.getElementById('regionSelect');
 
-        regionSelect.addEventListener('change', function () {
-            const option = this.options[this.selectedIndex];
-            const lat = parseFloat(option.getAttribute('data-lat'));
-            const lng = parseFloat(option.getAttribute('data-lng'));
-
-            if (!isNaN(lat) && !isNaN(lng)) {
-                map.setCenter([lat, lng], 10);
-                if (placemark) {
-                    placemark.geometry.setCoordinates([lat, lng]);
-                } else {
-                    placemark = new ymaps.Placemark([lat, lng], {}, { draggable: true });
-                    map.geoObjects.add(placemark);
-                    placemark.events.add('dragend', () => {
-                        updateInputs(placemark.geometry.getCoordinates());
-                    });
-                }
-                updateInputs([lat, lng]);
-            }
-        });
 
         map.events.add('click', function (e) {
             const coords = e.get('coords');
@@ -188,7 +159,7 @@
         document.getElementById('longitude').value = coords[1].toFixed(7);
     }
 
-    function previewImage(event) {
+      function previewImage(event) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const preview = document.getElementById('imagePreview');
@@ -197,5 +168,22 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
+
+function previewMultipleImages(event) {
+    const files = event.target.files;
+    const previewContainer = document.getElementById('imagesPreview');
+    previewContainer.innerHTML = ''; // очищаем предыдущие превью
+
+    Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.classList.add('h-24', 'rounded-lg', 'border', 'border-gray-200'); // стили для превью
+            previewContainer.appendChild(img);
+        }
+        reader.readAsDataURL(file);
+    });
+}
 </script>
 @endsection
