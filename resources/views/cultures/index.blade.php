@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
 @section("header")
-<div style="background:rgb(46 95 79);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
-    В честь 180-летия со дня рождения великого Абая Кунанбаева!
-</div>
 
-<header class="top-0 left-0 w-full z-50">
-    <div class="w-full flex items-center justify-between p-4 bg-primary/40 backdrop-blur-md" style="padding-left:50px;padding-right:50px">
+<header class="top-0 left-0 w-full z-50 hidden md:flex bg-gray-900" >
+    <div class="w-full flex items-center justify-between p-4 "
+         style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
-            <img src="{{ asset('icons/logo.png') }}" style="height: 50px" alt="">
-            <span class="text-white font-semibold text-xl" style="font-weight: 400; font-size:15px;">
-                Центр охраны наследия Абай
+            <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
+                Mangystau oblysy
             </span>
         </a>
         <nav class="space-x-6 text-white text-sm font-semibold flex items-center">

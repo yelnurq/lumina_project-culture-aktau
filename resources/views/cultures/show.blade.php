@@ -1,23 +1,17 @@
 @extends('layouts.app')
 
 @section("header")
-<div style="background:rgb(46 95 79);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
-В честь 180-летия со дня рождения великого Абая Кунанбаева!
-</div>
-
-<header class="top-0 left-0 w-full z-50">
-
-    <div class="w-full flex items-center justify-between p-4 bg-primary/40 backdrop-blur-md"
+<header class="shadow top-0 left-0 w-full z-50 hidden md:flex" >
+    <div class="w-full flex items-center justify-between p-4 "
          style="padding-left:50px;padding-right:50px">
         <a href="/" class="flex items-center space-x-6">
-            <img src="{{ asset('icons/logo.png') }}" style="height: 50px" alt="">
-            <span class="text-white font-semibold text-xl" style="font-weight: 400; font-size:15px;">
-                Центр охраны наследия Абай
+            <span class="text-black font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
+                Mangystau oblysy
             </span>
         </a>
-        <nav class="space-x-6 text-white text-sm font-semibold flex items-center">
+        <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
             <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/cultures" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
+            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
             <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
             <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
@@ -34,10 +28,70 @@
         </nav>
     </div>
 </header>
-
 @endsection
+
 @section('content')
-<div class="container mx-auto px-6  max-w-6xl mt-[40px] font-montserrat text-gray-900" style="padding-bottom: 40px;">
+
+{{-- Баннер с слайдером --}}
+<div class="relative w-full h-[40vh] md:h-[40vh] lg:h-[45vh] overflow-hidden">
+    <!-- Swiper -->
+    <div class="swiper h-full">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./../images/boszhyra.jpg" class="w-full h-full object-cover" alt="Slide 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="./../images/abai.jpg" class="w-full h-full object-cover" alt="Slide 2">
+            </div>
+            <div class="swiper-slide">
+                <img src="./../images/abai2.jpeg" class="w-full h-full object-cover" alt="Slide 3">
+            </div>
+        </div>
+
+        <!-- Навигация -->
+        <div class="swiper-button-next text-white"></div>
+        <div class="swiper-button-prev text-white"></div>
+
+        <!-- Пагинация -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Текст поверх слайдера -->
+    <div class="absolute inset-0 z-10 flex items-center justify-center bg-black/30">
+        <h1 class="text-white text-2xl md:text-4xl font-bold text-center px-4">
+            {{ $culture->title }}
+        </h1>
+    </div>
+</div>
+
+{{-- Подключение Swiper.js --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        }
+    });
+</script>
+
+
+
+<div class="container mx-auto px-6 max-w-6xl mt-[40px] font-montserrat text-gray-900" style="padding-bottom: 40px;">
 
     <header class="mb-10 border-b border-gray-300 pb-6 flex flex-col md:flex-row md:items-center md:justify-between">
         <h1 class="text-[25px] font-extrabold text-primary mb-4 md:mb-0">
@@ -64,6 +118,24 @@
     </section>
 
     <section class="mb-12">
+        <h2 class="text-[18px] font-medium mb-4 text-[#444]">Галерея</h2>
+        @if($culture->images && count($culture->images) > 0)
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                @foreach($culture->images as $img)
+                    <img 
+                        src="{{ asset('storage/' . $img) }}" 
+                        alt="{{ $culture->title }}" 
+                        class="w-full h-[200px] object-cover rounded-xl shadow-lg hover:scale-105 transition-transform cursor-pointer"
+                        onclick="window.open(this.src, '_blank')"
+                    />
+                @endforeach
+            </div>
+        @else
+            <p class="text-gray-600 text-sm">Дополнительные фотографии отсутствуют.</p>
+        @endif
+    </section>
+
+    <section class="mb-12">
         <h2 class="text-[18px] font-medium mb-4 text-[#444]">Дополнительная информация</h2>
         <ul class="text-[#444] space-y-2 list-disc pl-5 text-[16px]">
             <li><span class="font-medium">Широта:</span> {{ $culture->latitude }}</li>
@@ -74,6 +146,24 @@
     <section class="mb-12">
         <h2 class="text-[18px] font-medium mb-4 text-[#444]">Расположение на карте</h2>
         <div id="map" class="rounded-xl shadow-lg overflow-hidden h-[450px]"></div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-[18px] font-medium mb-4 text-[#444]">Видео объекта</h2>
+        @if($culture->youtube_link)
+            <div class="w-full rounded-xl overflow-hidden shadow-lg aspect-video">
+                <iframe 
+                    class="w-full h-full" 
+                    src="https://www.youtube.com/embed/{{ preg_replace('/.*v=/', '', $culture->youtube_link) }}" 
+                    title="{{ $culture->title }}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                ></iframe>
+            </div>
+        @else
+            <p class="text-gray-600 text-sm">Видео отсутствует.</p>
+        @endif
     </section>
 
     <section class="mb-12">
