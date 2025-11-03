@@ -6,8 +6,8 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
-
-
+use App\Http\Controllers\RestaurantController;
+use App\Models\Restaurant;
 
 // Аутентификация
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
@@ -18,6 +18,7 @@ Route::get('/culture-list', [CultureController::class, 'index'])->name('cultures
 // Публичные страницы
 Route::get('/', [CultureController::class, 'welcome'])->name('welcome');
 Route::get('news', [NewsController::class, 'index'])->name('news.index');
+Route::get('restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
 Route::get('/contacts', function() {
      return view("contact");
 })->name("contact");
@@ -31,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/cultures/create', [CultureController::class, 'create'])->name('cultures.create');
     Route::post('/admin/cultures', [CultureController::class, 'store'])->name('cultures.store');
 
+    Route::get('/admin/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+    Route::post('/admin/restaurants', [RestaurantController::class, 'store'])->name('restaurants.store');
     Route::get('/admin/news/create', [NewsController::class, 'create'])->name('news.create');
     Route::post('/admin/news', [NewsController::class, 'store'])->name('news.store');
 
@@ -44,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
 // Публичные страницы
 Route::get('news/{news}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/cultures/{id}', [CultureController::class, 'show'])->name('cultures.show');
+Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurants.show');
 
 
 // Удаление — только для superadmin

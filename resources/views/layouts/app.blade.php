@@ -35,7 +35,73 @@
 <body class="flex flex-col min-h-screen bg-background font-sans text-textPrimary">
 
 
-        @yield("header")
+@if(request()->is('/'))
+    <header class="absolute top-0 left-0 w-full z-50 hidden md:flex">
+        <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
+            <a href="/" class="flex items-center space-x-6">
+                <span class="text-white font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
+                    Mangystau oblysy
+                </span>
+            </a>
+            <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
+                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
+                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
+                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
+                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
+
+                <div class="flex items-center space-x-2 ml-4">
+                    <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇷🇺 Рус</button>
+                    <span class="text-gray-400">|</span>
+                    <button onclick="setLang('en')" id="btn-en" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇬🇧 Eng</button>
+                    <span class="text-gray-400">|</span>
+                    <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇰🇿 Qaz</button>
+                </div>
+
+                @auth
+                    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:15px;">Выйти</button>
+                    </form>
+                @endauth
+            </nav>
+        </div>
+    </header>
+@else
+    <header class="shadow top-0 left-0 w-full z-50 hidden md:flex">
+        <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
+            <a href="/" class="flex items-center space-x-6">
+                <span class="text-black font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
+                    Mangystau oblysy
+                </span>
+            </a>
+            <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
+                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
+                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
+                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
+                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
+
+                <div class="flex items-center space-x-2 ml-4">
+                    <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-black hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇷🇺 Рус</button>
+                    <span class="text-gray-400">|</span>
+                    <button onclick="setLang('en')" id="btn-en" class="lang-btn text-black hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇬🇧 Eng</button>
+                    <span class="text-gray-400">|</span>
+                    <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-black hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇰🇿 Qaz</button>
+                </div>
+
+                @auth
+                    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-black" style="font-weight:400; font-size:15px;">Выйти</button>
+                    </form>
+                @endauth
+            </nav>
+        </div>
+    </header>
+@endif
 
 
     <main class="flex-grow ">

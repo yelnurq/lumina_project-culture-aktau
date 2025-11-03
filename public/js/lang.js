@@ -4,6 +4,8 @@ const translations = {
   ru: {
     "nav-home": "Главная",
     "nav-culture": "Объекты культуры",
+    "nav-restaurant": "Вкусно покушать",
+    "nav-hotels": "Отели",
     "nav-news": "Новости",
     "nav-contacts": "Контакты",
     "nav-admin": "Админ-панель",
@@ -69,6 +71,8 @@ const translations = {
   en: {
     "nav-home": "Home",
     "nav-culture": "Cultural Sites",
+    "nav-restaurant": "Delicious Food",
+    "nav-hotels": "Hotels",
     "nav-news": "News",
     "nav-contacts": "Contacts",
     "nav-admin": "Admin Panel",
@@ -135,6 +139,8 @@ const translations = {
     "nav-home": "Басты бет",
     "nav-culture": "Мәдени нысандар",
     "nav-news": "Жаңалықтар",
+    "nav-restaurant": "Дәмді тамақтану",
+    "nav-hotels": "Қонақ үйлер",
     "nav-contacts": "Байланыс",
     "nav-admin": "Әкімші панелі",
     "nav-logout": "Шығу",
@@ -203,7 +209,7 @@ function setLang(lang) {
     const key = el.getAttribute("data-lang");
     if (translations[lang][key]) {
       if (key.includes("title") || key.includes("desc")) {
-        el.innerHTML = translations[lang][key]; // чтобы <br> работал
+        el.innerHTML = translations[lang][key]; 
       } else {
         el.textContent = translations[lang][key];
       }
@@ -218,8 +224,7 @@ function setLang(lang) {
 }
 
 
-// при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "ru";
+  const savedLang = localStorage.getItem("lang") || "en";
   setLang(savedLang);
 });

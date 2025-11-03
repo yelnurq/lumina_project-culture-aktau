@@ -13,6 +13,8 @@
 <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
   <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
   <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
+  <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
+  <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
   <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
 
   <div class="flex items-center space-x-2 ml-4">

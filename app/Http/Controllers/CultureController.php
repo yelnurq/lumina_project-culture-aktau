@@ -65,13 +65,12 @@ public function index(Request $request)
         'latitude' => 'required|numeric',
         'longitude' => 'required|numeric',
         'image' => 'nullable|image|max:5120',
-        'images.*' => 'nullable|image|max:5120', // для дополнительных изображений
+        'images.*' => 'nullable|image|max:5120', 
         'youtube_link' => 'nullable|url',
     ]);
 
     $mainImagePath = null;
 
-    // Сохраняем главное изображение
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = uniqid() . '.webp';
@@ -83,7 +82,6 @@ public function index(Request $request)
         $mainImagePath = 'cultures/' . $filename;
     }
 
-    // Создаем объект Culture
     $culture = Culture::create([
         'title' => $validated['title'],
         'description' => $validated['description'],
@@ -94,7 +92,6 @@ public function index(Request $request)
         'youtube_link' => $validated['youtube_link'] ?? null,
     ]);
 
-    // Сохраняем дополнительные изображения, если есть
     if ($request->hasFile('images')) {
         foreach ($request->file('images') as $image) {
             $filename = uniqid() . '.webp';

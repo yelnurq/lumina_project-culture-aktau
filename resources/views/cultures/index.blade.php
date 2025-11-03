@@ -1,37 +1,5 @@
 @extends('layouts.app')
 
-@section("header")
-<div style="background:rgb(17 24 39);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
-    Мангистауский Колледж Туризма
-</div>
-<header class="shadow top-0 left-0 w-full z-50 hidden md:flex bg-white" >
-    <div class="w-full flex items-center justify-between p-4 "
-         style="padding-left:50px;padding-right:50px">
-        <a href="/" class="flex items-center space-x-6">
-            <span class="text-black font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
-                Mangystau oblysy
-            </span>
-        </a>
-        <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
-            <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
-            <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
-
-            @auth
-                <a style="font-weight:400; font-size:15px;"  href="{{ route('admin.index') }}" class="hover:text-accent transition-colors duration-300">Админ-панель</a>
-
-                <form action="{{ route('logout') }}" method="POST" class="inline">
-                    @csrf
-                    <button type="submit"  style="font-weight:400; font-size:15px;" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer">
-                        Выйти
-                    </button>
-                </form>
-            @endauth
-        </nav>
-    </div>
-</header>
-@endsection
-
 @section('content')
 <div class="mx-4 md:mx-24 mt-[40px] mb-16">
 
