@@ -13,7 +13,6 @@
 <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
   <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
   <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
-  <a href="/news" data-lang="nav-news" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Новости</a>
   <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
 
   <div class="flex items-center space-x-2 ml-4">
@@ -71,13 +70,6 @@
             Культура
         </a>
 
-        <!-- Новости -->
-        <a href="/news" class="flex flex-col items-center">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h10v2H4v-2zm0 4h10v2H4v-2z"/>
-            </svg>
-            Новости
-        </a>
 
         <!-- Контакты -->
         <a href="/contacts" class="flex flex-col items-center">
@@ -177,114 +169,117 @@
 
 <div class="bg-white py-20">
 <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
-        <!-- Заголовок -->
-        <div class="mb-12">
-            <h2 class="text-4xl font-bold text-primary mb-4 uppercase">Наши преимущества</h2>
-                <div class="w-20 h-1 bg-primary rounded"></div>
-        </div>
-
-        <!-- Флекс блок с двумя колонками -->
-     <div class="flex flex-col md:flex-row gap-8">
-    <!-- Левая колонка -->
-    <div class="flex-1 flex flex-col gap-6">
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-            <div>
-                <h3 class="text-xl font-semibold mb-1">Сохранение природы</h3>
-                <p class="text-gray-700 text-sm">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
-            </div>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-            <div>
-                <h3 class="text-xl font-semibold mb-1">Культурное наследие</h3>
-                <p class="text-gray-700 text-sm">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
-            </div>
-        </div>
+    <!-- Заголовок -->
+    <div class="mb-12">
+        <h2 class="text-4xl font-bold text-primary mb-4 uppercase" data-lang="advantages-title">Наши преимущества</h2>
+        <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
 
-    <!-- Правая колонка -->
-    <div class="flex-1 flex flex-col gap-6">
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-            <div>
-                <h3 class="text-xl font-semibold mb-1">Современные инициативы</h3>
-                <p class="text-gray-700 text-sm">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
+    <!-- Флекс блок с двумя колонками -->
+    <div class="flex flex-col md:flex-row gap-8">
+        <!-- Левая колонка -->
+        <div class="flex-1 flex flex-col gap-6">
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                <div>
+                    <h3 class="text-xl font-semibold mb-1" data-lang="adv1-title">Сохранение природы</h3>
+                    <p class="text-gray-700 text-sm" data-lang="adv1-desc">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                <div>
+                    <h3 class="text-xl font-semibold mb-1" data-lang="adv2-title">Культурное наследие</h3>
+                    <p class="text-gray-700 text-sm" data-lang="adv2-desc">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-            <div>
-                <h3 class="text-xl font-semibold mb-1">Доступность информации</h3>
-                <p class="text-gray-700 text-sm">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
+        <!-- Правая колонка -->
+        <div class="flex-1 flex flex-col gap-6">
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                <div>
+                    <h3 class="text-xl font-semibold mb-1" data-lang="adv3-title">Современные инициативы</h3>
+                    <p class="text-gray-700 text-sm" data-lang="adv3-desc">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                <div>
+                    <h3 class="text-xl font-semibold mb-1" data-lang="adv4-title">Доступность информации</h3>
+                    <p class="text-gray-700 text-sm" data-lang="adv4-desc">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
     </div>
 </div>
 <section class=" relative w-full py-20 bg-gray-100" id="attractions">
-  <div class="container mx-auto px-6 max-w-7xl">
-            <div class="mb-5 ">
-                <h2 class="text-4xl font-bold text-primary mb-4 uppercase">Наши достояния</h2>
-                <div class="w-20 h-1 bg-primary rounded"></div>
-            </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
-      <!-- Карточка 1: стандартная -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Бозжыра</h3>
-          <p class="text-sm">Удивительные скалы и каньоны Мангистау</p>
-        </div>
-      </div>
-
-      <!-- Карточка 2: занимает две колонки -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
-        <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Шеркала</h3>
-          <p class="text-sm">Современный город на побережье Каспия</p>
-        </div>
-      </div>
-
-      <!-- Карточка 3: стандартная -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Урочище Кок-кала</h3>
-          <p class="text-sm">Маленькое село с красивыми видами</p>
-        </div>
-      </div>
-
-      <!-- Карточка 4: стандартная -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Сор Тузбаир</h3>
-          <p class="text-sm">Исторические памятники и скалы</p>
-        </div>
-      </div>
-
-      <!-- Карточка 5: стандартная -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Каспийское море</h3>
-          <p class="text-sm">Красивые холмы и живописные виды</p>
-        </div>
-      </div>
-
-      <!-- Карточка 6: занимает две колонки -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
-        <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Урочище Кызылкуп</h3>
-          <p class="text-sm">Исторические маршруты через Мангистауские степи</p>
-        </div>
-      </div>
-
+<div class="container mx-auto px-6 max-w-7xl">
+    <div class="mb-5">
+        <h2 class="text-4xl font-bold text-primary mb-4 uppercase" data-lang="heritages-title">Наши достояния</h2>
+        <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
-  </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
+        <!-- Карточка 1 -->
+        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+            <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                <h3 class="font-bold text-lg" data-lang="heritage1-title">Бозжыра</h3>
+                <p class="text-sm" data-lang="heritage1-desc">Удивительные скалы и каньоны Мангистау</p>
+            </div>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
+            <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                <h3 class="font-bold text-lg" data-lang="heritage2-title">Шеркала</h3>
+                <p class="text-sm" data-lang="heritage2-desc">Современный город на побережье Каспия</p>
+            </div>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+            <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                <h3 class="font-bold text-lg" data-lang="heritage3-title">Урочище Кок-кала</h3>
+                <p class="text-sm" data-lang="heritage3-desc">Маленькое село с красивыми видами</p>
+            </div>
+        </div>
+
+        <!-- Карточка 4 -->
+        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+            <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                <h3 class="font-bold text-lg" data-lang="heritage4-title">Сор Тузбаир</h3>
+                <p class="text-sm" data-lang="heritage4-desc">Исторические памятники и скалы</p>
+            </div>
+        </div>
+
+        <!-- Карточка 5 -->
+        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+            <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                <h3 class="font-bold text-lg" data-lang="heritage5-title">Каспийское море</h3>
+                <p class="text-sm" data-lang="heritage5-desc">Красивые холмы и живописные виды</p>
+            </div>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
+            <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+                <h3 class="font-bold text-lg" data-lang="heritage6-title">Урочище Кызылкуп</h3>
+                <p class="text-sm" data-lang="heritage6-desc">Исторические маршруты через Мангистауские степи</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 </section>
 
 
@@ -315,32 +310,34 @@
         <img src="{{ asset('images/boszhyra.jpg') }}" alt="Фон" class="w-full h-full object-cover filter blur-sm brightness-75" style="object-position: bottom" />
         <div class="absolute inset-0 bg-blue-900 opacity-40"></div>
     </div>
+<div class="relative container mx-auto max-w-6xl px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6" data-lang="main-section-title">
+        Новые берега Маңғыстау — открываем неизведанное
+    </h2>
+    <p class="text-lg mb-10 max-w-3xl mx-auto font-light" data-lang="main-section-desc">
+        Каспийское море отступает, создавая новые островки, песчаные косы и удивительные маршруты. Мы исследуем их, показываем красоту и рассказываем, как туда добраться.
+    </p>
 
-    <div class="relative container mx-auto max-w-6xl px-6 text-center">
-        <h2 class="text-4xl font-bold mb-6">Новые берега Маңғыстау — открываем неизведанное</h2>
-        <p class="text-lg mb-10 max-w-3xl mx-auto font-light">
-            Каспийское море отступает, создавая новые островки, песчаные косы и удивительные маршруты. Мы исследуем их, показываем красоту и рассказываем, как туда добраться.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-white">
-            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <h3 class="text-xl font-semibold mb-2">Новые маршруты</h3>
-                <p>Показываем, как безопасно и интересно посетить недавно открывшиеся островки и побережья.</p>
-            </div>
-            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <h3 class="text-xl font-semibold mb-2">Природные чудеса</h3>
-                <p>Уникальные пейзажи, редкая флора и фауна — места, которые стоит увидеть своими глазами.</p>
-            </div>
-            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <h3 class="text-xl font-semibold mb-2">Исследования и фотографии</h3>
-                <p>Документируем изменения побережья, создаем фотогалереи и визуальные маршруты для путешественников.</p>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-white">
+        <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2" data-lang="feature1-title">Новые маршруты</h3>
+            <p data-lang="feature1-desc">Показываем, как безопасно и интересно посетить недавно открывшиеся островки и побережья.</p>
         </div>
-
-        <a href="/routes" class="mt-12 inline-block bg-white text-primary font-semibold px-8 py-3 shadow-lg hover:bg-gray-100 transition" style="border-radius: 14px;">
-            Посмотреть маршруты и островки
-        </a>
+        <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2" data-lang="feature2-title">Природные чудеса</h3>
+            <p data-lang="feature2-desc">Уникальные пейзажи, редкая флора и фауна — места, которые стоит увидеть своими глазами.</p>
+        </div>
+        <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2" data-lang="feature3-title">Исследования и фотографии</h3>
+            <p data-lang="feature3-desc">Документируем изменения побережья, создаем фотогалереи и визуальные маршруты для путешественников.</p>
+        </div>
     </div>
+
+    <a href="/routes" class="mt-12 inline-block bg-white text-primary font-semibold px-8 py-3 shadow-lg hover:bg-gray-100 transition" style="border-radius: 14px;" data-lang="main-btn">
+        Посмотреть маршруты и островки
+    </a>
+</div>
+
 </div>
 {{-- 
 <div class="bg-white py-16">

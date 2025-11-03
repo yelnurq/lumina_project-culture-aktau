@@ -45,8 +45,8 @@
 <footer class="bg-gray-900 text-white py-12">
     <div class="container mx-auto px-2 max-w-10xl flex flex-col md:flex-row md:justify-between md:items-start gap-8">
         <div class="md:w-1/2">
-            <h2 class="text-xl font-bold mb-4">Новые берега Каспия</h2>
-            <p class="text-gray-300 text-sm leading-relaxed">
+            <h2 class="text-xl font-bold mb-4" data-lang="footer-title">Новые берега Каспия</h2>
+            <p class="text-gray-300 text-sm leading-relaxed" data-lang="footer-desc">
                 — неизвестная красота Маңғыстау<br>
                 Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины. Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
             </p>
@@ -54,29 +54,30 @@
 
         <div class="md:w-1/2 flex flex-col md:flex-row md:justify-between gap-6">
             <div>
-                <h3 class="font-semibold mb-2">Навигация</h3>
+                <h3 class="font-semibold mb-2" data-lang="footer-nav-title">Навигация</h3>
                 <ul class="space-y-1 text-gray-400 text-sm">
-                    <li><a href="/" class="hover:text-white transition">Главная</a></li>
-                    <li><a href="/culture-list" class="hover:text-white transition">Объекты культуры</a></li>
-                    <li><a href="/contacts" class="hover:text-white transition">Контакты</a></li>
+                    <li><a href="/" class="hover:text-white transition" data-lang="nav-home">Главная</a></li>
+                    <li><a href="/culture-list" class="hover:text-white transition" data-lang="nav-culture">Объекты культуры</a></li>
+                    <li><a href="/contacts" class="hover:text-white transition" data-lang="nav-contacts">Контакты</a></li>
                 </ul>
             </div>
             <div>
-                <h3 class="font-semibold mb-2">Поделиться</h3>
+                <h3 class="font-semibold mb-2" data-lang="footer-share-title">Поделиться</h3>
                 <ul class="space-y-1 text-gray-400 text-sm">
-                    <li><a href="#" class="hover:text-white transition">Facebook</a></li>
-                    <li><a href="#" class="hover:text-white transition">Twitter</a></li>
-                    <li><a href="#" class="hover:text-white transition">Telegram</a></li>
-                    <li><a href="#" class="hover:text-white transition">WhatsApp</a></li>
+                    <li><a href="#" class="hover:text-white transition" data-lang="share-facebook">Facebook</a></li>
+                    <li><a href="#" class="hover:text-white transition" data-lang="share-twitter">Twitter</a></li>
+                    <li><a href="#" class="hover:text-white transition" data-lang="share-telegram">Telegram</a></li>
+                    <li><a href="#" class="hover:text-white transition" data-lang="share-whatsapp">WhatsApp</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+    <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm" data-lang="footer-copyright">
         &copy; {{ date('Y') }}. Все права защищены.
     </div>
 </footer>
+
 <script src="/js/lang.js"></script>
 
 </body>
