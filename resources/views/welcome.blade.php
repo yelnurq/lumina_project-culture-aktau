@@ -10,23 +10,38 @@
                 Mangystau oblysy
             </span>
         </a>
-        <nav class="space-x-6 text-white text-sm font-semibold flex items-center">
-            <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
-            <a style="font-weight:400; font-size:15px;"  href="/news" class="hover:text-accent transition-colors duration-300">Новости</a>
-            <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
+<nav class="flex items-center space-x-6 text-white text-sm font-semibold">
+  <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
+  <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
+  <a href="/news" data-lang="nav-news" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Новости</a>
+  <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
 
-            @auth
-                <a style="font-weight:400; font-size:15px;"  href="{{ route('admin.index') }}" class="hover:text-accent transition-colors duration-300">Админ-панель</a>
+  <div class="flex items-center space-x-2 ml-4">
+    <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
+      🇷🇺 Рус
+    </button>
+    <span class="text-gray-400">|</span>
+    <button onclick="setLang('en')" id="btn-en" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
+      🇬🇧 Eng
+    </button>
+    <span class="text-gray-400">|</span>
+    <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
+      🇰🇿 Qaz
+    </button>
+  </div>
 
-                <form action="{{ route('logout') }}" method="POST" class="inline">
-                    @csrf
-                    <button type="submit"  style="font-weight:400; font-size:15px;" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer">
-                        Выйти
-                    </button>
-                </form>
-            @endauth
-        </nav>
+  @auth
+    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
+
+    <form action="{{ route('logout') }}" method="POST" class="inline">
+      @csrf
+      <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:15px;">
+        Выйти
+      </button>
+    </form>
+  @endauth
+</nav>
+
     </div>
 </header>
 <header class="absolute top-0 left-0 w-full z-50  md:hidden ">
@@ -87,18 +102,18 @@
     </video>
     <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-left">
         <div class="container mx-auto max-w-9xl py-20 pt-32">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight opacity-0 translate-y-6 animate-fadeInUp">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight opacity-0 translate-y-6 animate-fadeInUp" data-lang="main-title">
                 Новые берега Каспия<br> — неизвестная красота Маңғыстау
             </h1>
-            <p style="margin: 0 0 30px" class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 sm:mb-16 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300">
+            <p style="margin: 0 0 30px" class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 sm:mb-16 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300" data-lang="main-desc">
                 Каспийское море отступает, открывая новые островки и дороги.  
                 Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.  
                 Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
             </p>
-            <a href="/routes" class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px;">
+            <a href="/routes" data-lang="main-btn1" class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px;">
                 Проложить маршрут
             </a>
-            <a href="/routes" class="inline-block bg-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px; background:none; border:1px solid white;colo:white;">
+            <a href="/routes" data-lang="main-btn2" class="inline-block bg-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px; background:none; border:1px solid white;colo:white;">
                 О проекте
             </a>
         </div>
@@ -113,46 +128,45 @@
     
     <!-- Левая колонка: заголовок и текст -->
     <div class="md:w-1/2">
-      <h2 class="text-4xl font-bold text-primary mb-4">НАША ЦЕЛЬ</h2>
+      <h2 class="text-4xl font-bold text-primary mb-4" data-lang="goal-title">НАША ЦЕЛЬ</h2>
       <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
       <div class="prose prose-sm text-gray-800" style="text-align: justify;">
-        <p>Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
+        <p  data-lang="goal-desc1">Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
 
-        <p>Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
+        <p  data-lang="goal-desc2">Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
       </div>
-            <a href="/routes" class="inline-block bg-none text-primary font-600 px-6 sm:px-8 py-2 sm:py-3  hover:bg-primary hover:text-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 16px;font-size:16px;font-weight:500; border:1px solid rgb(15 59 99); margin-top:30px;" >
+            <a href="/routes"  data-lang="goal-btn" class="inline-block bg-none text-primary font-600 px-6 sm:px-8 py-2 sm:py-3  hover:bg-primary hover:text-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 16px;font-size:16px;font-weight:500; border:1px solid rgb(15 59 99); margin-top:30px;" >
                 Ознакомиться
             </a>
     </div>
 
     <!-- Правая колонка: грид с изображениями -->
-    <div class="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
+    <div id="heritage-container" class="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
       
       <!-- img1 занимает две строки -->
       <div style="border-radius: 16px;" class="relative row-span-2 bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="/images/boszhyra.jpg" alt="Актау" class="w-full h-full object-cover">
+        <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Актау</h3>
-          <p class="text-sm">Современный город на побережье Каспия</p>
+            <h3 class="font-bold text-lg" data-lang="ayrakty-title"></h3> <p class="text-sm" data-lang="ayrakty-desc"></p>
+
         </div>
       </div>
 
       <!-- img2 -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="/images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
+        <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Бозжыра</h3>
-          <p class="text-sm">Живописные скалы и каньоны</p>
+            <h3 class="font-bold text-lg" data-lang="buhta-title"></h3> <p class="text-sm" data-lang="buhta-desc"></p>
+
         </div>
       </div>
 
       <!-- img3 -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="/images/boszhyra.jpg" alt="Жемчужина" class="w-full h-full object-cover">
+        <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Жемчужина</h3>
-          <p class="text-sm">Прекрасное место для отдыха</p>
+          <h3 class="font-bold text-lg" data-lang="balayuk-title"></h3> <p class="text-sm" data-lang="balayuk-desc"></p>
         </div>
       </div>
 
@@ -226,45 +240,45 @@
 
       <!-- Карточка 2: занимает две колонки -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
-        <img src="images/boszhyra.jpg" alt="Актау" class="w-full h-full object-cover">
+        <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Актау</h3>
+          <h3 class="font-bold text-lg">Шеркала</h3>
           <p class="text-sm">Современный город на побережье Каспия</p>
         </div>
       </div>
 
       <!-- Карточка 3: стандартная -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/boszhyra.jpg" alt="Шетпе" class="w-full h-full object-cover">
+        <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Шетпе</h3>
+          <h3 class="font-bold text-lg">Урочище Кок-кала</h3>
           <p class="text-sm">Маленькое село с красивыми видами</p>
         </div>
       </div>
 
       <!-- Карточка 4: стандартная -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/boszhyra.jpg" alt="Кендик" class="w-full h-full object-cover">
+        <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Кендик</h3>
+          <h3 class="font-bold text-lg">Сор Тузбаир</h3>
           <p class="text-sm">Исторические памятники и скалы</p>
         </div>
       </div>
 
       <!-- Карточка 5: стандартная -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="images/boszhyra.jpg" alt="Каражон" class="w-full h-full object-cover">
+        <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Каражон</h3>
+          <h3 class="font-bold text-lg">Каспийское море</h3>
           <p class="text-sm">Красивые холмы и живописные виды</p>
         </div>
       </div>
 
       <!-- Карточка 6: занимает две колонки -->
       <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
-        <img src="images/boszhyra.jpg" alt="Шелковый путь" class="w-full h-full object-cover">
+        <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg">Шелковый путь</h3>
+          <h3 class="font-bold text-lg">Урочище Кызылкуп</h3>
           <p class="text-sm">Исторические маршруты через Мангистауские степи</p>
         </div>
       </div>

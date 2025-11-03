@@ -77,7 +77,7 @@
         &copy; {{ date('Y') }}. Все права защищены.
     </div>
 </footer>
-
+<script src="/js/lang.js"></script>
 
 </body>
 </html>
