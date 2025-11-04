@@ -50,13 +50,24 @@
                 <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
                 <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
 
-                <div class="flex items-center space-x-2 ml-4">
-                    <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇷🇺 Рус</button>
-                    <span class="text-gray-400">|</span>
-                    <button onclick="setLang('en')" id="btn-en" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇬🇧 Eng</button>
-                    <span class="text-gray-400">|</span>
-                    <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇰🇿 Qaz</button>
+                <div class="relative inline-block text-left">
+                    <select 
+                        onchange="setLang(this.value)" 
+                        class="appearance-none bg-white/10 backdrop-blur-md text-white px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-white/30 hover:border-white transition-colors duration-300"
+                    >
+                        <option class="bg-black/50 text-white" value="en">🇬🇧 UK</option>
+                        <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
+                        <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
+                    </select>
+
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
                 </div>
+
+
 
                 @auth
                     <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
@@ -83,13 +94,23 @@
                 <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
                 <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
 
-                <div class="flex items-center space-x-2 ml-4">
-                    <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-black hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇷🇺 Рус</button>
-                    <span class="text-gray-400">|</span>
-                    <button onclick="setLang('en')" id="btn-en" class="lang-btn text-black hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇬🇧 Eng</button>
-                    <span class="text-gray-400">|</span>
-                    <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-black hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">🇰🇿 Qaz</button>
+                                <div class="relative inline-block text-left">
+                    <select 
+                        onchange="setLang(this.value)" 
+                        class="appearance-none bg-white/10 backdrop-blur-md text-gray px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 transition-colors duration-300"
+                    >
+                        <option class="bg-black/50 text-white" value="en">🇬🇧 UK</option>
+                        <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
+                        <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
+                    </select>
+
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                        <svg class="w-4 h-4 text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
                 </div>
+
 
                 @auth
                     <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>

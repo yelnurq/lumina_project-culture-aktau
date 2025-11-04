@@ -3,38 +3,51 @@
 @section('content')
 <div class="mx-4 md:mx-24 mt-[40px] mb-16">
 
-    {{-- 🔹 Заголовок и хлебные крошки --}}
-    <div class="pb-6 border-b border-gray-300 mb-6">
-        <nav class="text-sm text-gray-500 mb-4">
-            <ol class="list-reset flex space-x-2">
-                <li><a href="/" class="hover:underline text-blue-600">Главная</a></li>
-                <li>/</li>
-                <li class="text-gray-700">Вкусно покушать</li>
-            </ol>
-        </nav>
-        <h1 class="text-3xl font-bold text-gray-800">Рестораны Мангистауской области</h1>
-        <p class="text-gray-600 mt-2 text-sm">
-            Каталог лучших заведений региона с описаниями, рейтингами и координатами на карте.
-        </p>
-    </div>
+<div class="pb-6 border-b border-gray-300 mb-6">
+    <nav class="text-sm text-gray-500 mb-4">
+        <ol class="list-reset flex space-x-2">
+            <li>
+                <a href="/" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_home">
+                    Главная
+                </a>
+            </li>
+            <li>/</li>
+            <li class="text-gray-700" data-lang="restaurant_breadcrumb_current">
+                Вкусно покушать
+            </li>
+        </ol>
+    </nav>
 
-    {{-- 🔹 Фильтры и поиск --}}
-    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
-        <div class="flex items-center space-x-4 text-sm font-semibold">
-            <button onclick="switchTab('list')" id="listTab" class="px-4 py-2 rounded-lg bg-blue-600 text-white">Список</button>
-            <button onclick="switchTab('map')" id="mapTab" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700">На карте</button>
-        </div>
+    <h1 class="text-3xl font-bold text-gray-800" data-lang="restaurant_header_title">
+        Рестораны Мангистауской области
+    </h1>
+    <p class="text-gray-600 mt-2 text-sm" data-lang="restaurant_header_description">
+        Каталог лучших заведений региона с описаниями, рейтингами и координатами на карте.
+    </p>
+</div>
 
-        <div class="flex items-center gap-2">
-            <input type="text" placeholder="Поиск по названию..." class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-60 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option>Все кухни</option>
-                <option>Казахская</option>
-                <option>Европейская</option>
-                <option>Восточная</option>
-            </select>
-        </div>
+{{-- 🔹 Фильтры и поиск --}}
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+    <div class="flex items-center space-x-4 text-sm font-semibold">
+        <button 
+            onclick="switchTab('list')" 
+            id="listTab" 
+            class="px-4 py-2 rounded-lg bg-blue-600 text-white"
+            data-lang="restaurant_tab_list"
+        >
+            Список
+        </button>
+        <button 
+            onclick="switchTab('map')" 
+            id="mapTab" 
+            class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700"
+            data-lang="restaurant_tab_map"
+        >
+            На карте
+        </button>
     </div>
+</div>
+
 
     {{-- 🔹 Карта --}}
     <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[700px] border border-gray-200 hidden"></div>
@@ -42,9 +55,10 @@
     {{-- 🔹 Список ресторанов --}}
     <div id="listSection">
         @if ($restaurants->isEmpty())
-            <div class="text-center text-gray-500 text-lg py-16">
+            <div class="text-center text-gray-500 text-lg py-16" data-lang="restaurant_empty_message">
                 Пока нет ресторанов.
             </div>
+
         @else
             <div class="space-y-6">
                @foreach ($restaurants as $restaurant)
@@ -78,10 +92,10 @@
             {{-- Краткое описание (excerpt) --}}
             @if ($restaurant->excerpt_ru)
                 <p class="text-gray-700 mt-3 text-sm leading-relaxed">
-                    {{ Str::limit($restaurant->excerpt_ru, 160) }}
+                    {{ $restaurant->excerpt_ru}}
                 </p>
             @else
-                <p class="text-gray-700 mt-3 text-sm">{{ Str::limit($restaurant->description_ru, 180) }}</p>
+                <p class="text-gray-700 mt-3 text-sm">{{ $restaurant->excerpt_en}}</p>
             @endif
 
             {{-- Контактная информация --}}

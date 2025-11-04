@@ -3,25 +3,42 @@
 @section('content')
 <div class="mx-4 md:mx-24 mt-[40px] mb-16">
 
-    <div class="pb-6 border-b border-gray-300 mb-6">
-        <nav class="text-sm text-gray-500 mb-4">
-            <ol class="list-reset flex space-x-2">
-                <li><a href="/" class="hover:underline text-blue-600">Главная</a></li>
-                <li>/</li>
-                <li class="text-gray-700">Объекты культуры</li>
-            </ol>
-        </nav>
 
-        <h1 class="text-3xl font-bold text-gray-800">Объекты культуры Мангистауской области</h1>
-        <p class="text-gray-600 mt-2 text-sm">
-Каталог природных объектов Мангистауской области: песчаные дюны, скалистые образования, каньоны, побережья и солёные озёра.        </p>
-    </div>
 
-    <form method="GET" action="{{ route('cultures.index') }}" class="mb-4 flex flex-col md:flex-row gap-4 items-center">
-        <input name="search" type="text" placeholder="🔍 Поиск по названию..." value="{{ request('search') }}"
-            class="w-full md:w-1/3 px-4 py-2 rounded-lg border border-gray-300 text-sm">
+<div class="pb-6 border-b border-gray-300 mb-6">
+    <nav class="text-sm text-gray-500 mb-4">
+        <ol class="list-reset flex space-x-2">
+            <li>
+                <a href="/" class="hover:underline text-blue-600" data-lang="culture_breadcrumb_home">
+                    Главная
+                </a>
+            </li>
+            <li>/</li>
+            <li class="text-gray-700" data-lang="culture_breadcrumb_current">
+                Объекты культуры
+            </li>
+        </ol>
+    </nav>
 
-        <select name="category" class="w-full md:w-1/4 px-4 py-2 rounded-lg border border-gray-300 text-sm">
+    <h1 class="text-3xl font-bold text-gray-800" data-lang="culture_header_title">
+        Объекты культуры Мангистауской области
+    </h1>
+    <p class="text-gray-600 mt-2 text-sm" data-lang="culture_header_description">
+        Каталог природных объектов Мангистауской области: песчаные дюны, скалистые образования, каньоны, побережья и солёные озёра.
+    </p>
+</div>
+
+<form method="GET" action="{{ route('cultures.index') }}" class="mb-4 flex flex-col md:flex-row gap-4 items-center">
+    <input 
+        name="search" 
+        type="text" 
+        placeholder="🔍 Поиск по названию..." 
+        value="{{ request('search') }}"
+        class="w-full md:w-1/3 px-4 py-2 rounded-lg border border-gray-300 text-sm"
+        data-lang="culture_search_placeholder"
+    >
+
+<select name="category" class="w-full md:w-1/4 px-4 py-2 rounded-lg border border-gray-300 text-sm">
             <option value="">Все категории</option>
             @foreach ($categories as $cat)
                 <option value="{{ $cat->name }}" {{ request('category') == $cat->name ? 'selected' : '' }}>
@@ -30,34 +47,62 @@
             @endforeach
         </select>
 
-        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">Применить</button>
-    </form>
+    <button 
+        type="submit" 
+        class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700"
+        data-lang="culture_apply_button"
+    >
+        Применить
+    </button>
+</form>
 
-    @if(request('search') || request('category'))
-    <div class="mb-6 text-sm text-gray-700 flex items-center gap-4 flex-wrap">
-        <div>Фильтры:</div>
-        @if(request('search'))
-            <span class="bg-gray-100 px-3 py-1 rounded-full">Поиск: "{{ request('search') }}"</span>
-        @endif
-        @if(request('category'))
-            <span class="bg-gray-100 px-3 py-1 rounded-full">Категория: "{{ request('category') }}"</span>
-        @endif
-        <a href="{{ route('cultures.index') }}" class="text-red-500 hover:underline">Сбросить фильтры</a>
-    </div>
+@if(request('search') || request('category'))
+<div class="mb-6 text-sm text-gray-700 flex items-center gap-4 flex-wrap">
+    <div data-lang="culture_filters_label">Фильтры:</div>
+    @if(request('search'))
+        <span class="bg-gray-100 px-3 py-1 rounded-full" >
+            <span data-lang="culture_filter_search">Поиск:</span> "{{ request('search') }}"
+        </span>
     @endif
+    @if(request('category'))
+        <span class="bg-gray-100 px-3 py-1 rounded-full" >
+            <span data-lang="culture_filter_category">Категория:</span> "{{ request('category') }}"
+        </span>
+    @endif
+    <a href="{{ route('cultures.index') }}" class="text-red-500 hover:underline" data-lang="culture_reset_filters_btn">
+        Сбросить фильтры
+    </a>
+</div>
+@endif
 
-    <div class="mb-6 flex space-x-4 text-sm font-semibold">
-        <button onclick="switchTab('list')" id="listTab" class="px-4 py-2 rounded-lg bg-blue-600 text-white">Список</button>
-        <button onclick="switchTab('map')" id="mapTab" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700">На карте</button>
-    </div>
+<div class="mb-6 flex space-x-4 text-sm font-semibold">
+    <button 
+        onclick="switchTab('list')" 
+        id="listTab" 
+        class="px-4 py-2 rounded-lg bg-blue-600 text-white" 
+        data-lang="culture_tab_list"
+    >
+        Список
+    </button>
+    <button 
+        onclick="switchTab('map')" 
+        id="mapTab" 
+        class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700" 
+        data-lang="culture_tab_map"
+    >
+        На карте
+    </button>
+</div>
+
 
     <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[700px] border border-gray-200 hidden"></div>
 
     <div id="listSection">
         @if ($cultures->isEmpty())
-            <div class="text-center text-gray-500 text-lg py-16">
+            <div class="text-center text-gray-500 text-lg py-16" data-lang="culture_empty_message">
                 Пока нет культурных объектов.
             </div>
+
         @else
             <div class="space-y-6">
                 @foreach ($cultures->chunk(3) as $chunk)

@@ -66,7 +66,31 @@ const translations = {
     "share-twitter": "Twitter",
     "share-telegram": "Telegram",
     "share-whatsapp": "WhatsApp",
-    "footer-copyright": "&copy; {{ date('Y') }}. Все права защищены."
+    "footer-copyright": "&copy; {{ date('Y') }}. Все права защищены.",
+        "culture_breadcrumb_home": "Главная",
+    "culture_breadcrumb_current": "Объекты культуры",
+    "culture_header_title": "Объекты культуры Мангистауской области",
+    "culture_header_description": "Каталог природных объектов Мангистауской области: песчаные дюны, скалистые образования, каньоны, побережья и солёные озёра.",
+    "culture_search_placeholder": "🔍 Поиск по названию...",
+    "culture_category_select": "Выберите категорию",
+    "culture_category_all": "Все категории",
+    "culture_apply_button": "Применить",
+    "culture_filters_label": "Фильтры:",
+    "culture_filter_search": "Поиск:",
+    "culture_filter_category": "Категория:",
+    "culture_reset_filters_btn": "Сбросить фильтры",
+    "culture_tab_list": "Список",
+    "culture_tab_map": "На карте",
+    "culture_empty_message": "Пока нет культурных объектов.",
+        "restaurant_breadcrumb_home": "Главная",
+    "restaurant_breadcrumb_current": "Вкусно покушать",
+    "restaurant_header_title": "Рестораны Мангистауской области",
+    "restaurant_header_description": "Каталог лучших заведений региона с описаниями, рейтингами и координатами на карте.",
+    "restaurant_tab_list": "Список",
+    "restaurant_tab_map": "На карте",
+        "restaurant_empty_message": "Пока нет ресторанов."
+
+
   },
   en: {
     "nav-home": "Home",
@@ -133,7 +157,30 @@ const translations = {
     "share-twitter": "Twitter",
     "share-telegram": "Telegram",
     "share-whatsapp": "WhatsApp",
-    "footer-copyright": "&copy; {{ date('Y') }}. All rights reserved."
+    "footer-copyright": "&copy; {{ date('Y') }}. All rights reserved.",
+     "culture_breadcrumb_home": "Home",
+    "culture_breadcrumb_current": "Cultural Sites",
+    "culture_header_title": "Cultural Sites of Mangystau Region",
+    "culture_header_description": "A catalog of natural sites of the Mangystau region: sand dunes, rock formations, canyons, coasts, and salt lakes.",
+    "culture_search_placeholder": "🔍 Search by name...",
+    "culture_category_select": "Select category",
+    "culture_category_all": "All categories",
+    "culture_apply_button": "Apply",
+    "culture_filters_label": "Filters:",
+    "culture_filter_search": "Search:",
+    "culture_filter_category": "Category:",
+    "culture_reset_filters_btn": "Reset filters",
+    "culture_tab_list": "List",
+        "culture_empty_message": "No cultural sites available yet.",
+    "culture_tab_map": "On the map",
+    "restaurant_breadcrumb_home": "Home",
+    "restaurant_breadcrumb_current": "Where to Eat",
+    "restaurant_header_title": "Restaurants of Mangystau Region",
+    "restaurant_header_description": "A catalog of the best venues in the region with descriptions, ratings, and map coordinates.",
+    "restaurant_tab_list": "List",
+    "restaurant_tab_map": "On the Map",
+        "restaurant_empty_message": "No restaurants available yet."
+
   },
   kk: {
     "nav-home": "Басты бет",
@@ -200,7 +247,31 @@ const translations = {
     "share-twitter": "Twitter",
     "share-telegram": "Telegram",
     "share-whatsapp": "WhatsApp",
-    "footer-copyright": "&copy; {{ date('Y') }}. Барлық құқықтар қорғалған."
+    "footer-copyright": "&copy; {{ date('Y') }}. Барлық құқықтар қорғалған.",
+      "culture_breadcrumb_home": "Басты бет",
+    "culture_breadcrumb_current": "Мәдени нысандар",
+    "culture_header_title": "Маңғыстау облысының мәдени нысандары",
+    "culture_header_description": "Маңғыстау облысының табиғи нысандарының каталогы: құмды дөңдер, жартастар, каньондар, жағалаулар және тұзды көлдер.",
+    "culture_search_placeholder": "🔍 Атауы бойынша іздеу...",
+    "culture_category_select": "Санатты таңдаңыз",
+    "culture_category_all": "Барлық санаттар",
+    "culture_apply_button": "Қолдану",
+    "culture_filters_label": "Сүзгілер:",
+    "culture_filter_search": "Іздеу:",
+    "culture_filter_category": "Санат:",
+    "culture_reset_filters_btn": "Сүзгілерді тазалау",
+    "culture_tab_list": "Тізім",
+    "culture_tab_map": "Картада",
+    "culture_empty_message": "Әзірге мәдени нысандар жоқ.",
+    "restaurant_breadcrumb_home": "Басты бет",
+    "restaurant_breadcrumb_current": "Дәмді тамақтану",
+    "restaurant_header_title": "Маңғыстау облысының мейрамханалары",
+    "restaurant_header_description": "Аймақтың ең жақсы мекемелерінің тізімі: сипаттамалармен, рейтингтермен және картадағы орналасулармен.",
+    "restaurant_tab_list": "Тізім",
+    "restaurant_tab_map": "Картада",
+        "restaurant_empty_message": "Әзірге мейрамханалар жоқ."
+
+
   }
 };
 

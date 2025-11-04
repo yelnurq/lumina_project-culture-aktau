@@ -34,42 +34,69 @@
 
 <div class="container mx-auto px-6 max-w-6xl mt-[40px] font-montserrat text-gray-900" style="padding-bottom: 60px;">
 
-    {{-- Заголовок --}}
-    <header class="mb-10 border-b border-gray-300 pb-6 flex flex-col md:flex-row md:items-center md:justify-between">
-        <h1 class="text-[28px] font-extrabold text-primary mb-4 md:mb-0">{{ $restaurant->title_ru }}</h1>
-        @if ($restaurant->address_ru)
-            <p class="text-[16px] font-semibold text-gray-800">
-                Адрес: <span class="text-gray-700">{{ $restaurant->address_ru }}</span>
-            </p>
-        @endif
-    </header>
-
-    {{-- Описание --}}
-    <section class="mb-12 clearfix">
-        @if ($restaurant->image)
-            <img 
-                src="{{ asset('storage/' . $restaurant->image) }}" 
-                alt="{{ $restaurant->title_ru }}"
-                class="float-left w-full md:w-[45%] max-w-md mr-6 mb-4 rounded-xl shadow-lg object-cover max-h-[450px]" 
-            />
+<section class="mb-12">
+    <div class="grid md:grid-cols-10 gap-4 items-start">
+        {{-- Главное изображение 60% --}}
+        @if($restaurant->image)
+            <img src="{{ asset('storage/' . $restaurant->image) }}" 
+                 alt="{{ $restaurant->title_ru }}" 
+                 class="col-span-6 w-full object-cover rounded-xl shadow-lg max-h-[500px]" />
         @endif
 
-        <div class="text-[16px] leading-relaxed text-gray-800 text-justify">
-            {!! nl2br(e($restaurant->description_ru)) !!}
+        {{-- Галерея справа 40% --}}
+        <div class="col-span-4 grid grid-rows-2 gap-4 self-start h-full">
+            {{-- Верхний ряд — первые 2 изображения --}}
+            @if($restaurant->images->count() >= 1)
+                <div class="grid grid-cols-2 gap-4 h-full">
+                    @foreach($restaurant->images->take(2) as $image)
+                        <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="restaurant-gallery">
+                            <img src="{{ asset('storage/' . $image->image) }}" 
+                                 class="w-full h-full object-cover rounded-xl shadow-md hover:scale-105 transition" 
+                                 alt="Фото ресторана">
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+
+            {{-- Нижний ряд — следующие 3 изображения --}}
+            @if($restaurant->images->count() > 2)
+                <div class="grid grid-cols-3 gap-4 h-full">
+                    @foreach($restaurant->images->slice(2,3) as $image)
+                        <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="restaurant-gallery">
+                            <img src="{{ asset('storage/' . $image->image) }}" 
+                                 class="w-full h-full object-cover rounded-xl shadow-md hover:scale-105 transition" 
+                                 alt="Фото ресторана">
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
-    </section>
+    </div>
+
+    {{-- Описание под блоком --}}
+    <div class="mt-6 text-gray-800 text-[16px] leading-relaxed text-justify">
+        {!! nl2br(e($restaurant->description_ru)) !!}
+    </div>
+</section>
+
 
  
 
     {{-- Контакты --}}
     <section class="mb-12">
-        <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Контактная информация</h2>
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Контактная информация</h2>
         <ul class="text-[#444] space-y-2 list-disc pl-5 text-[16px]">
             @if ($restaurant->address_ru)
                 <li><span class="font-medium">Адрес:</span> {{ $restaurant->address_ru }}</li>
             @endif
             @if ($restaurant->phone)
                 <li><span class="font-medium">Телефон:</span> {{ $restaurant->phone }}</li>
+            @endif
+            @if ($restaurant->email)
+                <li><span class="font-medium">Почта:</span> {{ $restaurant->email }}</li>
+            @endif
+            @if ($restaurant->website)
+                <li><a style="color:rgb(19, 100, 200)" href="{{ $restaurant->website }}"><span class="font-medium" style="color: black">Веб-сайт:</span> {{ $restaurant->website }}</a>  </li>
             @endif
             @if ($restaurant->working_hours)
                 <li><span class="font-medium">Режим работы:</span> {{ $restaurant->working_hours }}</li>
@@ -124,7 +151,7 @@
     {{-- 🍽 Популярные блюда --}}
     @if($restaurant->dishes->count())
 <section class="mb-12">
-    <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Популярные блюда</h2>
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Популярные блюда</h2>
     <div class="grid md:grid-cols-3 gap-6">
         @foreach($restaurant->dishes as $dish)
         <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
@@ -144,21 +171,7 @@
 </section>
 @endif
 
-{{-- 🖼 Галерея --}}
-@if($restaurant->images->count())
-<section class="mb-12">
-    <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Галерея</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        @foreach($restaurant->images as $image)
-            <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="restaurant-gallery">
-                <img src="{{ asset('storage/' . $image->image) }}" 
-                     class="rounded-xl shadow-md object-cover w-full h-48 hover:scale-105 transition cursor-pointer" 
-                     alt="Фото ресторана">
-            </a>
-        @endforeach
-    </div>
-</section>
-@endif
+
 
 
 

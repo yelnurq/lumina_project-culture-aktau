@@ -133,6 +133,40 @@
     <input type="text" name="address_kk" value="{{ old('address_kk') }}"
            class="w-full border rounded px-4 py-2" placeholder="Адрес на казахском">
 </div>
+{{-- ---------------------- КОНТАКТЫ ---------------------- --}}
+<hr class="my-6">
+
+<div class="grid md:grid-cols-2 gap-4">
+    <div>
+        <label class="block font-medium mb-1">Телефон</label>
+        <input type="text" name="phone" value="{{ old('phone') }}"
+               class="w-full border rounded px-4 py-2" placeholder="+7 (XXX) XXX-XX-XX">
+    </div>
+    <div>
+        <label class="block font-medium mb-1">Email</label>
+        <input type="email" name="email" value="{{ old('email') }}"
+               class="w-full border rounded px-4 py-2" placeholder="example@mail.com">
+    </div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-4 mt-4">
+    <div>
+        <label class="block font-medium mb-1">Сайт</label>
+        <input type="url" name="website" value="{{ old('website') }}"
+               class="w-full border rounded px-4 py-2" placeholder="https://example.com">
+    </div>
+    <div>
+        <label class="block font-medium mb-1">Instagram</label>
+        <input type="text" name="instagram" value="{{ old('instagram') }}"
+               class="w-full border rounded px-4 py-2" placeholder="@username">
+    </div>
+</div>
+
+<div class="mt-4">
+    <label class="block font-medium mb-1">Рейтинг (0–5)</label>
+    <input type="number" name="rating" value="{{ old('rating') }}" min="0" max="5" step="0.1"
+           class="w-32 border rounded px-4 py-2" placeholder="5">
+</div>
 
 <hr class="my-6">
 
