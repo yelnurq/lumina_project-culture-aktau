@@ -124,6 +124,16 @@
         </div>
     </header>
 @endif
+<header class="shadow  top-0 left-0 w-full z-50 md:flex md:hidden">
+        <div class="w-full flex items-center justify-center p-1">
+            <a href="/" class="flex items-center space-x-6">
+                <span class="text-black font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
+                    Mangystau oblysy
+                </span>
+            </a>
+
+        </div>
+    </header>
 <nav class="fixed bottom-0 left-0 w-full backdrop-blur-md md:hidden" style="z-index: 1000; background-color: rgb(0 0 0 / 62%);">
     <div class="flex justify-around items-center py-2 text-white text-sm font-semibold">
         <!-- Главная -->

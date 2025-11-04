@@ -10,38 +10,38 @@
                 Mangystau oblysy
             </span>
         </a>
-<nav class="flex items-center space-x-6 text-white text-sm font-semibold">
-  <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
-  <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
-  <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
-  <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
-  <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
+    <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
+    <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
+    <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
+    <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
+    <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
+    <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
 
-  <div class="flex items-center space-x-2 ml-4">
-    <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
-      🇷🇺 Рус
-    </button>
-    <span class="text-gray-400">|</span>
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
-      🇬🇧 Eng
-    </button>
-    <span class="text-gray-400">|</span>
-    <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
-      🇰🇿 Qaz
-    </button>
-  </div>
+    <div class="flex items-center space-x-2 ml-4">
+        <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
+        🇷🇺 Рус
+        </button>
+        <span class="text-gray-400">|</span>
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
+        🇬🇧 Eng
+        </button>
+        <span class="text-gray-400">|</span>
+        <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
+        🇰🇿 Qaz
+        </button>
+    </div>
 
-  @auth
-    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
+    @auth
+        <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
 
-    <form action="{{ route('logout') }}" method="POST" class="inline">
-      @csrf
-      <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:15px;">
-        Выйти
-      </button>
-    </form>
-  @endauth
-</nav>
+        <form action="{{ route('logout') }}" method="POST" class="inline">
+        @csrf
+        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:15px;">
+            Выйти
+        </button>
+        </form>
+    @endauth
+    </nav>
 
     </div>
 </header>
@@ -89,7 +89,7 @@
 
 
 @section('content')
-<div class="relative w-full h-[85vh] md:h-[80vh] lg:h-[85vh] overflow-hidden">
+<div class="relative w-full h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
         <source src="{{ asset('media/video.mp4') }}" type="video/mp4" />
         Ваш браузер не поддерживает видео.
@@ -225,7 +225,7 @@
         <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
+<div class="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
         <!-- Карточка 1 -->
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
