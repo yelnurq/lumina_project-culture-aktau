@@ -51,14 +51,15 @@
                 <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
 
                 <div class="relative inline-block text-left">
-                    <select 
-                        onchange="setLang(this.value)" 
-                        class="appearance-none bg-white/10 backdrop-blur-md text-white px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-white/30 hover:border-white transition-colors duration-300"
-                    >
-                    <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
-                    <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
-                        <option class="bg-black/50 text-white" value="en">🇬🇧 UK</option>
-                    </select>
+                <select 
+                    onchange="setLang(this.value)" 
+                    class="appearance-none bg-white/10 backdrop-blur-md text-white px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-white/30 hover:border-white transition-colors duration-300"
+                >
+                    <option class="bg-black/50 text-white" value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>🇷🇺 Рус</option>
+                    <option class="bg-black/50 text-white" value="kk" {{ app()->getLocale() == 'kk' ? 'selected' : '' }}>🇰🇿 Qaz</option>
+                    <option class="bg-black/50 text-white" value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>🇬🇧 UK</option>
+                </select>
+
 
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,14 +96,14 @@
                 <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
 
                                 <div class="relative inline-block text-left">
-                    <select 
-                        onchange="setLang(this.value)" 
-                        class="appearance-none bg-white/10 backdrop-blur-md text-gray px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 transition-colors duration-300"
-                    >
-                    <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
-                    <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
-                        <option class="bg-black/50 text-white" value="en">🇬🇧 UK</option>
-                    </select>
+                <select 
+                    onchange="setLang(this.value)" 
+                    class="appearance-none bg-white/10 backdrop-blur-md text-black px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 transition-colors duration-300"
+                >
+                    <option class="bg-black/50 text-white" value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>🇷🇺 Рус</option>
+                    <option class="bg-black/50 text-white" value="kk" {{ app()->getLocale() == 'kk' ? 'selected' : '' }}>🇰🇿 Qaz</option>
+                    <option class="bg-black/50 text-white" value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>🇬🇧 UK</option>
+                </select>
 
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                         <svg class="w-4 h-4 text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,7 +124,34 @@
         </div>
     </header>
 @endif
+<nav class="fixed bottom-0 left-0 w-full backdrop-blur-md md:hidden" style="z-index: 1000; background-color: rgb(0 0 0 / 62%);">
+    <div class="flex justify-around items-center py-2 text-white text-sm font-semibold">
+        <!-- Главная -->
+        <a href="/" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 12l9-9 9 9v9a3 3 0 01-3 3h-3v-6h-6v6H6a3 3 0 01-3-3v-9z"/>
+            </svg>
+            Главная
+        </a>
 
+        <!-- Культура -->
+        <a href="/culture-list" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 22h16v-2H4v2zm2-4h12v-2H6v2zm1-4h10V6H7v8z"/>
+            </svg>
+            Культура
+        </a>
+
+
+        <!-- Контакты -->
+        <a href="/contacts" class="flex flex-col items-center">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 8V7l-3 2-2-2-3 2-2-2-3 2-2-2v1l2 2-2 2v1l2-2 3 2 2-2 3 2 2-2 3 2V12l-3-2z"/>
+            </svg>
+            Контакты
+        </a>
+    </div>
+</nav>
 
     <main class="flex-grow ">
         @yield('content')

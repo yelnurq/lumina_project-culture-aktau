@@ -25,10 +25,17 @@ class RestaurantController extends Controller
     /**
      * Просмотр одного ресторана
      */
-    public function show(Restaurant $restaurant)
+public function show($id)
 {
-    $restaurant->load(['dishes', 'images']); // Подгружаем связи
-    return view('restaurants.show', compact('restaurant'));
+    $restaurant = Restaurant::with('images', 'dishes')->findOrFail($id);
+
+    // Получаем похожие рестораны (например, просто все кроме текущего)
+    $similarRestaurants = Restaurant::where('id', '!=', $restaurant->id)
+                                    ->orderBy('title_ru')
+                                    ->take(3) // ограничим 3 ресторанами
+                                    ->get();
+
+    return view('restaurants.show', compact('restaurant', 'similarRestaurants'));
 }
 
 

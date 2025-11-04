@@ -294,8 +294,14 @@ function setLang(lang) {
   if (btn) btn.classList.add("text-accent", "font-bold");
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "ru";
-  setLang(savedLang);
+    const savedLang = localStorage.getItem("lang") || "ru";
+    setLang(savedLang);
+
+    // Устанавливаем value select
+    const langSelect = document.querySelector("select");
+    if (langSelect) {
+        langSelect.value = savedLang;
+    }
 });
+

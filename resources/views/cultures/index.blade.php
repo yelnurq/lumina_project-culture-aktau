@@ -28,7 +28,7 @@
     </p>
 </div>
 
-<form method="GET" action="{{ route('cultures.index') }}" class="mb-4 flex flex-col md:flex-row gap-4 items-center">
+<form method="GET" action="{{ route('cultures.index') }}" class="mb-4 flex flex-col md:flex-row gap-4 items-start md:items-auto">
     <input 
         name="search" 
         type="text" 
