@@ -9,26 +9,24 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title_ru',
-        'title_en',
-        'title_kk',
-        'description_ru',
-        'description_en',
-        'description_kk',
-        'image',
-        'latitude',
-        'longitude',
+        'title_ru', 'title_en', 'title_kk',
+        'excerpt_ru', 'excerpt_en', 'excerpt_kk',
+        'description_ru', 'description_en', 'description_kk',
+        'address_ru', 'address_en', 'address_kk',
+        'phone', 'email', 'website', 'working_hours',
+        'instagram', 'facebook', 'telegram',
+        'latitude', 'longitude', 'image', 'slug'
     ];
 
-    public function getTitleAttribute()
+    // 🥘 Связь с блюдами
+    public function dishes()
     {
-        $lang = app()->getLocale(); // автоматически берём текущий язык
-        return $this->{'title_' . $lang} ?? $this->title_ru;
+        return $this->hasMany(RestaurantDish::class);
     }
 
-    public function getDescriptionAttribute()
+    // 🖼 Связь с галереей
+    public function images()
     {
-        $lang = app()->getLocale();
-        return $this->{'description_' . $lang} ?? $this->description_ru;
+        return $this->hasMany(RestaurantImage::class);
     }
 }

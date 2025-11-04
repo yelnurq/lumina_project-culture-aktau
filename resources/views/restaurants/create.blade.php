@@ -95,11 +95,103 @@
             <textarea name="description_kk" rows="4" class="w-full border rounded px-4 py-2" placeholder="Описание на казахском">{{ old('description_kk') }}</textarea>
         </div>
 
-        <div>
+ 
+<div>
+    <label class="block font-medium mb-1">Краткое описание (RU)</label>
+    <textarea name="excerpt_ru" rows="2" class="w-full border rounded px-4 py-2"
+              placeholder="Краткое описание на русском">{{ old('excerpt_ru') }}</textarea>
+</div>
+
+<div>
+    <label class="block font-medium mb-1">Краткое описание (EN)</label>
+    <textarea name="excerpt_en" rows="2" class="w-full border rounded px-4 py-2"
+              placeholder="Краткое описание на английском">{{ old('excerpt_en') }}</textarea>
+</div>
+
+<div>
+    <label class="block font-medium mb-1">Краткое описание (KK)</label>
+    <textarea name="excerpt_kk" rows="2" class="w-full border rounded px-4 py-2"
+              placeholder="Краткое описание на казахском">{{ old('excerpt_kk') }}</textarea>
+</div>
+
+<hr class="my-6">
+
+<div>
+    <label class="block font-medium mb-1">Адрес (RU)</label>
+    <input type="text" name="address_ru" value="{{ old('address_ru') }}"
+           class="w-full border rounded px-4 py-2" placeholder="Адрес на русском">
+</div>
+
+<div>
+    <label class="block font-medium mb-1">Адрес (EN)</label>
+    <input type="text" name="address_en" value="{{ old('address_en') }}"
+           class="w-full border rounded px-4 py-2" placeholder="Адрес на английском">
+</div>
+
+<div>
+    <label class="block font-medium mb-1">Адрес (KK)</label>
+    <input type="text" name="address_kk" value="{{ old('address_kk') }}"
+           class="w-full border rounded px-4 py-2" placeholder="Адрес на казахском">
+</div>
+
+<hr class="my-6">
+
+<div>
+    <label class="block font-medium mb-1">Время работы</label>
+    <input type="text" name="working_hours" value="{{ old('working_hours') }}"
+           class="w-full border rounded px-4 py-2"
+           placeholder="Например: Пн–Вс: 09:00–23:00">
+</div>
+       <div>
             <label class="block font-medium mb-1">Главное изображение</label>
             <input type="file" name="image" accept="image/*" onchange="previewImage(event)" class="w-full">
             <img id="imagePreview" src="#" alt="Превью изображения" class="mt-4 max-h-60 hidden rounded-lg border border-gray-200">
         </div>
+{{-- ---------------------- ДОПОЛНИТЕЛЬНЫЕ ИЗОБРАЖЕНИЯ ---------------------- --}}
+<hr class="my-6">
+
+<div>
+    <label class="block font-medium mb-2">Дополнительные изображения (галерея)</label>
+    <input type="file" name="gallery[]" multiple accept="image/*"
+           onchange="previewGallery(event)" class="w-full">
+    <div id="galleryPreview" class="mt-4 flex flex-wrap gap-3"></div>
+</div>
+
+{{-- ---------------------- ПОПУЛЯРНЫЕ БЛЮДА ---------------------- --}}
+<hr class="my-6">
+
+<div id="dishesSection">
+    <label class="block font-medium mb-2">Популярные блюда</label>
+    <div id="dishesContainer" class="space-y-6">
+        <div class="dish-item border rounded-xl p-4 bg-gray-50">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium mb-1">Название блюда</label>
+                    <input type="text" name="dishes[0][name]" class="w-full border rounded px-4 py-2"
+                           placeholder="Например: Плов с бараниной">
+
+                    <label class="block text-sm font-medium mb-1 mt-3">Описание блюда</label>
+                    <textarea name="dishes[0][description]" rows="2"
+                              class="w-full border rounded px-4 py-2"
+                              placeholder="Краткое описание блюда"></textarea>
+
+      
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Фото блюда</label>
+                    <input type="file" name="dishes[0][image]" accept="image/*" onchange="previewDishImage(event, 0)">
+                    <img id="dishPreview_0" src="#" alt="Фото блюда" class="mt-2 max-h-32 hidden rounded-lg border">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" onclick="addDish()"
+            class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold px-4 py-2 rounded">
+        + Добавить ещё блюдо
+    </button>
+</div>
 
         <div class="text-right">
             <button id="submitBtn" type="submit"
@@ -160,5 +252,65 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
+    // Галерея предпросмотр
+function previewGallery(event) {
+    const container = document.getElementById('galleryPreview');
+    container.innerHTML = '';
+    Array.from(event.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = e => {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.classList.add('h-24', 'w-24', 'object-cover', 'rounded', 'border');
+            container.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+// Динамическое добавление блюд
+let dishIndex = 1;
+function addDish() {
+    const container = document.getElementById('dishesContainer');
+    const dishHTML = `
+        <div class="dish-item border rounded-xl p-4 bg-gray-50">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium mb-1">Название блюда</label>
+                    <input type="text" name="dishes[${dishIndex}][name]" class="w-full border rounded px-4 py-2"
+                           placeholder="Название блюда">
+
+                    <label class="block text-sm font-medium mb-1 mt-3">Описание блюда</label>
+                    <textarea name="dishes[${dishIndex}][description]" rows="2"
+                              class="w-full border rounded px-4 py-2"
+                              placeholder="Описание блюда"></textarea>
+
+          
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Фото блюда</label>
+                    <input type="file" name="dishes[${dishIndex}][image]" accept="image/*"
+                           onchange="previewDishImage(event, ${dishIndex})">
+                    <img id="dishPreview_${dishIndex}" src="#" alt="Фото блюда" class="mt-2 max-h-32 hidden rounded-lg border">
+                </div>
+            </div>
+        </div>
+    `;
+    container.insertAdjacentHTML('beforeend', dishHTML);
+    dishIndex++;
+}
+
+// Предпросмотр фото блюда
+function previewDishImage(event, index) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const preview = document.getElementById(`dishPreview_${index}`);
+        preview.src = e.target.result;
+        preview.classList.remove('hidden');
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
+
 </script>
 @endsection

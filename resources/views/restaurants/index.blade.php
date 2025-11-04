@@ -47,40 +47,64 @@
             </div>
         @else
             <div class="space-y-6">
-                @foreach ($restaurants as $restaurant)
-                    <a href="{{ route('restaurants.show', $restaurant->id) }}" 
-                       class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg hover:-translate-y-1"
-                       data-lat="{{ $restaurant->latitude }}"
-                       data-lng="{{ $restaurant->longitude }}"
-                       data-id="{{ $restaurant->id }}">
-                       
-                        <img src="{{ asset('storage/' . $restaurant->image) }}" 
-                             alt="{{ $restaurant->title_ru }}" 
-                             loading="lazy"
-                             class="w-full md:w-1/3 object-cover h-[300px]">
+               @foreach ($restaurants as $restaurant)
+    <a href="{{ route('restaurants.show', $restaurant->id) }}" 
+       class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg hover:-translate-y-1"
+       data-lat="{{ $restaurant->latitude }}"
+       data-lng="{{ $restaurant->longitude }}"
+       data-id="{{ $restaurant->id }}">
+       
+        {{-- Фото ресторана --}}
+        <img src="{{ asset('storage/' . $restaurant->image) }}" 
+             alt="{{ $restaurant->title_ru }}" 
+             loading="lazy"
+             class="w-full md:w-1/3 object-cover h-[300px]">
 
-                        <div class="p-4 justify-between md:w-2/3">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-xl text-gray-800">{{ $restaurant->title_ru }}</h3>
-                                <span class="text-sm text-gray-500">г. Актау</span>
-                            </div>
+        <div class="p-4 justify-between md:w-2/3">
+            {{-- Название и адрес --}}
+            <div class="flex items-center justify-between flex-wrap">
+                <h3 class="font-bold text-xl text-gray-800">{{ $restaurant->title_ru }}</h3>
+                @if ($restaurant->address_ru)
+                    <span class="text-sm text-gray-500">{{ $restaurant->address_ru }}</span>
+                @endif
+            </div>
 
-                            <div class="flex items-center text-yellow-400 mt-2">
-                                <span>⭐️⭐️⭐️⭐️☆</span>
-                                <span class="ml-2 text-gray-600 text-sm">4.7</span>
-                            </div>
+            {{-- Рейтинг (опционально, можно заменить на реальный) --}}
+            <div class="flex items-center text-yellow-400 mt-2">
+                <span>⭐️⭐️⭐️⭐️☆</span>
+                <span class="ml-2 text-gray-600 text-sm">4.7</span>
+            </div>
 
-                            <p class="text-gray-700 mt-3 font-medium">Казахская и европейская кухня</p>
-                            <p class="text-gray-800 text-sm mt-3">{{ Str::limit($restaurant->description_ru, 250) }}</p>
+            {{-- Краткое описание (excerpt) --}}
+            @if ($restaurant->excerpt_ru)
+                <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                    {{ Str::limit($restaurant->excerpt_ru, 160) }}
+                </p>
+            @else
+                <p class="text-gray-700 mt-3 text-sm">{{ Str::limit($restaurant->description_ru, 180) }}</p>
+            @endif
 
-                            <div class="mt-4 flex items-center gap-3 text-sm text-blue-600">
-                                <i class="fa-solid fa-phone"></i> +7 (7292) 55‒55‒55
-                                <span class="text-gray-400">•</span>
-                                <i class="fa-solid fa-clock"></i> 10:00 — 23:00
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
+            {{-- Контактная информация --}}
+            <div class="mt-4 flex items-center gap-3 text-sm text-blue-600 flex-wrap">
+                @if ($restaurant->phone)
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> 
+                        <span>{{ $restaurant->phone }}</span>
+                    </div>
+                    <span class="text-gray-400">•</span>
+                @endif
+
+                @if ($restaurant->working_hours)
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>{{ $restaurant->working_hours }}</span>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </a>
+@endforeach
+
             </div>
         @endif
 
@@ -89,32 +113,7 @@
         </div>
     </div>
 
-    {{-- 🔹 Блок «Популярные категории» --}}
-    <div class="mt-20 border-t border-gray-200 pt-10">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Популярные категории</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="rounded-xl shadow-md bg-white p-4 flex flex-col items-center hover:bg-blue-50 transition">
-                <img src="/images/icons/fastfood.png" alt="" class="w-12 h-12 mb-2">
-                <h4 class="font-semibold">Фастфуд</h4>
-                <p class="text-sm text-gray-500">24 ресторана</p>
-            </div>
-            <div class="rounded-xl shadow-md bg-white p-4 flex flex-col items-center hover:bg-blue-50 transition">
-                <img src="/images/icons/steak.png" alt="" class="w-12 h-12 mb-2">
-                <h4 class="font-semibold">Гриль и мясо</h4>
-                <p class="text-sm text-gray-500">18 ресторанов</p>
-            </div>
-            <div class="rounded-xl shadow-md bg-white p-4 flex flex-col items-center hover:bg-blue-50 transition">
-                <img src="/images/icons/coffee.png" alt="" class="w-12 h-12 mb-2">
-                <h4 class="font-semibold">Кофейни</h4>
-                <p class="text-sm text-gray-500">30 заведений</p>
-            </div>
-            <div class="rounded-xl shadow-md bg-white p-4 flex flex-col items-center hover:bg-blue-50 transition">
-                <img src="/images/icons/fish.png" alt="" class="w-12 h-12 mb-2">
-                <h4 class="font-semibold">Морепродукты</h4>
-                <p class="text-sm text-gray-500">12 ресторанов</p>
-            </div>
-        </div>
-    </div>
+
 
     {{-- 🔹 Рекомендованные рестораны --}}
     <div class="mt-20">
