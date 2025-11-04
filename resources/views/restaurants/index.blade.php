@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="mx-4 md:mx-24 mt-[40px] mb-16">
 
 <div class="pb-6 border-b border-gray-300 mb-6">
