@@ -34,23 +34,29 @@
         <div class="space-y-6">
             @foreach ($restaurants as $restaurant)
                 <a href="{{ route('restaurants.show', $restaurant->id) }}" 
-                   class="relative bg-white rounded-[12px] shadow-lg overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 "
+                   class="relative  rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 "
                    data-lat="{{ $restaurant->latitude }}"
                    data-lng="{{ $restaurant->longitude }}"
                    data-id="{{ $restaurant->id }}">
                    
-                    <!-- Изображение -->
                     <img src="{{ asset('storage/' . $restaurant->image) }}" 
                          alt="{{ $restaurant->title_ru }}" 
                          loading="lazy"
-                         class="w-full md:w-1/3 object-cover h-64 md:h-auto">
+                         class="w-full md:w-1/3 object-cover h-20 md:h-auto" style="height: 350px">
 
-                    <!-- Контент -->
-                    <div class="p-4 flex flex-col justify-between md:w-2/3">
+                    <div class="p-4 justify-between md:w-2/3">
                         <h3 class="font-bold text-xl text-gray-800">{{ $restaurant->title_ru }}</h3>
-                        <p class="text-gray-600 mt-2 text-sm">{{ Str::limit($restaurant->description_ru, 150) }}</p>
-                        <span class="mt-4 inline-block text-blue-600 font-semibold hover:underline">Подробнее →</span>
+
+                        <div class="flex items-center text-yellow-400" style="margin: 5px 0">
+                            <span>⭐️⭐️⭐️⭐️⭐️</span>
+                            <span class="ml-2 text-gray-600 text-sm">5.0</span>
+                        </div>
+
+                        <p class="text-gray-700" style="margin: 20px 0; font-weight:400">Казахская кухня</p>
+                        <p class="text-gray-800 text-m" style="font-weight: 500; ">{{ Str::limit($restaurant->description_ru, 350) }}</p>
+
                     </div>
+
                 </a>
             @endforeach
         </div>
