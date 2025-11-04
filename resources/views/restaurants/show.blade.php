@@ -35,7 +35,7 @@
 <div class="container mx-auto px-6 max-w-6xl mt-[40px] font-montserrat text-gray-900" style="padding-bottom: 60px;">
 
 <section class="mb-12">
-    <div class="grid md:grid-cols-10 gap-4 items-start">
+    <div class="grid md:grid-cols-10 gap-4 items-stretch">
         {{-- Главное изображение 60% --}}
         @if($restaurant->image)
             <img src="{{ asset('storage/' . $restaurant->image) }}" 

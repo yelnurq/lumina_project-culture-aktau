@@ -296,6 +296,6 @@ function setLang(lang) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "en";
+  const savedLang = localStorage.getItem("lang") || "ru";
   setLang(savedLang);
 });

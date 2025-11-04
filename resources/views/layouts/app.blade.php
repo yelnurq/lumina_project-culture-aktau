@@ -44,20 +44,20 @@
                 </span>
             </a>
             <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
-                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
-                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
-                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
-                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
-                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
+                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
 
                 <div class="relative inline-block text-left">
                     <select 
                         onchange="setLang(this.value)" 
                         class="appearance-none bg-white/10 backdrop-blur-md text-white px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-white/30 hover:border-white transition-colors duration-300"
                     >
+                    <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
+                    <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
                         <option class="bg-black/50 text-white" value="en">🇬🇧 UK</option>
-                        <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
-                        <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
                     </select>
 
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -88,20 +88,20 @@
                 </span>
             </a>
             <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
-                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
-                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
-                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
-                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
-                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
+                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
 
                                 <div class="relative inline-block text-left">
                     <select 
                         onchange="setLang(this.value)" 
                         class="appearance-none bg-white/10 backdrop-blur-md text-gray px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 transition-colors duration-300"
                     >
+                    <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
+                    <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
                         <option class="bg-black/50 text-white" value="en">🇬🇧 UK</option>
-                        <option class="bg-black/50 text-white" value="kk">🇰🇿 Qaz</option>
-                        <option class="bg-black/50 text-white" value="ru">🇷🇺 Рус</option>
                     </select>
 
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
