@@ -274,34 +274,54 @@ const translations = {
 
   }
 };
-
 function setLang(lang) {
+  // Обновляем тексты интерфейса (как и раньше)
   document.querySelectorAll("[data-lang]").forEach(el => {
     const key = el.getAttribute("data-lang");
-    if (translations[lang][key]) {
-      if (key.includes("title") || key.includes("desc")) {
-        el.innerHTML = translations[lang][key]; 
-      } else {
-        el.textContent = translations[lang][key];
-      }
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
     }
   });
 
+  // Сохраняем язык
   localStorage.setItem("lang", lang);
 
+  // Меняем активную кнопку
   document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("text-accent", "font-bold"));
   const btn = document.querySelector(`#btn-${lang}`);
   if (btn) btn.classList.add("text-accent", "font-bold");
+
+  // ---- AJAX: подгружаем данные ресторана ----
+  const restaurantId = document.querySelector("meta[name='restaurant-id']")?.content;
+  if (!restaurantId) return;
+
+  fetch(`/restaurants/${restaurantId}?lang=${lang}`, {
+    headers: {
+      "X-Requested-With": "XMLHttpRequest"
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.querySelector("#restaurant-title").textContent = data.title;
+    document.querySelector("#restaurant-description").innerHTML = data.description.replace(/\n/g, "<br>");
+    document.querySelector("#restaurant-address").textContent = data.address;
+
+    // Можно обновить карту, если нужно:
+    if (typeof ymaps !== "undefined" && data.latitude && data.longitude) {
+      ymaps.ready(() => {
+        const map = new ymaps.Map('map', {
+          center: [data.latitude, data.longitude],
+          zoom: 14
+        });
+        const placemark = new ymaps.Placemark([data.latitude, data.longitude], { hintContent: data.title });
+        map.geoObjects.add(placemark);
+      });
+    }
+  })
+  .catch(err => console.error("Ошибка загрузки данных ресторана:", err));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("lang") || "ru";
-    setLang(savedLang);
-
-    // Устанавливаем value select
-    const langSelect = document.querySelector("select");
-    if (langSelect) {
-        langSelect.value = savedLang;
-    }
+  const savedLang = localStorage.getItem("lang") || "ru";
+  setLang(savedLang);
 });
-

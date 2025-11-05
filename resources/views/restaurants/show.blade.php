@@ -1,26 +1,12 @@
 @extends('layouts.app')
 
-@section("header")
-<div style="background:rgb(17 24 39);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
-    Мангистауский Колледж Туризма
-</div>
-<header class="shadow top-0 left-0 w-full z-50 hidden md:flex bg-white">
-    <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
-        <a href="/" class="flex items-center space-x-6">
-            <span class="text-black font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
-                Mangystau oblysy
-            </span>
-        </a>
-        <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
-            <a style="font-weight:400; font-size:15px;" href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;" href="/restaurants" class="hover:text-accent transition-colors duration-300">Рестораны</a>
-            <a style="font-weight:400; font-size:15px;" href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
-        </nav>
-    </div>
-</header>
+@section("restaurant_meta")
+<meta name="restaurant-id" content="{{ $restaurant->id }}">
+
 @endsection
 
 @section('content')
+
 {{-- Баннер --}}
 <div class="relative w-full h-[35vh] md:h-[45vh] overflow-hidden">
     <img src="{{ asset('storage/' . $restaurant->image) }}"
@@ -47,7 +33,7 @@
                 </a>            
             </li>
             <li>/</li>
-            <li class="text-gray-700">
+            <li class="text-gray-700" id="restaurant-title">
                 {{ $restaurant->title_ru }}
             </li>
         </ol>
@@ -113,8 +99,7 @@
     </div>
 </div>
 
-
-<div class="mt-6 text-gray-800 text-[16px] leading-relaxed text-left md:text-justify">
+<div id="restaurant-description" class="mt-6 text-gray-800 text-[16px] leading-relaxed text-left md:text-justify">
     {!! nl2br(e($restaurant->description_ru)) !!}
 </div>
 
@@ -128,7 +113,7 @@
         <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Контактная информация</h2>
         <ul class="text-[#444] space-y-2 list-disc pl-5 text-[16px]">
             @if ($restaurant->address_ru)
-                <li><span class="font-medium">Адрес:</span> {{ $restaurant->address_ru }}</li>
+                <li id="restaurant-address"><span class="font-medium">Адрес:</span> {{ $restaurant->address_ru }}</li>
             @endif
             @if ($restaurant->phone)
                 <li><span class="font-medium">Телефон:</span> {{ $restaurant->phone }}</li>

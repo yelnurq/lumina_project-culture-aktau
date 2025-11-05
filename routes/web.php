@@ -22,6 +22,9 @@ Route::get('restaurants', [RestaurantController::class, 'index'])->name('restaur
 Route::get('/contacts', function() {
      return view("contact");
 })->name("contact");
+Route::get('/about', function() {
+     return view("about");
+})->name("about");
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 // Админка
@@ -47,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
 // Публичные страницы
 Route::get('news/{news}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/cultures/{id}', [CultureController::class, 'show'])->name('cultures.show');
-Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
+Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurants.show');
 
 
 // Удаление — только для superadmin
