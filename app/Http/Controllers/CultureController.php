@@ -49,66 +49,71 @@ public function index(Request $request)
         $regions = Region::all();
         return view('cultures.create', compact('categories', 'regions'));
     }
+
     public function show($id)
     {
         $culture = Culture::with(['category', 'images'])->findOrFail($id);
-        return view('cultures.show', compact('culture'));
-    }
 
+        $relatedCultures = Culture::where('id', '!=', $id)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('cultures.show', compact('culture', 'relatedCultures'));
+    }
 
     public function store(Request $request)
-{
-    $validated = $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'category_id' => 'required|exists:categories,id',
-        'latitude' => 'required|numeric',
-        'longitude' => 'required|numeric',
-        'image' => 'nullable|image|max:5120',
-        'images.*' => 'nullable|image|max:5120', 
-        'youtube_link' => 'nullable|url',
-    ]);
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'category_id' => 'required|exists:categories,id',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+            'image' => 'nullable|image|max:5120',
+            'images.*' => 'nullable|image|max:5120', 
+            'youtube_link' => 'nullable|url',
+        ]);
 
-    $mainImagePath = null;
+        $mainImagePath = null;
 
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $filename = uniqid() . '.webp';
-        $pathToSave = storage_path('app/public/cultures/' . $filename);
-
-        Image::read($image)
-            ->save($pathToSave, quality: 60); 
-
-        $mainImagePath = 'cultures/' . $filename;
-    }
-
-    $culture = Culture::create([
-        'title' => $validated['title'],
-        'description' => $validated['description'],
-        'category_id' => $validated['category_id'],
-        'latitude' => $validated['latitude'],
-        'longitude' => $validated['longitude'],
-        'image' => $mainImagePath,
-        'youtube_link' => $validated['youtube_link'] ?? null,
-    ]);
-
-    if ($request->hasFile('images')) {
-        foreach ($request->file('images') as $image) {
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
             $filename = uniqid() . '.webp';
-            $pathToSave = storage_path('app/public/culture_images/' . $filename);
+            $pathToSave = storage_path('app/public/cultures/' . $filename);
 
             Image::read($image)
-                ->save($pathToSave, quality: 60);
+                ->save($pathToSave, quality: 60); 
 
-            $culture->images()->create([
-                'image_path' => 'culture_images/' . $filename
-            ]);
+            $mainImagePath = 'cultures/' . $filename;
         }
+
+        $culture = Culture::create([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'category_id' => $validated['category_id'],
+            'latitude' => $validated['latitude'],
+            'longitude' => $validated['longitude'],
+            'image' => $mainImagePath,
+            'youtube_link' => $validated['youtube_link'] ?? null,
+        ]);
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $filename = uniqid() . '.webp';
+                $pathToSave = storage_path('app/public/culture_images/' . $filename);
+
+                Image::read($image)
+                    ->save($pathToSave, quality: 60);
+
+                $culture->images()->create([
+                    'image_path' => 'culture_images/' . $filename
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('success', 'Объект добавлен!');
     }
-
-    return redirect()->back()->with('success', 'Объект добавлен!');
-}
-
 
     public function destroy(Culture $culture)
     {

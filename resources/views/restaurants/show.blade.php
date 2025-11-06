@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="container mx-auto px-6 max-w-6xl mt-[40px] font-montserrat text-gray-900" style="padding-bottom: 60px;">
+<div class="container mx-auto px-6 max-w-6xl mt-10 font-montserrat text-gray-900" style="padding-bottom: 60px;">
     <nav class="text-sm text-gray-500 mb-4">
         <ol class="list-reset flex space-x-2">
             <li>

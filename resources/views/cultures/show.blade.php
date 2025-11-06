@@ -1,36 +1,6 @@
 @extends('layouts.app')
 
-@section("header")
-<div style="background:rgb(17 24 39);" class="w-full text-white text-center py-2 text-sm font-semibold tracking-wide">
-    Мангистауский Колледж Туризма
-</div>
-<header class="shadow top-0 left-0 w-full z-50 hidden md:flex bg-white" >
-    <div class="w-full flex items-center justify-between p-4 "
-         style="padding-left:50px;padding-right:50px">
-        <a href="/" class="flex items-center space-x-6">
-            <span class="text-black font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
-                Mangystau oblysy
-            </span>
-        </a>
-        <nav class="space-x-6 text-black text-sm font-semibold flex items-center">
-            <a style="font-weight:400; font-size:15px;"  href="/" class="hover:text-accent transition-colors duration-300">Главная</a>
-            <a style="font-weight:400; font-size:15px;"  href="/culture-list" class="hover:text-accent transition-colors duration-300">Объекты культуры</a>
-            <a style="font-weight:400; font-size:15px;"  href="/contacts" class="hover:text-accent transition-colors duration-300">Контакты</a>
 
-            @auth
-                <a style="font-weight:400; font-size:15px;"  href="{{ route('admin.index') }}" class="hover:text-accent transition-colors duration-300">Админ-панель</a>
-
-                <form action="{{ route('logout') }}" method="POST" class="inline">
-                    @csrf
-                    <button type="submit"  style="font-weight:400; font-size:15px;" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer">
-                        Выйти
-                    </button>
-                </form>
-            @endauth
-        </nav>
-    </div>
-</header>
-@endsection
 @section('content')
 
 {{-- Баннер с слайдером --}}
@@ -103,7 +73,7 @@
             </li>
             <li>/</li>
             <li >
-                <a href="/culture-list" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_current">
+                <a href="/culture-list" class="hover:underline text-blue-600" data-lang="culture_breadcrumb_current">
                     Объекты культуры
                 </a>            
             </li>
@@ -138,7 +108,7 @@
     </section>
 
 <section class="mb-12">
-    <h2 class="text-[18px] font-medium mb-4 text-[#444]">Галерея</h2>
+    <h2 class="text-xl font-semibold mb-4 text-gray-800">Галерея</h2>
     @if($culture->images && $culture->images->count() > 0)
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             @foreach($culture->images as $img)
@@ -166,7 +136,7 @@
 
 
     <section class="mb-12">
-        <h2 class="text-[18px] font-medium mb-4 text-[#444]">Дополнительная информация</h2>
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Дополнительная информация</h2>
         <ul class="text-[#444] space-y-2 list-disc pl-5 text-[16px]">
             <li><span class="font-medium">Широта:</span> {{ $culture->latitude }}</li>
             <li><span class="font-medium">Долгота:</span> {{ $culture->longitude }}</li>
@@ -174,12 +144,12 @@
     </section>
 
     <section class="mb-12">
-        <h2 class="text-[18px] font-medium mb-4 text-[#444]">Расположение на карте</h2>
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Расположение на карте</h2>
         <div id="map" class="rounded-xl shadow-lg overflow-hidden h-[550px]"></div>
     </section>
 
     <section class="mb-12">
-        <h2 class="text-[18px] font-medium mb-4 text-[#444]">Видео объекта</h2>
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Видео объекта</h2>
         @if($culture->youtube_link)
             <div class="w-full rounded-xl overflow-hidden shadow-lg aspect-video">
                 <iframe 
@@ -242,20 +212,51 @@
 
     </div>
 </section>
- <section class="mb-12">
-        <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Еще объекты культур</h2>
-        <div class="grid md:grid-cols-3 gap-5">
-            @foreach (range(1,3) as $i)
-                <a href="#" class="block rounded-xl overflow-hidden border hover:shadow-lg transition">
-                    <img src="https://placehold.co/400x250?text=Restaurant+{{ $i }}" class="w-full h-52 object-cover" alt="Ресторан {{ $i }}">
+<section class="mb-12">
+    <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Еще объекты культур</h2>
+
+    <div class="grid md:grid-cols-3 gap-5">
+        @if(isset($relatedCultures) && $relatedCultures->count())
+            @foreach ($relatedCultures as $item)
+                <a href="{{ route('cultures.show', $item->id) }}" 
+                   class="block rounded-xl overflow-hidden border hover:shadow-lg transition bg-white">
+                    @if ($item->images->first())
+                        <img src="{{ asset('storage/' . $item->image) }}" 
+                             alt="{{ $item->title }}" 
+                             class="w-full h-52 object-cover">
+                    @else
+                        <img src="https://placehold.co/400x250?text=Culture" 
+                             class="w-full h-52 object-cover" 
+                             alt="{{ $item->title }}">
+                    @endif
+
                     <div class="p-4">
-                        <h3 class="font-semibold text-gray-800">Ресторан {{ $i }}</h3>
-                        <p class="text-gray-600 text-sm mt-1">Короткое описание заведения.</p>
+                        <h3 class="font-semibold text-gray-800">
+                            {{ $item->title ?? 'Без названия' }}
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 line-clamp-3">
+                            {{ Str::limit($item->description, 100) ?? 'Описание отсутствует.' }}
+                        </p>
                     </div>
                 </a>
             @endforeach
-        </div>
-    </section>
+        @else
+            @foreach (range(1,3) as $i)
+                <a href="#" class="block rounded-xl overflow-hidden border hover:shadow-lg transition bg-white">
+                    <img src="https://placehold.co/400x250?text=Culture+{{ $i }}" 
+                         class="w-full h-52 object-cover" 
+                         alt="Культура {{ $i }}">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Культурный объект {{ $i }}</h3>
+                        <p class="text-gray-600 text-sm mt-1">Краткое описание объекта культурного наследия.</p>
+                    </div>
+                </a>
+            @endforeach
+        @endif
+    </div>
+</section>
+
+
     <div class="mt-12 flex justify-end">
         <a href="/cultures" class="inline-block bg-primary text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-gray-800 transition">
             ← Назад ко всем объектам

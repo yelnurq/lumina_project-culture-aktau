@@ -100,7 +100,6 @@
     </div>
 </header>
 
-<!-- Перенёс overlay и drawer наружу header чтобы затемнялся весь экран (header z < overlay z < menu z) -->
 <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden md:hidden opacity-0 transition-opacity duration-300"
      aria-hidden="true"></div>
 
@@ -184,50 +183,56 @@
 })();
 </script>
 @else
-    <header class="shadow top-0 left-0 w-full z-50 hidden md:flex">
-        <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
-            <a href="/" class="flex items-center space-x-6">
-                <span class="text-black font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
-                    Mangystau oblysy
-                </span>
-            </a>
-            <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
-                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+<header class="relative shadow top-0 left-0 w-full z-50 hidden md:flex bg-white overflow-hidden">
+        <div class="absolute inset-0"
+            style="
+                background-image: url('/images/icon.svg'), url('/images/icon.svg');
+                background-repeat: repeat-x, repeat-x;
+                background-position: top -55px left, bottom -55px left;
+                background-size: 80px auto;
+                opacity: 0.25;
+                pointer-events: none;
+            ">
+        </div>
 
-                                <div class="relative inline-block text-left">
+    <div class="w-full flex items-center justify-between p-4 relative z-10" style="padding-left:50px;padding-right:50px">
+        <a href="/" class="flex items-center space-x-6">
+            <span class="text-black font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
+                Mangystau oblysy
+            </span>
+        </a>
+
+        <!-- навигация -->
+        <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
+            <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+            <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+            <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+            <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+            <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+             <div class="relative inline-block text-left">
                 <select 
                     onchange="setLang(this.value)" 
-                    class="appearance-none bg-white/10 backdrop-blur-md text-black px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 transition-colors duration-300"
+                    class="appearance-none bg-white/10 backdrop-blur-md text-black px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 hover:border-black/40 transition-colors duration-300"
                 >
                     <option class="bg-black/50 text-white" value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>🇷🇺 Рус</option>
                     <option class="bg-black/50 text-white" value="kk" {{ app()->getLocale() == 'kk' ? 'selected' : '' }}>🇰🇿 Qaz</option>
                     <option class="bg-black/50 text-white" value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>🇬🇧 UK</option>
                 </select>
 
+
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                        <svg class="w-4 h-4 text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
                 </div>
+        </nav>
+    </div>
+</header>
 
 
-                @auth
-                    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
-                    <form action="{{ route('logout') }}" method="POST" class="inline">
-                        @csrf
-                        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-black" style="font-weight:400; font-size:15px;">Выйти</button>
-                    </form>
-                @endauth
-            </nav>
-        </div>
-    </header>
     <header class="shadow top-0 left-0 w-full md:hidden bg-transparent backdrop-blur-sm" style="z-index:50;">
-    <div class="w-full flex items-center justify-between p-3 px-4">
+        <div class="w-full flex items-center justify-between p-3 px-4">
         <a href="/" class="flex items-center space-x-3">
             <img src="/images/logo.svg" alt="Mangystau oblysy" class="h-8 w-auto object-contain" onerror="this.style.display='none'">
             <span class="text-black font-semibold text-base" style="font-weight:600; font-size:15px;">
@@ -243,10 +248,9 @@
             </svg>
             <span class="sr-only">Открыть меню</span>
         </button>
-    </div>
-</header>
+        </div>
+    </header>
 
-<!-- Перенёс overlay и drawer наружу header чтобы затемнялся весь экран (header z < overlay z < menu z) -->
 <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden md:hidden opacity-0 transition-opacity duration-300"
      aria-hidden="true"></div>
 

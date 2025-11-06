@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="mx-2 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
-
+{{-- <div class="mx-auto px-6 max-w-6xl mt-10 mb-16"> --}}
+<div class="px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
     {{-- 🔹 Навигация --}}
     <div class="pb-6 border-b border-gray-300 mb-6">
         <nav class="text-sm text-gray-500 mb-4">
@@ -61,7 +61,7 @@
             <div class="space-y-6">
                 @foreach ($restaurants as $restaurant)
                 <a href="{{ route('restaurants.show', $restaurant->id) }}" 
-                   class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg hover:-translate-y-1 bg-white"
+                   class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg  bg-white"
                    data-lat="{{ $restaurant->latitude }}"
                    data-lng="{{ $restaurant->longitude }}"
                    data-id="{{ $restaurant->id }}">
