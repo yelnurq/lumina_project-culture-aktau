@@ -275,11 +275,12 @@ const translations = {
   }
 };
 function setLang(lang) {
-  // Обновляем тексты интерфейса (как и раньше)
+  // Обновляем тексты интерфейса
   document.querySelectorAll("[data-lang]").forEach(el => {
     const key = el.getAttribute("data-lang");
     if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
+      // ✅ используем innerHTML, чтобы <br> и другие теги отображались
+      el.innerHTML = translations[lang][key];
     }
   });
 
@@ -287,7 +288,9 @@ function setLang(lang) {
   localStorage.setItem("lang", lang);
 
   // Меняем активную кнопку
-  document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("text-accent", "font-bold"));
+  document.querySelectorAll(".lang-btn").forEach(btn =>
+    btn.classList.remove("text-accent", "font-bold")
+  );
   const btn = document.querySelector(`#btn-${lang}`);
   if (btn) btn.classList.add("text-accent", "font-bold");
 
@@ -300,25 +303,28 @@ function setLang(lang) {
       "X-Requested-With": "XMLHttpRequest"
     }
   })
-  .then(res => res.json())
-  .then(data => {
-    document.querySelector("#restaurant-title").textContent = data.title;
-    document.querySelector("#restaurant-description").innerHTML = data.description.replace(/\n/g, "<br>");
-    document.querySelector("#restaurant-address").textContent = data.address;
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector("#restaurant-title").innerHTML = data.title;
+      // ✅ innerHTML + <br> вместо textContent
+      document.querySelector("#restaurant-description").innerHTML = data.description.replace(/\n/g, "<br>");
+      document.querySelector("#restaurant-address").innerHTML = data.address;
 
-    // Можно обновить карту, если нужно:
-    if (typeof ymaps !== "undefined" && data.latitude && data.longitude) {
-      ymaps.ready(() => {
-        const map = new ymaps.Map('map', {
-          center: [data.latitude, data.longitude],
-          zoom: 14
+      // Обновляем карту
+      if (typeof ymaps !== "undefined" && data.latitude && data.longitude) {
+        ymaps.ready(() => {
+          const map = new ymaps.Map("map", {
+            center: [data.latitude, data.longitude],
+            zoom: 14
+          });
+          const placemark = new ymaps.Placemark([data.latitude, data.longitude], {
+            hintContent: data.title
+          });
+          map.geoObjects.add(placemark);
         });
-        const placemark = new ymaps.Placemark([data.latitude, data.longitude], { hintContent: data.title });
-        map.geoObjects.add(placemark);
-      });
-    }
-  })
-  .catch(err => console.error("Ошибка загрузки данных ресторана:", err));
+      }
+    })
+    .catch(err => console.error("Ошибка загрузки данных ресторана:", err));
 }
 
 document.addEventListener("DOMContentLoaded", () => {

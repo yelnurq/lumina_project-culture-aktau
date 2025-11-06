@@ -2,56 +2,54 @@
 
 @section('content')
 
-<div class="mx-4 md:mx-24 mt-[40px] mb-16">
+<div class="mx-2 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
 
-<div class="pb-6 border-b border-gray-300 mb-6">
-    <nav class="text-sm text-gray-500 mb-4">
-        <ol class="list-reset flex space-x-2">
-            <li>
-                <a href="/" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_home">
-                    Главная
-                </a>
-            </li>
-            <li>/</li>
-            <li class="text-gray-700" data-lang="restaurant_breadcrumb_current">
-                Вкусно покушать
-            </li>
-        </ol>
-    </nav>
+    {{-- 🔹 Навигация --}}
+    <div class="pb-6 border-b border-gray-300 mb-6">
+        <nav class="text-sm text-gray-500 mb-4">
+            <ol class="list-reset flex flex-wrap justify-left md:justify-start space-x-2">
+                <li>
+                    <a href="/" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_home">
+                        Главная
+                    </a>
+                </li>
+                <li>/</li>
+                <li class="text-gray-700" data-lang="restaurant_breadcrumb_current">
+                    Вкусно покушать
+                </li>
+            </ol>
+        </nav>
 
-    <h1 class="text-3xl font-bold text-gray-800" data-lang="restaurant_header_title">
-        Рестораны Мангистауской области
-    </h1>
-    <p class="text-gray-600 mt-2 text-sm" data-lang="restaurant_header_description">
-        Каталог лучших заведений региона с описаниями, рейтингами и координатами на карте.
-    </p>
-</div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 text-left md:text-left" data-lang="restaurant_header_title">
+            Рестораны Мангистауской области
+        </h1>
+        <p class="text-gray-600 mt-2 text-sm sm:text-base text-left md:text-left" data-lang="restaurant_header_description">
+            Каталог лучших заведений региона с описаниями, рейтингами и координатами на карте.
+        </p>
+    </div>
 
-{{-- 🔹 Фильтры и поиск --}}
-<div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
-    <div class="flex items-center space-x-4 text-sm font-semibold">
+    {{-- 🔹 Переключатель "Список / Карта" --}}
+    <div class="mb-6 flex flex-wrap gap-2 text-sm font-semibold">
         <button 
             onclick="switchTab('list')" 
             id="listTab" 
-            class="px-4 py-2 rounded-lg bg-blue-600 text-white"
-            data-lang="restaurant_tab_list"
+            class="px-4 py-2 rounded-lg bg-blue-600 text-white flex-1 md:flex-none"
+            data-lang="culture_tab_list"
         >
             Список
         </button>
         <button 
             onclick="switchTab('map')" 
             id="mapTab" 
-            class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700"
-            data-lang="restaurant_tab_map"
+            class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 flex-1 md:flex-none"
+            data-lang="culture_tab_map"
         >
             На карте
         </button>
     </div>
-</div>
-
 
     {{-- 🔹 Карта --}}
-    <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[700px] border border-gray-200 hidden"></div>
+    <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[400px] sm:h-[600px] md:h-[700px] border border-gray-200 hidden"></div>
 
     {{-- 🔹 Список ресторанов --}}
     <div id="listSection">
@@ -59,67 +57,61 @@
             <div class="text-center text-gray-500 text-lg py-16" data-lang="restaurant_empty_message">
                 Пока нет ресторанов.
             </div>
-
         @else
             <div class="space-y-6">
-               @foreach ($restaurants as $restaurant)
-    <a href="{{ route('restaurants.show', $restaurant->id) }}" 
-       class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg hover:-translate-y-1"
-       data-lat="{{ $restaurant->latitude }}"
-       data-lng="{{ $restaurant->longitude }}"
-       data-id="{{ $restaurant->id }}">
-       
-        {{-- Фото ресторана --}}
-        <img src="{{ asset('storage/' . $restaurant->image) }}" 
-             alt="{{ $restaurant->title_ru }}" 
-             loading="lazy"
-             class="w-full md:w-1/3 object-cover h-[300px]">
+                @foreach ($restaurants as $restaurant)
+                <a href="{{ route('restaurants.show', $restaurant->id) }}" 
+                   class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg hover:-translate-y-1 bg-white"
+                   data-lat="{{ $restaurant->latitude }}"
+                   data-lng="{{ $restaurant->longitude }}"
+                   data-id="{{ $restaurant->id }}">
+                   
+                    {{-- Фото ресторана --}}
+                    <img src="{{ asset('storage/' . $restaurant->image) }}" 
+                         alt="{{ $restaurant->title_ru }}" 
+                         loading="lazy"
+                         class="w-full md:w-1/3 object-cover h-[220px] sm:h-[280px] md:h-[300px]">
 
-        <div class="p-4 justify-between md:w-2/3">
-            {{-- Название и адрес --}}
-            <div class="flex items-center justify-between flex-wrap">
-                <h3 class="font-bold text-xl text-gray-800">{{ $restaurant->title_ru }}</h3>
-                @if ($restaurant->address_ru)
-                    <span class="text-sm text-gray-500">{{ $restaurant->address_ru }}</span>
-                @endif
-            </div>
+                    <div class="p-4 sm:p-6 flex flex-col justify-between md:w-2/3">
+                        {{-- Название и адрес --}}
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h3 class="font-bold text-xl text-gray-800">{{ $restaurant->title_ru }}</h3>
+                            @if ($restaurant->address_ru)
+                                <span class="text-sm text-gray-500">{{ $restaurant->address_ru }}</span>
+                            @endif
+                        </div>
 
-            {{-- Рейтинг (опционально, можно заменить на реальный) --}}
-            <div class="flex items-center text-yellow-400 mt-2">
-                <span>⭐️⭐️⭐️⭐️☆</span>
-                <span class="ml-2 text-gray-600 text-sm">4.7</span>
-            </div>
+                        {{-- Рейтинг --}}
+                        <div class="flex items-center text-yellow-400 mt-2">
+                            <span>⭐️⭐️⭐️⭐️☆</span>
+                            <span class="ml-2 text-gray-600 text-sm">4.7</span>
+                        </div>
 
-            {{-- Краткое описание (excerpt) --}}
-            @if ($restaurant->excerpt_ru)
-                <p class="text-gray-700 mt-3 text-sm leading-relaxed">
-                    {{ $restaurant->excerpt_ru}}
-                </p>
-            @else
-                <p class="text-gray-700 mt-3 text-sm">{{ $restaurant->excerpt_en}}</p>
-            @endif
+                        {{-- Краткое описание --}}
+                        <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                            {{ $restaurant->excerpt_ru ?? $restaurant->excerpt_en }}
+                        </p>
 
-            {{-- Контактная информация --}}
-            <div class="mt-4 flex items-center gap-3 text-sm text-blue-600 flex-wrap">
-                @if ($restaurant->phone)
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-phone"></i> 
-                        <span>{{ $restaurant->phone }}</span>
+                        {{-- Контактная информация --}}
+                        <div class="mt-4 flex items-center gap-3 text-sm text-blue-600 flex-wrap">
+                            @if ($restaurant->phone)
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> 
+                                    <span>{{ $restaurant->phone }}</span>
+                                </div>
+                                <span class="text-gray-400">•</span>
+                            @endif
+
+                            @if ($restaurant->working_hours)
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span>{{ $restaurant->working_hours }}</span>
+                                </div>
+                            @endif
+                        </div>
                     </div>
-                    <span class="text-gray-400">•</span>
-                @endif
-
-                @if ($restaurant->working_hours)
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-clock"></i>
-                        <span>{{ $restaurant->working_hours }}</span>
-                    </div>
-                @endif
-            </div>
-        </div>
-    </a>
-@endforeach
-
+                </a>
+                @endforeach
             </div>
         @endif
 
@@ -128,12 +120,10 @@
         </div>
     </div>
 
-
-
     {{-- 🔹 Рекомендованные рестораны --}}
     <div class="mt-20">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Рекомендованные места</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center md:text-left">Рекомендованные места</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @for ($i = 1; $i <= 3; $i++)
                 <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition bg-white">
                     <img src="/images/demo/rest{{ $i }}.jpg" class="w-full h-48 object-cover" alt="">
@@ -149,7 +139,7 @@
 
 </div>
 
-{{-- 🔹 Карта и переключатель --}}
+{{-- 🔹 Скрипт карты --}}
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
 const map = L.map('mapSection').setView([44.59, 51.50], 7);

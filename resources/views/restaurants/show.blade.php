@@ -39,39 +39,27 @@
         </ol>
     </nav>
 <section class="mb-12">
-<div class="flex flex-col md:flex-row gap-4">
-    {{-- Главное изображение (только для md+) --}}
+<div class="flex flex-col md:flex-row gap-4 items-stretch">
     @if($restaurant->image)
-        <div class="hidden md:block md:w-3/5">
+        <div class="hidden md:block md:w-3/5 h-72 md:h-[500px]">
             <img src="{{ asset('storage/' . $restaurant->image) }}"
-                 alt="{{ $restaurant->title_ru }}"
-                 class="w-full h-full object-cover rounded-xl shadow-lg"
-                 style="max-height:500px;" />
+                alt="{{ $restaurant->title_ru }}"
+                class="w-full h-full object-cover rounded-xl shadow-lg" />
         </div>
     @endif
 
     {{-- Галерея --}}
-    <div class="w-full md:w-2/5 flex flex-col gap-4 h-full">
-        <!-- Десктопная сетка -->
-        <div class="hidden md:flex flex-col h-full gap-4">
+    <div class="w-full md:w-2/5 h-72 md:h-[500px] flex flex-col gap-4">
+        <!-- Десктопная сетка: все ячейки делят доступную высоту (grid-auto-rows:1fr) -->
+        <div class="hidden md:block h-full">
             @if($restaurant->images->count() >= 1)
-                <div class="flex flex-1 gap-4">
-                    @foreach($restaurant->images->take(2) as $image)
-                        <a href="{{ asset('storage/' . $image->image) }}" class="glightbox flex-1" data-gallery="restaurant-gallery">
-                            <img src="{{ asset('storage/' . $image->image) }}" 
-                                 class="w-full h-full object-cover rounded-xl shadow-md hover:scale-105 transition" 
-                                 alt="Фото ресторана">
-                        </a>
-                    @endforeach
-                </div>
-            @endif
-
-            @if($restaurant->images->count() > 2)
-                <div class="flex flex-1 gap-4">
-                    @foreach($restaurant->images->slice(2,3) as $image)
-                        <a href="{{ asset('storage/' . $image->image) }}" class="flex-1" data-gallery="restaurant-gallery">
-                            <img src="{{ asset('storage/' . $image->image) }}" 
-                                 class="w-full h-full object-cover rounded-xl shadow-md hover:scale-105 transition" 
+                <div class="grid grid-cols-3 gap-4 h-full" style="grid-auto-rows: 1fr;">
+                    @foreach($restaurant->images as $image)
+                        <a href="{{ asset('storage/' . $image->image) }}"
+                           class="glightbox block rounded-xl overflow-hidden"
+                           data-gallery="restaurant-gallery">
+                            <img src="{{ asset('storage/' . $image->image) }}"
+                                 class="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                                  alt="Фото ресторана">
                         </a>
                     @endforeach
@@ -84,13 +72,13 @@
             <div class="swiper restaurantSwiper">
                 <div class="swiper-wrapper">
                     @foreach($restaurant->images as $image)
-                    <div class="swiper-slide">
-                        <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="restaurant-gallery">
-                            <img src="{{ asset('storage/' . $image->image) }}" 
-                                 class="w-full h-64 object-cover rounded-xl shadow-md" 
-                                 alt="Фото ресторана">
-                        </a>
-                    </div>
+                        <div class="swiper-slide">
+                            <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="restaurant-gallery">
+                                <img src="{{ asset('storage/' . $image->image) }}"
+                                     class="w-full h-64 object-cover rounded-xl shadow-md"
+                                     alt="Фото ресторана">
+                            </a>
+                        </div>
                     @endforeach
                 </div>
                 <div class="swiper-pagination mt-2"></div>
@@ -105,30 +93,121 @@
 
 </section>
 
+<section class="mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        {{-- Контакты --}}
+        <div class="bg-white rounded-2xl p-6 shadow-md">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">Контактная информация</h3>
 
- 
+            <ul class="space-y-4 text-[15px] text-gray-700">
+                @if ($restaurant->address_ru)
+                    <li class="flex gap-3 items-start">
+                        <svg class="w-5 h-5 text-gray-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657A8 8 0 1117.657 16.657z"/></svg>
+                        <div><div class="font-medium text-gray-800">Адрес</div><div>{{ $restaurant->address_ru }}</div></div>
+                    </li>
+                @endif
 
-    {{-- Контакты --}}
-    <section class="mb-12">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Контактная информация</h2>
-        <ul class="text-[#444] space-y-2 list-disc pl-5 text-[16px]">
-            @if ($restaurant->address_ru)
-                <li id="restaurant-address"><span class="font-medium">Адрес:</span> {{ $restaurant->address_ru }}</li>
-            @endif
-            @if ($restaurant->phone)
-                <li><span class="font-medium">Телефон:</span> {{ $restaurant->phone }}</li>
-            @endif
-            @if ($restaurant->email)
-                <li><span class="font-medium">Почта:</span> {{ $restaurant->email }}</li>
-            @endif
-            @if ($restaurant->website)
-                <li><a style="color:rgb(19, 100, 200)" href="{{ $restaurant->website }}"><span class="font-medium" style="color: black">Веб-сайт:</span> {{ $restaurant->website }}</a>  </li>
-            @endif
-            @if ($restaurant->working_hours)
-                <li><span class="font-medium">Режим работы:</span> {{ $restaurant->working_hours }}</li>
-            @endif
-        </ul>
-    </section>
+                @if ($restaurant->phone)
+                    <li class="flex gap-3 items-center">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.97.757L9.9 7.9a1 1 0 01-.242.97l-1.2 1.6a11 11 0 005.6 5.6l1.6-1.2a1 1 0 01.97-.242l4.143 1.43A1 1 0 0121 18.5V21a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/></svg>
+                        <div><div class="font-medium text-gray-800">Телефон</div><div class="text-blue-600">{{ $restaurant->phone }}</div></div>
+                    </li>
+                @endif
+
+                @if ($restaurant->email)
+                    <li class="flex gap-3 items-center">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-3-4 3M20 8v8a2 2 0 01-2 2H6a2 2 0 01-2-2V8"/></svg>
+                        <div><div class="font-medium text-gray-800">Почта</div><div class="break-words">{{ $restaurant->email }}</div></div>
+                    </li>
+                @endif
+
+                @if ($restaurant->website)
+                    <li class="flex gap-3 items-center">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l4 20M2 12h20"/></svg>
+                        <div><div class="font-medium text-gray-800">Веб-сайт</div>
+                            <a href="{{ $restaurant->website }}" class="text-blue-600 hover:underline" target="_blank" rel="noopener">{{ $restaurant->website }}</a>
+                        </div>
+                    </li>
+                @endif
+
+                @if ($restaurant->working_hours)
+                    <li class="flex gap-3 items-center">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg>
+                        <div><div class="font-medium text-gray-800">Режим работы (общий)</div><div>{{ $restaurant->working_hours }}</div></div>
+                    </li>
+                @endif
+            </ul>
+        </div>
+
+        {{-- Расписание --}}
+        <div class="bg-gradient-to-b from-white/80 to-white rounded-2xl p-4 shadow-md">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Режим работы по дням</h3>
+                @php
+                    // keys order: mon..sun
+                    $dayKeys = ['mon','tue','wed','thu','fri','sat','sun'];
+                    $dayNames = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+
+                    $schedule = [];
+                    if (!empty($restaurant->working_hours_json)) {
+                        $schedule = json_decode($restaurant->working_hours_json, true) ?: [];
+                    } elseif (!empty($restaurant->working_hours_schedule)) {
+                        $schedule = json_decode($restaurant->working_hours_schedule, true) ?: [];
+                    } elseif (!empty($restaurant->working_hours)) {
+                        foreach ($dayKeys as $k) $schedule[$k] = $restaurant->working_hours;
+                    }
+
+                    $now = new DateTime('now');
+                    $todayKey = $dayKeys[intval(date('N')) - 1];
+                @endphp
+            </div>
+
+            <div class="divide-y rounded-lg overflow-hidden border border-gray-100">
+                @for ($i = 0; $i < 7; $i++)
+                    @php
+                        $key = $dayKeys[$i];
+                        $label = $dayNames[$i];
+                        $entry = isset($schedule[$key]) ? trim($schedule[$key]) : '—';
+                        $isOpen = false;
+
+                        if (preg_match('/^(\d{1,2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2})$/', $entry, $m)) {
+                            try {
+                                $from = new DateTime(date('Y-m-d').' '.$m[1]);
+                                $to = new DateTime(date('Y-m-d').' '.$m[2]);
+                                if ($to <= $from) $to->modify('+1 day');
+                                $isOpen = ($now >= $from && $now <= $to);
+                            } catch (\Exception $e) { $isOpen = false; }
+                        } else {
+                            $lc = mb_strtolower($entry);
+                            if (in_array($lc, ['круглосуточно','24/7','24:00-24:00','00:00-23:59'])) $isOpen = true;
+                        }
+
+                        $isToday = ($todayKey === $key);
+                    @endphp
+
+                    <div class="flex items-center justify-between px-4 py-3 bg-white {{ $isToday ? 'md:bg-primary/5' : '' }}">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 text-sm text-gray-600">{{ mb_substr($label,0,3) }}</div>
+                            <div class="min-w-[120px]">
+                                <div class="text-sm {{ $isToday ? 'font-semibold text-gray-800' : 'text-gray-700' }}">{{ $label }}</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="text-sm text-gray-600">{{ $entry }}</div>
+                            @if($isToday)
+                                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium {{ $isOpen ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700' }}">
+                                    <span class="w-2 h-2 rounded-full {{ $isOpen ? 'bg-green-600' : 'bg-red-600' }}"></span>
+                                    {{ $isOpen ? 'Открыто' : 'Закрыто' }}
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                @endfor
+            </div>
+        </div>
+    </div>
+</section>
   <section class="mb-16">
     <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -210,7 +289,7 @@
     </section>
 
 {{-- Поделиться --}}
-<section class="mb-12">
+<section class="mb-6 pb-6 border-b border-gray-300">
     <h2 class="text-[18px] font-semibold mb-3 text-[#444] flex items-center gap-2">
 
         Поделиться:
