@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RestaurantController;
 use App\Models\Restaurant;
 
@@ -19,6 +20,7 @@ Route::get('/culture-list', [CultureController::class, 'index'])->name('cultures
 Route::get('/', [CultureController::class, 'welcome'])->name('welcome');
 Route::get('news', [NewsController::class, 'index'])->name('news.index');
 Route::get('restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
+Route::get('hotels', [HotelController::class, 'index'])->name('hotels.index');
 Route::get('/contacts', function() {
      return view("contact");
 })->name("contact");
@@ -51,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('news/{news}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/cultures/{id}', [CultureController::class, 'show'])->name('cultures.show');
 Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurants.show');
+Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 
 
 // Удаление — только для superadmin
