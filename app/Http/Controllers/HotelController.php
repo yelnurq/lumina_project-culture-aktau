@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -16,8 +17,9 @@ class HotelController extends Controller
     {
         $hotels = Hotel::orderBy('title_ru')->paginate(9);
         $allHotels = Hotel::select('id', 'title_ru', 'latitude', 'longitude')->get();
+        $restaurants = Restaurant::all()->take(3);
 
-        return view('hotels.index', compact('hotels', 'allHotels'));
+        return view('hotels.index', compact('hotels', 'allHotels', 'restaurants'));
     }
 
     public function show(Request $request, $id)

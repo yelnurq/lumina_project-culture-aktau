@@ -119,23 +119,49 @@
             {{ $hotels->links('vendor.pagination.tailwind') }}
         </div>
     </div>
+ <section class="mb-12">
+            <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Рекомендованные рестораны области</h2>
 
-    {{-- 🔹 Рекомендованные рестораны --}}
-    <div class="mt-20">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center md:text-left">Рекомендованные места</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            @for ($i = 1; $i <= 3; $i++)
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition bg-white">
-                    <img src="/images/demo/rest{{ $i }}.jpg" class="w-full h-48 object-cover" alt="">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-gray-800">Demo Hotel {{ $i }}</h3>
-                        <p class="text-gray-500 text-sm mt-1">г. Актау • Европейская кухня</p>
-                        <p class="text-sm text-gray-700 mt-3">Современное меню, уютная атмосфера и панорамный вид на Каспий.</p>
-                    </div>
-                </div>
-            @endfor
-        </div>
-    </div>
+            <div class="grid md:grid-cols-3 gap-5">
+                @if(isset($restaurants) && $restaurants->count())
+                    @foreach ($restaurants as $item)
+                        <a href="{{ route('restaurants.show', $item->id) }}" 
+                        class="block rounded-xl overflow-hidden border hover:shadow-lg transition bg-white">
+                            @if ($item->images->first())
+                                <img src="{{ asset('storage/' . $item->image) }}" 
+                                    alt="{{ $item->title }}" 
+                                    class="w-full h-52 object-cover">
+                            @else
+                                <img src="https://placehold.co/400x250?text=Culture" 
+                                    class="w-full h-52 object-cover" 
+                                    alt="{{ $item->title }}">
+                            @endif
+
+                            <div class="p-4">
+                                <h3 class="font-semibold text-gray-800">
+                                    {{ $item->title_ru ?? 'Без названия' }}
+                                </h3>
+                                <p class="text-gray-600 text-sm mt-1 line-clamp-3">
+                                    {{ Str::limit($item->description, 100) ?? 'Описание отсутствует.' }}
+                                </p>
+                            </div>
+                        </a>
+                    @endforeach
+                @else
+                    @foreach (range(1,3) as $i)
+                        <a href="#" class="block rounded-xl overflow-hidden border hover:shadow-lg transition bg-white">
+                            <img src="https://placehold.co/400x250?text=Culture+{{ $i }}" 
+                                class="w-full h-52 object-cover" 
+                                alt="Культура {{ $i }}">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-gray-800">Культурный объект {{ $i }}</h3>
+                                <p class="text-gray-600 text-sm mt-1">Краткое описание объекта культурного наследия.</p>
+                            </div>
+                        </a>
+                    @endforeach
+                @endif
+            </div>
+        </section>
 
 </div>
 

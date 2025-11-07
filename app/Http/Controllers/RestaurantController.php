@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,9 +18,10 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::orderBy('title_ru')->paginate(9);
-        $allRestaurants = Restaurant::select('id', 'title_ru', 'latitude', 'longitude')->get(); // для карты
+        $allRestaurants = Restaurant::select('id', 'title_ru', 'latitude', 'longitude')->get();
+        $hotels = Hotel::all()->take(3);
 
-        return view('restaurants.index', compact('restaurants', 'allRestaurants'));
+        return view('restaurants.index', compact('restaurants', 'allRestaurants', 'hotels'));
     }
 
     /**

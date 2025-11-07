@@ -135,7 +135,7 @@
                 @endforeach
             </div>
         @endif
-
+        
         <div class="mt-10">
             {{ $cultures->withQueryString()->links('vendor.pagination.tailwind') }}
         </div>

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Culture;
 use App\Models\Category;
+use App\Models\Hotel;
 use App\Models\News;
 use App\Models\Region;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
