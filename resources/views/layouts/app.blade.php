@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     @yield("restaurant_meta")
     <script>
         tailwind.config = {
@@ -141,7 +141,6 @@
     function hideOverlay() {
         overlay.classList.add('opacity-0');
         overlay.classList.remove('opacity-100');
-        // оставляем hidden после анимации
         setTimeout(()=> overlay.classList.add('hidden'), 300);
         overlay.setAttribute('aria-hidden', 'true');
     }
@@ -334,84 +333,102 @@
 })();
 </script>
 @endif
-
 <nav class="fixed bottom-4 inset-x-4 md:hidden z-50">
-    <div class="bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg px-2 py-2 flex justify-between items-center text-sm text-white"
-         style="padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);">
-        <a href="/" aria-label="Главная"
-           class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('/') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 12l9-9 9 9v9a3 3 0 01-3 3h-3v-6h-6v6H6a3 3 0 01-3-3v-9z"/>
-            </svg>
-            <span class="text-xs leading-tight">Главная</span>
-        </a>
+  <div
+    class="bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg px-2 py-2 flex justify-between items-center text-sm text-white"
+    style="padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);">
 
-        <a href="/culture-list" aria-label="Культура"
-           class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('culture-list*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 22h16v-2H4v2zm2-4h12v-2H6v2zm1-4h10V6H7v8z"/>
-            </svg>
-            <span class="text-xs leading-tight">Культура</span>
-        </a>
+    <!-- Главная -->
+    <a href="/"
+       aria-label="Главная"
+       class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('/') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+           stroke-width="1.8" stroke="currentColor" class="w-6 h-6 mb-1">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 12l9.75-9.75L21.75 12M4.5 9.75V21h15V9.75" />
+      </svg>
+      <span class="text-xs leading-tight">Главная</span>
+    </a>
+<!-- Культура -->
+<a href="/culture-list"
+   aria-label="Культура"
+   class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('culture-list*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.6" class="w-6 h-6 mb-1">
+    <path stroke-linecap="round" stroke-linejoin="round"
+          d="M2.75 5.5l8.25-2.5 8.25 2.5M2.75 5.5v12.25l8.25 2.75m0-15L19.25 5.5m-8.25 15V8.25m0 0L19.25 5.5v12.25l-8.25 2.75" />
+  </svg>
+  <span class="text-xs leading-tight">Культура</span>
+</a>
 
-        <a href="/restaurants" aria-label="Рестораны"
-           class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('restaurants*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 2h2v11a3 3 0 006 0V2h2v11a5 5 0 11-10 0V2z"/>
-            </svg>
-            <span class="text-xs leading-tight">Рестораны</span>
-        </a>
+    <!-- Рестораны -->
+    <a href="/restaurants"
+       aria-label="Рестораны"
+       class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('restaurants*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+           stroke-width="1.8" stroke="currentColor" class="w-6 h-6 mb-1">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6 3v18m6-18v18m6-18v18M3 8h18" />
+      </svg>
+      <span class="text-xs leading-tight">Рестораны</span>
+    </a>
 
-        <a href="/hotels" aria-label="Отели"
-           class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('hotels*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 14h10V6H7v8zm0 2v4h10v-4H7zM3 8h2v12H3zM19 8h2v12h-2z"/>
-            </svg>
-            <span class="text-xs leading-tight">Отели</span>
-        </a>
-    </div>
+    <!-- Отели -->
+    <a href="/hotels"
+       aria-label="Отели"
+       class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('hotels*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+           stroke-width="1.8" stroke="currentColor" class="w-6 h-6 mb-1">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.5 21V9.75l7.5-6 7.5 6V21M9 21v-6h6v6" />
+      </svg>
+      <span class="text-xs leading-tight">Отели</span>
+    </a>
+  </div>
 </nav>
+
+
     <main class="flex-grow ">
         @yield('content')
     </main>
 
-<footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-2 max-w-10xl flex flex-col md:flex-row md:justify-between md:items-start gap-8">
-        <div class="md:w-1/2">
-            <h2 class="text-xl font-bold mb-4" data-lang="footer-title">Новые берега Каспия</h2>
-            <p class="text-gray-300 text-sm leading-relaxed" data-lang="footer-desc">
-                — неизвестная красота Маңғыстау<br>
-                Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины. Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
-            </p>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-2 max-w-10xl flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+            <div class="md:w-1/2">
+                <h2 class="text-xl font-bold mb-4" data-lang="footer-title">Новые берега Каспия</h2>
+                <p class="text-gray-300 text-sm leading-relaxed" data-lang="footer-desc">
+                    — неизвестная красота Маңғыстау<br>
+                    Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины. Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
+                </p>
+            </div>
+
+            <div class="md:w-1/2 flex flex-col md:flex-row md:justify-between gap-6">
+                <div>
+                    <h3 class="font-semibold mb-2" data-lang="footer-nav-title">Навигация</h3>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li><a href="/" class="hover:text-white transition" data-lang="nav-home">Главная</a></li>
+                        <li><a href="/culture-list" class="hover:text-white transition" data-lang="nav-culture">Объекты культуры</a></li>
+                        <li><a href="/contacts" class="hover:text-white transition" data-lang="nav-contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2" data-lang="footer-share-title">Поделиться</h3>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition" data-lang="share-facebook">Facebook</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-lang="share-twitter">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-lang="share-telegram">Telegram</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-lang="share-whatsapp">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="md:w-1/2 flex flex-col md:flex-row md:justify-between gap-6">
-            <div>
-                <h3 class="font-semibold mb-2" data-lang="footer-nav-title">Навигация</h3>
-                <ul class="space-y-1 text-gray-400 text-sm">
-                    <li><a href="/" class="hover:text-white transition" data-lang="nav-home">Главная</a></li>
-                    <li><a href="/culture-list" class="hover:text-white transition" data-lang="nav-culture">Объекты культуры</a></li>
-                    <li><a href="/contacts" class="hover:text-white transition" data-lang="nav-contacts">Контакты</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold mb-2" data-lang="footer-share-title">Поделиться</h3>
-                <ul class="space-y-1 text-gray-400 text-sm">
-                    <li><a href="#" class="hover:text-white transition" data-lang="share-facebook">Facebook</a></li>
-                    <li><a href="#" class="hover:text-white transition" data-lang="share-twitter">Twitter</a></li>
-                    <li><a href="#" class="hover:text-white transition" data-lang="share-telegram">Telegram</a></li>
-                    <li><a href="#" class="hover:text-white transition" data-lang="share-whatsapp">WhatsApp</a></li>
-                </ul>
-            </div>
+        <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm" data-lang="footer-copyright">
+            &copy; {{ date('Y') }}. Все права защищены.
         </div>
-    </div>
+    </footer>
 
-    <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm" data-lang="footer-copyright">
-        &copy; {{ date('Y') }}. Все права защищены.
-    </div>
-</footer>
-
-<script src="/js/lang.js"></script>
+    <script src="/js/lang.js"></script>
 
 </body>
 </html>
