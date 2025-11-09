@@ -44,11 +44,37 @@
                 </span>
             </a>
             <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
-                <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <div class="relative group inline-block">
+                    <button 
+                        class="flex items-center gap-1 text-gray-800 hover:text-white-700 transition-colors duration-300"
+                        style="font-weight:400; font-size:15px;color:white">
+                        О регионе
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div 
+                        class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform transition-all duration-200 origin-top z-50">
+                        <a href="/about" 
+                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
+                        О нас
+                        </a>
+                        <a href="/history" 
+                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
+                        История региона
+                        </a>
+                        <a href="/contacts" 
+                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
+                        Контакты
+                        </a>
+                    </div>
+                </div>
                 <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
                 <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
                 <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
 
                 <div class="relative inline-block text-left">
                 <select 
@@ -181,7 +207,7 @@
 })();
 </script>
 @else
-<header class="relative shadow top-0 left-0 w-full z-50 hidden md:flex bg-white overflow-hidden">
+<header class="relative shadow top-0 left-0 w-full z-50 hidden md:flex bg-white overflow-visible">
         <div class="absolute inset-0"
             style="
                 background-image: url('/images/icon.svg'), url('/images/icon.svg');
@@ -202,8 +228,39 @@
 
         <!-- навигация -->
         <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
-            <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-            <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <div class="relative group inline-block">
+                    <button 
+                        class="flex items-center gap-1 text-gray-800 hover:text-white-700 transition-colors duration-300"
+                        style="font-weight:400; font-size:15px;">
+                        О регионе
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div 
+    class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg 
+           opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform 
+           transition-all duration-200 origin-top z-[9999]">
+
+                        <a href="/about" 
+                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
+                        О нас
+                        </a>
+                        <a href="/history" 
+                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
+                        История региона
+                        </a>
+                        <a href="/contacts" 
+                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
+                        Контакты
+                        </a>
+                    </div>
+                </div>
+                
+                            <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
