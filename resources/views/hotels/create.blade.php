@@ -44,7 +44,7 @@
         </div>
     @endif
 
-    <form action="{{ route('restaurants.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+    <form action="{{ route('hotels.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
         <div>
@@ -191,21 +191,21 @@
     <div id="galleryPreview" class="mt-4 flex flex-wrap gap-3"></div>
 </div>
 
-{{-- ---------------------- ПОПУЛЯРНЫЕ БЛЮДА ---------------------- --}}
+{{-- ---------------------- Комнаты ---------------------- --}}
 <hr class="my-6">
 
-<div id="dishesSection">
-    <label class="block font-medium mb-2">Популярные блюда</label>
-    <div id="dishesContainer" class="space-y-6">
-        <div class="dish-item border rounded-xl p-4 bg-gray-50">
+<div id="roomsSection">
+    <label class="block font-medium mb-2">Комнаты</label>
+    <div id="roomsContainer" class="space-y-6">
+        <div class="room-item border rounded-xl p-4 bg-gray-50">
             <div class="grid md:grid-cols-3 gap-4">
                 <div class="md:col-span-2">
                     <label class="block text-sm font-medium mb-1">Название блюда</label>
-                    <input type="text" name="dishes[0][name]" class="w-full border rounded px-4 py-2"
+                    <input type="text" name="rooms[0][name]" class="w-full border rounded px-4 py-2"
                            placeholder="Например: Плов с бараниной">
 
                     <label class="block text-sm font-medium mb-1 mt-3">Описание блюда</label>
-                    <textarea name="dishes[0][description]" rows="2"
+                    <textarea name="rooms[0][description]" rows="2"
                               class="w-full border rounded px-4 py-2"
                               placeholder="Краткое описание блюда"></textarea>
 
@@ -214,14 +214,14 @@
 
                 <div>
                     <label class="block text-sm font-medium mb-1">Фото блюда</label>
-                    <input type="file" name="dishes[0][image]" accept="image/*" onchange="previewDishImage(event, 0)">
-                    <img id="dishPreview_0" src="#" alt="Фото блюда" class="mt-2 max-h-32 hidden rounded-lg border">
+                    <input type="file" name="rooms[0][image]" accept="image/*" onchange="previewroomImage(event, 0)">
+                    <img id="roomPreview_0" src="#" alt="Фото блюда" class="mt-2 max-h-32 hidden rounded-lg border">
                 </div>
             </div>
         </div>
     </div>
 
-    <button type="button" onclick="addDish()"
+    <button type="button" onclick="addroom()"
             class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold px-4 py-2 rounded">
         + Добавить ещё блюдо
     </button>
@@ -303,19 +303,19 @@ function previewGallery(event) {
 }
 
 // Динамическое добавление блюд
-let dishIndex = 1;
-function addDish() {
-    const container = document.getElementById('dishesContainer');
-    const dishHTML = `
-        <div class="dish-item border rounded-xl p-4 bg-gray-50">
+let roomIndex = 1;
+function addroom() {
+    const container = document.getElementById('roomsContainer');
+    const roomHTML = `
+        <div class="room-item border rounded-xl p-4 bg-gray-50">
             <div class="grid md:grid-cols-3 gap-4">
                 <div class="md:col-span-2">
                     <label class="block text-sm font-medium mb-1">Название блюда</label>
-                    <input type="text" name="dishes[${dishIndex}][name]" class="w-full border rounded px-4 py-2"
+                    <input type="text" name="rooms[${roomIndex}][name]" class="w-full border rounded px-4 py-2"
                            placeholder="Название блюда">
 
                     <label class="block text-sm font-medium mb-1 mt-3">Описание блюда</label>
-                    <textarea name="dishes[${dishIndex}][description]" rows="2"
+                    <textarea name="rooms[${roomIndex}][description]" rows="2"
                               class="w-full border rounded px-4 py-2"
                               placeholder="Описание блюда"></textarea>
 
@@ -324,22 +324,22 @@ function addDish() {
 
                 <div>
                     <label class="block text-sm font-medium mb-1">Фото блюда</label>
-                    <input type="file" name="dishes[${dishIndex}][image]" accept="image/*"
-                           onchange="previewDishImage(event, ${dishIndex})">
-                    <img id="dishPreview_${dishIndex}" src="#" alt="Фото блюда" class="mt-2 max-h-32 hidden rounded-lg border">
+                    <input type="file" name="rooms[${roomIndex}][image]" accept="image/*"
+                           onchange="previewroomImage(event, ${roomIndex})">
+                    <img id="roomPreview_${roomIndex}" src="#" alt="Фото блюда" class="mt-2 max-h-32 hidden rounded-lg border">
                 </div>
             </div>
         </div>
     `;
-    container.insertAdjacentHTML('beforeend', dishHTML);
-    dishIndex++;
+    container.insertAdjacentHTML('beforeend', roomHTML);
+    roomIndex++;
 }
 
 // Предпросмотр фото блюда
-function previewDishImage(event, index) {
+function previewroomImage(event, index) {
     const reader = new FileReader();
     reader.onload = function(e) {
-        const preview = document.getElementById(`dishPreview_${index}`);
+        const preview = document.getElementById(`roomPreview_${index}`);
         preview.src = e.target.result;
         preview.classList.remove('hidden');
     };

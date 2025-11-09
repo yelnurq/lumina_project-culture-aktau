@@ -37,7 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/cultures/create', [CultureController::class, 'create'])->name('cultures.create');
     Route::post('/admin/cultures', [CultureController::class, 'store'])->name('cultures.store');
 
+    Route::get('/admin/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
     Route::get('/admin/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+    Route::post('/admin/hotels', [HotelController::class, 'store'])->name('hotels.store');
     Route::post('/admin/restaurants', [RestaurantController::class, 'store'])->name('restaurants.store');
     Route::get('/admin/news/create', [NewsController::class, 'create'])->name('news.create');
     Route::post('/admin/news', [NewsController::class, 'store'])->name('news.store');

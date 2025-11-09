@@ -1,19 +1,14 @@
 @extends('layouts.app')
 
-@section("restaurant_meta")
-<meta name="restaurant-id" content="{{ $restaurant->id }}">
-
-@endsection
-
 @section('content')
 
 {{-- Баннер --}}
 <div class="relative w-full h-[35vh] md:h-[45vh] overflow-hidden">
-    <img src="{{ asset('storage/' . $restaurant->image) }}"
-         class="w-full h-full object-cover blur-sm scale-105" alt="{{ $restaurant->title_ru }}">
+    <img src="{{ asset('storage/' . $hotel->image) }}"
+         class="w-full h-full object-cover blur-sm scale-105" alt="{{ $hotel->title_ru }}">
     <div class="absolute inset-0 z-10 flex items-center justify-center bg-black/40">
         <h1 class="text-white text-3xl md:text-5xl font-extrabold text-center px-4 tracking-wide">
-            {{ $restaurant->title_ru }}
+            {{ $hotel->title_ru }}
         </h1>
     </div>
 </div>
@@ -28,22 +23,22 @@
             </li>
             <li>/</li>
             <li >
-                <a href="/" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_current">
-                    Рестораны
+                <a href="/" class="hover:underline text-blue-600" data-lang="hotel_breadcrumb_current">
+                    Отели
                 </a>            
             </li>
             <li>/</li>
-            <li class="text-gray-700" id="restaurant-title">
-                {{ $restaurant->title_ru }}
+            <li class="text-gray-700" id="hotel-title">
+                {{ $hotel->title_ru }}
             </li>
         </ol>
     </nav>
 <section class="mb-12">
 <div class="flex flex-col md:flex-row gap-4 items-stretch">
-    @if($restaurant->image)
+    @if($hotel->image)
         <div class="hidden md:block md:w-3/5 h-72 md:h-[500px]">
-            <img src="{{ asset('storage/' . $restaurant->image) }}"
-                alt="{{ $restaurant->title_ru }}"
+            <img src="{{ asset('storage/' . $hotel->image) }}"
+                alt="{{ $hotel->title_ru }}"
                 class="w-full h-full object-cover rounded-xl shadow-lg" />
         </div>
     @endif
@@ -52,12 +47,12 @@
     <div class="w-full md:w-2/5 h-72 md:h-[500px] flex flex-col gap-4">
         <!-- Десктопная сетка: все ячейки делят доступную высоту (grid-auto-rows:1fr) -->
         <div class="hidden md:block h-full">
-            @if($restaurant->images->count() >= 1)
+            @if($hotel->images->count() >= 1)
                 <div class="grid grid-cols-3 gap-4 h-full" style="grid-auto-rows: 1fr;">
-                    @foreach($restaurant->images as $image)
+                    @foreach($hotel->images as $image)
                         <a href="{{ asset('storage/' . $image->image) }}"
                            class="glightbox block rounded-xl overflow-hidden"
-                           data-gallery="restaurant-gallery">
+                           data-gallery="hotel-gallery">
                             <img src="{{ asset('storage/' . $image->image) }}"
                                  class="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                                  alt="Фото ресторана">
@@ -71,9 +66,9 @@
         <div class="md:hidden">
             <div class="swiper restaurantSwiper">
                 <div class="swiper-wrapper">
-                    @foreach($restaurant->images as $image)
+                    @foreach($hotel->images as $image)
                         <div class="swiper-slide">
-                            <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="restaurant-gallery">
+                            <a href="{{ asset('storage/' . $image->image) }}" class="glightbox" data-gallery="hotel-gallery">
                                 <img src="{{ asset('storage/' . $image->image) }}"
                                      class="w-full h-64 object-cover rounded-xl shadow-md"
                                      alt="Фото ресторана">
@@ -87,10 +82,54 @@
     </div>
 </div>
 
-<div id="restaurant-description" class="mt-6 text-gray-800 text-[16px] leading-relaxed text-left md:text-justify">
-    {!! nl2br(e($restaurant->description_ru)) !!}
+<div id="hotel-description" class="mt-6 text-gray-800 text-[16px] leading-relaxed text-left md:text-justify">
+    {!! nl2br(e($hotel->description_ru)) !!}
 </div>
 
+</section>
+<section class="mb-12">
+    <div class="bg-white rounded-2xl p-6 shadow-md">
+        <h3 class="text-xl font-semibold mb-6 text-gray-800 text-center md:text-left">
+            Удобства отеля
+        </h3>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 text-gray-700">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl transition-transform group-hover:scale-110">🏊</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">Бассейн</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl">🌐</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">Бесплатный Wi-Fi</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl">🚗</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">Парковка</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl">🍽️</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">Ресторан</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl">🧖</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">СПА-центр</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl">🏋️</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">Фитнес-зал</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
+                <div class="text-3xl sm:text-4xl">☕</div>
+                <span class="text-sm sm:text-base text-center sm:text-left">Завтрак включён</span>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="mb-12">
@@ -100,40 +139,40 @@
             <h3 class="text-xl font-semibold mb-4 text-gray-800">Контактная информация</h3>
 
             <ul class="space-y-4 text-[15px] text-gray-700">
-                @if ($restaurant->address_ru)
+                @if ($hotel->address_ru)
                     <li class="flex gap-3 items-start">
                         <svg class="w-5 h-5 text-gray-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657A8 8 0 1117.657 16.657z"/></svg>
-                        <div><div class="font-medium text-gray-800">Адрес</div><div>{{ $restaurant->address_ru }}</div></div>
+                        <div><div class="font-medium text-gray-800">Адрес</div><div>{{ $hotel->address_ru }}</div></div>
                     </li>
                 @endif
 
-                @if ($restaurant->phone)
+                @if ($hotel->phone)
                     <li class="flex gap-3 items-center">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.97.757L9.9 7.9a1 1 0 01-.242.97l-1.2 1.6a11 11 0 005.6 5.6l1.6-1.2a1 1 0 01.97-.242l4.143 1.43A1 1 0 0121 18.5V21a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/></svg>
-                        <div><div class="font-medium text-gray-800">Телефон</div><div class="text-blue-600">{{ $restaurant->phone }}</div></div>
+                        <div><div class="font-medium text-gray-800">Телефон</div><div class="text-blue-600">{{ $hotel->phone }}</div></div>
                     </li>
                 @endif
 
-                @if ($restaurant->email)
+                @if ($hotel->email)
                     <li class="flex gap-3 items-center">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-3-4 3M20 8v8a2 2 0 01-2 2H6a2 2 0 01-2-2V8"/></svg>
-                        <div><div class="font-medium text-gray-800">Почта</div><div class="break-words">{{ $restaurant->email }}</div></div>
+                        <div><div class="font-medium text-gray-800">Почта</div><div class="break-words">{{ $hotel->email }}</div></div>
                     </li>
                 @endif
 
-                @if ($restaurant->website)
+                @if ($hotel->website)
                     <li class="flex gap-3 items-center">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l4 20M2 12h20"/></svg>
                         <div><div class="font-medium text-gray-800">Веб-сайт</div>
-                            <a href="{{ $restaurant->website }}" class="text-blue-600 hover:underline" target="_blank" rel="noopener">{{ $restaurant->website }}</a>
+                            <a href="{{ $hotel->website }}" class="text-blue-600 hover:underline" target="_blank" rel="noopener">{{ $hotel->website }}</a>
                         </div>
                     </li>
                 @endif
 
-                @if ($restaurant->working_hours)
+                @if ($hotel->working_hours)
                     <li class="flex gap-3 items-center">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg>
-                        <div><div class="font-medium text-gray-800">Режим работы (общий)</div><div>{{ $restaurant->working_hours }}</div></div>
+                        <div><div class="font-medium text-gray-800">Режим работы (общий)</div><div>{{ $hotel->working_hours }}</div></div>
                     </li>
                 @endif
             </ul>
@@ -149,12 +188,12 @@
                     $dayNames = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
 
                     $schedule = [];
-                    if (!empty($restaurant->working_hours_json)) {
-                        $schedule = json_decode($restaurant->working_hours_json, true) ?: [];
-                    } elseif (!empty($restaurant->working_hours_schedule)) {
-                        $schedule = json_decode($restaurant->working_hours_schedule, true) ?: [];
-                    } elseif (!empty($restaurant->working_hours)) {
-                        foreach ($dayKeys as $k) $schedule[$k] = $restaurant->working_hours;
+                    if (!empty($hotel->working_hours_json)) {
+                        $schedule = json_decode($hotel->working_hours_json, true) ?: [];
+                    } elseif (!empty($hotel->working_hours_schedule)) {
+                        $schedule = json_decode($hotel->working_hours_schedule, true) ?: [];
+                    } elseif (!empty($hotel->working_hours)) {
+                        foreach ($dayKeys as $k) $schedule[$k] = $hotel->working_hours;
                     }
 
                     $now = new DateTime('now');
@@ -254,11 +293,11 @@
 </section>
 
     {{-- 🍽 Популярные блюда --}}
-    @if($restaurant->dishes->count())
+    @if($hotel->rooms->count())
 <section class="mb-12">
     <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Популярные блюда</h2>
     <div class="grid md:grid-cols-3 gap-6">
-        @foreach($restaurant->dishes as $dish)
+        @foreach($hotel->rooms as $dish)
         <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
             @if($dish->image)
                 <img src="{{ asset('storage/' . $dish->image) }}" class="w-full h-48 object-cover" alt="{{ $dish->name }}">
@@ -298,7 +337,7 @@
     <div class="flex flex-wrap gap-6 text-sm">
         @php
             $url = urlencode(Request::url());
-            $title = urlencode($restaurant->title_ru);
+            $title = urlencode($hotel->title_ru);
         @endphp
         {{-- WhatsApp --}}
         <a href="https://api.whatsapp.com/send?text={{ $title }}%20{{ $url }}" target="_blank" class="flex items-center gap-2 hover:text-green-600 transition">
@@ -339,8 +378,8 @@
    <section class="mb-12">
     <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Похожие рестораны</h2>
     <div class="grid md:grid-cols-3 gap-5">
-        @foreach ($similarRestaurants as $sim)
-            <a href="{{ route('restaurants.show', $sim->id) }}" class="block rounded-xl overflow-hidden border hover:shadow-lg transition">
+        @foreach ($similarHotels as $sim)
+            <a href="{{ route('hotels.show', $sim->id) }}" class="block rounded-xl overflow-hidden border hover:shadow-lg transition">
                 @if($sim->image)
                     <img src="{{ asset('storage/' . $sim->image) }}" class="w-full h-52 object-cover" alt="{{ $sim->title_ru }}">
                 @else
@@ -361,8 +400,8 @@
 
     {{-- Назад --}}
     <div class="mt-12 flex justify-end">
-        <a href="{{ route('restaurants.index') }}" class="inline-block bg-primary text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-gray-800 transition">
-            ← Назад ко всем ресторанам
+        <a href="{{ route('hotels.index') }}" class="inline-block bg-primary text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-gray-800 transition">
+            ← Назад ко всем отелям
         </a>
     </div>
     
@@ -380,14 +419,14 @@
 window.addEventListener('load', () => {
     ymaps.ready(function () {
         const myMap = new ymaps.Map('map', {
-            center: [{{ $restaurant->latitude }}, {{ $restaurant->longitude }}],
+            center: [{{ $hotel->latitude }}, {{ $hotel->longitude }}],
             zoom: 14,
             controls: ['zoomControl', 'fullscreenControl']
         });
 
         const placemark = new ymaps.Placemark(
-            [{{ $restaurant->latitude }}, {{ $restaurant->longitude }}],
-            { hintContent: '{{ $restaurant->title_ru }}' },
+            [{{ $hotel->latitude }}, {{ $hotel->longitude }}],
+            { hintContent: '{{ $hotel->title_ru }}' },
             { preset: 'islands#icon', iconColor: '#2563eb' }
         );
 

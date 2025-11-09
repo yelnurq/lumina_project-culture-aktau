@@ -50,118 +50,146 @@
 
     {{-- 🔹 Карта --}}
     <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[400px] sm:h-[600px] md:h-[700px] border border-gray-200 hidden"></div>
-
-    {{-- 🔹 Список ресторанов --}}
-    <div id="listSection">
-        @if ($hotels->isEmpty())
-            <div class="text-center text-gray-500 text-lg py-16" data-lang="hotel_empty_message">
-                Пока нет ресторанов.
-            </div>
-        @else
-            <div class="space-y-6">
-                @foreach ($hotels as $hotel)
-                <a href="{{ route('hotels.show', $hotel->id) }}" 
-                   class="relative rounded-[12px] overflow-hidden flex flex-col md:flex-row cursor-pointer transform transition duration-300 gap-5 hover:shadow-lg  bg-white"
-                   data-lat="{{ $hotel->latitude }}"
-                   data-lng="{{ $hotel->longitude }}"
-                   data-id="{{ $hotel->id }}">
-                   
-                    {{-- Фото ресторана --}}
+{{-- 🔹 Список отелей --}}
+<div id="listSection">
+    @if ($hotels->isEmpty())
+        <div class="text-center text-gray-500 text-lg py-16" data-lang="hotel_empty_message">
+            Пока нет отелей.
+        </div>
+    @else
+        <div class="flex flex-col gap-6">
+            @foreach ($hotels as $hotel)
+            <a href="{{ route('hotels.show', $hotel->id) }}" 
+               class="group block rounded-2xl overflow-hidden bg-white border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row"
+               data-lat="{{ $hotel->latitude }}"
+               data-lng="{{ $hotel->longitude }}"
+               data-id="{{ $hotel->id }}">
+               
+                {{-- Фото --}}
+                <div class="relative h-56 md:h-auto md:w-1/3 overflow-hidden">
                     <img src="{{ asset('storage/' . $hotel->image) }}" 
                          alt="{{ $hotel->title_ru }}" 
                          loading="lazy"
-                         class="w-full md:w-1/3 object-cover h-[220px] sm:h-[280px] md:h-[300px]">
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 
-                    <div class="p-4 sm:p-6 flex flex-col justify-between md:w-2/3">
-                        {{-- Название и адрес --}}
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                            <h3 class="font-bold text-xl text-gray-800">{{ $hotel->title_ru }}</h3>
-                            @if ($hotel->address_ru)
-                                <span class="text-sm text-gray-500">{{ $hotel->address_ru }}</span>
-                            @endif
+                    {{-- Мини-тег рейтинга --}}
+                    <div class="absolute top-3 right-3 bg-white/90 text-yellow-500 px-2 py-1 rounded-md text-sm font-medium shadow">
+                        ⭐ 4.7
+                    </div>
+                </div>
+
+                {{-- Контент карточки --}}
+                <div class="p-5 flex flex-col justify-between md:w-2/3">
+                    {{-- Название --}}
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1 group-hover:text-blue-600 transition">
+                        {{ $hotel->title_ru }}
+                    </h3>
+
+                    {{-- Адрес --}}
+                    @if ($hotel->address_ru)
+                        <div class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-blue-500"></i>
+                            <span class="line-clamp-1">{{ $hotel->address_ru }}</span>
                         </div>
+                    @endif
 
-                        {{-- Рейтинг --}}
-                        <div class="flex items-center text-yellow-400 mt-2">
-                            <span>⭐️⭐️⭐️⭐️☆</span>
-                            <span class="ml-2 text-gray-600 text-sm">4.7</span>
+                    {{-- Описание --}}
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        {{ $hotel->excerpt_ru ?? 'Описание отсутствует.' }}
+                    </p>
+
+                    {{-- Контакты / Часы --}}
+                <div class="flex items-center justify-between text-sm text-gray-700 mt-auto">
+                    @if ($hotel->phone)
+                        <div class="flex items-center gap-2 text-blue-500">
+                            {{-- Телефонная иконка --}}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1 5V1h6v4L4.5 7.5l4 4L11 9h4v6h-4C5.477 15 1 10.523 1 5z"/>
+                            </svg>
+                            <span>{{ $hotel->phone }}</span>
                         </div>
+                    @endif
 
-                        {{-- Краткое описание --}}
-                        <p class="text-gray-700 mt-3 text-sm leading-relaxed">
-                            {{ $hotel->excerpt_ru ?? $hotel->excerpt_en }}
-                        </p>
+                    @if ($hotel->working_hours)
+                        <div class="flex items-center gap-2 text-blue-500">
+                            {{-- Часовая иконка --}}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm-1-13v5.414L10.293 11.707l1.414-1.414L9 7.586V3H7z"/>
+                            </svg>
+                            <span>{{ $hotel->working_hours }}</span>
+                        </div>
+                    @endif
+                </div>
 
-                        {{-- Контактная информация --}}
-                        <div class="mt-4 flex items-center gap-3 text-sm text-blue-600 flex-wrap">
-                            @if ($hotel->phone)
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-phone"></i> 
-                                    <span>{{ $hotel->phone }}</span>
-                                </div>
-                                <span class="text-gray-400">•</span>
-                            @endif
 
-                            @if ($hotel->working_hours)
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>{{ $hotel->working_hours }}</span>
-                                </div>
-                            @endif
+                </div>
+            </a>
+            @endforeach
+        </div>
+    @endif
+
+    <div class="mt-10">
+        {{ $hotels->links('vendor.pagination.tailwind') }}
+    </div>
+</div>
+
+<section class="mb-12">
+    <h2 class="text-xl font-semibold mb-6 text-gray-800">Рекомендованные рестораны области</h2>
+
+    <div class="grid gap-6 md:grid-cols-3">
+        @if(isset($restaurants) && $restaurants->count())
+            @foreach ($restaurants as $item)
+                <a href="{{ route('restaurants.show', $item->id) }}" 
+                   class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-200 hover:shadow-xl transition-all duration-300"
+                   data-lat="{{ $item->latitude }}"
+                   data-lng="{{ $item->longitude }}"
+                   data-id="{{ $item->id }}">
+                   
+                    {{-- Фото ресторана --}}
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="{{ asset('storage/' . $item->image ?? 'placeholder.png') }}" 
+                             alt="{{ $item->title }}" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+                        {{-- Мини-тег рейтинга --}}
+                        <div class="absolute top-3 right-3 bg-white/90 text-yellow-500 px-2 py-1 rounded-md text-sm font-medium shadow">
+                            ⭐ 4.7
                         </div>
                     </div>
+
+                    {{-- Контент карточки --}}
+                    <div class="p-5 flex flex-col justify-between">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition">
+                            {{ $item->title_ru ?? 'Без названия' }}
+                        </h3>
+
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            {{ Str::limit($item->description_ru, 120) ?? 'Описание отсутствует.' }}
+                        </p>
+
+                  
+                    </div>
                 </a>
-                @endforeach
-            </div>
+            @endforeach
+        @else
+            {{-- Заглушки, если нет ресторанов --}}
+            @foreach (range(1,3) as $i)
+                <div class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-200 hover:shadow-xl transition-all duration-300">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://placehold.co/400x250?text=Restaurant+{{ $i }}" 
+                             alt="Ресторан {{ $i }}" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col justify-between">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Ресторан {{ $i }}</h3>
+                        <p class="text-gray-600 text-sm mb-4">Краткое описание ресторана отсутствует.</p>
+                    </div>
+                </div>
+            @endforeach
         @endif
-
-        <div class="mt-10">
-            {{ $hotels->links('vendor.pagination.tailwind') }}
-        </div>
     </div>
- <section class="mb-12">
-            <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Рекомендованные рестораны области</h2>
+</section>
 
-            <div class="grid md:grid-cols-3 gap-5">
-                @if(isset($restaurants) && $restaurants->count())
-                    @foreach ($restaurants as $item)
-                        <a href="{{ route('restaurants.show', $item->id) }}" 
-                        class="block rounded-xl overflow-hidden border hover:shadow-lg transition bg-white">
-                            @if ($item->images->first())
-                                <img src="{{ asset('storage/' . $item->image) }}" 
-                                    alt="{{ $item->title }}" 
-                                    class="w-full h-52 object-cover">
-                            @else
-                                <img src="https://placehold.co/400x250?text=Culture" 
-                                    class="w-full h-52 object-cover" 
-                                    alt="{{ $item->title }}">
-                            @endif
-
-                            <div class="p-4">
-                                <h3 class="font-semibold text-gray-800">
-                                    {{ $item->title_ru ?? 'Без названия' }}
-                                </h3>
-                                <p class="text-gray-600 text-sm mt-1 line-clamp-3">
-                                    {{ Str::limit($item->description, 100) ?? 'Описание отсутствует.' }}
-                                </p>
-                            </div>
-                        </a>
-                    @endforeach
-                @else
-                    @foreach (range(1,3) as $i)
-                        <a href="#" class="block rounded-xl overflow-hidden border hover:shadow-lg transition bg-white">
-                            <img src="https://placehold.co/400x250?text=Culture+{{ $i }}" 
-                                class="w-full h-52 object-cover" 
-                                alt="Культура {{ $i }}">
-                            <div class="p-4">
-                                <h3 class="font-semibold text-gray-800">Культурный объект {{ $i }}</h3>
-                                <p class="text-gray-600 text-sm mt-1">Краткое описание объекта культурного наследия.</p>
-                            </div>
-                        </a>
-                    @endforeach
-                @endif
-            </div>
-        </section>
 
 </div>
 

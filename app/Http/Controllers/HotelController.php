@@ -93,6 +93,7 @@ class HotelController extends Controller
             'instagram' => 'nullable|string|max:150',
             'facebook' => 'nullable|string|max:150',
             'telegram' => 'nullable|string|max:150',
+            'rating' => 'nullable|string|max:5',
 
             // Координаты и фото
             'latitude' => 'nullable|numeric',

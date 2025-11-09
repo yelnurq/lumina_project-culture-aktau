@@ -19,13 +19,13 @@ class Hotel extends Model
         'latitude', 'longitude', 'image', 'slug'
     ];
 
-    public function dishes()
+    public function rooms()
     {
-        return $this->hasMany(RestaurantDish::class);
+        return $this->hasMany(HotelRoom::class);
     }
 
     public function images()
     {
-        return $this->hasMany(RestaurantImage::class);
+        return $this->hasMany(HotelImage::class);
     }
 }
