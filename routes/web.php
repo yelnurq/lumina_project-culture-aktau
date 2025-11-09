@@ -27,6 +27,9 @@ Route::get('/contacts', function() {
 Route::get('/about', function() {
      return view("about");
 })->name("about");
+Route::get('/history', function() {
+     return view("history");
+})->name("history");
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 // Админка
