@@ -6,9 +6,25 @@
     <div class="absolute top-[-150px] right-[-200px] w-[500px] h-[500px] bg-sky-200/20 rounded-full blur-3xl"></div>
     <div class="absolute bottom-[-180px] left-[-200px] w-[450px] h-[450px] bg-amber-100/20 rounded-full blur-3xl"></div>
 
-    <section class="relative mx-4 md:mx-24 mt-[80px] mb-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="order-2 md:order-1 space-y-6 text-gray-700">
-            <h2 class="text-3xl font-semibold text-gray-900">О проекте</h2>
+
+    <section class="relative px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
+        <nav class="text-sm text-gray-500 mb-4">
+            <ol class="list-reset flex flex-wrap justify-left md:justify-start space-x-2">
+                <li>
+                    <a href="/" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_home">
+                        Главная
+                    </a>
+                </li>
+                <li>/</li>
+                <li class="text-gray-700" data-lang="_breadcrumb_current">
+                    О проекте
+                </li>
+            </ol>
+        </nav>
+        <div class="relative  grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 space-y-6 text-gray-700">
+            
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">О проекте</h2>
             <p class="leading-relaxed text-[17px]">
                 <strong>«Новые берега Каспия»</strong> — это цифровое путешествие в сердце Маңғыстау, 
                 где море встречается с пустыней, а каньоны скрывают дыхание древности. 
@@ -27,8 +43,10 @@
         <div class="order-1 md:order-2 relative">
             <div class="absolute -inset-2 bg-gradient-to-r from-sky-100 to-amber-100 rounded-3xl blur-2xl opacity-40"></div>
             <img src="/images/boszhyra.jpg" alt="Каспий и каньоны" 
-                class="relative rounded-3xl shadow-xl w-full object-cover transition-transform duration-700 hover:scale-[1.04] hover:shadow-2xl">
+                class="relative rounded-3xl shadow-xl w-full object-cover transition-transform duration-700 hover:shadow-2xl">
         </div>
+        </div>
+
     </section>
 
     <section class="relative mx-4 md:mx-24 mb-28">

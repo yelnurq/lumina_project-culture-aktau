@@ -15,8 +15,8 @@
                     </a>
                 </li>
                 <li>/</li>
-                <li class="text-gray-700" data-lang="restaurant_breadcrumb_current">
-                    Вкусно покушать
+                <li class="text-gray-700" data-lang="_breadcrumb_current">
+                    История региона
                 </li>
             </ol>
         </nav>

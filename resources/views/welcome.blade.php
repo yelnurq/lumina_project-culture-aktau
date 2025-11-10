@@ -1,125 +1,59 @@
 @extends('layouts.app')
 
-@section("header")
-
-<header class="absolute top-0 left-0 w-full z-50 hidden md:flex" >
-    <div class="w-full flex items-center justify-between p-4 "
-         style="padding-left:50px;padding-right:50px">
-        <a href="/" class="flex items-center space-x-6">
-            <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;">
-                Mangystau oblysy
-            </span>
-        </a>
-    <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
-    <a href="/" data-lang="nav-home" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Главная</a>
-    <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Объекты культуры</a>
-    <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Вкусно покушать</a>
-    <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Отели</a>
-    <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Контакты</a>
-
-    <div class="flex items-center space-x-2 ml-4">
-        <button onclick="setLang('ru')" id="btn-ru" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
-        🇷🇺 Рус
-        </button>
-        <span class="text-gray-400">|</span>
-        <button onclick="setLang('en')" id="btn-en" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
-        🇬🇧 Eng
-        </button>
-        <span class="text-gray-400">|</span>
-        <button onclick="setLang('kk')" id="btn-kk" class="lang-btn text-white hover:text-accent transition-colors duration-300 bg-transparent border-none focus:outline-none text-sm">
-        🇰🇿 Qaz
-        </button>
-    </div>
-
-    @auth
-        <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
-
-        <form action="{{ route('logout') }}" method="POST" class="inline">
-        @csrf
-        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:15px;">
-            Выйти
-        </button>
-        </form>
-    @endauth
-    </nav>
-
-    </div>
-</header>
-<header class="absolute top-0 left-0 w-full z-50  md:hidden ">
-
-        <a href="/" class="flex items-center space-x-6" style="text-align: center">
-            <span class="text-white font-semibold text-xl" style="font-weight: 600; font-size:17px;padding:10px;text-align:center">
-                Mangystau oblysy
-            </span>
-        </a>
-
-</header>
-<nav class="fixed bottom-0 left-0 w-full backdrop-blur-md md:hidden" style="z-index: 1000; background-color: rgb(0 0 0 / 62%);">
-    <div class="flex justify-around items-center py-2 text-white text-sm font-semibold">
-        <a href="/" class="flex flex-col items-center">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 12l9-9 9 9v9a3 3 0 01-3 3h-3v-6h-6v6H6a3 3 0 01-3-3v-9z"/>
-            </svg>
-            Главная
-        </a>
-
-        <a href="/culture-list" class="flex flex-col items-center">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4 22h16v-2H4v2zm2-4h12v-2H6v2zm1-4h10V6H7v8z"/>
-            </svg>
-            Культура
-        </a>
-
-
-        <a href="/contacts" class="flex flex-col items-center">
-            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M21 8V7l-3 2-2-2-3 2-2-2-3 2-2-2v1l2 2-2 2v1l2-2 3 2 2-2 3 2 2-2 3 2V12l-3-2z"/>
-            </svg>
-            Контакты
-        </a>
-    </div>
-</nav>
-
-
-@endsection
-
 
 
 @section('content')
-<div class="relative w-full h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden">
+<div class="relative w-full h-[80vh] sm:h-[85vh] lg:h-[90vh] overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
         <source src="{{ asset('media/video.mp4') }}" type="video/mp4" />
         Ваш браузер не поддерживает видео.
     </video>
-    <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-left">
-        <div class="container mx-auto max-w-9xl py-20 pt-32">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight opacity-0 translate-y-6 animate-fadeInUp" data-lang="main-title">
-                Новые берега Каспия<br> — неизвестная красота Маңғыстау
+
+        <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-left">
+                    <div class="container mx-auto max-w-7xl text-left sm:text-left">
+            
+            <h1 
+                class="text-left text-2xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight opacity-0 translate-y-6 animate-fadeInUp"
+                data-lang="main-title"
+            >
+                Новые берега Каспия<br class="hidden sm:block"> — неизвестная красота Маңғыстау
             </h1>
-            <p style="margin: 0 0 30px" class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 sm:mb-16 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300" data-lang="main-desc">
+
+            <p 
+                class="text-left text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto sm:mx-0 mb-8 sm:mb-12 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300"
+                data-lang="main-desc"
+            >
                 Каспийское море отступает, открывая новые островки и дороги.  
                 Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.  
                 Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
             </p>
-            <a href="/routes" data-lang="main-btn1" class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-gray-100 transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px;">
-                Проложить маршрут
-            </a>
-            <a href="/routes" data-lang="main-btn2" class="inline-block bg-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 shadow-lg hover:bg-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 14px; background:none; border:1px solid white;colo:white;">
-                О проекте
-            </a>
+
+            <div class="flex flex-col sm:flex-row items-left sm:items-start gap-4 sm:gap-2 opacity-0 translate-y-6 animate-fadeInUp delay-600">
+                <a 
+                    href="/culture-list" 
+                    data-lang="main-btn1"
+                    class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-[14px] shadow-lg hover:bg-gray-100 transition text-sm sm:text-base"
+                >
+                    Проложить маршрут
+                </a>
+
+                <a 
+                    href="/about"
+                    data-lang="main-btn2"
+                    class="inline-block border border-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-[14px] hover:bg-white hover:text-primary transition text-sm sm:text-base"
+                >
+                    О проекте
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
-
-    </div>
-</div>
 <div class="bg-gray-100 py-20">
   <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-16 items-start">
     
-    <!-- Левая колонка: заголовок и текст -->
     <div class="md:w-1/2">
-      <h2 class="text-4xl font-bold text-primary mb-4" data-lang="goal-title">НАША ЦЕЛЬ</h2>
+      <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
       <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
       <div class="prose prose-sm text-gray-800" style="text-align: justify;">
@@ -127,49 +61,54 @@
 
         <p  data-lang="goal-desc2">Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
       </div>
-            <a href="/routes"  data-lang="goal-btn" class="inline-block bg-none text-primary font-600 px-6 sm:px-8 py-2 sm:py-3  hover:bg-primary hover:text-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 16px;font-size:16px;font-weight:500; border:1px solid rgb(15 59 99); margin-top:30px;" >
+            <a href="/about"  data-lang="goal-btn" class="inline-block bg-none text-primary font-600 px-6 sm:px-8 py-2 sm:py-3  hover:bg-primary hover:text-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 16px;font-size:16px;font-weight:500; border:1px solid rgb(15 59 99); margin-top:30px;" >
                 Ознакомиться
             </a>
     </div>
 
-    <!-- Правая колонка: грид с изображениями -->
-    <div id="heritage-container" class="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
-      
-      <!-- img1 занимает две строки -->
-      <div style="border-radius: 16px;" class="relative row-span-2 bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-            <h3 class="font-bold text-lg" data-lang="ayrakty-title"></h3> <p class="text-sm" data-lang="ayrakty-desc"></p>
+    <div id="heritage-container" 
+     class="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-        </div>
-      </div>
-
-      <!-- img2 -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-            <h3 class="font-bold text-lg" data-lang="buhta-title"></h3> <p class="text-sm" data-lang="buhta-desc"></p>
-
-        </div>
-      </div>
-
-      <!-- img3 -->
-      <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-        <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-          <h3 class="font-bold text-lg" data-lang="balayuk-title"></h3> <p class="text-sm" data-lang="balayuk-desc"></p>
-        </div>
-      </div>
-
+  <div style="border-radius: 16px;" 
+       class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 sm:row-span-2">
+    <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" 
+         class="w-full h-64 sm:h-full object-cover">
+    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+      <h3 class="font-bold text-lg" data-lang="ayrakty-title"></h3>
+      <p class="text-sm" data-lang="ayrakty-desc"></p>
     </div>
+  </div>
+
+  <div style="border-radius: 16px;" 
+       class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+    <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" 
+         class="w-full h-64 object-cover">
+    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+      <h3 class="font-bold text-lg" data-lang="buhta-title"></h3>
+      <p class="text-sm" data-lang="buhta-desc"></p>
+    </div>
+  </div>
+
+  <div style="border-radius: 16px;" 
+       class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
+    <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" 
+         class="w-full h-64 object-cover">
+    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+      <h3 class="font-bold text-lg" data-lang="balayuk-title"></h3>
+      <p class="text-sm" data-lang="balayuk-desc"></p>
+    </div>
+  </div>
+
+</div>
+
 
   </div>
 </div>
 
 <div class="bg-white py-20">
 <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
-    <div class="mb-12">
-        <h2 class="text-4xl font-bold text-primary mb-4 uppercase" data-lang="advantages-title">Наши преимущества</h2>
+    <div class="mb-0 md:mb-12">
+        <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="advantages-title">Наши преимущества</h2>
         <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
 
@@ -177,31 +116,30 @@
         <div class="flex-1 flex flex-col gap-6">
             <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
                 <div>
-                    <h3 class="text-xl font-semibold mb-1" data-lang="adv1-title">Сохранение природы</h3>
+                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv1-title">Сохранение природы</h3>
                     <p class="text-gray-700 text-sm" data-lang="adv1-desc">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
                 </div>
             </div>
 
             <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
                 <div>
-                    <h3 class="text-xl font-semibold mb-1" data-lang="adv2-title">Культурное наследие</h3>
+                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv2-title">Культурное наследие</h3>
                     <p class="text-gray-700 text-sm" data-lang="adv2-desc">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Правая колонка -->
         <div class="flex-1 flex flex-col gap-6">
             <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
                 <div>
-                    <h3 class="text-xl font-semibold mb-1" data-lang="adv3-title">Современные инициативы</h3>
+                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv3-title">Современные инициативы</h3>
                     <p class="text-gray-700 text-sm" data-lang="adv3-desc">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
                 </div>
             </div>
 
             <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
                 <div>
-                    <h3 class="text-xl font-semibold mb-1" data-lang="adv4-title">Доступность информации</h3>
+                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv4-title">Доступность информации</h3>
                     <p class="text-gray-700 text-sm" data-lang="adv4-desc">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
                 </div>
             </div>
@@ -215,7 +153,7 @@
 <section class=" relative w-full py-20 bg-gray-100" id="attractions">
 <div class="container mx-auto px-6 max-w-7xl">
     <div class="mb-5">
-        <h2 class="text-4xl font-bold text-primary mb-4 uppercase" data-lang="heritages-title">Наши достояния</h2>
+        <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase uppercase" data-lang="heritages-title">Наши достояния</h2>
         <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
 

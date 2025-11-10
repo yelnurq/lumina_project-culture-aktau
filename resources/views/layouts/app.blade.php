@@ -129,7 +129,7 @@
      aria-hidden="true"></div>
 
 <div id="mobileMenu"
-     class="fixed top-0 right-0 h-full w-[40%] max-w-[420px] md:hidden bg-white/95 backdrop-blur-sm shadow-lg z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300"
+     class="fixed top-0 right-0 h-full w-[50%] max-w-[420px] md:hidden bg-white/95 backdrop-blur-sm shadow-lg z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300"
      aria-hidden="true" role="dialog" aria-label="Мобильное меню" style="min-height:100vh;">
     <div class="flex items-center justify-between p-4 border-b">
         <div class="text-lg font-semibold">Меню</div>
@@ -140,12 +140,14 @@
         </button>
     </div>
 
-    <nav class="flex flex-col p-4 space-y-2">
-        <a href="/about" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">О проекте</a>
-        <a href="/contacts" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Контакты</a>
-        <a href="/culture-list" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Объекты культуры</a>
-        <a href="/restaurants" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Рестораны</a>
-        <a href="/hotels" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Отели</a>
+    <nav class="flex flex-col p-2 space-y-2">
+        <a href="/" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Главная</a>
+        <a href="/about" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">О проекте</a>
+        <a href="/history" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">История региона</a>
+        <a href="/contacts" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Контакты</a>
+        <a href="/culture-list" class="block px-4 py-2 text-black hover:bg-gray-100 rounded text-1xl" >Объекты культуры</a>
+        <a href="/restaurants" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Рестораны</a>
+        <a href="/hotels" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Отели</a>
     </nav>
 </div>
 
@@ -307,7 +309,7 @@
      aria-hidden="true"></div>
 
 <div id="mobileMenu"
-     class="fixed top-0 right-0 h-full w-[45%] max-w-[420px] md:hidden bg-white/95 backdrop-blur-sm shadow-lg z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300"
+     class="fixed top-0 right-0 h-full w-[50%] max-w-[420px] md:hidden bg-white/95 backdrop-blur-sm shadow-lg z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300"
      aria-hidden="true" role="dialog" aria-label="Мобильное меню" style="min-height:100vh;">
     <div class="flex items-center justify-between p-4 border-b">
         <div class="text-lg font-semibold">Меню</div>
@@ -318,15 +320,16 @@
         </button>
     </div>
 
-    <nav class="flex flex-col p-4 space-y-2">
-        <a href="/about" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">О проекте</a>
-        <a href="/contacts" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Контакты</a>
-        <a href="/culture-list" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Объекты культуры</a>
-        <a href="/restaurants" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Рестораны</a>
-        <a href="/hotels" class="block px-4 py-3 text-black hover:bg-gray-100 rounded">Отели</a>
+    <nav class="flex flex-col p-2 space-y-2">
+        <a href="/" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Главная</a>
+        <a href="/about" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">О проекте</a>
+        <a href="/history" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">История региона</a>
+        <a href="/contacts" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Контакты</a>
+        <a href="/culture-list" class="block px-4 py-2 text-black hover:bg-gray-100 rounded text-1xl" >Объекты культуры</a>
+        <a href="/restaurants" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Рестораны</a>
+        <a href="/hotels" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Отели</a>
     </nav>
 </div>
-
 <script>
 (function(){
     const btn = document.getElementById('mobileMenuBtn');
