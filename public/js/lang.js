@@ -1,5 +1,3 @@
-// lang.js
-
 const translations = {
   ru: {
     "nav-home": "Главная",
@@ -275,26 +273,21 @@ const translations = {
   }
 };
 function setLang(lang) {
-  // Обновляем тексты интерфейса
   document.querySelectorAll("[data-lang]").forEach(el => {
     const key = el.getAttribute("data-lang");
     if (translations[lang] && translations[lang][key]) {
-      // ✅ используем innerHTML, чтобы <br> и другие теги отображались
       el.innerHTML = translations[lang][key];
     }
   });
 
-  // Сохраняем язык
   localStorage.setItem("lang", lang);
 
-  // Меняем активную кнопку
   document.querySelectorAll(".lang-btn").forEach(btn =>
     btn.classList.remove("text-accent", "font-bold")
   );
   const btn = document.querySelector(`#btn-${lang}`);
   if (btn) btn.classList.add("text-accent", "font-bold");
 
-  // ---- AJAX: подгружаем данные ресторана ----
   const restaurantId = document.querySelector("meta[name='restaurant-id']")?.content;
   if (!restaurantId) return;
 
@@ -306,11 +299,9 @@ function setLang(lang) {
     .then(res => res.json())
     .then(data => {
       document.querySelector("#restaurant-title").innerHTML = data.title;
-      // ✅ innerHTML + <br> вместо textContent
       document.querySelector("#restaurant-description").innerHTML = data.description.replace(/\n/g, "<br>");
       document.querySelector("#restaurant-address").innerHTML = data.address;
 
-      // Обновляем карту
       if (typeof ymaps !== "undefined" && data.latitude && data.longitude) {
         ymaps.ready(() => {
           const map = new ymaps.Map("map", {

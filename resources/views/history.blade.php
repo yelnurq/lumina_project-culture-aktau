@@ -3,11 +3,9 @@
 @section('content')
 <div class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-amber-50">
 
-    <!-- Decorative background blur -->
     <div class="absolute top-[-200px] right-[-250px] w-[600px] h-[600px] bg-sky-200/20 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-[-200px] left-[-220px] w-[500px] h-[500px] bg-amber-100/20 rounded-full blur-3xl animate-pulse"></div>
 
-    <!-- HISTORY SECTION -->
     <section class="relative px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
             <nav class="text-sm text-gray-500 mb-4">
             <ol class="list-reset flex flex-wrap justify-left md:justify-start space-x-2">
@@ -54,10 +52,8 @@
   </h2>
 
   <div class="relative">
-    <!-- Вертикальная линия -->
     <div class="absolute top-0 left-1/2 w-1 bg-sky-300 h-full -translate-x-1/2"></div>
 
-    <!-- Событие 1: слева -->
     <div class=" flex justify-start w-full relative">
       <div class="w-1/2 pr-10 text-right">
         <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
@@ -72,7 +68,6 @@
       <div class="w-1/2"></div>
     </div>
 
-    <!-- Событие 2: справа -->
     <div style="margin-top:-200px;" class="flex justify-end w-full relative">
       <div class="w-1/2"></div>
       <div class="w-1/2 pl-10 text-left">
@@ -87,11 +82,10 @@
       </div>
     </div>
 
-    <!-- Событие 3: слева -->
     <div style="margin-top:-100px;"  class="flex justify-start w-full relative">
       <div class="w-1/2 pr-10 text-right">
         <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
-          <img src="/images/kazakh_khanate.jpg" alt="Эпоха Казахского ханства" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
+          <img src="/images/boszhyra.jpg" alt="Эпоха Казахского ханства" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
           <h3 class="text-2xl font-semibold mb-2 text-gray-900">Эпоха Казахского ханства</h3>
           <p class="text-gray-600 text-[16px]">
             В середине XV века на землях западного Казахстана образовалось Казахское ханство.
@@ -102,12 +96,11 @@
       <div class="w-1/2"></div>
     </div>
 
-    <!-- Событие 4: справа -->
     <div style="margin-top:-200px;"  class="mb-0 flex justify-end w-full relative">
       <div class="w-1/2"></div>
       <div class="w-1/2 pl-10 text-left">
         <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
-          <img src="/images/modern.jpg" alt="Современность" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
+          <img src="/images/boszhyra.jpg" alt="Современность" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
           <h3 class="text-2xl font-semibold mb-2 text-gray-900">Современность</h3>
           <p class="text-gray-600 text-[16px]">
             Сегодня Маңғыстау развивается как туристический и культурный центр.

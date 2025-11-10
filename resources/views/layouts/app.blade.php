@@ -226,7 +226,6 @@
             </span>
         </a>
 
-        <!-- навигация -->
         <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
                 <div class="relative group inline-block">
                     <button 
@@ -263,7 +262,6 @@
                             <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-            <a href="/contacts" data-lang="nav-contacts" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
              <div class="relative inline-block text-left">
                 <select 
                     onchange="setLang(this.value)" 

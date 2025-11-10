@@ -7,7 +7,6 @@
 
 @section('content')
 
-{{-- Баннер --}}
 <div class="relative w-full h-[35vh] md:h-[45vh] overflow-hidden">
     <img src="{{ asset('storage/' . $restaurant->image) }}"
          class="w-full h-full object-cover blur-sm scale-105" alt="{{ $restaurant->title_ru }}">
@@ -48,9 +47,7 @@
         </div>
     @endif
 
-    {{-- Галерея --}}
     <div class="w-full md:w-2/5 h-72 md:h-[500px] flex flex-col gap-4">
-        <!-- Десктопная сетка: все ячейки делят доступную высоту (grid-auto-rows:1fr) -->
         <div class="hidden md:block h-full">
             @if($restaurant->images->count() >= 1)
                 <div class="grid grid-cols-3 gap-4 h-full" style="grid-auto-rows: 1fr;">
@@ -67,7 +64,6 @@
             @endif
         </div>
 
-        <!-- Мобильный слайдер -->
         <div class="md:hidden">
             <div class="swiper restaurantSwiper">
                 <div class="swiper-wrapper">
@@ -95,7 +91,6 @@
 
 <section class="mb-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-        {{-- Контакты --}}
         <div class="bg-white rounded-2xl p-6 shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-gray-800">Контактная информация</h3>
 
@@ -139,12 +134,10 @@
             </ul>
         </div>
 
-        {{-- Расписание --}}
         <div class="bg-gradient-to-b from-white/80 to-white rounded-2xl p-4 shadow-md">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-semibold text-gray-800">Режим работы по дням</h3>
                 @php
-                    // keys order: mon..sun
                     $dayKeys = ['mon','tue','wed','thu','fri','sat','sun'];
                     $dayNames = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
 
@@ -217,7 +210,6 @@
     </h2>
 
     <div class="grid md:grid-cols-2 gap-6">
-        <!-- Отзыв 1 -->
         <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
         <div class="flex items-center mb-4">
             <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
@@ -234,7 +226,6 @@
         <div class="flex mt-3 text-yellow-400 text-lg">⭐️⭐️⭐️⭐️⭐️</div>
         </div>
 
-        <!-- Отзыв 2 -->
         <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
         <div class="flex items-center mb-4">
             <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
@@ -253,7 +244,6 @@
     </div>
 </section>
 
-    {{-- 🍽 Популярные блюда --}}
     @if($restaurant->dishes->count())
 <section class="mb-12">
     <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Популярные блюда</h2>
@@ -282,13 +272,11 @@
 
  
 
-    {{-- Карта --}}
     <section class="mb-12">
         <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Расположение на карте</h2>
         <div id="map" class="rounded-xl shadow-lg overflow-hidden h-[550px]"></div>
     </section>
 
-{{-- Поделиться --}}
 <section class="mb-6 pb-6 border-b border-gray-300">
     <h2 class="text-[18px] font-semibold mb-3 text-[#444] flex items-center gap-2">
 
@@ -300,14 +288,12 @@
             $url = urlencode(Request::url());
             $title = urlencode($restaurant->title_ru);
         @endphp
-        {{-- WhatsApp --}}
         <a href="https://api.whatsapp.com/send?text={{ $title }}%20{{ $url }}" target="_blank" class="flex items-center gap-2 hover:text-green-600 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="#25D366" viewBox="0 0 24 24">
                 <path d="M20.52 3.48A11.949 11.949 0 0012 0C5.37 0 0 5.37 0 12a11.95 11.95 0 001.91 6.58L0 24l5.54-1.91A11.949 11.949 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 21.82a9.78 9.78 0 01-5.1-1.47l-.36-.22-3.28 1.13 1.1-3.2-.23-.37A9.78 9.78 0 012.18 12 9.78 9.78 0 0112 2.18 9.78 9.78 0 0121.82 12 9.78 9.78 0 0112 21.82zM17.5 14.7c-.27-.14-1.6-.78-1.85-.87-.25-.08-.43-.14-.61.14-.18.27-.69.87-.85 1.05-.16.18-.33.2-.6.07-.27-.14-1.14-.42-2.17-1.33-.8-.71-1.34-1.6-1.5-1.88-.16-.28-.02-.43.12-.57.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.33-.02-.46-.08-.13-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16 0-.34 0-.52 0-.18 0-.46.07-.7.33-.25.27-.94.92-.94 2.24s.96 2.59 1.09 2.77c.13.18 1.9 2.9 4.61 4.07 2.71 1.17 2.71.78 3.2.73.49-.05 1.6-.65 1.82-1.28.22-.63.22-1.16.16-1.27-.05-.12-.18-.18-.36-.32z"/>
             </svg>
             WhatsApp
         </a>
-        {{-- Facebook --}}
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}" target="_blank" class="flex items-center gap-2 hover:text-blue-600 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="#1877F2" viewBox="0 0 24 24">
                 <path d="M22 12a10 10 0 10-11 9.95v-7.05H8v-2.9h3V9.5c0-3 1.79-4.64 4.52-4.64 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 2.9h-2.79v7.05A10.001 10.001 0 0022 12z"/>
@@ -315,7 +301,6 @@
             Facebook
         </a>
 
-        {{-- X (Twitter) --}}
         <a href="https://twitter.com/intent/tweet?url={{ $url }}&text={{ $title }}" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="#1DA1F2" viewBox="0 0 24 24">
                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0022.4.36a9 9 0 01-2.83 1.08 4.52 4.52 0 00-7.86 4.13A12.85 12.85 0 013 2.82a4.51 4.51 0 001.4 6.03 4.41 4.41 0 01-2.05-.56v.06a4.52 4.52 0 003.63 4.43 4.52 4.52 0 01-2.04.08 4.52 4.52 0 004.21 3.14A9 9 0 012 19.54a12.72 12.72 0 006.92 2.03c8.3 0 12.84-6.87 12.84-12.84 0-.2 0-.42-.01-.63A9.2 9.2 0 0023 3z"/>
@@ -323,7 +308,6 @@
             X
         </a>
 
-        {{-- Telegram --}}
         <a href="https://t.me/share/url?url={{ $url }}&text={{ $title }}" target="_blank" class="flex items-center gap-2 hover:text-blue-500 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="#0088cc" viewBox="0 0 24 24">
                 <path d="M21.53 2.47a1.5 1.5 0 00-1.82-.25L2.5 10.5v4.01l5.5-1.5 1.5 4 3-3 5-5 1.5-1.5a1.5 1.5 0 00-.25-1.82z"/>
@@ -335,7 +319,6 @@
     </div>
 </section>
 
-   {{-- 🏖 Похожие рестораны --}}
    <section class="mb-12">
     <h2 class="text-[18px] font-semibold mb-4 text-[#444]">Похожие рестораны</h2>
     <div class="grid md:grid-cols-3 gap-5">
@@ -359,7 +342,6 @@
     </div>
 </section>
 
-    {{-- Назад --}}
     <div class="mt-12 flex justify-end">
         <a href="{{ route('restaurants.index') }}" class="inline-block bg-primary text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-gray-800 transition">
             ← Назад ко всем ресторанам
@@ -395,10 +377,8 @@ window.addEventListener('load', () => {
     });
 });
 </script>
-<!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
     const swiper = new Swiper('.restaurantSwiper', {

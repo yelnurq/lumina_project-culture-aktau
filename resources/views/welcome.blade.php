@@ -56,7 +56,6 @@
 </header>
 <nav class="fixed bottom-0 left-0 w-full backdrop-blur-md md:hidden" style="z-index: 1000; background-color: rgb(0 0 0 / 62%);">
     <div class="flex justify-around items-center py-2 text-white text-sm font-semibold">
-        <!-- Главная -->
         <a href="/" class="flex flex-col items-center">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 12l9-9 9 9v9a3 3 0 01-3 3h-3v-6h-6v6H6a3 3 0 01-3-3v-9z"/>
@@ -64,7 +63,6 @@
             Главная
         </a>
 
-        <!-- Культура -->
         <a href="/culture-list" class="flex flex-col items-center">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M4 22h16v-2H4v2zm2-4h12v-2H6v2zm1-4h10V6H7v8z"/>
@@ -73,7 +71,6 @@
         </a>
 
 
-        <!-- Контакты -->
         <a href="/contacts" class="flex flex-col items-center">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M21 8V7l-3 2-2-2-3 2-2-2-3 2-2-2v1l2 2-2 2v1l2-2 3 2 2-2 3 2 2-2 3 2V12l-3-2z"/>
@@ -171,15 +168,12 @@
 
 <div class="bg-white py-20">
 <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
-    <!-- Заголовок -->
     <div class="mb-12">
         <h2 class="text-4xl font-bold text-primary mb-4 uppercase" data-lang="advantages-title">Наши преимущества</h2>
         <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
 
-    <!-- Флекс блок с двумя колонками -->
     <div class="flex flex-col md:flex-row gap-8">
-        <!-- Левая колонка -->
         <div class="flex-1 flex flex-col gap-6">
             <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
                 <div>
