@@ -8,7 +8,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RestaurantController;
-use App\Models\Restaurant;
 
 // Аутентификация
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
