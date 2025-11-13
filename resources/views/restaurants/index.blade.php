@@ -2,9 +2,7 @@
 
 @section('content')
 
-{{-- <div class="mx-auto px-6 max-w-6xl mt-10 mb-16"> --}}
 <div class="px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
-    {{-- 🔹 Навигация --}}
     <div class="pb-6 border-b border-gray-300 mb-6">
         <nav class="text-sm text-gray-500 mb-4">
             <ol class="list-reset flex flex-wrap justify-left md:justify-start space-x-2">
