@@ -295,7 +295,7 @@
     {{-- 🍽 Популярные блюда --}}
     @if($hotel->rooms->count())
 <section class="mb-12">
-    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Популярные блюда</h2>
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">Комнаты</h2>
     <div class="grid md:grid-cols-3 gap-6">
         @foreach($hotel->rooms as $dish)
         <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
