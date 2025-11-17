@@ -18,13 +18,11 @@ class Restaurant extends Model
         'latitude', 'longitude', 'image', 'slug'
     ];
 
-    // 🥘 Связь с блюдами
     public function dishes()
     {
         return $this->hasMany(RestaurantDish::class);
     }
 
-    // 🖼 Связь с галереей
     public function images()
     {
         return $this->hasMany(RestaurantImage::class);
