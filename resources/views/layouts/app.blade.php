@@ -287,6 +287,16 @@
 
 
     <header class="shadow top-0 left-0 w-full md:hidden bg-transparent backdrop-blur-sm" style="z-index:50;">
+               <div class="absolute inset-0"
+            style="
+                background-image: url('/images/icon.svg'), url('/images/icon.svg');
+                background-repeat: repeat-x, repeat-x;
+                background-position: top -55px left, bottom -55px left;
+                background-size: 80px auto;
+                opacity: 0.25;
+                pointer-events: none;
+            ">
+        </div>
         <div class="w-full flex items-center justify-between p-3 px-4">
         <a href="/" class="flex items-center space-x-3">
             <span class="text-black font-semibold text-base" style="font-weight:600; font-size:15px;">
@@ -311,8 +321,20 @@
 <div id="mobileMenu"
      class="fixed top-0 right-0 h-full w-[50%] max-w-[420px] md:hidden bg-white/95 backdrop-blur-sm shadow-lg z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300"
      aria-hidden="true" role="dialog" aria-label="Мобильное меню" style="min-height:100vh;">
-    <div class="flex items-center justify-between p-4 border-b">
-        <div class="text-lg font-semibold">Меню</div>
+    
+    <div class="absolute inset-0 z-[-1]"
+         style="
+             background-image: url('/images/icon.svg');
+             background-repeat: repeat-y;
+             background-position: left -90px top;
+             background-size: 220px auto;
+             opacity: 0.09;
+             pointer-events: none;
+         ">
+    </div>
+
+    <div class="flex items-center justify-between p-[14px] border-b bg-white/80 sticky top-0">
+        <div class="text-black font-semibold text-base text-[15px]">Меню</div>
         <button id="mobileMenuClose" class="p-2 rounded-lg hover:bg-black/5" aria-label="Закрыть меню">
             <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -320,14 +342,14 @@
         </button>
     </div>
 
-    <nav class="flex flex-col p-2 space-y-2">
-        <a href="/" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Главная</a>
-        <a href="/about" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">О проекте</a>
-        <a href="/history" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">История региона</a>
-        <a href="/contacts" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Контакты</a>
-        <a href="/culture-list" class="block px-4 py-2 text-black hover:bg-gray-100 rounded text-1xl" >Объекты культуры</a>
-        <a href="/restaurants" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Рестораны</a>
-        <a href="/hotels" class="block px-4 py-2 text-black hover:bg-gray-100 rounded  text-1xl">Отели</a>
+    <nav class="flex flex-col p-4 space-y-2 relative z-10">
+        <a href="/" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Главная</a>
+        <a href="/about" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">О проекте</a>
+        <a href="/history" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">История региона</a>
+        <a href="/culture-list" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Объекты культуры</a>
+        <a href="/restaurants" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Рестораны</a>
+        <a href="/hotels" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Отели</a>
+        <a href="/contacts" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Контакты</a>
     </nav>
 </div>
 <script>
@@ -405,17 +427,17 @@
       </svg>
       <span class="text-xs leading-tight">Главная</span>
     </a>
-<!-- Культура -->
-<a href="/culture-list"
-   aria-label="Культура"
-   class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('culture-list*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-       stroke="currentColor" stroke-width="1.6" class="w-6 h-6 mb-1">
-    <path stroke-linecap="round" stroke-linejoin="round"
-          d="M2.75 5.5l8.25-2.5 8.25 2.5M2.75 5.5v12.25l8.25 2.75m0-15L19.25 5.5m-8.25 15V8.25m0 0L19.25 5.5v12.25l-8.25 2.75" />
-  </svg>
-  <span class="text-xs leading-tight">Культура</span>
-</a>
+    <!-- Культура -->
+    <a href="/culture-list"
+    aria-label="Культура"
+    class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('culture-list*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.6" class="w-6 h-6 mb-1">
+        <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.75 5.5l8.25-2.5 8.25 2.5M2.75 5.5v12.25l8.25 2.75m0-15L19.25 5.5m-8.25 15V8.25m0 0L19.25 5.5v12.25l-8.25 2.75" />
+    </svg>
+    <span class="text-xs leading-tight">Культура</span>
+    </a>
 
     <!-- Рестораны -->
     <a href="/restaurants"

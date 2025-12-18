@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
+<div class="px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-5 mb-16">
 
     <div class="pb-6 border-b border-gray-300 mb-6">
         <nav class="text-sm text-gray-500 mb-4">
@@ -18,7 +18,7 @@
             </ol>
         </nav>
 
-        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 text-left md:text-left" data-lang="culture_header_title">
+        <h1 class="text-2xl mt-6 mb-3 md:text-3xl font-bold text-gray-800 text-left md:text-left" data-lang="culture_header_title" style="line-height: 22px">
             Объекты культуры Мангистауской области
         </h1>
         <p class="text-gray-600 mt-2 text-sm md:text-base text-left md:text-left" data-lang="culture_header_description">
