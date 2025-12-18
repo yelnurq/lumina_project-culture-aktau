@@ -9,7 +9,7 @@
         Ваш браузер не поддерживает видео.
     </video>
 
-    <div class="relative z-10 w-full h-full bg-black/20 bg-gradient-to-r from-primary/60 via-primary/20 to-transparent flex items-center">
+    <div class="relative z-10 w-full h-full bg-black/20 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent flex items-center">
         
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -22,7 +22,7 @@
                         ДУХ СВОБОДЫ И ПУСТЫНИ
                 </p>
                     <h1 
-                        class="text-left text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
+                        class="text-left sm:text-2xl text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
                         data-lang="main-title"
                     >
                         Новые берега Каспия<br class="hidden sm:block"> 
@@ -30,17 +30,17 @@
                     </h1>
 
                     <p 
-                        class="text-left text-base md:text-xl text-gray-100 max-w-2xl mb-10 font-normal leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
+                        class="text-left text-[15px] md:text-xl text-gray-100 max-w-2xl mb-10 font-normal leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
                         data-lang="main-desc"
                     >
                         Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 opacity-0 translate-y-6 animate-fadeInUp delay-600">
-                        <a href="/culture-list" class="inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
+                        <a href="/culture-list" class="text-[14px] md:text-base inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
                             Проложить маршрут
                         </a>
-                        <a href="/about" class="inline-flex justify-center items-center border-2 border-white/50 backdrop-blur-md text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
+                        <a href="/about" class="text-[14px] md:text-base inline-flex justify-center items-center border-2 border-white/50 backdrop-blur-md text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
                             О проекте
                         </a>
                     </div>
@@ -127,7 +127,7 @@
       <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
       <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
-      <div class="prose prose-sm text-gray-800" style="text-align: justify;">
+      <div class="prose prose-sm text-gray-800" style="text-align: left;">
         <p  data-lang="goal-desc1">Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
 
         <p  data-lang="goal-desc2">Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
