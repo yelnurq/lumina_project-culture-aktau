@@ -9,68 +9,117 @@
         Ваш браузер не поддерживает видео.
     </video>
 
-    <div class="relative z-10 w-full h-full bg-primary/30 bg-gradient-to-r from-primary/30 to-blue-600/40 flex items-center">
+    <div class="relative z-10 w-full h-full bg-black/20 bg-gradient-to-r from-primary/60 via-primary/20 to-transparent flex items-center">
         
         <div class="container mx-auto px-6">
-            <div class="max-w-8xl">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                 
-                <h1 
-                    class="mb-4 text-left text-3xl md:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
-                    data-lang="main-title"
-                >
-                    Новые берега Каспия<br class="hidden sm:block"> 
-                    <span class="text-blue-400">—</span> неизвестная красота Маңғыстау
-                </h1>
-
-                <p 
-                    class="text-left text-base md:text-xl text-white max-w-2xl mb-10 font-normal leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
-                    data-lang="main-desc"
-                >
-                    Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
+                <div class="max-w-3xl w-full">
+                    <p 
+                        class="text-left text-sm md:text-base text-blue-200 font-semibold mb-4 uppercase opacity-0 translate-y-6 animate-fadeInUp delay-1200"
+                        data-lang="main-subtitle"
+                    >
+                        ДУХ СВОБОДЫ И ПУСТЫНИ
                 </p>
-
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 opacity-0 translate-y-6 animate-fadeInUp delay-600">
-                    <a 
-                        href="/culture-list" 
-                        data-lang="main-btn1"
-                        class="inline-flex justify-center items-center bg-white text-black  px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all text-base"
+                    <h1 
+                        class="text-left text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
+                        data-lang="main-title"
                     >
-                        Проложить маршрут
-                    </a>
+                        Новые берега Каспия<br class="hidden sm:block"> 
+                        <span class="text-blue-400">—</span> неизвестная красота Маңғыстау
+                    </h1>
 
-                    <a 
-                        href="/about"
-                        data-lang="main-btn2"
-                        class="inline-flex justify-center items-center border-2 border-white/50 backdrop-blur-md text-white px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all text-base"
+                    <p 
+                        class="text-left text-base md:text-xl text-gray-100 max-w-2xl mb-10 font-normal leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
+                        data-lang="main-desc"
                     >
-                        О проекте
-                    </a>
+                        Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 opacity-0 translate-y-6 animate-fadeInUp delay-600">
+                        <a href="/culture-list" class="inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
+                            Проложить маршрут
+                        </a>
+                        <a href="/about" class="inline-flex justify-center items-center border-2 border-white/50 backdrop-blur-md text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
+                            О проекте
+                        </a>
+                    </div>
                 </div>
 
+<div class="hidden lg:flex flex-col gap-6 w-full lg:max-w-sm opacity-0 translate-x-12 animate-fadeInRight delay-900">
+    
+    <div class="bg-black/50 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        
+        <div class="p-8 pb-6">
+            <h3 class="text-xs uppercase tracking-[0.2em] text-blue-400 font-bold mb-3 flex items-center gap-2 drop-shadow-sm">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                Знаете ли вы?
+            </h3>
+            <p class="text-sm text-gray-200 leading-relaxed font-normal drop-shadow-md">
+                Устюрт — это дно древнего океана Тетис. Здесь до сих пор находят зубы доисторических акул, которым более <span class="font-bold text-white underline decoration-blue-500/50 underline-offset-4">20 миллионов лет</span>.
+            </p>
+        </div>
+
+        <div class="px-8">
+            <div class="h-[1px] w-full bg-white/10"></div>
+        </div>
+
+        <div class="p-8 pt-6 bg-black/20">
+            <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
+            <div class="relative group">
+                <input 
+                    type="text" 
+                    placeholder="Напр: Бозжыра..." 
+                    class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-500"
+                >
+                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#каньоны</span>
+                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#море</span>
+                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#пещеры</span>
             </div>
         </div>
     </div>
 </div>
 
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <style>
-    /* Анимация появления, если её еще нет в вашем CSS */
     @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(24px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-    .animate-fadeInUp {
-        animation: fadeInUp 0.8s ease-out forwards;
+    @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(40px); }
+        to { opacity: 1; transform: translateX(0); }
     }
+    @keyframes scrollLine {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+    }
+
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-fadeInRight { animation: fadeInRight 1s ease-out forwards; }
+    .animate-scrollLine { animation: scrollLine 2s linear infinite; }
+    
     .delay-300 { animation-delay: 0.3s; }
     .delay-600 { animation-delay: 0.6s; }
+    .delay-900 { animation-delay: 0.9s; }
+    .delay-1200 { animation-delay: 1.2s; }
 </style>
-
 <div class="bg-gray-100 py-20">
   <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-16 items-start">
     
