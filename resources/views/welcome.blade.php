@@ -3,51 +3,73 @@
 
 
 @section('content')
-<div class="relative w-full h-[80vh] sm:h-[85vh] lg:h-[90vh] overflow-hidden">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+<div class="relative w-full h-[100svh] lg:h-[90vh] overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
         <source src="{{ asset('media/video.mp4') }}" type="video/mp4" />
         Ваш браузер не поддерживает видео.
     </video>
 
-        <div class="relative z-10 bg-primary/20 bg-gradient-to-r from-primary/10 to-blue-600/40 text-white flex items-center justify-center h-full px-4 sm:px-6 text-left">
-                    <div class="container mx-auto max-w-7xl text-left sm:text-left">
-            
-            <h1 
-                class="text-left text-2xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight opacity-0 translate-y-6 animate-fadeInUp"
-                data-lang="main-title"
-            >
-                Новые берега Каспия<br class="hidden sm:block"> — неизвестная красота Маңғыстау
-            </h1>
-
-            <p 
-                class="text-left text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto sm:mx-0 mb-8 sm:mb-12 font-light opacity-0 translate-y-6 animate-fadeInUp delay-300"
-                data-lang="main-desc"
-            >
-                Каспийское море отступает, открывая новые островки и дороги.  
-                Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.  
-                Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-left sm:items-start gap-4 sm:gap-2 opacity-0 translate-y-6 animate-fadeInUp delay-600">
-                <a 
-                    href="/culture-list" 
-                    data-lang="main-btn1"
-                    class="inline-block bg-white text-primary font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-[14px] shadow-lg hover:bg-gray-100 transition text-sm sm:text-base"
+    <div class="relative z-10 w-full h-full bg-primary/30 bg-gradient-to-r from-primary/30 to-blue-600/40 flex items-center">
+        
+        <div class="container mx-auto px-6">
+            <div class="max-w-8xl">
+                
+                <h1 
+                    class="mb-4 text-left text-3xl md:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
+                    data-lang="main-title"
                 >
-                    Проложить маршрут
-                </a>
+                    Новые берега Каспия<br class="hidden sm:block"> 
+                    <span class="text-blue-400">—</span> неизвестная красота Маңғыстау
+                </h1>
 
-                <a 
-                    href="/about"
-                    data-lang="main-btn2"
-                    class="inline-block border border-white text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-[14px] hover:bg-white hover:text-primary transition text-sm sm:text-base"
+                <p 
+                    class="text-left text-base md:text-xl text-white max-w-2xl mb-10 font-normal leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
+                    data-lang="main-desc"
                 >
-                    О проекте
-                </a>
+                    Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 opacity-0 translate-y-6 animate-fadeInUp delay-600">
+                    <a 
+                        href="/culture-list" 
+                        data-lang="main-btn1"
+                        class="inline-flex justify-center items-center bg-white text-black  px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all text-base"
+                    >
+                        Проложить маршрут
+                    </a>
+
+                    <a 
+                        href="/about"
+                        data-lang="main-btn2"
+                        class="inline-flex justify-center items-center border-2 border-white/50 backdrop-blur-md text-white px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all text-base"
+                    >
+                        О проекте
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    /* Анимация появления, если её еще нет в вашем CSS */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-600 { animation-delay: 0.6s; }
+</style>
 
 <div class="bg-gray-100 py-20">
   <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-16 items-start">
@@ -106,54 +128,106 @@
 </div>
 
 <div class="bg-white py-20">
-<div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
-    <div class="mb-0 md:mb-12">
-        <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="advantages-title">Наши преимущества</h2>
-        <div class="w-20 h-1 bg-primary rounded"></div>
-    </div>
+    <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
+        <div class="mb-0 md:mb-12">
+            <h2
+            class="w-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl
+                    font-bold text-primary mb-4 text-left uppercase
+                    break-words whitespace-normal"
+            data-lang="advantages-title"
+            >
+            Наши преимущества
+            </h2>
+            <div class="w-20 h-1 bg-primary rounded"></div>
+        </div>
 
-    <div class="flex flex-col md:flex-row gap-8">
-        <div class="flex-1 flex flex-col gap-6">
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                <div>
-                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv1-title">Сохранение природы</h3>
-                    <p class="text-gray-700 text-sm" data-lang="adv1-desc">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="flex-1 flex flex-col gap-6">
+                
+                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                    
+                    <div>
+                           <div class="absolute inset-0"
+                                style="
+                                    background-image: url('/images/icon.svg');
+                                    background-repeat: no-repeat;
+                                    background-position: top -25px right -70px;
+                                    background-size: 200px auto;
+                                    opacity: 0.1;
+                                    pointer-events: none;
+                                ">
+                            </div>
+                        <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv1-title">Сохранение природы</h3>
+                        <p class="text-gray-700 text-sm" data-lang="adv1-desc">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
+                    </div>
+                </div>
+
+                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                    <div>
+                        <div class="absolute inset-0"
+                                style="
+                                    background-image: url('/images/icon.svg');
+                                    background-repeat: no-repeat;
+                                    background-position: top -25px left -70px;
+                                    background-size: 200px auto;
+                                    opacity: 0.1;
+                                    pointer-events: none;
+                                ">
+                            </div>
+                        <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv2-title">Культурное наследие</h3>
+                        <p class="text-gray-700 text-sm" data-lang="adv2-desc">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                <div>
-                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv2-title">Культурное наследие</h3>
-                    <p class="text-gray-700 text-sm" data-lang="adv2-desc">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
+            <div class="flex-1 flex flex-col gap-6">
+                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                    <div>
+                        <div class="absolute inset-0"
+                                style="
+                                    background-image: url('/images/icon.svg');
+                                    background-repeat: no-repeat;
+                                    background-position: top -25px right -70px;
+                                    background-size: 200px auto;
+                                    opacity: 0.1;
+                                    pointer-events: none;
+                                ">
+                            </div>
+                        <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv3-title">Современные инициативы</h3>
+                        <p class="text-gray-700 text-sm" data-lang="adv3-desc">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
+                    </div>
+                </div>
+
+                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
+                    <div>
+                        <div class="absolute inset-0"
+                                style="
+                                    background-image: url('/images/icon.svg');
+                                    background-repeat: no-repeat;
+                                    background-position: top -25px left -70px;
+                                    background-size: 200px auto;
+                                    opacity: 0.1;
+                                    pointer-events: none;
+                                ">
+                            </div>
+                        <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv4-title">Доступность информации</h3>
+                        <p class="text-gray-700 text-sm" data-lang="adv4-desc">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="flex-1 flex flex-col gap-6">
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                <div>
-                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv3-title">Современные инициативы</h3>
-                    <p class="text-gray-700 text-sm" data-lang="adv3-desc">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                <div>
-                    <h3 class="text-xl font-semibold mb-1 text-gray-700" data-lang="adv4-title">Доступность информации</h3>
-                    <p class="text-gray-700 text-sm" data-lang="adv4-desc">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 
 
     </div>
 </div>
 <section class=" relative w-full py-20 bg-gray-100" id="attractions">
 <div class="container mx-auto px-6 max-w-7xl">
-    <div class="mb-5">
-        <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase uppercase" data-lang="heritages-title">Наши достояния</h2>
+    <div class="mb-[2rem]">
+        <h2
+            class="w-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl
+                    font-bold text-primary mb-4 text-left uppercase
+                    break-words whitespace-normal" data-lang="heritages-title">Наши достояния</h2>
         <div class="w-20 h-1 bg-primary rounded"></div>
     </div>
 
@@ -244,11 +318,14 @@
         <img src="{{ asset('images/boszhyra.jpg') }}" alt="Фон" class="w-full h-full object-cover filter blur-sm brightness-75" style="object-position: bottom" />
         <div class="absolute inset-0 bg-blue-900 opacity-40"></div>
     </div>
-<div class="relative container mx-auto max-w-6xl px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6" data-lang="main-section-title">
+<div class="relative container mx-auto max-w-7xl px-6 text-left md:text-center">
+    <h2
+            class="w-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl
+                    font-bold text-white mb-4 uppercase
+                     whitespace-normal" data-lang="main-section-title">
         Новые берега Маңғыстау — открываем неизведанное
     </h2>
-    <p class="text-lg mb-10 max-w-3xl mx-auto font-light" data-lang="main-section-desc">
+    <p class="text-md md:text-lg mb-10 max-w-3xl mx-auto font-light" data-lang="main-section-desc">
         Каспийское море отступает, создавая новые островки, песчаные косы и удивительные маршруты. Мы исследуем их, показываем красоту и рассказываем, как туда добраться.
     </p>
 
