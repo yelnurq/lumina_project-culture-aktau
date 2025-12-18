@@ -32,6 +32,31 @@
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 </head>
+<style>
+    /* Общий темный скроллбар для всего сайта */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9fbad3; /* Цвет при наведении */
+}
+
+/* Для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #121212;
+}
+</style>
 <body class="flex flex-col min-h-screen bg-background font-sans text-textPrimary">
 
 
