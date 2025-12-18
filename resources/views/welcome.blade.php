@@ -40,60 +40,61 @@
                         <a href="/culture-list" class="text-[14px] md:text-base inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
                             Проложить маршрут
                         </a>
-                        <a href="/about" class="text-[14px] md:text-base inline-flex justify-center items-center border-2 border-white/50 backdrop-blur-md text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
+                        <a href="/about" class="shadow backdrop-blur-lg bg-black/40 text-[14px] md:text-base inline-flex justify-center items-center text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
                             О проекте
                         </a>
                     </div>
                 </div>
 
-<div class="hidden lg:flex flex-col gap-6 w-full lg:max-w-sm opacity-0 translate-x-12 animate-fadeInRight delay-900">
-    
-    <div class="bg-black/50 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-        
-        <div class="p-8 pb-6">
-            <h3 class="text-xs uppercase tracking-[0.2em] text-blue-400 font-bold mb-3 flex items-center gap-2 drop-shadow-sm">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Знаете ли вы?
-            </h3>
-            <p class="text-sm text-gray-200 leading-relaxed font-normal drop-shadow-md">
-                Устюрт — это дно древнего океана Тетис. Здесь до сих пор находят зубы доисторических акул, которым более <span class="font-bold text-white underline decoration-blue-500/50 underline-offset-4">20 миллионов лет</span>.
-            </p>
-        </div>
-
-        <div class="px-8">
-            <div class="h-[1px] w-full bg-white/10"></div>
-        </div>
-
-        <div class="p-8 pt-6 bg-black/20">
-            <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
-            <div class="relative group">
-                <input 
-                    type="text" 
-                    placeholder="Напр: Бозжыра..." 
-                    class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-500"
-                >
-                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button>
-            </div>
+        <div class="hidden lg:flex flex-col gap-6 w-full lg:max-w-sm opacity-0 translate-x-12 animate-fadeInRight delay-900">
             
-            <div class="flex flex-wrap gap-2 mt-4">
-                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#каньоны</span>
-                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#море</span>
-                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#пещеры</span>
+            <div class="bg-black/50 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                
+                <div class="p-8 pb-6">
+                    <h3 class="text-xs uppercase tracking-[0.2em] text-blue-400 font-bold mb-3 flex items-center gap-2 drop-shadow-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        Знаете ли вы?
+                    </h3>
+                    <p class="text-sm text-gray-200 leading-relaxed font-normal drop-shadow-md">
+                        Устюрт — это дно древнего океана Тетис. Здесь до сих пор находят зубы доисторических акул, которым более <span class="font-bold text-white underline decoration-blue-500/50 underline-offset-4">20 миллионов лет</span>.
+                    </p>
+                </div>
+
+                <div class="px-8">
+                    <div class="h-[1px] w-full bg-white/10"></div>
+                </div>
+
+                <div class="p-8 pt-6 bg-black/20">
+                    <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
+                    <div class="relative group">
+                        <input 
+                            type="text" 
+                            placeholder="Напр: Бозжыра..." 
+                            class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-500"
+                        >
+                        <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#каньоны</span>
+                        <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#море</span>
+                        <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#пещеры</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
             </div>
+     
         </div>
-
+        
     </div>
 </div>
 
@@ -359,44 +360,51 @@
 </div>
 
 
-
-
-<div class="relative bg-primary text-white py-20 overflow-hidden">
-    <!-- Фоновое изображение с blur и синим фильтром -->
-    <div class="absolute inset-0">
-        <img src="{{ asset('images/boszhyra.jpg') }}" alt="Фон" class="w-full h-full object-cover filter blur-sm brightness-75" style="object-position: bottom" />
-        <div class="absolute inset-0 bg-blue-900 opacity-40"></div>
-    </div>
-<div class="relative container mx-auto max-w-7xl px-6 text-left md:text-center">
-    <h2
-            class="w-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl
-                    font-bold text-white mb-4 uppercase
-                     whitespace-normal" data-lang="main-section-title">
-        Новые берега Маңғыстау — открываем неизведанное
-    </h2>
-    <p class="text-md md:text-lg mb-10 max-w-3xl mx-auto font-light" data-lang="main-section-desc">
-        Каспийское море отступает, создавая новые островки, песчаные косы и удивительные маршруты. Мы исследуем их, показываем красоту и рассказываем, как туда добраться.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-white">
-        <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-            <h3 class="text-xl font-semibold mb-2" data-lang="feature1-title">Новые маршруты</h3>
-            <p data-lang="feature1-desc">Показываем, как безопасно и интересно посетить недавно открывшиеся островки и побережья.</p>
-        </div>
-        <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-            <h3 class="text-xl font-semibold mb-2" data-lang="feature2-title">Природные чудеса</h3>
-            <p data-lang="feature2-desc">Уникальные пейзажи, редкая флора и фауна — места, которые стоит увидеть своими глазами.</p>
-        </div>
-        <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-            <h3 class="text-xl font-semibold mb-2" data-lang="feature3-title">Исследования и фотографии</h3>
-            <p data-lang="feature3-desc">Документируем изменения побережья, создаем фотогалереи и визуальные маршруты для путешественников.</p>
-        </div>
+<div class="relative lg:hidden w-full overflow-hidden bg-slate-950">
+    
+    <div class="absolute inset-0 z-0">
+        <img 
+            src="{{ asset('images/boszhyra.jpg') }}" 
+            alt="Фон" 
+            class="w-full h-full object-cover filter blur-[2px] brightness-[0.4]" 
+            style="object-position: bottom" 
+        />
+        <div class="absolute inset-0 bg-blue-950/60 mix-blend-multiply"></div>
     </div>
 
-    <a href="/routes" class="mt-12 inline-block bg-white text-primary font-semibold px-8 py-3 shadow-lg hover:bg-gray-100 transition" style="border-radius: 14px;" data-lang="main-btn">
-        Посмотреть маршруты и островки
-    </a>
+    <div class="relative z-10 px-6 py-12 border-t border-white/10">
+        
+
+        <div class="flex flex-col gap-10">
+            
+     
+
+
+            <div class="space-y-6 mb-4">
+                <label class="block text-white text-xs uppercase tracking-widest font-bold opacity-80">Поиск локаций</label>
+                <div class="relative group">
+                    <input 
+                        type="text" 
+                        placeholder="Куда отправимся?.." 
+                        class="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 text-base text-white focus:outline-none focus:ring-1 focus:ring-blue-500/50 backdrop-blur-md transition-all placeholder:text-gray-600"
+                    >
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[11px] font-medium text-gray-400 bg-black/30 border border-white/5 px-4 py-2 rounded-xl active:bg-blue-600 active:text-white transition-all">#каньоны</span>
+                    <span class="text-[11px] font-medium text-gray-400 bg-black/30 border border-white/5 px-4 py-2 rounded-xl active:bg-blue-600 active:text-white transition-all">#пляжи</span>
+                    <span class="text-[11px] font-medium text-gray-400 bg-black/30 border border-white/5 px-4 py-2 rounded-xl active:bg-blue-600 active:text-white transition-all">#святыни</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 </div>
 {{-- 

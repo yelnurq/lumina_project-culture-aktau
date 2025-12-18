@@ -131,7 +131,7 @@
             </nav>
         </div>
     </header>
-    <header class="absolute shadow top-0 left-0 w-full md:hidden bg-transparent backdrop-blur-sm" style="z-index:50;">
+    <header class="shadow backdrop-blur-lg bg-black/20 absolute top-0 left-0 w-full md:hidden" style="z-index:50;">
     <div class="w-full flex items-center justify-between p-3 px-4">
         <a href="/" class="flex items-center space-x-3">
             <span class="text-white font-semibold text-base" style="font-weight:600; font-size:15px;">
