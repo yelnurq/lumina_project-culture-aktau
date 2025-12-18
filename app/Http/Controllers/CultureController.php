@@ -31,7 +31,7 @@ public function index(Request $request)
 
     $allCultures = $query->get();
 
-    $cultures = $query->orderBy('title')->paginate(9)->withQueryString();
+    $cultures = $query->orderBy('title')->paginate(1)->withQueryString();
     $categories = Category::all();
 
     return view('cultures.index', compact('cultures', 'categories', 'allCultures'));
