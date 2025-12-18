@@ -101,23 +101,34 @@
                 <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
                 <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
 
-                <div class="relative inline-block text-left">
-                <select 
-                    onchange="setLang(this.value)" 
-                    class="appearance-none bg-white/10 backdrop-blur-md text-white px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-white/30 hover:border-white transition-colors duration-300"
-                >
-                    <option class="bg-black/50 text-white" value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>🇷🇺 Рус</option>
-                    <option class="bg-black/50 text-white" value="kk" {{ app()->getLocale() == 'kk' ? 'selected' : '' }}>🇰🇿 Qaz</option>
-                    <option class="bg-black/50 text-white" value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>🇬🇧 UK</option>
-                </select>
+                 <div class="flex items-center gap-4 text-white text-xs md:text-sm font-bold tracking-widest border-l pl-4">
+    <button 
+        id="btn-kk" 
+        onclick="setLang('kk')" 
+        class="lang-btn font-semibold  transition-all duration-300">
+        QAZ
+    </button>
 
+    <span class="w-[1px] h-3 bg-white/20"></span>
 
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </div>
-                </div>
+    <button 
+        id="btn-ru" 
+        onclick="setLang('ru')" 
+        class="lang-btn font-semibold  transition-all duration-300">
+        RUS
+    </button>
+
+    <span class="w-[1px] h-3 bg-white/20"></span>
+
+    <button 
+        id="btn-en" 
+        onclick="setLang('en')" 
+        class="lang-btn font-semibold  transition-all duration-300">
+        ENG
+    </button>
+</div>
+
+           
 
 
 
@@ -289,23 +300,35 @@
                             <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
             <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-             <div class="relative inline-block text-left">
-                <select 
-                    onchange="setLang(this.value)" 
-                    class="appearance-none bg-white/10 backdrop-blur-md text-black px-4 py-2 pr-8 rounded-lg text-sm focus:outline-none border border-black/30 hover:border-black/40 transition-colors duration-300"
-                >
-                    <option class="bg-black/50 text-white" value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>🇷🇺 Рус</option>
-                    <option class="bg-black/50 text-white" value="kk" {{ app()->getLocale() == 'kk' ? 'selected' : '' }}>🇰🇿 Qaz</option>
-                    <option class="bg-black/50 text-white" value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>🇬🇧 UK</option>
-                </select>
+ <div class="flex items-center gap-4 text-white text-xs md:text-sm font-bold tracking-widest">
+    <button 
+        id="btn-kk" 
+        onclick="setLang('kk')" 
+        class="lang-btn transition-all duration-300 {{ app()->getLocale() == 'kk' ? 'text-blue-400 opacity-100' : 'opacity-50 hover:opacity-100 hover:text-white' }}"
+    >
+        QAZ
+    </button>
 
+    <span class="w-[1px] h-3 bg-white/20"></span>
 
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </div>
-                </div>
+    <button 
+        id="btn-ru" 
+        onclick="setLang('ru')" 
+        class="lang-btn transition-all duration-300 {{ app()->getLocale() == 'ru' ? 'text-blue-400 opacity-100' : 'opacity-50 hover:opacity-100 hover:text-white' }}"
+    >
+        RUS
+    </button>
+
+    <span class="w-[1px] h-3 bg-white/20"></span>
+
+    <button 
+        id="btn-en" 
+        onclick="setLang('en')" 
+        class="lang-btn transition-all duration-300 {{ app()->getLocale() == 'en' ? 'text-blue-400 opacity-100' : 'opacity-50 hover:opacity-100 hover:text-white' }}"
+    >
+        ENG
+    </button>
+</div>
         </nav>
     </div>
 </header>

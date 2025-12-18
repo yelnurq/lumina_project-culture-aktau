@@ -283,10 +283,10 @@ function setLang(lang) {
   localStorage.setItem("lang", lang);
 
   document.querySelectorAll(".lang-btn").forEach(btn =>
-    btn.classList.remove("text-accent", "font-bold")
+    btn.classList.remove("text-blue-200", "font-bold")
   );
   const btn = document.querySelector(`#btn-${lang}`);
-  if (btn) btn.classList.add("text-accent", "font-bold");
+  if (btn) btn.classList.add("text-blue-200", "font-bold");
 
   const restaurantId = document.querySelector("meta[name='restaurant-id']")?.content;
   if (!restaurantId) return;
