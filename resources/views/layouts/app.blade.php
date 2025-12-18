@@ -411,7 +411,7 @@
 })();
 </script>
 @endif
-<nav class="fixed bottom-4 inset-x-4 md:hidden z-50">
+<nav class="fixed bottom-4 inset-x-4 md:hidden z-[1002]">
   <div
     class="bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg px-2 py-2 flex justify-between items-center text-sm text-white"
     style="padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);">
