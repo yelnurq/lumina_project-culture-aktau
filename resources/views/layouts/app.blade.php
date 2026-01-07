@@ -5,7 +5,9 @@
     <title>Центр охраны наследия области Абай</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Overpass:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -22,7 +24,8 @@
                         textSecondary: '#64748B' 
                     },
                     fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
+                        sans: ['Raleway', 'sans-serif'],
+                        title: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
@@ -61,7 +64,7 @@
 
 
 @if(request()->is('/'))
-    <header class="shadow backdrop-blur-md bg-black/20 absolute top-0 left-0 w-full z-50 hidden md:flex">
+    <header class="shadow backdrop-blur-md bg-black/20 absolute top-0 left-0 w-full z-50 hidden lg:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
                 <span class="text-white font-semibold" style="font-weight:600; font-size:14px;padding:10px;">
@@ -175,7 +178,7 @@
         </div>
     </header>
 
-    <header class="shadow backdrop-blur-lg bg-black/20 absolute top-0 left-0 w-full md:hidden" style="z-index:50;">
+    <header class="shadow backdrop-blur-lg bg-black/20 absolute top-0 left-0 w-full lg:hidden" style="z-index:50;">
         <div class="w-full flex items-center justify-between p-3 px-4">
             <a href="/" class="flex items-center space-x-3">
                 <span class="text-white font-semibold text-base" style="font-weight:600; font-size:14px;">

@@ -12,7 +12,7 @@
     <div class="relative z-10 w-full h-full bg-black/50 md:bg-black/40 bg-gradient-to-r from-primary/40 md:from-primary/60 via-primary/40 to-transparent flex items-center">
         
         <div class="container mx-auto px-6 md:px-3">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                 
                 <div class="max-w-3xl w-full">
                     <p 
@@ -22,7 +22,7 @@
                         ДУХ СВОБОДЫ И ПУСТЫНИ
                 </p>
                     <h1 
-                        class="text-left text-2xl md:text-4xl font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
+                        class="font-title text-left text-2xl md:text-4xl font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
                         data-lang="main-title"
                     >
                         Новые берега Каспия<br class="hidden sm:block"> 
@@ -97,7 +97,7 @@
         
     </div>
 
-<div id="scroll-trigger" class="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20 cursor-pointer group">
+<div id="scroll-trigger" class="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20 cursor-pointer group">
     <span id="scroll-text" class="text-[9px] text-white/50 uppercase tracking-[0.3em] mb-4 animate-pulse flex flex-col items-center gap-2 font-light text-center">
         Погрузитесь ниже <br> (крутите колесико)
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -126,7 +126,6 @@
     let targetCharge = 0;   
     let isUnlocked = false;
 
-    // Проверка: мобилка это или нет (экран меньше 1024px)
     const isMobile = window.innerWidth < 1024;
 
     if (isMobile) {
@@ -231,7 +230,7 @@
   <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
     
     <div class="md:w-1/2">
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
+      <h2 class="font-title text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
       <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
       <div class="prose prose-sm text-gray-800" style="text-align: left;">
@@ -253,8 +252,8 @@
     <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" 
          class="w-full h-64 sm:h-full object-cover">
     <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-bold text-md" data-lang="ayrakty-title"></h3>
-      <p class="text-sm" data-lang="ayrakty-desc"></p>
+      <h3 class="font-title font-bold text-md" data-lang="ayrakty-title"></h3>
+      <p class="text-xs text-gray-200" data-lang="ayrakty-desc"></p>
     </div>
   </div>
 
@@ -263,8 +262,8 @@
     <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" 
          class="w-full h-64 object-cover">
     <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-bold text-md" data-lang="buhta-title"></h3>
-      <p class="text-sm" data-lang="buhta-desc"></p>
+      <h3 class="font-title font-bold text-md" data-lang="buhta-title"></h3>
+      <p class="text-xs text-gray-200" data-lang="buhta-desc"></p>
     </div>
   </div>
 
@@ -273,8 +272,8 @@
     <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" 
          class="w-full h-64 object-cover">
     <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-bold text-md" data-lang="balayuk-title"></h3>
-      <p class="text-sm" data-lang="balayuk-desc"></p>
+      <h3 class="font-title font-bold text-md" data-lang="balayuk-title"></h3>
+      <p class="text-xs text-gray-200" data-lang="balayuk-desc"></p>
     </div>
   </div>
 
@@ -288,7 +287,7 @@
     <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
         <div class="mb-0 md:mb-12">
             <h2
-            class="w-full text-2xl md:text-3xl 
+            class="font-title w-full text-2xl md:text-3xl 
                     font-bold text-primary mb-4 text-left uppercase
                     break-words whitespace-normal"
             data-lang="advantages-title"
@@ -314,7 +313,7 @@
                                     pointer-events: none;
                                 ">
                             </div>
-                        <h3 class="text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv1-title">Сохранение природы</h3>
+                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv1-title">Сохранение природы</h3>
                         <p class="text-gray-700 text-sm" data-lang="adv1-desc">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
                     </div>
                 </div>
@@ -331,7 +330,7 @@
                                     pointer-events: none;
                                 ">
                             </div>
-                        <h3 class="text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv2-title">Культурное наследие</h3>
+                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv2-title">Культурное наследие</h3>
                         <p class="text-gray-700 text-sm" data-lang="adv2-desc">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
                     </div>
                 </div>
@@ -350,7 +349,7 @@
                                     pointer-events: none;
                                 ">
                             </div>
-                        <h3 class="text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv3-title">Современные инициативы</h3>
+                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv3-title">Современные инициативы</h3>
                         <p class="text-gray-700 text-sm" data-lang="adv3-desc">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
                     </div>
                 </div>
@@ -367,7 +366,7 @@
                                     pointer-events: none;
                                 ">
                             </div>
-                        <h3 class="text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv4-title">Доступность информации</h3>
+                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv4-title">Доступность информации</h3>
                         <p class="text-gray-700 text-sm" data-lang="adv4-desc">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
                     </div>
                 </div>
@@ -382,7 +381,7 @@
 <div class="container mx-auto px-6 max-w-7xl">
     <div class="mb-[2rem]">
         <h2
-            class="w-full text-2xl md:text-3xl 
+            class="font-title w-full text-2xl md:text-3xl 
                     font-bold text-primary mb-4 text-left uppercase
                     break-words whitespace-normal" data-lang="heritages-title">Наши достояния</h2>
         <div class="w-20 h-1 bg-primary rounded"></div>
@@ -393,7 +392,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-bold text-md" data-lang="heritage1-title">Бозжыра</h3>
+                <h3 class="font-title font-bold text-md" data-lang="heritage1-title">Бозжыра</h3>
                 <p class="text-xs text-gray-200" data-lang="heritage1-desc">Удивительные скалы и каньоны Мангистау</p>
             </div>
         </div>
@@ -402,7 +401,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
             <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-bold text-md" data-lang="heritage2-title">Шеркала</h3>
+                <h3 class="font-title font-bold text-md" data-lang="heritage2-title">Шеркала</h3>
                 <p class="text-xs text-gray-200" data-lang="heritage2-desc">Современный город на побережье Каспия</p>
             </div>
         </div>
@@ -411,7 +410,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-bold text-md" data-lang="heritage3-title">Урочище Кок-кала</h3>
+                <h3 class="font-title font-bold text-md" data-lang="heritage3-title">Урочище Кок-кала</h3>
                 <p class="text-xs text-gray-200" data-lang="heritage3-desc">Маленькое село с красивыми видами</p>
             </div>
         </div>
@@ -420,7 +419,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-bold text-md" data-lang="heritage4-title">Сор Тузбаир</h3>
+                <h3 class="font-title font-bold text-md" data-lang="heritage4-title">Сор Тузбаир</h3>
                 <p class="text-xs text-gray-200" data-lang="heritage4-desc">Исторические памятники и скалы</p>
             </div>
         </div>
@@ -429,7 +428,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-bold md:text-md" data-lang="heritage5-title">Каспийское море</h3>
+                <h3 class="font-title font-bold md:text-md" data-lang="heritage5-title">Каспийское море</h3>
                 <p class="text-xs text-gray-200" data-lang="heritage5-desc">Красивые холмы и живописные виды</p>
             </div>
         </div>
@@ -438,7 +437,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
             <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-bold text-md" data-lang="heritage6-title">Урочище Кызылкуп</h3>
+                <h3 class="font-title font-bold text-md" data-lang="heritage6-title">Урочище Кызылкуп</h3>
                 <p class="text-xs text-gray-200" data-lang="heritage6-desc">Исторические маршруты через Мангистауские степи</p>
             </div>
         </div>
