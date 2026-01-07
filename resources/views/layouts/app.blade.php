@@ -33,7 +33,6 @@
 
 </head>
 <style>
-    /* Общий темный скроллбар для всего сайта */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -51,7 +50,6 @@
     background: #9fbad3; /* Цвет при наведении */
 }
 
-/* Для Firefox */
 * {
     scrollbar-width: thin;
     scrollbar-color: #333 #121212;
@@ -64,7 +62,7 @@
     <header class="shadow backdrop-blur-md bg-black/10 absolute top-0 left-0 w-full z-50 hidden md:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
-                <span class="text-white font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
+                <span class="text-white font-semibold" style="font-weight:600; font-size:14px;padding:10px;">
                     ΛUMINA | Mangystau oblysy
                 </span>
             </a>
@@ -72,7 +70,7 @@
                 <div class="relative group inline-block">
                     <button 
                         class="flex items-center gap-1 text-gray-800 hover:text-white-700 transition-colors duration-300"
-                        style="font-weight:400; font-size:15px;color:white">
+                        style="font-weight:400; font-size:14px;color:white">
                         О регионе
                         <svg xmlns="http://www.w3.org/2000/svg" 
                             class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
@@ -97,92 +95,102 @@
                         </a>
                     </div>
                 </div>
-                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <div style="display: flex; gap: 25px;">
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
 
-                <div style="position: relative; display: inline-block;">
-                    <span style="position: absolute; top: -12px; right: -20px; font-size: 9px; color: #ff4d4d; font-weight: bold; text-transform: uppercase;">
-                        Скоро
-                    </span>
-                    <a href="/restaurants" data-lang="nav-restaurant" 
-                    class="text-gray-300 hover:text-accent transition-colors duration-300" 
-                    style="font-weight:400; font-size:15px; text-decoration:line-through; pointer-events: none; cursor: default;">
-                    Restaurants
-                    </a>
-                </div>
+        <div style="position: relative; display: inline-block;">
+            <span style="position: absolute; top: -14px; right: -25px; font-size: 9px; color: #ffab00; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                Скоро
+            </span>
+            
+            <a href="#" 
+            class="transition-colors duration-300" 
+            style="font-weight:400; font-size:14px; text-decoration:line-through; color: rgba(255,255,255,0.4); pointer-events: none; cursor: default;"
+            tabindex="-1"
+            data-lang="nav-restaurant">
+            Рестораны
+            </a>
+        </div>
 
-                <div style="position: relative; display: inline-block;">
-                    <span style="position: absolute; top: -12px; right: -20px; font-size: 9px; color: #ff4d4d; font-weight: bold; text-transform: uppercase;">
-                        Скоро
-                    </span>
-                    <a href="/hotels" data-lang="nav-hotels" 
-                    class="text-gray-300 hover:text-accent transition-colors duration-300" 
-                    style="font-weight:400; font-size:15px; text-decoration:line-through; pointer-events: none; cursor: default;">
-                    Hotels
-                    </a>
-                </div>
+        <div style="position: relative; display: inline-block;margin-right:15px;">
+            <span style="position: absolute; top: -14px; right: -25px; font-size: 9px; color: #ffab00; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                Скоро
+            </span>
+            
+            <a href="#" 
+            class="transition-colors duration-300" 
+            style="font-weight:400; font-size:14px; text-decoration:line-through; color: rgba(255,255,255,0.4); pointer-events: none; cursor: default;"
+            tabindex="-1"
+            data-lang="nav-hotels">
+            Отели
+            </a>
+        </div>
 
-            </div>
+        <a href="/partnership" 
+        class="hover:bg-accent hover:text-white transition-all duration-300" 
+        style="border: 1px solid #C5A367; color: #C5A367; padding: 4px 12px; border-radius: 4px; font-size: 13px; font-weight: 500; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
+        Стать партнером
+        </a>
 
-                 <div class="flex items-center gap-4 text-white text-xs md:text-sm font-bold tracking-widest border-l pl-4">
-    <button 
-        id="btn-kk" 
-        onclick="setLang('kk')" 
-        class="lang-btn font-semibold  transition-all duration-300">
-        QAZ
-    </button>
+        <div class="flex items-center gap-2 text-white text-xs md:text-sm border-l pl-4" style="margin-left: 25px;">
+            <button 
+                id="btn-kk" 
+                onclick="setLang('kk')" 
+                class="lang-btn font-semibold  transition-all duration-300">
+                QAZ
+            </button>
 
-    <span class="w-[1px] h-3 bg-white/20"></span>
+            <span class="w-[1px] h-3 bg-white/20"></span>
 
-    <button 
-        id="btn-ru" 
-        onclick="setLang('ru')" 
-        class="lang-btn font-semibold  transition-all duration-300">
-        RUS
-    </button>
+            <button 
+                id="btn-ru" 
+                onclick="setLang('ru')" 
+                class="lang-btn font-semibold  transition-all duration-300">
+                RUS
+            </button>
 
-    <span class="w-[1px] h-3 bg-white/20"></span>
+            <span class="w-[1px] h-3 bg-white/20"></span>
 
-    <button 
-        id="btn-en" 
-        onclick="setLang('en')" 
-        class="lang-btn font-semibold  transition-all duration-300">
-        ENG
-    </button>
-</div>
+            <button 
+                id="btn-en" 
+                onclick="setLang('en')" 
+                class="lang-btn font-semibold  transition-all duration-300">
+                ENG
+            </button>
+        </div>
 
-           
+            
 
 
 
                 @auth
-                    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;">Админ-панель</a>
+                    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;">Админ-панель</a>
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf
-                        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:15px;">Выйти</button>
+                        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:14px;">Выйти</button>
                     </form>
                 @endauth
             </nav>
         </div>
     </header>
-    <header class="shadow backdrop-blur-lg bg-black/20 absolute top-0 left-0 w-full md:hidden" style="z-index:50;">
-    <div class="w-full flex items-center justify-between p-3 px-4">
-        <a href="/" class="flex items-center space-x-3">
-            <span class="text-white font-semibold text-base" style="font-weight:600; font-size:15px;">
-                Mangystau oblysy
-            </span>
-        </a>
 
-        <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu"
-                class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white focus:outline-none focus:ring-2 focus:ring-primary">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            <span class="sr-only">Открыть меню</span>
-        </button>
-    </div>
-</header>
+    <header class="shadow backdrop-blur-lg bg-black/20 absolute top-0 left-0 w-full md:hidden" style="z-index:50;">
+        <div class="w-full flex items-center justify-between p-3 px-4">
+            <a href="/" class="flex items-center space-x-3">
+                <span class="text-white font-semibold text-base" style="font-weight:600; font-size:14px;">
+                    Mangystau oblysy
+                </span>
+            </a>
+
+            <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu"
+                    class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <span class="sr-only">Открыть меню</span>
+            </button>
+        </div>
+    </header>
 
 <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden md:hidden opacity-0 transition-opacity duration-300"
      aria-hidden="true"></div>
@@ -210,63 +218,63 @@
     </nav>
 </div>
 
-<script>
-(function(){
-    const btn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('mobileOverlay');
-    const closeBtn = document.getElementById('mobileMenuClose');
-    if (!btn || !menu || !overlay) return;
+    <script>
+    (function(){
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileOverlay');
+        const closeBtn = document.getElementById('mobileMenuClose');
+        if (!btn || !menu || !overlay) return;
 
-    function showOverlay() {
-        overlay.classList.remove('hidden');
-        overlay.classList.remove('opacity-0');
-        overlay.classList.add('opacity-100');
-        overlay.setAttribute('aria-hidden', 'false');
-    }
-    function hideOverlay() {
-        overlay.classList.add('opacity-0');
-        overlay.classList.remove('opacity-100');
-        setTimeout(()=> overlay.classList.add('hidden'), 300);
-        overlay.setAttribute('aria-hidden', 'true');
-    }
-
-    function openMenu() {
-        menu.classList.remove('translate-x-full');
-        menu.classList.add('translate-x-0');
-        menu.setAttribute('aria-hidden', 'false');
-        showOverlay();
-        btn.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('overflow-hidden');
-    }
-    function closeMenu() {
-        menu.classList.remove('translate-x-0');
-        menu.classList.add('translate-x-full');
-        menu.setAttribute('aria-hidden', 'true');
-        hideOverlay();
-        btn.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('overflow-hidden');
-    }
-
-    btn.addEventListener('click', function(e){
-        e.stopPropagation();
-        if (menu.classList.contains('translate-x-0')) closeMenu(); else openMenu();
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && menu.classList.contains('translate-x-0')) closeMenu();
-    });
-
-    document.addEventListener('click', function(e){
-        if (menu.classList.contains('translate-x-0') && !menu.contains(e.target) && e.target !== btn) {
-            closeMenu();
+        function showOverlay() {
+            overlay.classList.remove('hidden');
+            overlay.classList.remove('opacity-0');
+            overlay.classList.add('opacity-100');
+            overlay.setAttribute('aria-hidden', 'false');
         }
-    });
-})();
-</script>
+        function hideOverlay() {
+            overlay.classList.add('opacity-0');
+            overlay.classList.remove('opacity-100');
+            setTimeout(()=> overlay.classList.add('hidden'), 300);
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+
+        function openMenu() {
+            menu.classList.remove('translate-x-full');
+            menu.classList.add('translate-x-0');
+            menu.setAttribute('aria-hidden', 'false');
+            showOverlay();
+            btn.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('overflow-hidden');
+        }
+        function closeMenu() {
+            menu.classList.remove('translate-x-0');
+            menu.classList.add('translate-x-full');
+            menu.setAttribute('aria-hidden', 'true');
+            hideOverlay();
+            btn.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        btn.addEventListener('click', function(e){
+            e.stopPropagation();
+            if (menu.classList.contains('translate-x-0')) closeMenu(); else openMenu();
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', function(e){
+            if (e.key === 'Escape' && menu.classList.contains('translate-x-0')) closeMenu();
+        });
+
+        document.addEventListener('click', function(e){
+            if (menu.classList.contains('translate-x-0') && !menu.contains(e.target) && e.target !== btn) {
+                closeMenu();
+            }
+        });
+    })();
+    </script>
 @else
 <header class="relative shadow top-0 left-0 w-full z-50 hidden md:flex bg-white overflow-visible">
         <div class="absolute inset-0"
@@ -291,7 +299,7 @@
                 <div class="relative group inline-block">
                     <button 
                         class="flex items-center gap-1 text-gray-800 hover:text-white-700 transition-colors duration-300"
-                        style="font-weight:400; font-size:15px;">
+                        style="font-weight:400; font-size:14px;">
                         О регионе
                         <svg xmlns="http://www.w3.org/2000/svg" 
                             class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
@@ -320,9 +328,9 @@
                     </div>
                 </div>
                 
-                            <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-            <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-            <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                            <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
+            <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
+            <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
  <div class="flex items-center gap-4 text-white text-xs md:text-sm font-bold tracking-widest">
     <button 
         id="btn-kk" 
@@ -370,7 +378,7 @@
         </div>
         <div class="w-full flex items-center justify-between p-3 px-4">
         <a href="/" class="flex items-center space-x-3">
-            <span class="text-black font-semibold text-base" style="font-weight:600; font-size:15px;">
+            <span class="text-black font-semibold text-base" style="font-weight:600; font-size:14px;">
                 Mangystau oblysy
             </span>
         </a>
