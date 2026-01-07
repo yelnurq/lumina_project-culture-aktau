@@ -495,60 +495,47 @@
 })();
 </script>
 @endif
-<nav class="fixed bottom-4 inset-x-4 md:hidden z-[1002]">
-  <div
-    class="bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg px-2 py-2 flex justify-between items-center text-sm text-white"
-    style="padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);">
+<nav class="fixed bottom-5 inset-x-5 md:hidden z-[1002]">
+  <div class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-[1.8rem] shadow-2xl px-3 py-2 flex justify-around items-center"
+       style="padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);">
 
-    <!-- Главная -->
     <a href="/"
-       aria-label="Главная"
-       class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('/') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-           stroke-width="1.8" stroke="currentColor" class="w-6 h-6 mb-1">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M2.25 12l9.75-9.75L21.75 12M4.5 9.75V21h15V9.75" />
+       class="flex-1 flex flex-col items-center py-2 transition-all duration-300 {{ request()->is('/') ? 'text-[#C5A367]' : 'text-white/50 hover:text-white' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
-      <span class="text-xs leading-tight">Главная</span>
+      <span class="text-[9px] uppercase tracking-[0.15em] font-bold">Главная</span>
     </a>
-    <!-- Культура -->
+
     <a href="/culture-list"
-    aria-label="Культура"
-    class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('culture-list*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="1.6" class="w-6 h-6 mb-1">
-        <path stroke-linecap="round" stroke-linejoin="round"
-            d="M2.75 5.5l8.25-2.5 8.25 2.5M2.75 5.5v12.25l8.25 2.75m0-15L19.25 5.5m-8.25 15V8.25m0 0L19.25 5.5v12.25l-8.25 2.75" />
-    </svg>
-    <span class="text-xs leading-tight">Культура</span>
+       class="flex-1 flex flex-col items-center py-2 transition-all duration-300 {{ request()->is('culture-list*') ? 'text-[#C5A367]' : 'text-white/50 hover:text-white' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <span class="text-[9px] uppercase tracking-[0.15em] font-bold">Места</span>
     </a>
 
-    <!-- Рестораны -->
-    <a href="/restaurants"
-       aria-label="Рестораны"
-       class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('restaurants*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-           stroke-width="1.8" stroke="currentColor" class="w-6 h-6 mb-1">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M6 3v18m6-18v18m6-18v18M3 8h18" />
+    <div class="relative flex-1 flex flex-col items-center py-2 text-white/20">
+      <span class="absolute top-0 right-2 text-[7px] text-[#C5A367] font-bold uppercase tracking-tighter bg-[#C5A367]/10 px-1 rounded">Скоро</span>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
       </svg>
-      <span class="text-xs leading-tight">Рестораны</span>
-    </a>
+      <span class="text-[9px] uppercase tracking-[0.15em] font-bold">Кухня</span>
+    </div>
 
-    <!-- Отели -->
-    <a href="/hotels"
-       aria-label="Отели"
-       class="flex-1 flex flex-col items-center py-2 mx-1 rounded-lg transition-colors duration-200 text-center {{ request()->is('hotels*') ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5' }}">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-           stroke-width="1.8" stroke="currentColor" class="w-6 h-6 mb-1">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M4.5 21V9.75l7.5-6 7.5 6V21M9 21v-6h6v6" />
+    <div class="relative flex-1 flex flex-col items-center py-2 text-white/20">
+      <span class="absolute top-0 right-2 text-[7px] text-[#C5A367] font-bold uppercase tracking-tighter bg-[#C5A367]/10 px-1 rounded">Скоро</span>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
-      <span class="text-xs leading-tight">Отели</span>
-    </a>
+      <span class="text-[9px] uppercase tracking-[0.15em] font-bold">Отели</span>
+    </div>
+
   </div>
 </nav>
-
 
     <main class="flex-grow ">
         @yield('content')

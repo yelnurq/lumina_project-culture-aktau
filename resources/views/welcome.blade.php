@@ -73,7 +73,7 @@
                                 <input 
                                     type="text" 
                                     placeholder="Напр: Бозжыра..." 
-                                    class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-500"
+                                    class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-700"
                                 >
                                 <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -226,77 +226,84 @@
     .delay-900 { animation-delay: 0.9s; }
     .delay-1200 { animation-delay: 1.2s; }
 </style>
-<div class="bg-gray-100 py-20">
-  <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+<div class="bg-gray-100 py-24 border-y border-gray-100">
+  <div class="container mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
     
-    <div class="md:w-1/2">
+    <div class="w-full lg:w-5/12">
         <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Вектор развития</span>
 
-      <h2 class="font-title text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
-      <div class="w-20 h-1 bg-primary rounded mb-6"></div>
+        <h2 class="font-title text-3xl md:text-4xl font-light text-gray-900 mb-6 leading-tight uppercase tracking-tight">
+                    Наша <span class="font-bold text-primary">ЦЕЛЬ</span>
+                    
+                </h2>
+                <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
-      <div class="prose prose-sm text-gray-800" style="text-align: left;">
-        <p class="text-md" data-lang="goal-desc1">Сохранение Каспийского моря и его новых берегов помогает защитить природу, культурное наследие и <span class="text-blue-900 font-semibold">будущее Маңғыстау</span>. Мы хотим показать уникальность региона и вдохновить людей беречь его богатства.</p>
+        <div class="space-y-6 text-gray-900 font-light leading-relaxed">
+            <p class="text-lg" data-lang="goal-desc1">
+                Сохранение Каспийского моря и его новых берегов — это миссия по защите природы и <span class="text-[#C5A367] font-medium italic">будущего Маңғыстау</span>. Мы открываем уникальность региона, чтобы вдохновить мир беречь его первозданную красоту.
+            </p>
 
-        <p class="text-md" data-lang="goal-desc2">Этот проект направлен на изучение и популяризацию всех новых островков и песчаных кос, чтобы каждый мог увидеть <span class="text-blue-900 font-semibold">красоту и значимость</span> Каспия.</p>
-      </div>
+            <p class="text-base" data-lang="goal-desc2">
+                Проект направлен на изучение и популяризацию заповедных островков и песчаных кос, раскрывая <span class="text-primary font-medium">глубинную значимость</span> Каспия для каждого исследователя.
+            </p>
+        </div>
 
-            <a href="/about"  data-lang="goal-btn" class="hidden md:inline-block bg-none text-primary font-600 px-6 sm:px-8 py-2 sm:py-3  hover:bg-primary hover:text-white transition opacity-0 translate-y-6 animate-fadeInUp delay-600 text-sm sm:text-base" style="border-radius: 16px;font-size:16px;font-weight:500; border:1px solid rgb(15 59 99); margin-top:30px;" >
-                Ознакомиться
+        <div class="mt-12">
+            <a href="/about" data-lang="goal-btn" 
+               class="inline-block border border-primary text-primary px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-500">
+                О проекте
             </a>
+        </div>
     </div>
 
-    <div id="heritage-container" 
-     class="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div id="heritage-container" class="w-full lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-4 h-[500px]">
 
-  <div style="border-radius: 16px;" 
-       class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 sm:row-span-2">
-    <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" 
-         class="w-full h-64 sm:h-full object-cover">
-    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-title font-bold text-md" data-lang="ayrakty-title"></h3>
-      <p class="text-xs text-gray-200" data-lang="ayrakty-desc"></p>
+        <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-700 sm:row-span-2">
+            <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" 
+                 class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+                <h3 class="text-white font-bold text-lg uppercase tracking-wider" data-lang="ayrakty-title">Айракты</h3>
+                <p class="text-white/70 text-xs font-light" data-lang="ayrakty-desc">Долина каменных замков</p>
+            </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-700">
+            <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" 
+                 class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-white font-bold text-md uppercase tracking-wider" data-lang="buhta-title">Голубая Бухта</h3>
+                <p class="text-white/70 text-xs font-light" data-lang="buhta-desc">Лазурные берега</p>
+            </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-700">
+            <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" 
+                 class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-white font-bold text-md uppercase tracking-wider" data-lang="balayuk-title">Балаюк</h3>
+                <p class="text-white/70 text-xs font-light" data-lang="balayuk-desc">Тайны подземных озер</p>
+            </div>
+        </div>
+
     </div>
-  </div>
-
-  <div style="border-radius: 16px;" 
-       class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-    <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" 
-         class="w-full h-64 object-cover">
-    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-title font-bold text-md" data-lang="buhta-title"></h3>
-      <p class="text-xs text-gray-200" data-lang="buhta-desc"></p>
-    </div>
-  </div>
-
-  <div style="border-radius: 16px;" 
-       class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-    <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" 
-         class="w-full h-64 object-cover">
-    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-title font-bold text-md" data-lang="balayuk-title"></h3>
-      <p class="text-xs text-gray-200" data-lang="balayuk-desc"></p>
-    </div>
-  </div>
-
-</div>
-
-
   </div>
 </div>
 <section class="py-24 bg-white text-[#1A1A1A] overflow-hidden">
     <div class="container mx-auto px-6">
         
-        <div class="flex flex-col md:flex-row justify-between md:items-end mb-16 md:gap-8">
+        <div class="flex flex-col md:flex-row justify-between md:items-end mb-8 md:mb-16 md:gap-8">
             <div class="max-w-xl">
-                <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Инфраструктура</span>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-[#C5A367] font-bold mb-4 block">Инфраструктура</span>
                 <h2 class="font-title text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase leading-tight tracking-tight">
                     Где остановиться <br> <span class="font-sans italic font-light text-primary">& вкусно поесть</span>
                 </h2>
                 <div class="w-20 h-1 bg-primary rounded mb-6"></div>
             </div>
-
-            <p class="text-gray-700 max-w-sm text-sm leading-relaxed font-light">
+            
+            <p class="text-gray-700 max-w-sm text-sm leading-relaxed font-light md:font-normal">
                 Лучшие локации Актау и области, отобранные для вашего комфортного пребывания в самом сердце Каспия.
             </p>
         </div>
@@ -317,7 +324,7 @@
                 
                 <div class="p-8">
                     <div class="flex justify-between items-center mb-6">
-                        <h4 class="text-2xl font-medium tracking-tight">Caspian Riviera</h4>
+                        <h4 class="text-2xl font-medium tracking-tight">Caspian World</h4>
                         <div class="flex items-center gap-1.5">
                             <span class="text-sm font-bold text-[#C5A367]">5.0</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 fill-[#C5A367]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -336,7 +343,7 @@
                         </p>
                     </div>
 
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-100 flex-wrap">
                         <p class="text-xl font-light tracking-tighter">от 45.000 ₸</p>
                         <button class="group/btn relative overflow-hidden text-sm font-bold uppercase tracking-widest py-2">
                             <span class="relative z-10">Забронировать</span>
@@ -358,7 +365,7 @@
                 
                 <div class="p-8">
                     <div class="flex justify-between items-center mb-6">
-                        <h4 class="text-2xl font-medium tracking-tight">Aidala</h4>
+                        <h4 class="text-2xl font-medium tracking-tight">Lumia Cafe</h4>
                         <div class="flex items-center gap-1.5">
                             <span class="text-sm font-bold text-[#C5A367]">4.8</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 fill-[#C5A367]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -377,7 +384,7 @@
                         </p>
                     </div>
 
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-100 flex-wrap">
                         <p class="text-xl font-light tracking-tighter">~ 12.000 ₸</p>
                         <button class="group/btn relative overflow-hidden text-sm font-bold uppercase tracking-widest py-2">
                             <span class="relative z-10">Посмотреть меню</span>
@@ -404,174 +411,154 @@
         </div>
     </div>
 </section>
-<div class="bg-gray-100 py-12 md:py-20">
-    <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
-        <div class="mb-0 md:mb-12">
-        <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Уникальность края</span>
-
-            <h2
-            class="font-title w-full text-2xl md:text-3xl 
-                    font-bold text-primary mb-4 text-left uppercase
-                    break-words whitespace-normal"
-            data-lang="advantages-title"
-            >
-            Наши преимущества
-            </h2>
-            <div class="w-20 h-1 bg-primary rounded"></div>
-        </div>
-
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="flex-1 flex flex-col gap-6">
-                
-                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                    
-                    <div>
-                           <div class="absolute inset-0"
-                                style="
-                                    background-image: url('/images/icon.svg');
-                                    background-repeat: no-repeat;
-                                    background-position: top -25px right -70px;
-                                    background-size: 200px auto;
-                                    opacity: 0.1;
-                                    pointer-events: none;
-                                ">
-                            </div>
-                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv1-title">Сохранение природы</h3>
-                        <p class="text-gray-700 text-sm" data-lang="adv1-desc">Каспий и новые островки под нашим контролем — для будущих поколений.</p>
-                    </div>
-                </div>
-
-                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                    <div>
-                        <div class="absolute inset-0"
-                                style="
-                                    background-image: url('/images/icon.svg');
-                                    background-repeat: no-repeat;
-                                    background-position: top -25px left -70px;
-                                    background-size: 200px auto;
-                                    opacity: 0.1;
-                                    pointer-events: none;
-                                ">
-                            </div>
-                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv2-title">Культурное наследие</h3>
-                        <p class="text-gray-700 text-sm" data-lang="adv2-desc">Изучаем и популяризируем памятники, историю и традиции Маңғыстау.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex-1 flex flex-col gap-6">
-                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                    <div>
-                        <div class="absolute inset-0"
-                                style="
-                                    background-image: url('/images/icon.svg');
-                                    background-repeat: no-repeat;
-                                    background-position: top -25px right -70px;
-                                    background-size: 200px auto;
-                                    opacity: 0.1;
-                                    pointer-events: none;
-                                ">
-                            </div>
-                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv3-title">Современные инициативы</h3>
-                        <p class="text-gray-700 text-sm" data-lang="adv3-desc">Фестивали, мастер-классы и выставки развивают местное творчество.</p>
-                    </div>
-                </div>
-
-                <div class="relative bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition flex-1 flex items-start gap-4">
-                    <div>
-                        <div class="absolute inset-0"
-                                style="
-                                    background-image: url('/images/icon.svg');
-                                    background-repeat: no-repeat;
-                                    background-position: top -25px left -70px;
-                                    background-size: 200px auto;
-                                    opacity: 0.1;
-                                    pointer-events: none;
-                                ">
-                            </div>
-                        <h3 class="font-title text-md md:text-lg font-semibold mb-1 text-gray-800" data-lang="adv4-title">Доступность информации</h3>
-                        <p class="text-gray-700 text-sm" data-lang="adv4-desc">Онлайн-карта и экскурсии помогают каждому увидеть новые объекты Каспия.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    </div>
-</div>
-
-<section class=" relative w-full py-20 bg-white" id="attractions">
-<div class="container mx-auto px-6 max-w-7xl">
-    <div class="mb-[2rem]">
-        <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Духовные артефакты</span>
+<div class="bg-gray-100 py-20 md:py-32 overflow-hidden">
+    <div class="container mx-auto max-w-7xl px-6">
         
-        <h2
-            class="font-title w-full text-2xl md:text-3xl 
-                    font-bold text-primary mb-4 text-left uppercase
-                    break-words whitespace-normal" data-lang="heritages-title">Наши достояния</h2>
-        <div class="w-20 h-1 bg-primary rounded"></div>
-    </div>
-
-<div class="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
-        <!-- Карточка 1 -->
-        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-            <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-title font-bold text-md" data-lang="heritage1-title">Бозжыра</h3>
-                <p class="text-xs text-gray-200" data-lang="heritage1-desc">Удивительные скалы и каньоны Мангистау</p>
+        <div class="flex flex-col lg:flex-row gap-16 items-start">
+            
+            <div class="w-full lg:w-1/3 sticky top-32">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Уникальность края</span>
+                <h2 class="font-title text-3xl md:text-4xl font-light text-gray-900 mb-6 leading-tight uppercase tracking-tight">
+                    Наши <br> <span class="font-bold text-primary">Преимущества</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary rounded mb-6"></div>
+                <p class="text-gray-700 text leading-relaxed max-w-xs font-light">
+                    Мы создаем экосистему, где природа Каспия и вековые традиции встречаются с современным комфортом.
+                </p>
             </div>
-        </div>
 
-        <!-- Карточка 2 -->
-        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
-            <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-title font-bold text-md" data-lang="heritage2-title">Шеркала</h3>
-                <p class="text-xs text-gray-200" data-lang="heritage2-desc">Современный город на побережье Каспия</p>
-            </div>
-        </div>
+            <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
+                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
+                            <span class="font-bold text-xs">01</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Сохранение природы</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed font-light">Каспий и новые островки под нашим контролем — бережное отношение к экосистеме для будущих поколений.</p>
+                    </div>
+                </div>
 
-        <!-- Карточка 3 -->
-        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-            <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-title font-bold text-md" data-lang="heritage3-title">Урочище Кок-кала</h3>
-                <p class="text-xs text-gray-200" data-lang="heritage3-desc">Маленькое село с красивыми видами</p>
-            </div>
-        </div>
+                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
+                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
+                            <span class="font-bold text-xs">02</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Культурное наследие</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed font-light">Мы глубоко изучаем и популяризируем сакральные памятники, историю и живые традиции Маңғыстау.</p>
+                    </div>
+                </div>
 
-        <!-- Карточка 4 -->
-        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-            <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-title font-bold text-md" data-lang="heritage4-title">Сор Тузбаир</h3>
-                <p class="text-xs text-gray-200" data-lang="heritage4-desc">Исторические памятники и скалы</p>
-            </div>
-        </div>
+                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
+                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
+                            <span class="font-bold text-xs">03</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Современные инициативы</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed font-light">Локальные фестивали, творческие мастер-классы и выставки развивают современный потенциал региона.</p>
+                    </div>
+                </div>
 
-        <!-- Карточка 5 -->
-        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
-            <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-title font-bold md:text-md" data-lang="heritage5-title">Каспийское море</h3>
-                <p class="text-xs text-gray-200" data-lang="heritage5-desc">Красивые холмы и живописные виды</p>
-            </div>
-        </div>
+                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
+                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
+                            <span class="font-bold text-xs">04</span>
+                        </div>
+                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Доступность знаний</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed font-light">Интерактивная карта и авторские маршруты помогают каждому открыть для себя неизвестные берега Каспия.</p>
+                    </div>
+                </div>
 
-        <!-- Карточка 6 -->
-        <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
-            <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 class="font-title font-bold text-md" data-lang="heritage6-title">Урочище Кызылкуп</h3>
-                <p class="text-xs text-gray-200" data-lang="heritage6-desc">Исторические маршруты через Мангистауские степи</p>
             </div>
         </div>
     </div>
 </div>
+<section class="relative w-full py-24 bg-white" id="attractions">
+    <div class="container mx-auto px-6 max-w-7xl">
+        
+        <div class="mb-10">
+            <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Духовные артефакты</span>
+            <h2 class="font-title text-3xl md:text-4xl font-light text-gray-900 mb-6 uppercase tracking-tight">
+                Наши <span class="font-bold text-primary">достояния</span>
+            </h2>
+            <div class="w-20 h-1 bg-primary rounded mb-6"></div>
+        </div>
 
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[320px]">
+            
+            <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 class="text-white font-bold text-xl mb-1.5" data-lang="heritage1-title">Бозжыра</h3>
+                    <p class="text-white/80 text-xs font-light leading-relaxed" data-lang="heritage1-desc">Инопланетные пейзажи меловых каньонов</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 sm:col-span-2">
+                <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 class="text-white font-bold text-2xl mb-1.5" data-lang="heritage2-title">Шеркала</h3>
+                    <p class="text-white/80 text-sm font-light leading-relaxed max-w-sm" data-lang="heritage2-desc">Священная гора, напоминающая юрту или спящего льва</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 class="text-white font-bold text-xl mb-1.5" data-lang="heritage3-title">Кок-кала</h3>
+                    <p class="text-white/80 text-xs font-light leading-relaxed" data-lang="heritage3-desc">Радужные глиняные разломы древнего океана</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 class="text-white font-bold text-xl mb-1.5" data-lang="heritage4-title">Сор Тузбаир</h3>
+                    <p class="text-white/80 text-xs font-light leading-relaxed" data-lang="heritage4-desc">Белоснежное соляное зеркало бесконечности</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 class="text-white font-bold text-xl mb-1.5" data-lang="heritage5-title">Каспий</h3>
+                    <p class="text-white/80 text-xs font-light leading-relaxed" data-lang="heritage5-desc">Бирюзовые воды и дикие скалистые берега</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 sm:col-span-2">
+                <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 class="text-white font-bold text-2xl mb-1.5" data-lang="heritage6-title">Кызылкуп</h3>
+                    <p class="text-white/80 text-sm font-light leading-relaxed max-w-sm" data-lang="heritage6-desc">Тирамису-горы с полосатыми красно-белыми слоями</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 </section>
-
 
 
 
