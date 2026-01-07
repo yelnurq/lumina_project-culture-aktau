@@ -285,13 +285,15 @@
 <section class="py-24 bg-white text-[#1A1A1A] overflow-hidden">
     <div class="container mx-auto px-6">
         
-        <div class="flex flex-col md:flex-row justify-between md:items-end mb-16 gap-8">
+        <div class="flex flex-col md:flex-row justify-between md:items-end mb-16 md:gap-8">
             <div class="max-w-xl">
                 <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Инфраструктура</span>
-                <h2 class="text-4xl md:text-4xl font-light leading-tight tracking-tight">
-                    Где остановиться <br> <span class="font-serif italic text-primary">& вкусно поесть</span>
+                <h2 class="font-title text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase leading-tight tracking-tight">
+                    Где остановиться <br> <span class="font-sans italic font-light text-primary">& вкусно поесть</span>
                 </h2>
+                <div class="w-20 h-1 bg-primary rounded mb-6"></div>
             </div>
+
             <p class="text-gray-700 max-w-sm text-sm leading-relaxed font-light">
                 Лучшие локации Актау и области, отобранные для вашего комфортного пребывания в самом сердце Каспия.
             </p>
@@ -302,7 +304,7 @@
           <div class="group relative bg-gray-100 rounded-[2rem] overflow-hidden shadow-md hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 border border-gray-200">
     
             <div class="absolute inset-0 pointer-events-none opacity-[0.07] group-hover:opacity-[0.08] transition-opacity duration-700" 
-                style="background-image: url('/images/icon.svg'); background-size: 120px; background-repeat: repeat;">
+                style="background-image: url('/icons/icon5.svg'); background-size: 120px; background-repeat: repeat;">
             </div>
 
             <div class="relative z-10">
