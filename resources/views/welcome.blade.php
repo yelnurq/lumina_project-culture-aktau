@@ -282,8 +282,125 @@
 
   </div>
 </div>
+<section class="py-24 bg-white text-[#1A1A1A] overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row justify-between md:items-end mb-16 gap-8">
+            <div class="max-w-xl">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Инфраструктура</span>
+                <h2 class="text-4xl md:text-4xl font-light leading-tight tracking-tight">
+                    Где остановиться <br> <span class="font-serif italic text-primary">& вкусно поесть</span>
+                </h2>
+            </div>
+            <p class="text-gray-700 max-w-sm text-sm leading-relaxed font-light">
+                Лучшие локации Актау и области, отобранные для вашего комфортного пребывания в самом сердце Каспия.
+            </p>
+        </div>
 
-<div class="bg-white py-12 md:py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+          <div class="group relative bg-gray-100 rounded-[2rem] overflow-hidden shadow-md hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 border border-gray-200">
+    
+            <div class="absolute inset-0 pointer-events-none opacity-[0.07] group-hover:opacity-[0.08] transition-opacity duration-700" 
+                style="background-image: url('/images/icon.svg'); background-size: 120px; background-repeat: repeat;">
+            </div>
+
+            <div class="relative z-10">
+                <div class="relative h-72 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" alt="Hotel" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest text-black shadow-sm">Отели</div>
+                </div>
+                
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h4 class="text-2xl font-medium tracking-tight">Caspian Riviera</h4>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm font-bold text-[#C5A367]">5.0</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 fill-[#C5A367]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8">
+                        <p class="text-gray-900 text-sm flex items-center gap-3 font-light">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C5A367]"></span> Вид на Каспийское море
+                        </p>
+                        <p class="text-gray-900 text-sm flex items-center gap-3 font-light">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C5A367]"></span> Infinity бассейн
+                        </p>
+                        <p class="text-gray-900 text-sm flex items-center gap-3 font-light">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C5A367]"></span> Атмосфера кочевников
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+                        <p class="text-xl font-light tracking-tighter">от 45.000 ₸</p>
+                        <button class="group/btn relative overflow-hidden text-sm font-bold uppercase tracking-widest py-2">
+                            <span class="relative z-10">Забронировать</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-black transition-all duration-300 group-hover/btn:h-[2px]"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <div class="group relative bg-gray-100 rounded-[2rem] overflow-hidden shadow-md hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 border border-gray-200">
+                <div class="absolute inset-0 pointer-events-none opacity-[0.07] group-hover:opacity-[0.08] transition-opacity duration-700" 
+         style="background-image: url('/images/icon.svg'); background-size: 120px; background-repeat: repeat;">
+    </div>
+                <div class="relative h-72 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800" alt="Restaurant" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest text-black shadow-sm">Рестораны</div>
+                </div>
+                
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h4 class="text-2xl font-medium tracking-tight">Aidala</h4>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm font-bold text-[#C5A367]">4.8</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 fill-[#C5A367]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8">
+                        <p class="text-gray-900 text-sm flex items-center gap-3 font-light">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C5A367]"></span> Национальная кухня
+                        </p>
+                        <p class="text-gray-900 text-sm flex items-center gap-3 font-light">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C5A367]"></span> Атмосфера кочевников
+                        </p>
+                        <p class="text-gray-900 text-sm flex items-center gap-3 font-light">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C5A367]"></span> Атмосфера кочевников
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+                        <p class="text-xl font-light tracking-tighter">~ 12.000 ₸</p>
+                        <button class="group/btn relative overflow-hidden text-sm font-bold uppercase tracking-widest py-2">
+                            <span class="relative z-10">Посмотреть меню</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-black transition-all duration-300 group-hover/btn:h-[2px]"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative bg-white rounded-[2rem] overflow-hidden border-2 border-dashed border-gray-100 flex flex-col items-center justify-center p-12 text-center hover:border-[#C5A367] transition-colors duration-500">
+                <div class="absolute inset-0 pointer-events-none opacity-[0.1] group-hover:opacity-[0.08] transition-opacity duration-700" 
+         style="background-image: url('/images/icon.svg'); background-size: 125px; background-repeat: repeat;">
+    </div>
+                <div class="w-16 h-16 rounded-full bg-[#F9F9F9] flex items-center justify-center mb-6 group-hover:bg-[#C5A367] group-hover:text-white transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-medium mb-3 tracking-tight">Еще 20+ мест</h4>
+                <p class="text-gray-400 text-sm font-light leading-relaxed mb-8">Базы отдыха, этно-аулы и скрытые жемчужины региона</p>
+                <a href="#" class="text-[10px] font-bold uppercase tracking-[0.3em] text-black border-b border-black pb-1 hover:text-[#C5A367] hover:border-[#C5A367] transition-all">Открыть каталог</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<div class="bg-gray-100 py-12 md:py-20">
     <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
         <div class="mb-0 md:mb-12">
             <h2
@@ -377,7 +494,8 @@
 
     </div>
 </div>
-<section class=" relative w-full py-20 bg-gray-100" id="attractions">
+
+<section class=" relative w-full py-20 bg-white" id="attractions">
 <div class="container mx-auto px-6 max-w-7xl">
     <div class="mb-[2rem]">
         <h2
