@@ -54,6 +54,8 @@
     scrollbar-width: thin;
     scrollbar-color: #333 #121212;
 }
+
+
 </style>
 <body class="flex flex-col min-h-screen bg-background font-sans text-textPrimary">
 

@@ -3,7 +3,7 @@
 
 
 @section('content')
-<div class="relative w-full h-[100svh] lg:h-[90vh] overflow-hidden">
+<div class="relative w-full h-[100svh] lg:h-[100vh] overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
         <source src="{{ asset('media/video.mp4') }}" type="video/mp4" />
         Ваш браузер не поддерживает видео.
@@ -96,9 +96,124 @@
         </div>
         
     </div>
+
+<div id="scroll-trigger" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20 cursor-pointer group">
+    <span id="scroll-text" class="text-[9px] text-white/50 uppercase tracking-[0.3em] mb-4 animate-pulse flex flex-col items-center gap-2 font-light text-center">
+        Погрузитесь ниже <br> (крутите колесико)
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+    </span>
+
+    <div class="relative w-16 h-20">
+        <svg viewBox="0 0 100 120" class="absolute inset-0 w-full h-full fill-none stroke-white/20 stroke-[1.5]">
+            <path d="M5 115 L20 80 L30 85 L35 95 L55 30 L65 70 L75 85 L80 80 L95 115 Z" />
+        </svg>
+
+        <svg viewBox="0 0 100 120" id="rock-fill" class="absolute inset-0 w-full h-full transition-all duration-150 ease-out" style="clip-path: inset(100% 0 0 0);">
+            <path fill="#C5A367" d="M5 115 L20 80 L30 85 L35 95 L55 30 L65 70 L75 85 L80 80 L95 115 Z" />
+            <path fill="#E8D5B5" d="M50 40 L55 30 L60 45 Z" />
+        </svg>
+    </div>
 </div>
 
+<script>
+    const rockFill = document.getElementById('rock-fill');
+    const scrollText = document.getElementById('scroll-text');
+    const rockContainer = document.querySelector('.relative.w-16.h-20');
+    
+    let charge = 0;         
+    let targetCharge = 0;   
+    let isUnlocked = false;
+
+    function animate() {
+        if (isUnlocked && Math.abs(targetCharge - charge) < 0.1) return;
+
+        // Плавная отрисовка визуальной части
+        charge += (targetCharge - charge) * 0.1; 
+        const safeCharge = Math.max(0, Math.min(100, charge));
+        const fillValue = 100 - safeCharge;
+
+        if (rockFill) {
+            rockFill.style.clipPath = `inset(${fillValue}% 0 0 0)`;
+            rockFill.style.opacity = 0.3 + (safeCharge / 100 * 0.7);
+        }
+
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    // Колесо мыши
+    window.addEventListener('wheel', (e) => {
+        if (isUnlocked) return;
+        window.scrollTo(0, 0); 
+        if (e.cancelable) e.preventDefault();
+
+        targetCharge += e.deltaY * 0.05; 
+        
+        if (targetCharge < 0) targetCharge = 0;
+        if (targetCharge >= 100) {
+            targetCharge = 100;
+            unlockPage(); // Мгновенный вызов при достижении порога
+        }
+    }, { passive: false });
+
+    // Тач (мобильные)
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => { 
+        touchStartY = e.touches[0].clientY; 
+    }, { passive: false });
+
+    window.addEventListener('touchmove', (e) => {
+        if (isUnlocked) return;
+        window.scrollTo(0, 0);
+        if (e.cancelable) e.preventDefault();
+
+        let touchMoveY = e.touches[0].clientY;
+        let diff = touchStartY - touchMoveY;
+        
+        targetCharge += diff * 0.2;
+        touchStartY = touchMoveY;
+
+        if (targetCharge < 0) targetCharge = 0;
+        if (targetCharge >= 100) {
+            targetCharge = 100;
+            unlockPage(); // Мгновенный вызов
+        }
+    }, { passive: false });
+
+    function unlockPage() {
+        if (isUnlocked) return; // Защита от повторного вызова
+        isUnlocked = true;
+
+        // Вибрация
+        if (navigator.vibrate) navigator.vibrate([70, 40, 70]); 
+
+        // Тряска
+        if (rockContainer) rockContainer.classList.add('shake-animation');
+        
+        if (scrollText) {
+            scrollText.innerHTML = 'Путь открыт';
+            scrollText.style.color = '#C5A367';
+            scrollText.classList.remove('animate-pulse');
+        }
+        
+        // Теперь скролл разблокирован мгновенно. 
+        // Пользователь может продолжать крутить без пауз.
+    }
+</script>
+</div>
 <style>
+@keyframes rock-shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-4px, 0); }
+    50% { transform: translate(4px, 0); }
+    75% { transform: translate(-4px, 0); }
+    100% { transform: translate(0, 0); }
+}
+.shake-animation {
+    animation: rock-shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
     @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
