@@ -59,7 +59,7 @@
 
 
 @if(request()->is('/'))
-    <header class="shadow backdrop-blur-md bg-black/10 absolute top-0 left-0 w-full z-50 hidden md:flex">
+    <header class="shadow backdrop-blur-md bg-black/20 absolute top-0 left-0 w-full z-50 hidden md:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
                 <span class="text-white font-semibold" style="font-weight:600; font-size:14px;padding:10px;">

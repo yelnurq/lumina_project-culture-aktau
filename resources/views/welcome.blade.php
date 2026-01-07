@@ -9,20 +9,20 @@
         Ваш браузер не поддерживает видео.
     </video>
 
-    <div class="relative z-10 w-full h-full bg-black/20 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent flex items-center">
+    <div class="relative z-10 w-full h-full bg-black/30 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent flex items-center">
         
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto lg:px-3">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                 
                 <div class="max-w-3xl w-full">
                     <p 
-                        class="text-left text-sm md:text-base text-blue-200 font-semibold mb-4 uppercase opacity-0 translate-y-6 animate-fadeInUp delay-1200"
+                        class="text-left text-sm md:text-md text-blue-200 font-semibold mb-4 uppercase opacity-0 translate-y-6 animate-fadeInUp delay-1200"
                         data-lang="main-subtitle"
                     >
                         ДУХ СВОБОДЫ И ПУСТЫНИ
                 </p>
                     <h1 
-                        class="text-left sm:text-2xl text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
+                        class="text-left text-2xl md:text-[30px] font-extrabold text-white mb-6 leading-[1.1] opacity-0 translate-y-6 animate-fadeInUp"
                         data-lang="main-title"
                     >
                         Новые берега Каспия<br class="hidden sm:block"> 
@@ -30,66 +30,66 @@
                     </h1>
 
                     <p 
-                        class="text-left text-[15px] md:text-xl text-gray-100 max-w-2xl mb-10 font-normal leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
+                        class="text-left text-sm md:text-[15px] text-gray-100 max-w-2xl mb-10 leading-relaxed opacity-0 translate-y-6 animate-fadeInUp delay-300"
                         data-lang="main-desc"
                     >
                         Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 opacity-0 translate-y-6 animate-fadeInUp delay-600">
-                        <a href="/culture-list" class="text-[14px] md:text-base inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
+                        <a href="/culture-list" class="text-[14px] md:text-md inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
                             Проложить маршрут
                         </a>
-                        <a href="/about" class="shadow backdrop-blur-lg bg-black/40 text-[14px] md:text-base inline-flex justify-center items-center text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
+                        <a href="/about" class="shadow backdrop-blur-lg bg-black/40 text-[14px] md:text-md inline-flex justify-center items-center text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
                             О проекте
                         </a>
                     </div>
                 </div>
 
-        <div class="hidden lg:flex flex-col gap-6 w-full lg:max-w-sm opacity-0 translate-x-12 animate-fadeInRight delay-900">
-            
-            <div class="bg-black/50 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                
-                <div class="p-8 pb-6">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-blue-400 font-bold mb-3 flex items-center gap-2 drop-shadow-sm">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                        </span>
-                        Знаете ли вы?
-                    </h3>
-                    <p class="text-sm text-gray-200 leading-relaxed font-normal drop-shadow-md">
-                        Устюрт — это дно древнего океана Тетис. Здесь до сих пор находят зубы доисторических акул, которым более <span class="font-bold text-white underline decoration-blue-500/50 underline-offset-4">20 миллионов лет</span>.
-                    </p>
-                </div>
-
-                <div class="px-8">
-                    <div class="h-[1px] w-full bg-white/10"></div>
-                </div>
-
-                <div class="p-8 pt-6 bg-black/20">
-                    <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
-                    <div class="relative group">
-                        <input 
-                            type="text" 
-                            placeholder="Напр: Бозжыра..." 
-                            class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-500"
-                        >
-                        <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                    </div>
+                <div class="hidden lg:flex flex-col gap-6 w-full lg:max-w-sm opacity-0 translate-x-12 animate-fadeInRight delay-900">
                     
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#каньоны</span>
-                        <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#море</span>
-                        <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#пещеры</span>
+                    <div class="bg-black/50 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        
+                        <div class="p-8 pb-6">
+                            <h3 class="text-xs uppercase tracking-[0.2em] text-blue-400 font-bold mb-3 flex items-center gap-2 drop-shadow-sm">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                                </span>
+                                Знаете ли вы?
+                            </h3>
+                            <p class="text-sm text-gray-200 leading-relaxed font-normal drop-shadow-md">
+                                Устюрт — это дно древнего океана Тетис. Здесь до сих пор находят зубы доисторических акул, которым более <span class="font-bold text-white underline decoration-blue-500/50 underline-offset-4">20 миллионов лет</span>.
+                            </p>
+                        </div>
+
+                        <div class="px-8">
+                            <div class="h-[1px] w-full bg-white/10"></div>
+                        </div>
+
+                        <div class="p-8 pt-6 bg-black/20">
+                            <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
+                            <div class="relative group">
+                                <input 
+                                    type="text" 
+                                    placeholder="Напр: Бозжыра..." 
+                                    class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-500"
+                                >
+                                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#каньоны</span>
+                                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#море</span>
+                                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#пещеры</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
             </div>
      
@@ -125,7 +125,7 @@
   <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-16 items-start">
     
     <div class="md:w-1/2">
-      <h2 class="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
+      <h2 class="text-3xl sm:text-3xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
       <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
       <div class="prose prose-sm text-gray-800" style="text-align: left;">
@@ -146,7 +146,7 @@
     <img src="/images/heritages/airakty.jpg" alt="Долина замков Айракты" 
          class="w-full h-64 sm:h-full object-cover">
     <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-bold text-lg" data-lang="ayrakty-title"></h3>
+      <h3 class="font-bold text-md" data-lang="ayrakty-title"></h3>
       <p class="text-sm" data-lang="ayrakty-desc"></p>
     </div>
   </div>
@@ -156,7 +156,7 @@
     <img src="/images/heritages/buhta.jpeg" alt="Голубая Бухта" 
          class="w-full h-64 object-cover">
     <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-bold text-lg" data-lang="buhta-title"></h3>
+      <h3 class="font-bold text-md" data-lang="buhta-title"></h3>
       <p class="text-sm" data-lang="buhta-desc"></p>
     </div>
   </div>
@@ -166,7 +166,7 @@
     <img src="/images/heritages/12.jpg" alt="Пещера Балаюк" 
          class="w-full h-64 object-cover">
     <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-      <h3 class="font-bold text-lg" data-lang="balayuk-title"></h3>
+      <h3 class="font-bold text-md" data-lang="balayuk-title"></h3>
       <p class="text-sm" data-lang="balayuk-desc"></p>
     </div>
   </div>
@@ -181,7 +181,7 @@
     <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
         <div class="mb-0 md:mb-12">
             <h2
-            class="w-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl
+            class="w-full text-2xl sm:text-3xl md:text-3xl 
                     font-bold text-primary mb-4 text-left uppercase
                     break-words whitespace-normal"
             data-lang="advantages-title"
@@ -275,7 +275,7 @@
 <div class="container mx-auto px-6 max-w-7xl">
     <div class="mb-[2rem]">
         <h2
-            class="w-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl
+            class="w-full text-2xl sm:text-3xl md:text-3xl 
                     font-bold text-primary mb-4 text-left uppercase
                     break-words whitespace-normal" data-lang="heritages-title">Наши достояния</h2>
         <div class="w-20 h-1 bg-primary rounded"></div>
@@ -286,7 +286,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/boszhyra.jpg" alt="Бозжыра" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 class="font-bold text-lg" data-lang="heritage1-title">Бозжыра</h3>
+                <h3 class="font-bold text-md" data-lang="heritage1-title">Бозжыра</h3>
                 <p class="text-sm" data-lang="heritage1-desc">Удивительные скалы и каньоны Мангистау</p>
             </div>
         </div>
@@ -295,7 +295,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
             <img src="images/heritages/sherqala.jpg" alt="Шеркала" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 class="font-bold text-lg" data-lang="heritage2-title">Шеркала</h3>
+                <h3 class="font-bold text-md" data-lang="heritage2-title">Шеркала</h3>
                 <p class="text-sm" data-lang="heritage2-desc">Современный город на побережье Каспия</p>
             </div>
         </div>
@@ -304,7 +304,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/heritages/kok-kala.jpg" alt="Кок-кала" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 class="font-bold text-lg" data-lang="heritage3-title">Урочище Кок-кала</h3>
+                <h3 class="font-bold text-md" data-lang="heritage3-title">Урочище Кок-кала</h3>
                 <p class="text-sm" data-lang="heritage3-desc">Маленькое село с красивыми видами</p>
             </div>
         </div>
@@ -313,7 +313,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/heritages/sor.jpg" alt="Сор Тузбаир" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 class="font-bold text-lg" data-lang="heritage4-title">Сор Тузбаир</h3>
+                <h3 class="font-bold text-md" data-lang="heritage4-title">Сор Тузбаир</h3>
                 <p class="text-sm" data-lang="heritage4-desc">Исторические памятники и скалы</p>
             </div>
         </div>
@@ -322,7 +322,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300">
             <img src="images/heritages/kaspi.jpg" alt="Каспи" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 class="font-bold text-lg" data-lang="heritage5-title">Каспийское море</h3>
+                <h3 class="font-bold text-md" data-lang="heritage5-title">Каспийское море</h3>
                 <p class="text-sm" data-lang="heritage5-desc">Красивые холмы и живописные виды</p>
             </div>
         </div>
@@ -331,7 +331,7 @@
         <div style="border-radius: 16px;" class="relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition duration-300 col-span-2">
             <img src="images/heritages/kyzylkup.jpg" alt="Кызылкуп" class="w-full h-full object-cover">
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 class="font-bold text-lg" data-lang="heritage6-title">Урочище Кызылкуп</h3>
+                <h3 class="font-bold text-md" data-lang="heritage6-title">Урочище Кызылкуп</h3>
                 <p class="text-sm" data-lang="heritage6-desc">Исторические маршруты через Мангистауские степи</p>
             </div>
         </div>
