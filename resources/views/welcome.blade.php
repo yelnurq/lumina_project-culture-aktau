@@ -230,6 +230,8 @@
   <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
     
     <div class="md:w-1/2">
+        <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Вектор развития</span>
+
       <h2 class="font-title text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-left uppercase" data-lang="goal-title">НАША ЦЕЛЬ</h2>
       <div class="w-20 h-1 bg-primary rounded mb-6"></div>
 
@@ -302,10 +304,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             
           <div class="group relative bg-gray-100 rounded-[2rem] overflow-hidden shadow-md hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 border border-gray-200">
-    
-            <div class="absolute inset-0 pointer-events-none opacity-[0.07] group-hover:opacity-[0.08] transition-opacity duration-700" 
-                style="background-image: url('/icons/icon5.svg'); background-size: 120px; background-repeat: repeat;">
-            </div>
+{{--     
+            <div class="absolute inset-0 pointer-events-none opacity-[0.09] group-hover:opacity-[0.08] transition-opacity duration-700" 
+         style="background-image: url('/images/icon2.svg'); background-size: 200px; background-position:bottom; background-repeat: repeat;">
+            </div> --}}
 
             <div class="relative z-10">
                 <div class="relative h-72 overflow-hidden">
@@ -346,9 +348,9 @@
         </div>
 
           <div class="group relative bg-gray-100 rounded-[2rem] overflow-hidden shadow-md hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 border border-gray-200">
-                <div class="absolute inset-0 pointer-events-none opacity-[0.07] group-hover:opacity-[0.08] transition-opacity duration-700" 
-         style="background-image: url('/images/icon.svg'); background-size: 120px; background-repeat: repeat;">
-    </div>
+                {{-- <div class="absolute inset-0 pointer-events-none opacity-[0.07] group-hover:opacity-[0.08] transition-opacity duration-700" 
+         style="background-image: url('/images/icon.svg'); background-size: 200px; background-position:bottom; background-repeat: repeat;">
+    </div> --}}
                 <div class="relative h-72 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800" alt="Restaurant" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest text-black shadow-sm">Рестораны</div>
@@ -385,11 +387,11 @@
                 </div>
             </div>
 
-            <div class="group relative bg-white rounded-[2rem] overflow-hidden border-2 border-dashed border-gray-100 flex flex-col items-center justify-center p-12 text-center hover:border-[#C5A367] transition-colors duration-500">
-                <div class="absolute inset-0 pointer-events-none opacity-[0.1] group-hover:opacity-[0.08] transition-opacity duration-700" 
-         style="background-image: url('/images/icon.svg'); background-size: 125px; background-repeat: repeat;">
+            <div class="group relative bg-white rounded-[2rem] overflow-hidden border-2 border-dashed border-[#C5A367] flex flex-col items-center justify-center p-12 text-center hover:border-[#C5A367] transition-colors duration-500">
+                <div class="absolute inset-0 pointer-events-none opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-700" 
+         style="background-image: url('/images/icon2.svg'); background-size: 200px; background-repeat: repeat;">
     </div>
-                <div class="w-16 h-16 rounded-full bg-[#F9F9F9] flex items-center justify-center mb-6 group-hover:bg-[#C5A367] group-hover:text-white transition-all duration-500">
+                <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mb-6 group-hover:bg-[#C5A367] group-hover:text-white transition-all duration-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
@@ -405,6 +407,8 @@
 <div class="bg-gray-100 py-12 md:py-20">
     <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row gap-8">
         <div class="mb-0 md:mb-12">
+        <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Уникальность края</span>
+
             <h2
             class="font-title w-full text-2xl md:text-3xl 
                     font-bold text-primary mb-4 text-left uppercase
@@ -500,6 +504,8 @@
 <section class=" relative w-full py-20 bg-white" id="attractions">
 <div class="container mx-auto px-6 max-w-7xl">
     <div class="mb-[2rem]">
+        <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Духовные артефакты</span>
+        
         <h2
             class="font-title w-full text-2xl md:text-3xl 
                     font-bold text-primary mb-4 text-left uppercase
