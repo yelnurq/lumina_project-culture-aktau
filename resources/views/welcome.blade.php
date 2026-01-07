@@ -36,14 +36,26 @@
                         Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 opacity-0 translate-y-6 animate-fadeInUp delay-600">
-                        <a href="/culture-list" class="text-[14px] md:text-md inline-flex justify-center items-center bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
-                            Проложить маршрут
-                        </a>
-                        <a href="/about" class="hidden md:flex shadow backdrop-blur-lg bg-black/40 text-[14px] md:text-md inline-flex justify-center items-center text-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-black transition-all">
-                            О проекте
-                        </a>
-                    </div>
+               <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 opacity-0 translate-y-6 animate-fadeInUp delay-600">
+    
+    <a href="/culture-list" 
+       class="group relative text-[11px] md:text-[12px] uppercase tracking-[0.2em] inline-flex justify-center items-center bg-white text-black font-bold px-10 py-5 rounded-full shadow-2xl hover:bg-[#C5A367] hover:text-white transition-all duration-500 overflow-hidden">
+        <span class="relative z-10">Проложить маршрут</span>
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+    </a>
+
+    <a href="/about" 
+       class="hidden md:inline-flex text-[11px] md:text-[12px] uppercase tracking-[0.2em] justify-center items-center backdrop-blur-md bg-white/10 border border-white/20 text-white font-bold px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all duration-500">
+        О проекте
+    </a>
+
+</div>
+
+<style>
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+</style>
                 </div>
 
                 <div class="hidden lg:flex flex-col gap-6 w-full lg:max-w-sm opacity-0 translate-x-12 animate-fadeInRight delay-900">
@@ -411,81 +423,93 @@
         </div>
     </div>
 </section>
-<div class="bg-gray-100 py-20 md:py-32 overflow-hidden">
-    <div class="container mx-auto max-w-7xl px-6">
-        
+<div class="bg-gray-100 py-20 md:py-32 overflow-hidden relative">
+    <div class="absolute left-[-5%] bottom-[10%] text-[15rem] font-bold text-black/[0.03] select-none pointer-events-none uppercase tracking-tighter">
+        Mangystau
+    </div>
+
+    <div class="container mx-auto max-w-7xl px-6 relative z-10">
         <div class="flex flex-col lg:flex-row gap-16 items-start">
             
-            <div class="w-full lg:w-1/3 sticky top-32">
+            <div class="w-full lg:w-1/3 lg:sticky lg:top-32 flex flex-col h-full">
                 <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Уникальность края</span>
-                <h2 class="font-title text-3xl md:text-4xl font-light text-gray-900 mb-6 leading-tight uppercase tracking-tight">
-                    Наши <br> <span class="font-bold text-primary">Преимущества</span>
+                
+                <h2 class="font-title text-3xl md:text-4xl font-light text-gray-900 mb-6 leading-[1.1] uppercase tracking-tight">
+                    Наши <br> <span class="font-bold text-primary italic">Преимущества</span>
                 </h2>
-                <div class="w-20 h-1 bg-primary rounded mb-6"></div>
-                <p class="text-gray-700 text leading-relaxed max-w-xs font-light">
+                
+            <div class="w-20 h-1 bg-primary rounded mb-6"></div>
+                
+                <p class="text-gray-600 text-lg leading-relaxed max-w-xs font-light mb-12">
                     Мы создаем экосистему, где природа Каспия и вековые традиции встречаются с современным комфортом.
                 </p>
+
+                <div class="hidden lg:flex items-center gap-6 mt-auto pt-10 border-t border-black/30">
+                    <div class="text-4xl font-bold text-primary">362</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 font-medium leading-tight">
+                        сакральных <br> объектов региона
+                    </div>
+                </div>
             </div>
 
-            <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
-                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
-                    </div>
-                    
-                    <div class="relative z-10">
-                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
-                            <span class="font-bold text-xs">01</span>
-                        </div>
-                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Сохранение природы</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed font-light">Каспий и новые островки под нашим контролем — бережное отношение к экосистеме для будущих поколений.</p>
-                    </div>
-                </div>
-
-                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
-                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
-                    </div>
-                    
-                    <div class="relative z-10">
-                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
-                            <span class="font-bold text-xs">02</span>
-                        </div>
-                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Культурное наследие</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed font-light">Мы глубоко изучаем и популяризируем сакральные памятники, историю и живые традиции Маңғыстау.</p>
-                    </div>
-                </div>
-
-                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
-                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
-                    </div>
-                    
-                    <div class="relative z-10">
-                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
-                            <span class="font-bold text-xs">03</span>
-                        </div>
-                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Современные инициативы</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed font-light">Локальные фестивали, творческие мастер-классы и выставки развивают современный потенциал региона.</p>
-                    </div>
-                </div>
-
-                <div class="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="absolute inset-0 opacity-[0.07] group-hover:opacity-[0.09] transition-opacity duration-500 pointer-events-none rounded-[2rem]"
-                         style="background-image: url('/images/icon.svg'); background-size: 150px; background-position: center; background-repeat: repeat;">
-                    </div>
-                    
-                    <div class="relative z-10">
-                        <div class="w-10 h-10 bg-[#C5A367]/10 rounded-full flex items-center justify-center mb-6 text-[#C5A367]">
-                            <span class="font-bold text-xs">04</span>
-                        </div>
-                        <h3 class="font-title text-lg font-bold mb-3 text-gray-800 uppercase tracking-wide">Доступность знаний</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed font-light">Интерактивная карта и авторские маршруты помогают каждому открыть для себя неизвестные берега Каспия.</p>
-                    </div>
-                </div>
-
+<div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
+             style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
+        </div>
+        <div class="relative z-10">
+            <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">01</div>
+            <div class="w-12 h-12 bg-[#C5A367] text-white rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-[#C5A367]/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
             </div>
+            <h3 class="font-title text-xl font-bold mb-4 text-gray-800 uppercase tracking-wide">Сохранение природы</h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-light">Каспий и новые островки под нашим контролем — бережное отношение к экосистеме для будущих поколений.</p>
+        </div>
+    </div>
+
+    <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
+             style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
+        </div>
+        <div class="relative z-10">
+            <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">02</div>
+            <div class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-primary/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+            </div>
+            <h3 class="font-title text-xl font-bold mb-4 text-gray-800 uppercase tracking-wide">Культурное наследие</h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-light">Мы глубоко изучаем и популяризируем сакральные памятники, историю и живые традиции Маңғыстау.</p>
+        </div>
+    </div>
+
+    <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 md:col-span-2">
+        <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
+             style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
+        </div>
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
+            <div class="flex-shrink-0">
+                <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">03</div>
+                <div class="w-16 h-16 bg-[#C5A367]/10 text-[#C5A367] rounded-2xl flex items-center justify-center shadow-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.283a2 2 0 01-1.186.127l-2.431-.486a2 2 0 00-1.638.527l-1.138 1.138a2 2 0 00-.586 1.414v.33a2 2 0 002 2h12a2 2 0 002-2v-.33a2 2 0 00-.586-1.414l-1.138-1.138z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    </svg>
+                </div>
+            </div>
+            <div>
+                <h3 class="font-title text-xl font-bold mb-2 text-gray-800 uppercase tracking-wide">Современные инициативы</h3>
+                <p class="text-gray-500 text-base leading-relaxed font-light max-w-2xl">
+                    Фестивали, мастер-классы и выставки развивают местное творчество, объединяя древние промыслы с современным искусством. Мы создаем платформу для нового поколения талантов региона.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
         </div>
     </div>
 </div>

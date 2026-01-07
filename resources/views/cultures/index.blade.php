@@ -1,210 +1,169 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-5 mb-16">
+<div class="container mx-auto max-w-7xl px-6 py-12 animate-fadeIn">
 
-    <div class="pb-6 border-b border-gray-300 mb-6">
-        <nav class="text-sm text-gray-500 mb-4">
-            <ol class="list-reset flex flex-wrap space-x-2">
-                <li>
-                    <a href="/" class="hover:underline text-blue-600" data-lang="culture_breadcrumb_home">
-                        Главная
-                    </a>
-                </li>
-                <li>/</li>
-                <li class="text-gray-700" data-lang="culture_breadcrumb_current">
-                    Объекты культуры
-                </li>
+    {{-- 🔹 Хедер с декоративным элементом --}}
+    <div class="relative mb-16 border-b border-gray-100 pb-12">
+        <div class="absolute -left-10 top-0 text-[12rem] font-bold text-black/[0.02] select-none pointer-events-none uppercase tracking-tighter">
+            Culture
+        </div>
+        
+        <nav class="mb-8 relative z-10">
+            <ol class="flex items-center space-x-3 text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">
+                <li><a href="/" class="hover:text-[#C5A367] transition-all">Главная</a></li>
+                <li class="text-gray-300">/</li>
+                <li class="text-[#C5A367]">Экспедиция по Каспию</li>
             </ol>
         </nav>
 
-        <h1 class="text-2xl mt-6 mb-3 md:text-3xl font-bold text-gray-800 text-left md:text-left" data-lang="culture_header_title" style="line-height: 22px">
-            Объекты культуры Мангистауской области
-        </h1>
-        <p class="text-gray-600 mt-2 text-sm md:text-base text-left md:text-left" data-lang="culture_header_description">
-            Каталог природных объектов Мангистауской области: песчаные дюны, скалистые образования, каньоны, побережья и солёные озёра.
-        </p>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
+            <div>
+                <h1 class="font-title text-4xl md:text-5xl font-light text-gray-900 mb-4 uppercase tracking-tight">
+                    Объекты <span class="font-bold text-primary italic">Культуры</span>
+                </h1>
+                <p class="text-gray-500 max-w-xl font-light leading-relaxed border-l-2 border-[#C5A367] pl-6">
+                    От древних некрополей до футуристических берегов — откройте для себя Мангистау, который меняет представление о путешествиях.
+                </p>
+            </div>
+            
+            <div class="flex items-baseline gap-2 text-primary">
+                <span class="text-5xl font-bold tracking-tighter">{{ $cultures->total() }}</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">локаций найдено</span>
+            </div>
+        </div>
     </div>
 
-    {{-- 🔹 Форма фильтров --}}
-    <form method="GET" action="{{ route('cultures.index') }}" 
-          class="mb-6 flex flex-col md:flex-row gap-4 items-stretch md:items-center">
-        <input 
-            name="search" 
-            type="text" 
-            placeholder="🔍 Поиск по названию..." 
-            value="{{ request('search') }}"
-            class="w-full md:w-1/3 px-4 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-blue-500"
-            data-lang="culture_search_placeholder"
-        >
+    {{-- 🔹 Панель управления (Smart Toolbar) --}}
+    <div class="sticky top-4 z-40 mb-12">
+        <div class="bg-white/80 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 rounded-[2rem] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            
+            {{-- Улучшенная форма поиска --}}
+            <form method="GET" action="{{ route('cultures.index') }}" class="flex flex-wrap items-center gap-2 flex-1">
+                <div class="relative flex-1 min-w-[200px]">
+                    <span class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </span>
+                    <input 
+                        name="search" type="text" placeholder="Найти артефакт..." value="{{ request('search') }}"
+                        class="bg-gray-50/50 border-none pl-12 pr-6 py-3 rounded-2xl text-sm w-full focus:ring-2 focus:ring-[#C5A367]/20 transition-all outline-none"
+                    >
+                </div>
 
-        <select name="category" 
-                class="w-full md:w-1/4 px-4 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-blue-500">
-            <option value="">Все категории</option>
-            @foreach ($categories as $cat)
-                <option value="{{ $cat->name }}" {{ request('category') == $cat->name ? 'selected' : '' }}>
-                    {{ $cat->name }}
-                </option>
-            @endforeach
-        </select>
+                <select name="category" 
+                        class="bg-gray-50/50 border-none px-6 py-3 rounded-2xl text-sm focus:ring-2 focus:ring-[#C5A367]/20 transition-all outline-none cursor-pointer font-medium text-gray-600">
+                    <option value="">Все категории</option>
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat->name }}" {{ request('category') == $cat->name ? 'selected' : '' }}>{{ $cat->name }}</option>
+                    @endforeach
+                </select>
 
-        <button 
-            type="submit" 
-            class="w-full md:w-auto px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition"
-            data-lang="culture_apply_button"
-        >
-            Применить
-        </button>
-    </form>
+                <button type="submit" class="bg-primary text-white h-11 px-8 rounded-2xl text-xs font-bold uppercase tracking-[0.1em] hover:bg-[#C5A367] transition-all duration-500 shadow-lg shadow-primary/10">
+                    Применить
+                </button>
+            </form>
 
-    {{-- 🔹 Активные фильтры --}}
-    @if(request('search') || request('category'))
-    <div class="mb-6 text-sm text-gray-700 flex flex-wrap items-center gap-3">
-        <div data-lang="culture_filters_label">Фильтры:</div>
-        @if(request('search'))
-            <span class="bg-gray-100 px-3 py-1 rounded-full">
-                <span data-lang="culture_filter_search">Поиск:</span> "{{ request('search') }}"
-            </span>
-        @endif
-        @if(request('category'))
-            <span class="bg-gray-100 px-3 py-1 rounded-full">
-                <span data-lang="culture_filter_category">Категория:</span> "{{ request('category') }}"
-            </span>
-        @endif
-        <a href="{{ route('cultures.index') }}" class="text-red-500 hover:underline" data-lang="culture_reset_filters_btn">
-            Сбросить фильтры
-        </a>
-    </div>
-    @endif
-
-    {{-- 🔹 Переключатель "Список / Карта" --}}
-    <div class="mb-6 flex flex-wrap gap-2 text-sm font-semibold">
-        <button 
-            onclick="switchTab('list')" 
-            id="listTab" 
-            class="px-4 py-2 rounded-lg bg-blue-600 text-white flex-1 md:flex-none"
-            data-lang="culture_tab_list"
-        >
-            Список
-        </button>
-        <button 
-            onclick="switchTab('map')" 
-            id="mapTab" 
-            class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 flex-1 md:flex-none"
-            data-lang="culture_tab_map"
-        >
-            На карте
-        </button>
+            {{-- Переключатель Режимов --}}
+            <div class="bg-gray-50 p-1.5 rounded-2xl inline-flex shadow-inner">
+                <button onclick="switchTab('list')" id="listTab" class="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-500 bg-white text-primary shadow-sm">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    Список
+                </button>
+                <button onclick="switchTab('map')" id="mapTab" class="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-500 text-gray-400 hover:text-gray-600">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m6 13l5.447-2.724A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 16V4m0 0L9 7"/></svg>
+                    Карта
+                </button>
+            </div>
+        </div>
     </div>
 
-    {{-- 🔹 Карта --}}
-    <div id="mapSection" class="rounded-xl shadow-lg overflow-hidden mb-12 h-[400px] md:h-[700px] border border-gray-200 hidden"></div>
+    {{-- 🔹 Секция Карты (Визуально облегчена) --}}
+    <div id="mapSection" class="rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden mb-12 h-[600px] border-4 border-white hidden relative animate-fadeInUp"></div>
 
-    {{-- 🔹 Список объектов --}}
+    {{-- 🔹 Галерея Объектов --}}
     <div id="listSection">
         @if ($cultures->isEmpty())
-            <div class="text-center text-gray-500 text-lg py-16" data-lang="culture_empty_message">
-                Пока нет культурных объектов.
+            <div class="flex flex-col items-center justify-center py-32 bg-gray-50 rounded-[3rem] border-2 border-dashed border-gray-200">
+                <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4 text-gray-300">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <p class="text-gray-400 font-light tracking-wide uppercase text-xs">Ничего не найдено по вашему запросу</p>
             </div>
         @else
-            <div class="space-y-6">
-                @foreach ($cultures->chunk(3) as $chunk)
-                    {{-- 💡 На мобильных — одна колонка, на планшете — 2, на десктопе — 3 --}}
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        @foreach ($chunk as $culture)
-                            <a href="{{ route('cultures.show', $culture->id) }}" 
-                               class="relative bg-white rounded-[12px] shadow-lg overflow-hidden transform transition duration-300 hover:scale-[1.02]"
-                               data-lat="{{ $culture->latitude }}"
-                               data-lng="{{ $culture->longitude }}"
-                               data-id="{{ $culture->id }}"
-                               data-category="{{ strtolower($culture->category->name ?? 'other') }}">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                @foreach ($cultures as $culture)
+                    <article class="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] transition-all duration-700 animate-fadeInUp" style="animation-delay: {{ $loop->index * 100 }}ms">
+                        <a href="{{ route('cultures.show', $culture->id) }}" class="block h-full">
+                            {{-- Image Container --}}
+                            <div class="relative h-[480px] overflow-hidden">
                                 <img src="{{ asset('storage/' . $culture->image) }}" 
                                      alt="{{ $culture->title }}" 
-                                     loading="lazy"
-                                     class="w-full object-cover h-[14rem] sm:h-[16rem] md:h-[20rem]">
-                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                                    <h3 class="font-bold text-lg leading-tight">{{ $culture->title }}</h3>
-                                    <p class="text-sm line-clamp-2">{{ Str::limit($culture->description, 100) }}</p>
-                                    <span class="block text-xs mt-1 text-gray-200">
-                                        {{ $culture->category->name ?? 'Без категории' }}
+                                     class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
+                                
+                                {{-- Smart Overlays --}}
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-transparent to-transparent"></div>
+                                
+                                <div class="absolute top-6 left-6">
+                                    <span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[9px] font-bold uppercase tracking-widest px-4 py-2 rounded-full">
+                                        {{ $culture->category->name ?? 'Локация' }}
                                     </span>
                                 </div>
-                            </a>
-                        @endforeach
-                    </div>
+
+                                {{-- Контент --}}
+                                <div class="absolute bottom-0 left-0 p-10 w-full transform transition-transform duration-500 group-hover:-translate-y-2">
+                                    <h3 class="text-white font-title text-2xl font-bold mb-4 leading-tight group-hover:text-[#C5A367] transition-colors">
+                                        {{ $culture->title }}
+                                    </h3>
+                                    
+                                    <p class="text-white/70 text-sm font-light leading-relaxed line-clamp-2 mb-6 group-hover:text-white transition-colors">
+                                        {{ $culture->description }}
+                                    </p>
+
+                                    <div class="flex items-center gap-4">
+                                        <div class="h-px flex-1 bg-white/20"></div>
+                                        <span class="text-white text-[10px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">Узнать Больше</span>
+                                        <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white group-hover:bg-[#C5A367] group-hover:border-[#C5A367] transition-all duration-500">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
                 @endforeach
             </div>
         @endif
         
-        <div class="mt-10">
+        <div class="mt-24 flex justify-center">
             {{ $cultures->withQueryString()->links('vendor.pagination.tailwind') }}
         </div>
     </div>
 </div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-const map = L.map('mapSection').setView([44.59, 51.50], 7);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-
-const categoryColors = {
-    'историческое здание': 'gold',
-    'музей': 'red',
-    'памятник': 'blue',
-    'архитектура': 'green',
-    'мемориал': 'orange',
-    'default': 'gray'
-};
-
-const allCultures = @json($allCultures);
-
-allCultures.forEach(culture => {
-    const lat = parseFloat(culture.latitude);
-    const lng = parseFloat(culture.longitude);
-    const title = culture.title ?? 'Объект';
-    const url = `/cultures/${culture.id}`;
-    const category = (culture.category?.name ?? 'default').toLowerCase().trim();
-    const color = categoryColors[category] || categoryColors['default'];
-
-    if (!isNaN(lat) && !isNaN(lng)) {
-        const marker = L.circleMarker([lat, lng], {
-            radius: 8,
-            fillColor: color,
-            color: '#000',
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-        }).addTo(map);
-        marker.bindPopup(`<strong style="font-family:Montserrat">${title}</strong><br><a href="${url}" target="_blank" style="color:#2563EB">Перейти к объекту</a>`);
+<style>
+    /* Продвинутые анимации */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-});
-
-function switchTab(tab) {
-    const mapTab = document.getElementById('mapTab');
-    const listTab = document.getElementById('listTab');
-    const mapSection = document.getElementById('mapSection');
-    const listSection = document.getElementById('listSection');
-
-    if (tab === 'map') {
-        mapSection.classList.remove('hidden');
-        listSection.classList.add('hidden');
-        map.invalidateSize();
-        mapTab.classList.add('bg-blue-600', 'text-white');
-        mapTab.classList.remove('bg-gray-200', 'text-gray-700');
-        listTab.classList.remove('bg-blue-600', 'text-white');
-        listTab.classList.add('bg-gray-200', 'text-gray-700');
-    } else {
-        mapSection.classList.add('hidden');
-        listSection.classList.remove('hidden');
-        listTab.classList.add('bg-blue-600', 'text-white');
-        listTab.classList.remove('bg-gray-200', 'text-gray-700');
-        mapTab.classList.remove('bg-blue-600', 'text-white');
-        mapTab.classList.add('bg-gray-200', 'text-gray-700');
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-}
-</script>
+    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+
+    /* Кастомизация Попапа Карты */
+    .leaflet-popup-content-wrapper {
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px);
+        border-radius: 2rem !important;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+        border: 1px solid white;
+    }
+    .leaflet-popup-content {
+        margin: 15px 20px !important;
+        font-family: 'Montserrat', sans-serif !important;
+    }
+</style>
 @endsection
