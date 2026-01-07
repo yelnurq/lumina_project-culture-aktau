@@ -65,7 +65,7 @@
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
                 <span class="text-white font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
-                    Mangystau oblysy
+                    ΛUMINA | Mangystau oblysy
                 </span>
             </a>
             <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
@@ -98,8 +98,31 @@
                     </div>
                 </div>
                 <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
-                <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:15px;"></a>
+                <div style="display: flex; gap: 25px;">
+
+                <div style="position: relative; display: inline-block;">
+                    <span style="position: absolute; top: -12px; right: -20px; font-size: 9px; color: #ff4d4d; font-weight: bold; text-transform: uppercase;">
+                        Скоро
+                    </span>
+                    <a href="/restaurants" data-lang="nav-restaurant" 
+                    class="text-gray-300 hover:text-accent transition-colors duration-300" 
+                    style="font-weight:400; font-size:15px; text-decoration:line-through; pointer-events: none; cursor: default;">
+                    Restaurants
+                    </a>
+                </div>
+
+                <div style="position: relative; display: inline-block;">
+                    <span style="position: absolute; top: -12px; right: -20px; font-size: 9px; color: #ff4d4d; font-weight: bold; text-transform: uppercase;">
+                        Скоро
+                    </span>
+                    <a href="/hotels" data-lang="nav-hotels" 
+                    class="text-gray-300 hover:text-accent transition-colors duration-300" 
+                    style="font-weight:400; font-size:15px; text-decoration:line-through; pointer-events: none; cursor: default;">
+                    Hotels
+                    </a>
+                </div>
+
+            </div>
 
                  <div class="flex items-center gap-4 text-white text-xs md:text-sm font-bold tracking-widest border-l pl-4">
     <button 
