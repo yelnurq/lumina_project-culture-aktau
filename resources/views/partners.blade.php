@@ -59,16 +59,50 @@
         </div>
 
         {{-- 🔹 Блок Логотипов (Доверие) --}}
-        <div class="mb-24 text-center">
-            <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-400 mb-10">Нам уже доверяют</p>
-            <div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-50 hover:grayscale-0 transition-all duration-700">
-                {{-- Здесь должны быть логотипы ваших партнеров --}}
-                <img src="/images/partners/logo1.png" alt="Partner" class="h-8 md:h-12 object-contain">
-                <img src="/images/partners/logo2.png" alt="Partner" class="h-8 md:h-12 object-contain">
-                <img src="/images/partners/logo3.png" alt="Partner" class="h-8 md:h-12 object-contain">
-                <img src="/images/partners/logo4.png" alt="Partner" class="h-8 md:h-12 object-contain">
-            </div>
-        </div>
+{{-- 🔹 Блок Доверия: Флаги стран --}}
+<div class="mb-24 text-center">
+    <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-400 mb-10">Нам уже доверяют туристы из</p>
+    
+   <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-80">
+    {{-- Казахстан --}}
+    <div class="flex flex-col items-center gap-3 group">
+        <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Kazakhstan</span>
+    </div>
+
+    {{-- Узбекистан --}}
+    <div class="flex flex-col items-center gap-3 group">
+        <img src="https://flagcdn.com/w80/uz.png" alt="Uzbekistan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Uzbekistan</span>
+    </div>
+
+    {{-- Кыргызстан --}}
+    <div class="flex flex-col items-center gap-3 group">
+        <img src="https://flagcdn.com/w80/kg.png" alt="Kyrgyzstan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Kyrgyzstan</span>
+    </div>
+
+    {{-- Таджикистан --}}
+    <div class="flex flex-col items-center gap-3 group">
+        <img src="https://flagcdn.com/w80/tj.png" alt="Tajikistan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Tajikistan</span>
+    </div>
+
+    {{-- Туркменистан --}}
+    <div class="flex flex-col items-center gap-3 group">
+        <img src="https://flagcdn.com/w80/tm.png" alt="Turkmenistan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Turkmenistan</span>
+    </div>
+
+    {{-- Германия --}}
+    <div class="flex flex-col items-center gap-3 group">
+        <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Germany</span>
+    </div>
+
+  
+</div>
+</div>
 
         {{-- 🔹 Направления партнерства --}}
         <div class="mb-24">
@@ -83,7 +117,7 @@
     {{-- Туроператоры --}}
     <div class="group bg-white rounded-[3rem] overflow-hidden flex flex-col md:flex-row shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-700">
         <div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/13419972742256650779_0" 
+            <img src="/images/caspian-sea.jpg" 
                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                  alt="Tour Operators">
         </div>
@@ -101,7 +135,7 @@
     {{-- Отели и Базы отдыха --}}
     <div class="group bg-white rounded-[3rem] overflow-hidden flex flex-col md:flex-row shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-700">
         <div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/5085352689233392892_1" 
+            <img src="/images/caspian-sea.jpg" 
                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                  alt="Hotels">
         </div>
