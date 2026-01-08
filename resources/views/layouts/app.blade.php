@@ -75,34 +75,8 @@
                 </span>
             </a>
             <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
-                <div class="relative group inline-block">
-                    <button 
-                        class="flex items-center gap-1 text-gray-800 hover:text-white-700 transition-colors duration-300"
-                        style="font-weight:400; font-size:14px;color:white">
-                        О регионе
-                        <svg xmlns="http://www.w3.org/2000/svg" 
-                            class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
+                <a href="/history" data-lang="nav-region" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;">О регионе</a>
 
-                    <div 
-                        class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform transition-all duration-200 origin-top z-50">
-                        <a href="/about" 
-                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
-                        О нас
-                        </a>
-                        <a href="/history" 
-                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
-                        История региона
-                        </a>
-                        <a href="/contacts" 
-                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
-                        Контакты
-                        </a>
-                    </div>
-                </div>
                 <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;">Объекты культуры</a>
 
         <div style="position: relative; display: inline-block;">
@@ -279,47 +253,21 @@
                 </span>
             </a>
             <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
-                <div class="relative group inline-block">
-                    <button 
-                        class="flex items-center gap-1 text-gray-200 hover:text-white-700 transition-colors duration-300"
-                        style="font-weight:400; font-size:14px;">
-                        О регионе
-                        <svg xmlns="http://www.w3.org/2000/svg" 
-                            class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
+                <a href="/history" data-lang="nav-region" class="hover:text-accent transition-colors duration-300 text-gray-200" style="font-weight:400; font-size:14px;">О регионе</a>
+                
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300 text-gray-200" style="font-weight:400; font-size:14px;">Объекты культуры</a>
 
-                    <div 
-                        class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform transition-all duration-200 origin-top z-50">
-                        <a href="/about" 
-                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
-                        О нас
-                        </a>
-                        <a href="/history" 
-                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
-                        История региона
-                        </a>
-                        <a href="/contacts" 
-                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
-                        Контакты
-                        </a>
-                    </div>
-                </div>
-                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300 text-gray-200" style="font-weight:400; font-size:14px;"></a>
-
-        <div style="position: relative; display: inline-block;">
+  <div style="position: relative; display: inline-block;">
             <span style="position: absolute; top: -14px; right: -25px; font-size: 9px; color: #ffab00; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
                 Скоро
             </span>
             
             <a href="#" 
-            class="transition-colors duration-300 text-gray-400" 
-            style="font-weight:400; font-size:14px; text-decoration:line-through; pointer-events: none; cursor: default;"
+            class="transition-colors duration-300" 
+            style="font-weight:400; font-size:14px; text-decoration:line-through; color: rgba(255,255,255,0.4); pointer-events: none; cursor: default;"
             tabindex="-1"
             data-lang="nav-restaurant">
-            Рестораны
+            Вкусно покушать
             </a>
         </div>
 
@@ -329,19 +277,19 @@
             </span>
             
             <a href="#" 
-            class="transition-colors duration-300 text-gray-400" 
-            style="font-weight:400; font-size:14px; text-decoration:line-through; pointer-events: none; cursor: default;"
+            class="transition-colors duration-300" 
+            style="font-weight:400; font-size:14px; text-decoration:line-through; color: rgba(255,255,255,0.4); pointer-events: none; cursor: default;"
             tabindex="-1"
             data-lang="nav-hotels">
             Отели
             </a>
         </div>
 
-                <a href="/partnership" 
-   class="transition-all duration-500 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] border border-[#C5A367] text-[#C5A367] hover:bg-[#C5A367] hover:text-white">
+        <a href="/partnership" 
+      class="transition-all duration-500 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] border border-[#C5A367] text-[#C5A367] hover:bg-[#C5A367] hover:text-white">
+
     Стать партнером
 </a>
-
         <div class="flex items-center gap-2 text-gray-200 text-xs md:text-sm border-l pl-4" style="margin-left: 25px;">
             <button 
                 id="btn-kk" 
