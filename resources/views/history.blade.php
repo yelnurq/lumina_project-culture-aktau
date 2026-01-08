@@ -3,10 +3,10 @@
 @section('content')
 <div class="bg-white overflow-hidden">
     {{-- 🔹 Декоративный фоновый заголовок как на странице культуры --}}
-    <div class="relative py-12 lg:pt-[9rem] container mx-auto max-w-7xl px-6">
-        <div class="absolute left-0 top-20 text-[10rem] md:text-[15rem] font-bold text-black/[0.03] select-none pointer-events-none uppercase tracking-tighter italic">
-            History
-        </div>
+    <div class="relative py-12 lg:pt-[9rem] pt-[8rem] container mx-auto max-w-7xl px-6">
+          <div class="absolute left-0 top-20 text-[10rem] md:text-[15rem] font-bold text-black/[0.03] select-none pointer-events-none uppercase tracking-tighter italic">
+              History
+          </div>
 
         {{-- 🔹 Хлебные крошки в вашем стиле --}}
         <nav class="mb-8 relative z-10">

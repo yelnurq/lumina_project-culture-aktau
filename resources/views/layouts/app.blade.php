@@ -245,48 +245,7 @@
     </div>
 </div>
 
-<script>
-(function(){
-    const btn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('mobileOverlay');
-    const closeBtn = document.getElementById('mobileMenuClose');
 
-    if (!btn || !menu || !overlay) return;
-
-    function toggleMenu(isOpen) {
-        if (isOpen) {
-            overlay.classList.remove('hidden');
-            setTimeout(() => {
-                overlay.classList.replace('opacity-0', 'opacity-100');
-                menu.classList.replace('translate-x-full', 'translate-x-0');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-            btn.setAttribute('aria-expanded', 'true');
-        } else {
-            overlay.classList.replace('opacity-100', 'opacity-0');
-            menu.classList.replace('translate-x-0', 'translate-x-full');
-            setTimeout(() => overlay.classList.add('hidden'), 300);
-            document.body.style.overflow = '';
-            btn.setAttribute('aria-expanded', 'false');
-        }
-    }
-
-    btn.addEventListener('click', () => toggleMenu(true));
-    closeBtn.addEventListener('click', () => toggleMenu(false));
-    overlay.addEventListener('click', () => toggleMenu(false));
-
-    // Закрытие по клику на ссылку (важно для SPA/плавной навигации)
-    menu.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => toggleMenu(false));
-    });
-
-    // ESC key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !menu.classList.contains('translate-x-full')) toggleMenu(false);
-    });
-})();
-</script>
 @else
 <header class="shadow bg-gray-900 fixed top-0 left-0 w-full z-50 hidden lg:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
@@ -400,11 +359,8 @@
             </nav>
         </div>
     </header>
-
-
-
-    <header class="shadow top-0 left-0 w-full md:hidden bg-transparent backdrop-blur-sm" style="z-index:50;">
-               <div class="absolute inset-0"
+<header class="shadow bg-gray-900 top-0 border-b border-white/10 fixed top-0 left-0 w-full lg:hidden" style="z-index:50;">
+                   <div class="absolute inset-0"
             style="
                 background-image: url('/images/icon.svg'), url('/images/icon.svg');
                 background-repeat: repeat-x, repeat-x;
@@ -414,119 +370,69 @@
                 pointer-events: none;
             ">
         </div>
-        <div class="w-full flex items-center justify-between p-3 px-4">
-        <a href="/" class="flex items-center space-x-3">
-            <span class="text-black font-semibold text-base" style="font-weight:600; font-size:14px;">
-                Mangystau oblysy
-            </span>
+    <div class="w-full flex items-center justify-between p-4">
+        <a href="/" class="flex items-center space-x-2">
+            <span class="text-white font-bold tracking-tighter uppercase text-sm">Lumina | Mangystau</span>
         </a>
 
         <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu"
-                class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-black focus:outline-none focus:ring-2 focus:ring-primary">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"/>
+                class="p-2.5 rounded-xl bg-white/5 hover:bg-[#C5A367]/20 text-white transition-all active:scale-95 border border-white/10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
-            <span class="sr-only">Открыть меню</span>
         </button>
-        </div>
-    </header>
+    </div>
+</header>
 
-<div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden md:hidden opacity-0 transition-opacity duration-300"
-     aria-hidden="true"></div>
+<div id="mobileOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300" aria-hidden="true"></div>
 
 <div id="mobileMenu"
-     class="fixed top-0 right-0 h-full w-[50%] max-w-[420px] md:hidden bg-white/95 backdrop-blur-sm shadow-lg z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300"
-     aria-hidden="true" role="dialog" aria-label="Мобильное меню" style="min-height:100vh;">
+     class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#1A1A1A] text-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col"
+     role="dialog" aria-label="Мобильное меню">
     
-    <div class="absolute inset-0 z-[-1]"
-         style="
-             background-image: url('/images/icon.svg');
-             background-repeat: repeat-y;
-             background-position: left -90px top;
-             background-size: 220px auto;
-             opacity: 0.09;
-             pointer-events: none;
-         ">
-    </div>
-
-    <div class="flex items-center justify-between p-[14px] border-b bg-white/80 sticky top-0">
-        <div class="text-black font-semibold text-base text-[15px]">Меню</div>
-        <button id="mobileMenuClose" class="p-2 rounded-lg hover:bg-black/5" aria-label="Закрыть меню">
-            <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="flex items-center justify-between p-6 border-b border-white/5">
+        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[#C5A367]">Навигация</span>
+        <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-white/5 transition-colors">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
         </button>
     </div>
 
-    <nav class="flex flex-col p-4 space-y-2 relative z-10">
-        <a href="/" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Главная</a>
-        <a href="/about" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">О проекте</a>
-        <a href="/history" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">История региона</a>
-        <a href="/culture-list" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Объекты культуры</a>
-        <a href="/restaurants" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Рестораны</a>
-        <a href="/hotels" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Отели</a>
-        <a href="/contacts" class="block px-2 py-2 text-black hover:bg-gray-100/50 rounded text-[16px] transition-colors">Контакты</a>
+    <nav class="flex-1 overflow-y-auto py-4 px-4 space-y-1">
+        @php
+            $links = [
+                ['url' => '/', 'name' => 'Главная'],
+                ['url' => '/about', 'name' => 'О проекте'],
+                ['url' => '/history', 'name' => 'История региона'],
+                ['url' => '/culture-list', 'name' => 'Объекты культуры'],
+                ['url' => '/restaurants', 'name' => 'Рестораны'],
+                ['url' => '/hotels', 'name' => 'Отели'],
+                ['url' => '/contacts', 'name' => 'Контакты'],
+            ];
+        @endphp
+
+        @foreach($links as $link)
+            <a href="{{ $link['url'] }}" 
+               class="group flex items-center justify-between px-4 py-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5">
+                <span class="text-lg font-light tracking-tight group-hover:text-[#C5A367] transition-colors">{{ $link['name'] }}</span>
+                <svg class="w-4 h-4 text-gray-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        @endforeach
     </nav>
+
+    <div class="p-6 border-t border-white/5 bg-black/20">
+        <a href="/partnership" class="block w-full py-4 bg-[#C5A367] text-white text-center rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#b08f56] transition-all shadow-lg shadow-[#C5A367]/10">
+            Станьте партнером
+        </a>
+        <div class="mt-6 flex justify-center space-x-6 text-gray-500">
+            <span class="text-[9px] uppercase tracking-widest">&copy; 2026 Mangystau Heritage</span>
+        </div>
+    </div>
 </div>
-<script>
-(function(){
-    const btn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('mobileOverlay');
-    const closeBtn = document.getElementById('mobileMenuClose');
-    if (!btn || !menu || !overlay) return;
 
-    function showOverlay() {
-        overlay.classList.remove('hidden');
-        overlay.classList.remove('opacity-0');
-        overlay.classList.add('opacity-100');
-        overlay.setAttribute('aria-hidden', 'false');
-    }
-    function hideOverlay() {
-        overlay.classList.add('opacity-0');
-        overlay.classList.remove('opacity-100');
-        // оставляем hidden после анимации
-        setTimeout(()=> overlay.classList.add('hidden'), 300);
-        overlay.setAttribute('aria-hidden', 'true');
-    }
-
-    function openMenu() {
-        menu.classList.remove('translate-x-full');
-        menu.classList.add('translate-x-0');
-        menu.setAttribute('aria-hidden', 'false');
-        showOverlay();
-        btn.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('overflow-hidden');
-    }
-    function closeMenu() {
-        menu.classList.remove('translate-x-0');
-        menu.classList.add('translate-x-full');
-        menu.setAttribute('aria-hidden', 'true');
-        hideOverlay();
-        btn.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('overflow-hidden');
-    }
-
-    btn.addEventListener('click', function(e){
-        e.stopPropagation();
-        if (menu.classList.contains('translate-x-0')) closeMenu(); else openMenu();
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && menu.classList.contains('translate-x-0')) closeMenu();
-    });
-
-    document.addEventListener('click', function(e){
-        if (menu.classList.contains('translate-x-0') && !menu.contains(e.target) && e.target !== btn) {
-            closeMenu();
-        }
-    });
-})();
-</script>
 @endif
 <nav class="fixed bottom-5 inset-x-5 md:hidden z-[1002]">
   <div class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-[1.8rem] shadow-2xl px-3 py-2 flex justify-around items-center"
@@ -650,5 +556,47 @@
 
     <script src="/js/lang.js"></script>
 
+<script>
+(function(){
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileOverlay');
+    const closeBtn = document.getElementById('mobileMenuClose');
+
+    if (!btn || !menu || !overlay) return;
+
+    function toggleMenu(isOpen) {
+        if (isOpen) {
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.replace('opacity-0', 'opacity-100');
+                menu.classList.replace('translate-x-full', 'translate-x-0');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+            btn.setAttribute('aria-expanded', 'true');
+        } else {
+            overlay.classList.replace('opacity-100', 'opacity-0');
+            menu.classList.replace('translate-x-0', 'translate-x-full');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            document.body.style.overflow = '';
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    btn.addEventListener('click', () => toggleMenu(true));
+    closeBtn.addEventListener('click', () => toggleMenu(false));
+    overlay.addEventListener('click', () => toggleMenu(false));
+
+    // Закрытие по клику на ссылку (важно для SPA/плавной навигации)
+    menu.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !menu.classList.contains('translate-x-full')) toggleMenu(false);
+    });
+})();
+</script>
 </body>
 </html>
