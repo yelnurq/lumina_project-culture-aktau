@@ -43,7 +43,7 @@
                     <h2 class="text-[#C5A367] text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-3">
                         <span class="w-8 h-px bg-[#C5A367]"></span> Об объекте
                     </h2>
-                    <div class="text-gray-700 leading-[1.8] text-lg font-light space-y-6 italic-quotes">
+                    <div class="text-gray-700 leading-[1.8] text-md lg:text-lg font-light space-y-6 italic-quotes">
                         {!! nl2br(e($culture->description)) !!}
                     </div>
                 </div>
@@ -126,7 +126,7 @@
         </section>
 
         {{-- 🔹 Похожие объекты с заглушками --}}
-        <section class="mb-24">
+        <section class="lg:mb-24">
             <div class="flex items-center justify-between mb-12">
                 <h2 class="text-3xl font-light uppercase tracking-tighter text-[#1A1A1A]">Похожие <span class="font-bold text-[#C5A367]">Места</span></h2>
                 <a href="/culture-list" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#C5A367] transition-colors">Смотреть все →</a>

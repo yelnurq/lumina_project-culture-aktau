@@ -1,118 +1,138 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-amber-50">
+<div class="bg-white overflow-hidden">
+    {{-- 🔹 Декоративный фоновый заголовок как на странице культуры --}}
+    <div class="relative py-12 lg:pt-[9rem] container mx-auto max-w-7xl px-6">
+        <div class="absolute left-0 top-20 text-[10rem] md:text-[15rem] font-bold text-black/[0.03] select-none pointer-events-none uppercase tracking-tighter italic">
+            History
+        </div>
 
-    <div class="absolute top-[-200px] right-[-250px] w-[600px] h-[600px] bg-sky-200/20 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-[-200px] left-[-220px] w-[500px] h-[500px] bg-amber-100/20 rounded-full blur-3xl animate-pulse"></div>
-
-    <section class="relative px-6 sm:mx-6 md:mx-16 lg:mx-24 mt-10 mb-16">
-            <nav class="text-sm text-gray-500 mb-4">
-            <ol class="list-reset flex flex-wrap justify-left md:justify-start space-x-2">
-                <li>
-                    <a href="/" class="hover:underline text-blue-600" data-lang="restaurant_breadcrumb_home">
-                        Главная
-                    </a>
-                </li>
-                <li>/</li>
-                <li class="text-gray-700" data-lang="_breadcrumb_current">
-                    История региона
-                </li>
+        {{-- 🔹 Хлебные крошки в вашем стиле --}}
+        <nav class="mb-8 relative z-10">
+            <ol class="flex items-center space-x-3 text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">
+                <li><a href="/" class="hover:text-[#C5A367] transition-all">Главная</a></li>
+                <li class="text-gray-300">/</li>
+                <li class="text-[#C5A367]">История региона</li>
             </ol>
         </nav>
-        <div class="space-y-6 text-gray-700">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">История Маңғыстауской области</h2>
-            <p class="leading-relaxed text-[17px] text-justify">
-                Маңғыстау — уникальный край на западе Казахстана, омываемый водами Каспийского моря. 
-                С древних времён эта земля была пересечением торговых путей, местом проживания кочевых племён 
-                и колыбелью богатой культуры. Археологические находки свидетельствуют о жизни здесь людей ещё в бронзовом и железном веках.
-            </p>
-            <p class="leading-relaxed text-[17px] text-justify">
-                Через Маңғыстау проходили караванные пути Великого Шёлкового пути. Торговля солью, пряностями, тканями и металлом привела к смешению культур, 
-                формированию уникальной архитектуры и духовного наследия. Древние некрополи, мавзолеи и петроглифы хранят память о тысячелетней истории региона.
-            </p>
-            <p class="leading-relaxed text-[17px] text-justify">
-                Природа области уникальна: пустыни, плато, горные массивы, бухты и песчаные косы формируют неповторимый ландшафт. 
-                Эти места издавна служили не только домом для людей, но и местом для проведения ритуалов, торговли и культурных обменов.
-            </p>
-            <blockquote class="border-l-4 border-sky-600 pl-6 italic text-gray-600 text-lg bg-white/30 backdrop-blur-md rounded-xl py-4 px-6 shadow-md">
-                «История Маңғыстау — это живое дыхание степей, море, которое хранит тайны древних цивилизаций, и ветры, что шепчут легенды.»
-            </blockquote>
-            <p class="leading-relaxed text-[17px] text-justify">
-                Сегодня Маңғыстау развивается как туристический и исследовательский центр. Создаются маршруты для посещения исторических памятников, музеев и археологических объектов. 
-                Главная цель — сохранить богатое наследие региона и передать его будущим поколениям, чтобы каждый мог ощутить связь между прошлым, настоящим и будущим.
-            </p>
+
+        {{-- 🔹 Заголовок секции --}}
+        <div class="relative z-10 lg:mb-16">
+            <h1 class="font-title text-4xl md:text-6xl font-light text-gray-900 mb-6 uppercase tracking-tight">
+                Летопись <span class="font-bold text-[#C5A367] italic">Маңғыстау</span>
+            </h1>
+            <div class="h-1 w-20 bg-[#C5A367] lg:mb-8"></div>
         </div>
+    </div>
 
+    {{-- 🔹 Основной контент --}}
+    <section class="container mx-auto max-w-7xl px-6 mb-24 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div class="space-y-8">
+                <p class="text-gray-600 text-lg leading-relaxed font-light text-justify border-l-2 border-[#C5A367]/30 pl-8">
+                    Маңғыстау — уникальный край на западе Казахстана, омываемый водами Каспийского моря. 
+                    С древних времён эта земля была пересечением торговых путей, местом проживания кочевых племён 
+                    и колыбелью богатой культуры.
+                </p>
+                <p class="text-gray-500 leading-relaxed text-justify font-light">
+                    Через Маңғыстау проходили караванные пути Великого Шёлкового пути. Торговля солью, пряностями, тканями и металлом привела к смешению культур, 
+                    формированию уникальной архитектуры и духовного наследия. Древние некрополи и петроглифы хранят память о тысячелетней истории региона.
+                </p>
+                
+                <blockquote class="relative p-8 rounded-[2rem] bg-gray-50 border border-gray-100 shadow-sm overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 text-8xl text-[#C5A367]/10 font-serif">“</div>
+                    <p class="relative z-10 italic text-gray-600 text-xl font-light leading-snug">
+                        «История Маңғыстау — это живое дыхание степей, море, которое хранит тайны древних цивилизаций, и ветры, что шепчут легенды.»
+                    </p>
+                </blockquote>
+            </div>
 
+            <div class="relative">
+                <div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
+                    <img src="/images/history/aktau.jpg" alt="History" class="w-full h-full object-cover">
+                </div>
+                {{-- Декоративный элемент --}}
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#C5A367] rounded-[2rem] -z-10 opacity-20 blur-2xl"></div>
+            </div>
+        </div>
     </section>
-<section class="relative mx-4 md:mx-24 mb-28">
-  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-14 text-center">
-    Основные величественные этапы истории Маңғыстау
-  </h2>
 
-  <div class="relative">
-    <div class="absolute top-0 left-1/2 w-1 bg-sky-300 h-full -translate-x-1/2"></div>
+    {{-- 🔹 Таймлайн в новом стиле --}}
+    <section class="bg-[#0f172a] py-24 text-white">
+        <div class="container mx-auto max-w-7xl px-6">
+            <div class="text-center mb-20">
+                <span class="text-[10px] uppercase tracking-[0.4em] font-bold text-[#C5A367]">Хронология</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4 uppercase tracking-tight">Величественные этапы</h2>
+            </div>
 
-    <div class=" flex justify-start w-full relative">
-      <div class="w-1/2 pr-10 text-right">
-        <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
-          <img src="/images/caspian-sea.jpg" alt="Древние поселения" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
-          <h3 class="text-2xl font-semibold mb-2 text-gray-900">Древние поселения</h3>
-          <p class="text-gray-600 text-[16px]">
-            Первые люди обитали на территории Маңғыстау ещё в бронзовом и железном веках.
-          </p>
-          <span class="absolute top-1/2 right-[-2rem] w-6 h-6 bg-sky-500 rounded-full border-2 border-white -translate-y-1/2"></span>
+            <div class="relative">
+                {{-- Центральная линия --}}
+                <div class="absolute top-0 left-1/2 w-px bg-white/10 h-full -translate-x-1/2 hidden md:block"></div>
+
+                <div class="space-y-24 md:space-y-0">
+                    {{-- Этап 1 --}}
+                    <div class="relative md:flex items-center justify-between md:mb-32 group">
+                        <div class="md:w-[45%] mb-8 md:mb-0">
+                            <div class="relative overflow-hidden rounded-[2.5rem] aspect-video shadow-2xl">
+                                <img src="/images/history/bronze.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Древность">
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute bottom-6 left-8 text-[#C5A367] font-bold tracking-[0.3em] uppercase text-[10px]">Бронзовый век</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#C5A367] rounded-full shadow-[0_0_20px_#C5A367] hidden md:block"></div>
+                        <div class="md:w-[45%] md:pl-12">
+                            <h3 class="text-2xl font-bold mb-4 uppercase tracking-tight">Древние поселения</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">Первые люди обитали на территории Маңғыстау ещё в бронзовом и железном веках, создавая уникальные наскальные рисунки.</p>
+                        </div>
+                    </div>
+
+                    {{-- Этап 2 --}}
+                    <div class="relative md:flex items-center justify-between md:mb-32 flex-row-reverse group">
+                        <div class="md:w-[45%] mb-8 md:mb-0">
+                            <div class="relative overflow-hidden rounded-[2.5rem] aspect-video shadow-2xl">
+                                <img src="/images/history/silkway.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Шелковый путь">
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute bottom-6 left-8 text-[#C5A367] font-bold tracking-[0.3em] uppercase text-[10px]">Средние века</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#C5A367] rounded-full shadow-[0_0_20px_#C5A367] hidden md:block"></div>
+                        <div class="md:w-[45%] md:pr-12 md:text-right">
+                            <h3 class="text-2xl font-bold mb-4 uppercase tracking-tight">Великий Шёлковый путь</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">Через регион проходили караваны, соединяющие Восток и Запад. Соль и пряности сформировали торговую мощь края.</p>
+                        </div>
+                    </div>
+
+                    {{-- Этап 3 --}}
+                    <div class="relative md:flex items-center justify-between group">
+                        <div class="md:w-[45%] mb-8 md:mb-0">
+                            <div class="relative overflow-hidden rounded-[2.5rem] aspect-video shadow-2xl border border-white/10">
+                                <img src="/images/history/aktau.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Современность">
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute bottom-6 left-8 text-[#C5A367] font-bold tracking-[0.3em] uppercase text-[10px]">Наши дни</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#C5A367] rounded-full shadow-[0_0_20px_#C5A367] hidden md:block"></div>
+                        <div class="md:w-[45%] md:pl-12">
+                            <h3 class="text-2xl font-bold mb-4 uppercase tracking-tight">Новая эра</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">Сегодня Маңғыстау превращается в глобальный центр притяжения для туристов, ценящих первозданную природу и историю.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="w-1/2"></div>
-    </div>
-
-    <div style="margin-top:-200px;" class="flex justify-end w-full relative">
-      <div class="w-1/2"></div>
-      <div class="w-1/2 pl-10 text-left">
-        <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
-          <img src="/images/caspian-sea.jpg" alt="Великий Шёлковый путь" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
-          <h3 class="text-2xl font-semibold mb-2 text-gray-900">Великий Шёлковый путь</h3>
-          <p class="text-gray-600 text-[16px]">
-            Через регион проходили торговые караваны. Соль, пряности и ткани создавали культурное разнообразие.
-          </p>
-          <span class="absolute top-1/2 left-[-2rem] w-6 h-6 bg-yellow-500 rounded-full border-2 border-white -translate-y-1/2"></span>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:-100px;"  class="flex justify-start w-full relative">
-      <div class="w-1/2 pr-10 text-right">
-        <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
-          <img src="/images/boszhyra.jpg" alt="Эпоха Казахского ханства" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
-          <h3 class="text-2xl font-semibold mb-2 text-gray-900">Эпоха Казахского ханства</h3>
-          <p class="text-gray-600 text-[16px]">
-            В середине XV века на землях западного Казахстана образовалось Казахское ханство.
-          </p>
-          <span class="absolute top-1/2 right-[-2rem] w-6 h-6 bg-yellow-500 rounded-full border-2 border-white -translate-y-1/2"></span>
-        </div>
-      </div>
-      <div class="w-1/2"></div>
-    </div>
-
-    <div style="margin-top:-200px;"  class="mb-0 flex justify-end w-full relative">
-      <div class="w-1/2"></div>
-      <div class="w-1/2 pl-10 text-left">
-        <div class="inline-block bg-white/80 backdrop-blur-lg p-6 rounded-xl shadow-2xl hover:shadow-3xl transition relative">
-          <img src="/images/boszhyra.jpg" alt="Современность" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-md">
-          <h3 class="text-2xl font-semibold mb-2 text-gray-900">Современность</h3>
-          <p class="text-gray-600 text-[16px]">
-            Сегодня Маңғыстау развивается как туристический и культурный центр.
-          </p>
-          <span class="absolute top-1/2 left-[-2rem] w-6 h-6 bg-sky-500 rounded-full border-2 border-white -translate-y-1/2"></span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
+    </section>
 </div>
+
+<style>
+    .font-title { font-family: 'Montserrat', sans-serif; }
+    /* Плавное появление */
+    section {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 @endsection

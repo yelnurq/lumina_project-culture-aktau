@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto max-w-7xl px-6 py-12 pt-[9rem] animate-fadeIn">
+<div class="container mx-auto max-w-7xl px-6 py-12 lg:pt-[9rem] animate-fadeIn">
 
     {{-- 🔹 Хедер с декоративным элементом --}}
-    <div class="relative mb-16 border-b border-gray-100 pb-12">
+    <div class="relative lg:mb-16 border-b border-gray-100 pb-12">
         <div class="absolute -left-10 top-0 text-[12rem] font-bold text-black/[0.02] select-none pointer-events-none uppercase tracking-tighter">
             Culture
         </div>
@@ -35,7 +35,7 @@
     </div>
 
     {{-- 🔹 Панель управления (Smart Toolbar) --}}
-    <div class="sticky top-24 z-40 mb-12">
+    <div class="lg:sticky top-24 z-40 mb-12">
         <div class="bg-white/80 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 rounded-[2rem] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             
             {{-- Улучшенная форма поиска --}}
@@ -187,7 +187,68 @@
         @endif
     </section>
 </div>
+<script>
+    let map;
+    const cultures = @json($cultures->items()); {{-- Передаем данные из PHP в JS --}}
 
+    function initMap() {
+        if (map) return; {{-- Предотвращаем повторную инициализацию --}}
+
+        {{-- Центрируем карту на Мангистау --}}
+        map = L.map('mapSection').setView([44.5, 52.0], 7);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        {{-- Добавляем маркеры объектов --}}
+        cultures.forEach(item => {
+            if (item.latitude && item.longitude) {
+                const marker = L.marker([item.latitude, item.longitude]).addTo(map);
+                
+                {{-- Красивый попап --}}
+                const popupContent = `
+                    <div class="text-center p-2">
+                        <img src="/storage/${item.image}" class="w-full h-24 object-cover rounded-xl mb-2">
+                        <h4 class="font-bold text-gray-900 uppercase text-[10px] tracking-wider">${item.title}</h4>
+                        <a href="/cultures/${item.id}" class="text-[#C5A367] text-[9px] font-bold uppercase mt-2 block">Посмотреть</a>
+                    </div>
+                `;
+                marker.bindPopup(popupContent);
+            }
+        });
+    }
+
+    function switchTab(mode) {
+        const listSection = document.getElementById('listSection');
+        const mapSection = document.getElementById('mapSection');
+        const listTab = document.getElementById('listTab');
+        const mapTab = document.getElementById('mapTab');
+
+        if (mode === 'map') {
+            listSection.classList.add('hidden');
+            mapSection.classList.remove('hidden');
+            
+            // Стили вкладок
+            mapTab.classList.add('bg-white', 'text-primary', 'shadow-sm');
+            mapTab.classList.remove('text-gray-400');
+            listTab.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+            listTab.classList.add('text-gray-400');
+
+            initMap();
+            // Исправляем баг с отрисовкой плиток при переключении
+            setTimeout(() => map.invalidateSize(), 200);
+        } else {
+            listSection.classList.remove('hidden');
+            mapSection.classList.add('hidden');
+            
+            listTab.classList.add('bg-white', 'text-primary', 'shadow-sm');
+            listTab.classList.remove('text-gray-400');
+            mapTab.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+            mapTab.classList.add('text-gray-400');
+        }
+    }
+</script>
 <style>
     /* Продвинутые анимации */
     @keyframes fadeIn {

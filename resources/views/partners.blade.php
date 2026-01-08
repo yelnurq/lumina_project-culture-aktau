@@ -150,7 +150,7 @@
     {{-- Туроператоры --}}
     <div class="group bg-white rounded-[3rem] overflow-hidden flex flex-col md:flex-row shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-700">
         <div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
-            <img src="/images/caspian-sea.jpg" 
+            <img src="/images/partnership/tour.png" 
                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                  alt="Tour Operators">
         </div>
@@ -186,27 +186,7 @@
         </div>
 
         {{-- 🔹 FAQ Section (Новый блок) --}}
-        <div class="mb-24 bg-white rounded-[4rem] p-10 md:p-16 border border-gray-100 shadow-sm">
-            <h2 class="text-2xl font-bold uppercase tracking-tighter mb-12 text-center">Часто задаваемые <span class="text-[#C5A367]">вопросы</span></h2>
-            <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                <div class="space-y-2">
-                    <h4 class="font-bold text-gray-900 text-sm">Как стать официальным партнером?</h4>
-                    <p class="text-gray-500 text-xs font-light">Заполните анкету ниже. Мы проверяем наличие лицензий и соответствие стандартам безопасности туризма.</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-gray-900 text-sm">Это платно?</h4>
-                    <p class="text-gray-500 text-xs font-light">У нас есть как бесплатные базовые форматы размещения, так и премиальные пакеты продвижения.</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-gray-900 text-sm">Как быстро заявка будет одобрена?</h4>
-                    <p class="text-gray-500 text-xs font-light">Рассмотрение документов занимает от 1 до 3 рабочих дней.</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-gray-900 text-sm">Что если я частный гид?</h4>
-                    <p class="text-gray-500 text-xs font-light">Для частных гидов предусмотрена система верификации через отзывы и опыт работы в регионе.</p>
-                </div>
-            </div>
-        </div>
+      
 
         {{-- 🔹 Форма заявки --}}
         <div id="application-form" class="bg-[#1A1A1A] rounded-[4rem] p-10 md:p-20 relative overflow-hidden text-white shadow-2xl">

@@ -216,10 +216,7 @@
 .shake-animation {
     animation: rock-shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
 }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+ 
     @keyframes fadeInRight {
         from { opacity: 0; transform: translateX(40px); }
         to { opacity: 1; transform: translateX(0); }
@@ -239,7 +236,7 @@
     .delay-1200 { animation-delay: 1.2s; }
 </style>
 <div class="bg-gray-100 py-24 border-y border-gray-100">
-  <div class="container mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+  <div class="container mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start   ">
     
     <div class="w-full lg:w-5/12">
         <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Вектор развития</span>
@@ -260,12 +257,6 @@
             </p>
         </div>
 
-        <div class="mt-12">
-            <a href="/about" data-lang="goal-btn" 
-               class="inline-block border border-primary text-primary px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-500">
-                О проекте
-            </a>
-        </div>
     </div>
 
     <div id="heritage-container" class="w-full lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-4 h-[500px]">
@@ -379,7 +370,7 @@
                     <div class="flex justify-between items-center mb-6">
                         <h4 class="text-2xl font-medium tracking-tight">Lumia Cafe</h4>
                         <div class="flex items-center gap-1.5">
-                            <span class="text-sm font-bold text-[#C5A367]">4.8</span>
+                            <span class="text-sm font-bold text-[#C5A367]">5.0</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 fill-[#C5A367]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         </div>
                     </div>
@@ -429,7 +420,7 @@
     </div>
 
     <div class="container mx-auto max-w-7xl px-6 relative z-10">
-        <div class="flex flex-col lg:flex-row gap-16 items-start">
+        <div class="flex flex-col lg:flex-row md:gap-16 items-start">
             
             <div class="w-full lg:w-1/3 lg:sticky lg:top-32 flex flex-col h-full">
                 <span class="text-[10px] uppercase tracking-[0.4em] text-[#C5A367] font-bold mb-4 block">Уникальность края</span>
@@ -452,64 +443,69 @@
                 </div>
             </div>
 
-<div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-    
-    <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-        <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
-             style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
-        </div>
-        <div class="relative z-10">
-            <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">01</div>
-            <div class="w-12 h-12 bg-[#C5A367] text-white rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-[#C5A367]/20">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-            </div>
-            <h3 class="font-title text-xl font-bold mb-4 text-gray-800 uppercase tracking-wide">Сохранение природы</h3>
-            <p class="text-gray-500 text-sm leading-relaxed font-light">Каспий и новые островки под нашим контролем — бережное отношение к экосистеме для будущих поколений.</p>
-        </div>
-    </div>
+            <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
+                        style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">01</div>
+                        <div class="w-12 h-12 bg-[#C5A367] text-white rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-[#C5A367]/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-4 text-gray-800 uppercase tracking-wide">Сохранение природы</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light">Каспий и новые островки под нашим контролем — бережное отношение к экосистеме для будущих поколений.</p>
+                    </div>
+                </div>
 
-    <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-        <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
-             style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
-        </div>
-        <div class="relative z-10">
-            <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">02</div>
-            <div class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-primary/20">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-            </div>
-            <h3 class="font-title text-xl font-bold mb-4 text-gray-800 uppercase tracking-wide">Культурное наследие</h3>
-            <p class="text-gray-500 text-sm leading-relaxed font-light">Мы глубоко изучаем и популяризируем сакральные памятники, историю и живые традиции Маңғыстау.</p>
-        </div>
-    </div>
+                <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
+                        style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">02</div>
+                        <div class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-primary/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-4 text-gray-800 uppercase tracking-wide">Культурное наследие</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light">Мы глубоко изучаем и популяризируем сакральные памятники, историю и живые традиции Маңғыстау.</p>
+                    </div>
+                </div>
 
-    <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 md:col-span-2">
-        <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
-             style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
-        </div>
-        <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-            <div class="flex-shrink-0">
-                <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">03</div>
-                <div class="w-16 h-16 bg-[#C5A367]/10 text-[#C5A367] rounded-2xl flex items-center justify-center shadow-inner">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.283a2 2 0 01-1.186.127l-2.431-.486a2 2 0 00-1.638.527l-1.138 1.138a2 2 0 00-.586 1.414v.33a2 2 0 002 2h12a2 2 0 002-2v-.33a2 2 0 00-.586-1.414l-1.138-1.138z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                    </svg>
+                <div class="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 md:col-span-2">
+                    <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-500 pointer-events-none rounded-[2.5rem]"
+                        style="background-image: url('/images/icon.svg'); background-size: 180px; background-position: center; background-repeat: repeat;">
+                    </div>
+                    <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="text-[3rem] font-bold text-primary/5 absolute -top-4 -right-2 transition-colors group-hover:text-[#C5A367]/10">03</div>
+                            <div class="w-16 h-16 bg-[#C5A367]/10 text-[#C5A367] rounded-2xl flex items-center justify-center shadow-inner">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.283a2 2 0 01-1.186.127l-2.431-.486a2 2 0 00-1.638.527l-1.138 1.138a2 2 0 00-.586 1.414v.33a2 2 0 002 2h12a2 2 0 002-2v-.33a2 2 0 00-.586-1.414l-1.138-1.138z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-title text-xl font-bold mb-2 text-gray-800 uppercase tracking-wide">Современные инициативы</h3>
+                            <p class="text-gray-500 text-base leading-relaxed font-light max-w-2xl">
+                                Фестивали, мастер-классы и выставки развивают местное творчество, объединяя древние промыслы с современным искусством. Мы создаем платформу для нового поколения талантов региона.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex lg:hidden items-center gap-6 mt-8 pt-8 border-t border-black/30">
+                    <div class="text-4xl font-bold text-primary">362</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 font-medium leading-tight">
+                        сакральных <br> объектов региона
+                    </div>
                 </div>
             </div>
-            <div>
-                <h3 class="font-title text-xl font-bold mb-2 text-gray-800 uppercase tracking-wide">Современные инициативы</h3>
-                <p class="text-gray-500 text-base leading-relaxed font-light max-w-2xl">
-                    Фестивали, мастер-классы и выставки развивают местное творчество, объединяя древние промыслы с современным искусством. Мы создаем платформу для нового поколения талантов региона.
-                </p>
-            </div>
-        </div>
-    </div>
-
-</div>
         </div>
     </div>
 </div>
