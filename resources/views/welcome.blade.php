@@ -36,11 +36,23 @@
                         Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины.
                     </p>
 
-               <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 opacity-0 translate-y-6 animate-fadeInUp delay-600">
+               <div class="flex flex-col sm:flex-row items-start lg:items-start gap-5 opacity-0 translate-y-6 animate-fadeInUp delay-600">
     
     <a href="/culture-list" 
        class="group relative text-[11px] md:text-[12px] uppercase tracking-[0.2em] inline-flex justify-center items-center bg-white text-black font-bold px-10 py-5 rounded-full shadow-2xl hover:bg-[#C5A367] hover:text-white transition-all duration-500 overflow-hidden">
-        <span class="relative z-10">Проложить маршрут</span>
+    <div class="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-500">
+        <span class="relative">
+            Проложить маршрут
+            {{-- Линия подчеркивания, которая расширяется --}}
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full"></span>
+        </span>
+        
+        <div class="flex items-center justify-center w-5 h-5 rounded-full border border-[#C5A367] group-hover:border-white transition-colors">
+            <svg class="w-2.5 h-2.5 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+        </div>
+    </div>        
         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
     </a>
 
@@ -80,26 +92,41 @@
                         </div>
 
                         <div class="p-8 pt-6 bg-black/20">
-                            <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
-                            <div class="relative group">
-                                <input 
-                                    type="text" 
-                                    placeholder="Напр: Бозжыра..." 
-                                    class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-black/60 transition-all placeholder:text-gray-700"
-                                >
-                                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-white transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </button>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#каньоны</span>
-                                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#море</span>
-                                <span class="text-[10px] text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors bg-white/5 px-2 py-1 rounded-md">#пещеры</span>
-                            </div>
-                        </div>
+    <label class="block text-white text-sm font-bold mb-4 drop-shadow-sm">Найти приключение</label>
+    
+    {{-- Форма поиска --}}
+<form action="{{ route('cultures.index') }}" method="GET" class="relative group">
+            <input 
+            type="text" 
+            name="search" {{-- Важно для контроллера --}}
+            value="{{ request('search') }}" {{-- Сохраняет текст после поиска --}}
+            placeholder="Напр: Бозжыра..." 
+            class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#C5A367]/50 focus:bg-black/60 transition-all placeholder:text-gray-600"
+        >
+        <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-[#C5A367] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </button>
+    </form>
+    
+    {{-- Быстрые теги (ссылки) --}}
+    <div class="flex flex-wrap gap-2 mt-4">
+        @php
+            $tags = [
+                ['name' => 'каньоны', 'slug' => 'canyons'],
+                ['name' => 'море', 'slug' => 'sea'],
+                ['name' => 'пещеры', 'slug' => 'caves']
+            ];
+        @endphp
+        @foreach($tags as $tag)
+            <a href="{{ route('culture.search', ['query' => $tag['name']]) }}" 
+               class="text-[10px] text-gray-400 hover:text-[#C5A367] font-medium cursor-pointer transition-colors bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 hover:border-[#C5A367]/30">
+                #{{ $tag['name'] }}
+            </a>
+        @endforeach
+    </div>
+</div>
                     </div>
                 </div>
 
@@ -621,18 +648,21 @@
 
             <div class="space-y-6 mb-4">
                 <label class="block text-white text-xs uppercase tracking-widest font-bold opacity-80">Поиск локаций</label>
-                <div class="relative group">
-                    <input 
-                        type="text" 
-                        placeholder="Куда отправимся?.." 
-                        class="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 text-base text-white focus:outline-none focus:ring-1 focus:ring-blue-500/50 backdrop-blur-md transition-all placeholder:text-gray-600"
-                    >
-                    <button class="absolute right-4 top-1/2 -translate-y-1/2 text-blue-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </button>
-                </div>
+                <form action="{{ route('cultures.index') }}" method="GET" class="relative group">
+            <input 
+            type="text" 
+            name="search" {{-- Важно для контроллера --}}
+            value="{{ request('search') }}" {{-- Сохраняет текст после поиска --}}
+            placeholder="Напр: Бозжыра..." 
+            class="w-full bg-black/40 border border-white/20 rounded-2xl py-3.5 px-5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#C5A367]/50 focus:bg-black/60 transition-all placeholder:text-gray-600"
+        >
+        <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-[#C5A367] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </button>
+    </form>
+    
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-[11px] font-medium text-gray-400 bg-black/30 border border-white/5 px-4 py-2 rounded-xl active:bg-blue-600 active:text-white transition-all">#каньоны</span>

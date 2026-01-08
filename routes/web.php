@@ -34,6 +34,8 @@ Route::get('/history', function() {
 })->name("history");
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
+Route::get('/culture/search', [CultureController::class, 'search'])->name('culture.search');
+
 // Админка
 Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth'])->name('admin.index');
 

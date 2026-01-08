@@ -202,7 +202,8 @@
      class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#1A1A1A] text-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col"
      role="dialog" aria-label="Мобильное меню">
     
-    <div class="flex items-center justify-between p-6 border-b border-white/5">
+    {{-- Header --}}
+    <div class="flex items-center justify-between p-[1.1rem] border-b border-white/5">
         <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[#C5A367]">Навигация</span>
         <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-white/5 transition-colors">
             <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,39 +213,62 @@
     </div>
 
     <nav class="flex-1 overflow-y-auto py-4 px-4 space-y-1">
+        {{-- Переключатель языков (Мобильная версия) --}}
+        <div class="flex items-center gap-4 px-4 py-4 mb-2 border-b border-white/5">
+            <button id="btn-kk-mob" onclick="setLang('kk')" 
+                    class="lang-btn text-[11px] font-bold tracking-widest text-gray-400 hover:text-[#C5A367] transition-all">
+                QAZ
+            </button>
+            <span class="w-[1px] h-3 bg-white/10"></span>
+            <button id="btn-ru-mob" onclick="setLang('ru')" 
+                    class="lang-btn text-[11px] font-bold tracking-widest text-[#C5A367] transition-all">
+                RUS
+            </button>
+            <span class="w-[1px] h-3 bg-white/10"></span>
+            <button id="btn-en-mob" onclick="setLang('en')" 
+                    class="lang-btn text-[11px] font-bold tracking-widest text-gray-400 hover:text-[#C5A367] transition-all">
+                ENG
+            </button>
+        </div>
+
         @php
             $links = [
-                ['url' => '/', 'name' => 'Главная'],
-                ['url' => '/about', 'name' => 'О проекте'],
-                ['url' => '/history', 'name' => 'История региона'],
-                ['url' => '/culture-list', 'name' => 'Объекты культуры'],
-                ['url' => '/restaurants', 'name' => 'Рестораны'],
-                ['url' => '/hotels', 'name' => 'Отели'],
-                ['url' => '/contacts', 'name' => 'Контакты'],
+                ['url' => '/', 'name' => 'Главная', 'is_ready' => true],
+                ['url' => '/history', 'name' => 'История региона', 'is_ready' => true],
+                ['url' => '/culture-list', 'name' => 'Объекты культуры', 'is_ready' => true],
+                ['url' => '/restaurants', 'name' => 'Рестораны', 'is_ready' => false],
+                ['url' => '/hotels', 'name' => 'Отели', 'is_ready' => false],
             ];
         @endphp
 
         @foreach($links as $link)
-            <a href="{{ $link['url'] }}" 
-               class="group flex items-center justify-between px-4 py-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5">
-                <span class="text-lg font-light tracking-tight group-hover:text-[#C5A367] transition-colors">{{ $link['name'] }}</span>
-                <svg class="w-4 h-4 text-gray-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
+            @if($link['is_ready'])
+                <a href="{{ $link['url'] }}" 
+                   class="group flex items-center justify-between px-4 py-3.5 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5">
+                    <span class="text-base font-light tracking-tight group-hover:text-[#C5A367] transition-colors">{{ $link['name'] }}</span>
+                    <svg class="w-3.5 h-3.5 text-gray-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            @else
+                <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl opacity-40">
+                    <span class="text-base font-light tracking-tight line-through text-gray-400">{{ $link['name'] }}</span>
+                    <span class="text-[8px] uppercase tracking-[0.2em] font-bold bg-white/10 px-2 py-1 rounded-md text-[#C5A367]">Скоро</span>
+                </div>
+            @endif
         @endforeach
-    </nav>
 
-    <div class="p-6 border-t border-white/5 bg-black/20">
-        <a href="/partnership" class="block w-full py-4 bg-[#C5A367] text-white text-center rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#b08f56] transition-all shadow-lg shadow-[#C5A367]/10">
-            Станьте партнером
-        </a>
-        <div class="mt-6 flex justify-center space-x-6 text-gray-500">
-            <span class="text-[9px] uppercase tracking-widest">&copy; 2026 Mangystau Heritage</span>
+        {{-- Footer Menu --}}
+        <div class="mt-8 p-6 border-t border-white/5 bg-black/20 rounded-[2rem]">
+            <a href="/partnership" class="block w-full py-4 bg-[#C5A367] text-white text-center rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#b08f56] transition-all shadow-lg shadow-[#C5A367]/10">
+                Станьте партнером
+            </a>
+            <div class="mt-4 text-center">
+                <span class="text-[9px] text-gray-600 uppercase tracking-widest">&copy; 2026 Heritage</span>
+            </div>
         </div>
-    </div>
+    </nav>
 </div>
-
 
 @else
 <header class="shadow bg-gray-900 fixed top-0 left-0 w-full z-50 hidden lg:flex">
@@ -359,7 +383,7 @@
             </nav>
         </div>
     </header>
-<header class="shadow bg-gray-900 top-0 border-b border-white/10 fixed top-0 left-0 w-full lg:hidden" style="z-index:50;">
+<header class="shadow  bg-gray-900 backdrop-blur-md  border-white/10 fixed top-0 left-0 w-full lg:hidden" style="z-index:50;">
                    <div class="absolute inset-0"
             style="
                 background-image: url('/images/icon.svg'), url('/images/icon.svg');
@@ -390,7 +414,8 @@
      class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#1A1A1A] text-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col"
      role="dialog" aria-label="Мобильное меню">
     
-    <div class="flex items-center justify-between p-6 border-b border-white/5">
+    {{-- Header --}}
+    <div class="flex items-center justify-between p-[1.1rem] border-b border-white/5">
         <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[#C5A367]">Навигация</span>
         <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-white/5 transition-colors">
             <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -400,37 +425,61 @@
     </div>
 
     <nav class="flex-1 overflow-y-auto py-4 px-4 space-y-1">
+        {{-- Переключатель языков (Мобильная версия) --}}
+        <div class="flex items-center gap-4 px-4 py-4 mb-2 border-b border-white/5">
+            <button id="btn-kk-mob" onclick="setLang('kk')" 
+                    class="lang-btn text-[11px] font-bold tracking-widest text-gray-400 hover:text-[#C5A367] transition-all">
+                QAZ
+            </button>
+            <span class="w-[1px] h-3 bg-white/10"></span>
+            <button id="btn-ru-mob" onclick="setLang('ru')" 
+                    class="lang-btn text-[11px] font-bold tracking-widest text-[#C5A367] transition-all">
+                RUS
+            </button>
+            <span class="w-[1px] h-3 bg-white/10"></span>
+            <button id="btn-en-mob" onclick="setLang('en')" 
+                    class="lang-btn text-[11px] font-bold tracking-widest text-gray-400 hover:text-[#C5A367] transition-all">
+                ENG
+            </button>
+        </div>
+
         @php
             $links = [
-                ['url' => '/', 'name' => 'Главная'],
-                ['url' => '/about', 'name' => 'О проекте'],
-                ['url' => '/history', 'name' => 'История региона'],
-                ['url' => '/culture-list', 'name' => 'Объекты культуры'],
-                ['url' => '/restaurants', 'name' => 'Рестораны'],
-                ['url' => '/hotels', 'name' => 'Отели'],
-                ['url' => '/contacts', 'name' => 'Контакты'],
+                ['url' => '/', 'name' => 'Главная', 'is_ready' => true],
+                ['url' => '/history', 'name' => 'История региона', 'is_ready' => true],
+                ['url' => '/culture-list', 'name' => 'Объекты культуры', 'is_ready' => true],
+                ['url' => '/restaurants', 'name' => 'Рестораны', 'is_ready' => false],
+                ['url' => '/hotels', 'name' => 'Отели', 'is_ready' => false],
             ];
         @endphp
 
         @foreach($links as $link)
-            <a href="{{ $link['url'] }}" 
-               class="group flex items-center justify-between px-4 py-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5">
-                <span class="text-lg font-light tracking-tight group-hover:text-[#C5A367] transition-colors">{{ $link['name'] }}</span>
-                <svg class="w-4 h-4 text-gray-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
+            @if($link['is_ready'])
+                <a href="{{ $link['url'] }}" 
+                   class="group flex items-center justify-between px-4 py-3.5 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5">
+                    <span class="text-base font-light tracking-tight group-hover:text-[#C5A367] transition-colors">{{ $link['name'] }}</span>
+                    <svg class="w-3.5 h-3.5 text-gray-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            @else
+                <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl opacity-40">
+                    <span class="text-base font-light tracking-tight line-through text-gray-400">{{ $link['name'] }}</span>
+                    <span class="text-[8px] uppercase tracking-[0.2em] font-bold bg-white/10 px-2 py-1 rounded-md text-[#C5A367]">Скоро</span>
+                </div>
+            @endif
         @endforeach
-    </nav>
 
-    <div class="p-6 border-t border-white/5 bg-black/20">
-        <a href="/partnership" class="block w-full py-4 bg-[#C5A367] text-white text-center rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#b08f56] transition-all shadow-lg shadow-[#C5A367]/10">
-            Станьте партнером
-        </a>
-        <div class="mt-6 flex justify-center space-x-6 text-gray-500">
-            <span class="text-[9px] uppercase tracking-widest">&copy; 2026 Mangystau Heritage</span>
+        {{-- Footer Menu --}}
+        <div class="mt-8 p-6 border-t border-white/5 bg-black/20 rounded-[2rem]">
+            <a href="/partnership" class="block w-full py-4 bg-[#C5A367] text-white text-center rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#b08f56] transition-all shadow-lg shadow-[#C5A367]/10">
+                Станьте партнером
+            </a>
+            <div class="mt-4 text-center">
+                <span class="text-[9px] text-gray-600 uppercase tracking-widest">&copy; 2026 Heritage</span>
+            </div>
         </div>
-    </div>
+    </nav>
 </div>
 
 @endif

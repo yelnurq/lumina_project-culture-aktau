@@ -15,6 +15,17 @@ use Intervention\Image\Laravel\Facades\Image;
 class CultureController extends Controller
 {
 
+public function search(Request $request)
+{
+    $query = $request->input('query');
+    
+    $results = Culture::where('title', 'LIKE', "%{$query}%")
+                ->orWhere('description', 'LIKE', "%{$query}%")
+                ->get();
+
+    return view('cultures.index', compact('results', 'query'));
+}
+
 public function index(Request $request)
 {
     $query = Culture::with('category');

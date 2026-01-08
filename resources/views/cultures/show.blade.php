@@ -165,30 +165,32 @@
 
     </div>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Проверяем, есть ли блок для карты на странице
+        // --- 1. Инициализация Галереи ---
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true
+        });
+
+        // --- 2. Инициализация Карты (ваш текущий код) ---
         const mapContainer = document.getElementById('leafletMap');
-        
         if (mapContainer) {
             const lat = {{ $culture->latitude ?? 43.2389 }};
             const lng = {{ $culture->longitude ?? 76.8897 }};
             
-            // Инициализация карты
             const map = L.map('leafletMap').setView([lat, lng], 13);
-
-            // Используем светлую тему для соответствия дизайну
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap'
             }).addTo(map);
 
-            // Золотая точка-маркер
             const goldIcon = L.divIcon({
                 html: `<div style="background-color: #C5A367; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.2);"></div>`,
                 className: '',
                 iconSize: [16, 16],
-                iconAnchor: [8, 8] // Центрируем точку
+                iconAnchor: [8, 8]
             });
 
             L.marker([lat, lng], {icon: goldIcon})
@@ -197,13 +199,8 @@
                 .openPopup();
                 
             map.scrollWheelZoom.disable();
-
-            // Важно для корректного отображения внутри контейнеров
-            setTimeout(() => {
-                map.invalidateSize();
-            }, 500);
+            setTimeout(() => { map.invalidateSize(); }, 500);
         }
     });
 </script>
-
 @endsection
