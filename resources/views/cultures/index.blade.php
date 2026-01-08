@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto max-w-7xl px-6 py-12 animate-fadeIn">
+<div class="container mx-auto max-w-7xl px-6 py-12 pt-[7rem] animate-fadeIn">
 
     {{-- 🔹 Хедер с декоративным элементом --}}
     <div class="relative mb-16 border-b border-gray-100 pb-12">

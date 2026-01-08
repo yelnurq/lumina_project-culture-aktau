@@ -63,8 +63,8 @@
 <body class="flex flex-col min-h-screen bg-background font-sans text-textPrimary">
 
 
-@if(request()->is('/'))
-    <header class="shadow backdrop-blur-md bg-black/20 absolute top-0 left-0 w-full z-50 hidden lg:flex">
+@if(request()->is('/') || request()->is('cultures*'))
+    <header class="shadow backdrop-blur-md bg-black/40 fixed top-0 left-0 w-full z-50 hidden lg:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
                 <span class="text-white font-semibold" style="font-weight:600; font-size:14px;padding:10px;">
@@ -100,7 +100,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;">Объекты культуры</a>
 
         <div style="position: relative; display: inline-block;">
             <span style="position: absolute; top: -14px; right: -25px; font-size: 9px; color: #ffab00; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
@@ -112,7 +112,7 @@
             style="font-weight:400; font-size:14px; text-decoration:line-through; color: rgba(255,255,255,0.4); pointer-events: none; cursor: default;"
             tabindex="-1"
             data-lang="nav-restaurant">
-            Рестораны
+            Вкусно покушать
             </a>
         </div>
 
@@ -131,10 +131,10 @@
         </div>
 
         <a href="/partnership" 
-        class="hover:bg-accent hover:text-white transition-all duration-300" 
-        style="border: 1px solid #C5A367; color: #C5A367; padding: 4px 12px; border-radius: 4px; font-size: 13px; font-weight: 500; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
-        Стать партнером
-        </a>
+      class="transition-all duration-500 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] border border-[#C5A367] text-[#C5A367] hover:bg-[#C5A367] hover:text-white">
+
+    Стать партнером
+</a>
 
         <div class="flex items-center gap-2 text-white text-xs md:text-sm border-l pl-4" style="margin-left: 25px;">
             <button 
@@ -281,29 +281,17 @@
     })();
     </script>
 @else
-<header class="relative shadow top-0 left-0 w-full z-50 hidden md:flex bg-white overflow-visible">
-        <div class="absolute inset-0"
-            style="
-                background-image: url('/images/icon.svg'), url('/images/icon.svg');
-                background-repeat: repeat-x, repeat-x;
-                background-position: top -55px left, bottom -55px left;
-                background-size: 80px auto;
-                opacity: 0.25;
-                pointer-events: none;
-            ">
-        </div>
-
-    <div class="w-full flex items-center justify-between p-4 relative z-10" style="padding-left:50px;padding-right:50px">
-        <a href="/" class="flex items-center space-x-6">
-            <span class="text-black font-semibold text-xl" style="font-weight:600; font-size:17px;padding:10px;">
-                Mangystau oblysy
-            </span>
-        </a>
-
-        <nav class="flex items-center space-x-6 text-black text-sm font-semibold">
+<header class="shadow bg-gray-800 fixed top-0 left-0 w-full z-50 hidden lg:flex">
+        <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
+            <a href="/" class="flex items-center space-x-6">
+                <span class="text-gray-100 font-semibold" style="font-weight:600; font-size:14px;padding:10px;">
+                    ΛUMINA | Mangystau oblysy
+                </span>
+            </a>
+            <nav class="flex items-center space-x-6 text-white text-sm font-semibold">
                 <div class="relative group inline-block">
                     <button 
-                        class="flex items-center gap-1 text-gray-800 hover:text-white-700 transition-colors duration-300"
+                        class="flex items-center gap-1 text-gray-200 hover:text-white-700 transition-colors duration-300"
                         style="font-weight:400; font-size:14px;">
                         О регионе
                         <svg xmlns="http://www.w3.org/2000/svg" 
@@ -314,10 +302,7 @@
                     </button>
 
                     <div 
-    class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg 
-           opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform 
-           transition-all duration-200 origin-top z-[9999]">
-
+                        class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform transition-all duration-200 origin-top z-50">
                         <a href="/about" 
                         class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150" style="font-weight: 400">
                         О нас
@@ -332,42 +317,83 @@
                         </a>
                     </div>
                 </div>
-                
-                            <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
-            <a href="/restaurants" data-lang="nav-restaurant" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
-            <a href="/hotels" data-lang="nav-hotels" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;"></a>
- <div class="flex items-center gap-4 text-white text-xs md:text-sm font-bold tracking-widest">
-    <button 
-        id="btn-kk" 
-        onclick="setLang('kk')" 
-        class="lang-btn transition-all duration-300 {{ app()->getLocale() == 'kk' ? 'text-blue-400 opacity-100' : 'opacity-50 hover:opacity-100 hover:text-white' }}"
-    >
-        QAZ
-    </button>
+                <a href="/culture-list" data-lang="nav-culture" class="hover:text-accent transition-colors duration-300 text-gray-200" style="font-weight:400; font-size:14px;"></a>
 
-    <span class="w-[1px] h-3 bg-white/20"></span>
+        <div style="position: relative; display: inline-block;">
+            <span style="position: absolute; top: -14px; right: -25px; font-size: 9px; color: #ffab00; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                Скоро
+            </span>
+            
+            <a href="#" 
+            class="transition-colors duration-300 text-gray-400" 
+            style="font-weight:400; font-size:14px; text-decoration:line-through; pointer-events: none; cursor: default;"
+            tabindex="-1"
+            data-lang="nav-restaurant">
+            Рестораны
+            </a>
+        </div>
 
-    <button 
-        id="btn-ru" 
-        onclick="setLang('ru')" 
-        class="lang-btn transition-all duration-300 {{ app()->getLocale() == 'ru' ? 'text-blue-400 opacity-100' : 'opacity-50 hover:opacity-100 hover:text-white' }}"
-    >
-        RUS
-    </button>
+        <div style="position: relative; display: inline-block;margin-right:15px;">
+            <span style="position: absolute; top: -14px; right: -25px; font-size: 9px; color: #ffab00; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                Скоро
+            </span>
+            
+            <a href="#" 
+            class="transition-colors duration-300 text-gray-400" 
+            style="font-weight:400; font-size:14px; text-decoration:line-through; pointer-events: none; cursor: default;"
+            tabindex="-1"
+            data-lang="nav-hotels">
+            Отели
+            </a>
+        </div>
 
-    <span class="w-[1px] h-3 bg-white/20"></span>
+                <a href="/partnership" 
+   class="transition-all duration-500 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] border border-[#C5A367] text-[#C5A367] hover:bg-[#C5A367] hover:text-white">
+    Стать партнером
+</a>
 
-    <button 
-        id="btn-en" 
-        onclick="setLang('en')" 
-        class="lang-btn transition-all duration-300 {{ app()->getLocale() == 'en' ? 'text-blue-400 opacity-100' : 'opacity-50 hover:opacity-100 hover:text-white' }}"
-    >
-        ENG
-    </button>
-</div>
-        </nav>
-    </div>
-</header>
+        <div class="flex items-center gap-2 text-gray-200 text-xs md:text-sm border-l pl-4" style="margin-left: 25px;">
+            <button 
+                id="btn-kk" 
+                onclick="setLang('kk')" 
+                class="lang-btn font-semibold  transition-all duration-300">
+                QAZ
+            </button>
+
+            <span class="w-[1px] h-3 bg-white/20"></span>
+
+            <button 
+                id="btn-ru" 
+                onclick="setLang('ru')" 
+                class="lang-btn font-semibold  transition-all duration-300">
+                RUS
+            </button>
+
+            <span class="w-[1px] h-3 bg-white/20"></span>
+
+            <button 
+                id="btn-en" 
+                onclick="setLang('en')" 
+                class="lang-btn font-semibold  transition-all duration-300">
+                ENG
+            </button>
+        </div>
+
+            
+
+
+
+                @auth
+                    <a href="{{ route('admin.index') }}" data-lang="nav-admin" class="hover:text-accent transition-colors duration-300" style="font-weight:400; font-size:14px;">Админ-панель</a>
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" data-lang="nav-logout" class="hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer text-white" style="font-weight:400; font-size:14px;">Выйти</button>
+                    </form>
+                @endauth
+            </nav>
+        </div>
+    </header>
+
 
 
     <header class="shadow top-0 left-0 w-full md:hidden bg-transparent backdrop-blur-sm" style="z-index:50;">
