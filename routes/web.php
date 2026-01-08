@@ -23,6 +23,9 @@ Route::get('hotels', [HotelController::class, 'index'])->name('hotels.index');
 Route::get('/contacts', function() {
      return view("contact");
 })->name("contact");
+Route::get('/partnership', function() {
+     return view("partners");
+})->name("partners");
 Route::get('/about', function() {
      return view("about");
 })->name("about");

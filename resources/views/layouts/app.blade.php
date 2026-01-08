@@ -66,7 +66,7 @@
 <body class="flex flex-col min-h-screen bg-background font-sans text-textPrimary">
 
 
-@if(request()->is('/') || request()->is('cultures*'))
+@if(request()->is('/') || request()->is('cultures*') || request()->is('partnership'))
     <header class="shadow backdrop-blur-md bg-black/40 fixed top-0 left-0 w-full z-50 hidden lg:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
