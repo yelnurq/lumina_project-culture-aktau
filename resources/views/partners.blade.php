@@ -45,72 +45,105 @@
     ];
 @endphp
 
-            @foreach($benefits as $b)
-                <div class="bg-white p-10 rounded-[3rem] shadow-xl shadow-black/5 border border-white hover:-translate-y-2 transition-all duration-500 group">
-                    <div class="w-14 h-14 bg-[#F8F8FA] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#C5A367]/10 transition-colors">
-                        <svg class="w-8 h-8 text-[#C5A367]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="{{ $b['icon'] }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 uppercase tracking-tight mb-4">{{ $b['title'] }}</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed font-light">{{ $b['desc'] }}</p>
+        @foreach($benefits as $b)
+            <div class="relative bg-white p-10 rounded-[3rem] shadow-xl shadow-black/5 border border-white hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
+                {{-- Фоновая иконка со смещением --}}
+                <div class="absolute inset-0 pointer-events-none opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-700" 
+                    style="background-image: url('/images/icon2.svg'); 
+                            background-size: 200px; 
+                            background-position: right -20px bottom -20px; 
+                            background-repeat: no-repeat;">
                 </div>
-            @endforeach
+
+                {{-- Контент карточки --}}
+                <div class="w-14 h-14 bg-[#F8F8FA] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#C5A367]/10 transition-colors relative z-10">
+                    <svg class="w-8 h-8 text-[#C5A367]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="{{ $b['icon'] }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-tight mb-4 relative z-10">{{ $b['title'] }}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light relative z-10">{{ $b['desc'] }}</p>
+            </div>
+        @endforeach
         </div>
 
         {{-- 🔹 Блок Логотипов (Доверие) --}}
-{{-- 🔹 Блок Доверия: Флаги стран --}}
-<div class="mb-24 text-center">
+{{-- 🔹 Блок Доверия: Флаги стран (Grid 2) --}}
+<div class="mb-24 text-center px-4">
     <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-400 mb-10">Нам уже доверяют туристы из</p>
     
-   <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-80">
-    {{-- Казахстан --}}
-    <div class="flex flex-col items-center gap-3 group">
-        <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
-        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Kazakhstan</span>
-    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-4 max-w-4xl mx-auto opacity-80">
+        
+        {{-- Казахстан --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Kazakhstan</span>
+        </div>
 
-    {{-- Узбекистан --}}
-    <div class="flex flex-col items-center gap-3 group">
-        <img src="https://flagcdn.com/w80/uz.png" alt="Uzbekistan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
-        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Uzbekistan</span>
-    </div>
+        {{-- Узбекистан --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/uz.png" alt="Uzbekistan" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Uzbekistan</span>
+        </div>
 
-    {{-- Кыргызстан --}}
-    <div class="flex flex-col items-center gap-3 group">
-        <img src="https://flagcdn.com/w80/kg.png" alt="Kyrgyzstan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
-        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Kyrgyzstan</span>
-    </div>
+        {{-- Кыргызстан --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/kg.png" alt="Kyrgyzstan" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Kyrgyzstan</span>
+        </div>
 
-    {{-- Таджикистан --}}
-    <div class="flex flex-col items-center gap-3 group">
-        <img src="https://flagcdn.com/w80/tj.png" alt="Tajikistan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
-        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Tajikistan</span>
-    </div>
+        {{-- Таджикистан --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/tj.png" alt="Tajikistan" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Tajikistan</span>
+        </div>
 
-    {{-- Туркменистан --}}
-    <div class="flex flex-col items-center gap-3 group">
-        <img src="https://flagcdn.com/w80/tm.png" alt="Turkmenistan" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
-        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Turkmenistan</span>
-    </div>
+        {{-- Туркменистан --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/tm.png" alt="Turkmenistan" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Turkmenistan</span>
+        </div>
 
-    {{-- Германия --}}
-    <div class="flex flex-col items-center gap-3 group">
-        <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
-        <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Germany</span>
-    </div>
+        {{-- Россия --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/ru.png" alt="Russia" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Russia</span>
+        </div>
 
-  
+        {{-- Грузия --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/ge.png" alt="Georgia" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Georgia</span>
+        </div>
+
+        {{-- Армения --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/am.png" alt="Armenia" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Armenia</span>
+        </div>
+
+        {{-- Китай --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/cn.png" alt="China" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">China</span>
+        </div>
+
+        {{-- Германия --}}
+        <div class="flex flex-col items-center gap-3 group">
+            <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="w-12 h-12 object-cover rounded-full shadow-lg group-hover:scale-110 transition-all duration-500 border-2 border-white">
+            <span class="text-[9px] font-bold text-gray-400 group-hover:text-[#C5A367] uppercase tracking-widest transition-colors text-center">Germany</span>
+        </div>
+
+    </div>
 </div>
-</div>
-
         {{-- 🔹 Направления партнерства --}}
         <div class="mb-24">
             <div class="flex flex-col items-center mb-16">
                 <h2 class="text-3xl font-light uppercase tracking-tighter text-gray-900 text-center">
-                    Форматы <span class="font-bold text-[#C5A367]">Сотрудничества</span>
+                    Форматы <span class="font-bold text-primary">Сотрудничества</span>
                 </h2>
-                <div class="w-20 h-1 bg-[#C5A367] mt-4 rounded-full"></div>
+                <div class="w-20 h-1 bg-primary mt-4 rounded-full"></div>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-8">
@@ -135,7 +168,7 @@
     {{-- Отели и Базы отдыха --}}
     <div class="group bg-white rounded-[3rem] overflow-hidden flex flex-col md:flex-row shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-700">
         <div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
-            <img src="/images/caspian-sea.jpg" 
+            <img src="/images/partnership/hotel.png" 
                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                  alt="Hotels">
         </div>
