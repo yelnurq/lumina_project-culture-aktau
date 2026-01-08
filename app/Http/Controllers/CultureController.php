@@ -33,8 +33,10 @@ public function index(Request $request)
 
     $cultures = $query->orderBy('title')->paginate(1)->withQueryString();
     $categories = Category::all();
+$randomHotels = \App\Models\Hotel::inRandomOrder()->take(3)->get();
+    $randomRestaurants = \App\Models\Restaurant::inRandomOrder()->take(3)->get();
 
-    return view('cultures.index', compact('cultures', 'categories', 'allCultures'));
+    return view('cultures.index', compact('cultures', 'categories', 'randomHotels', 'randomRestaurants'));
 }
 
 

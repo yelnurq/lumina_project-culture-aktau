@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Overpass:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -281,7 +284,7 @@
     })();
     </script>
 @else
-<header class="shadow bg-gray-800 fixed top-0 left-0 w-full z-50 hidden lg:flex">
+<header class="shadow bg-gray-900 fixed top-0 left-0 w-full z-50 hidden lg:flex">
         <div class="w-full flex items-center justify-between p-4" style="padding-left:50px;padding-right:50px">
             <a href="/" class="flex items-center space-x-6">
                 <span class="text-gray-100 font-semibold" style="font-weight:600; font-size:14px;padding:10px;">
@@ -566,42 +569,80 @@
     <main class="flex-grow ">
         @yield('content')
     </main>
-
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-2 max-w-10xl flex flex-col md:flex-row md:justify-between md:items-start gap-8">
-            <div class="md:w-1/2">
-                <h2 class="text-xl font-bold mb-4" data-lang="footer-title">Новые берега Каспия</h2>
-                <p class="text-gray-300 text-sm leading-relaxed" data-lang="footer-desc">
-                    — неизвестная красота Маңғыстау<br>
-                    Каспийское море отступает, открывая новые островки и дороги. Там, где раньше была вода — теперь просторы, полные жизни, света и тишины. Мы показываем, как туда добраться и почему эти места стоит увидеть своими глазами.
+<footer class="bg-[#0F172A] text-white pt-20 pb-10 border-t border-white/5">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            
+            {{-- 🔹 О проекте --}}
+            <div class="lg:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-[#C5A367] rounded-xl flex items-center justify-center shadow-lg shadow-[#C5A367]/20">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold tracking-tighter uppercase" data-lang="footer-title">Новые берега <span class="text-[#C5A367]">Каспия</span></h2>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-md font-light" data-lang="footer-desc">
+                    Маңғыстау — это край, где Каспийское море, отступая, открывает миру сакральные тайны и неземные пейзажи. Мы помогаем вам проложить маршрут к местам, полным тишины и первозданной красоты.
                 </p>
             </div>
 
-            <div class="md:w-1/2 flex flex-col md:flex-row md:justify-between gap-6">
+            {{-- 🔹 Навигация --}}
+            <div class="lg:col-span-3 sm:grid-cols-2 grid lg:block gap-8">
                 <div>
-                    <h3 class="font-semibold mb-2" data-lang="footer-nav-title">Навигация</h3>
-                    <ul class="space-y-1 text-gray-400 text-sm">
-                        <li><a href="/" class="hover:text-white transition" data-lang="nav-home">Главная</a></li>
-                        <li><a href="/culture-list" class="hover:text-white transition" data-lang="nav-culture">Объекты культуры</a></li>
-                        <li><a href="/contacts" class="hover:text-white transition" data-lang="nav-contacts">Контакты</a></li>
+                    <h3 class="text-[#C5A367] text-[10px] font-bold uppercase tracking-[0.2em] mb-6" data-lang="footer-nav-title">Исследовать</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2 group" data-lang="nav-home">
+                            <span class="w-1.5 h-1.5 bg-gray-700 rounded-full group-hover:bg-[#C5A367] transition-colors"></span> Главная
+                        </a></li>
+                        <li><a href="/culture-list" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2 group" data-lang="nav-culture">
+                            <span class="w-1.5 h-1.5 bg-gray-700 rounded-full group-hover:bg-[#C5A367] transition-colors"></span> Объекты культуры
+                        </a></li>
+                        <li><a href="/contacts" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2 group" data-lang="nav-contacts">
+                            <span class="w-1.5 h-1.5 bg-gray-700 rounded-full group-hover:bg-[#C5A367] transition-colors"></span> Контакты
+                        </a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-semibold mb-2" data-lang="footer-share-title">Поделиться</h3>
-                    <ul class="space-y-1 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-white transition" data-lang="share-facebook">Facebook</a></li>
-                        <li><a href="#" class="hover:text-white transition" data-lang="share-twitter">Twitter</a></li>
-                        <li><a href="#" class="hover:text-white transition" data-lang="share-telegram">Telegram</a></li>
-                        <li><a href="#" class="hover:text-white transition" data-lang="share-whatsapp">WhatsApp</a></li>
-                    </ul>
+            </div>
+
+            {{-- 🔹 Соцсети и Контакты --}}
+            <div class="lg:col-span-4">
+                <h3 class="text-[#C5A367] text-[10px] font-bold uppercase tracking-[0.2em] mb-6" data-lang="footer-share-title">Присоединяйтесь</h3>
+                <div class="flex gap-3 mb-8">
+                    @php
+                        $socials = [
+                            ['icon' => 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z', 'link' => '#', 'label' => 'Facebook'],
+                            ['icon' => 'M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z', 'link' => '#', 'label' => 'Twitter'],
+                            ['icon' => 'M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z', 'link' => '#', 'label' => 'Telegram'],
+                        ];
+                    @endphp
+
+                    @foreach($socials as $social)
+                        <a href="{{ $social['link'] }}" class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-[#C5A367] hover:border-[#C5A367] hover:-translate-y-1 transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="{{ $social['icon'] }}"></path>
+                            </svg>
+                        </a>
+                    @endforeach
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                    <p class="text-[10px] text-gray-500 uppercase font-bold mb-1 tracking-widest">Нужна помощь?</p>
+                    <a href="mailto:info@caspian.kz" class="text-white font-medium hover:text-[#C5A367] transition-colors">info@caspian.kz</a>
                 </div>
             </div>
         </div>
 
-        <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm" data-lang="footer-copyright">
-            &copy; {{ date('Y') }}. Все права защищены.
+        {{-- 🔹 Копирайт --}}
+        <div class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-[11px] font-medium tracking-wide uppercase" data-lang="footer-copyright">
+                &copy; {{ date('Y') }} Новые берега Каспия. Все права защищены.
+            </p>
+            <div class="flex gap-6 text-[11px] text-gray-500 uppercase font-bold tracking-widest">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script src="/js/lang.js"></script>
 

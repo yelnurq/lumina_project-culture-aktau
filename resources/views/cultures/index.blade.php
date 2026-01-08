@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto max-w-7xl px-6 py-12 pt-[7rem] animate-fadeIn">
+<div class="container mx-auto max-w-7xl px-6 py-12 pt-[9rem] animate-fadeIn">
 
     {{-- 🔹 Хедер с декоративным элементом --}}
     <div class="relative mb-16 border-b border-gray-100 pb-12">
@@ -35,7 +35,7 @@
     </div>
 
     {{-- 🔹 Панель управления (Smart Toolbar) --}}
-    <div class="sticky top-4 z-40 mb-12">
+    <div class="sticky top-24 z-40 mb-12">
         <div class="bg-white/80 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 rounded-[2rem] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             
             {{-- Улучшенная форма поиска --}}
@@ -138,6 +138,54 @@
             {{ $cultures->withQueryString()->links('vendor.pagination.tailwind') }}
         </div>
     </div>
+    {{-- 🔹 Секция "Посетите также" --}}
+    <section class="mt-4 border-t border-gray-100">
+        <div class="flex flex-col md:flex-row items-baseline justify-between mb-12 gap-4">
+            <h2 class="font-title text-3xl md:text-4xl font-light text-gray-900 uppercase tracking-tight">
+                Дополните ваш <span class="font-bold text-[#C5A367] italic">Маршрут</span>
+            </h2>
+            <p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">Рекомендованные места для отдыха</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{-- Объединяем коллекции для вывода вперемешку или по очереди --}}
+            @foreach($randomHotels->concat($randomRestaurants)->shuffle()->take(3) as $place)
+                <a href="{{ url(strtolower(class_basename($place)) . 's/' . $place->id) }}" class="group bg-white rounded-[2rem] p-4 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-50 flex items-center gap-6">
+                    <div class="relative w-24 h-24 shrink-0 overflow-hidden rounded-2xl">
+                        <img src="{{ asset('storage/' . $place->image) }}" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             alt="{{ $place->title }}">
+                        {{-- Шильдик типа объекта --}}
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+
+                    <div class="flex-1 min-w-0">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-[#C5A367] mb-1 block">
+                            {{ class_basename($place) == 'Hotel' ? 'Отель' : 'Ресторан' }}
+                        </span>
+                        <h4 class="text-gray-900 font-bold text-sm uppercase tracking-tight truncate group-hover:text-[#C5A367] transition-colors">
+                            {{ $place->title }}
+                        </h4>
+                        <div class="flex items-center mt-2 text-gray-400">
+                             <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2"/></svg>
+                             <span class="text-[10px] truncate">Актау, Мангистау</span>
+                        </div>
+                    </div>
+
+                    <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-[#C5A367]/10 group-hover:text-[#C5A367] transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2"/></svg>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        {{-- Заглушка, если данных нет вообще --}}
+        @if($randomHotels->isEmpty() && $randomRestaurants->isEmpty())
+             <div class="bg-gray-50 rounded-[2rem] p-12 text-center border border-dashed border-gray-200">
+                <p class="text-gray-400 text-xs uppercase tracking-widest">Скоро здесь появятся лучшие заведения региона</p>
+             </div>
+        @endif
+    </section>
 </div>
 
 <style>
